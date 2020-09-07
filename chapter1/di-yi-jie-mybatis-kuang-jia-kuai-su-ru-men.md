@@ -170,7 +170,7 @@ public interface IUserDao {
 ```
 
 
-⑤ 
+⑤ 在 src->main->resources 下创建 `xml` 文件。
 
 
 
