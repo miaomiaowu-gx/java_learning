@@ -31,7 +31,7 @@
 
 &emsp;**持久层**：与数据库交换
 
-<img src="./chapter1/img1/01-three-tier-architecture.png" width=800>
+<img src="/chapter1/img1/01-three-tier-architecture.png" width=800>
 
 ### 二、JDBC 操作数据库问题分析
 
