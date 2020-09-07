@@ -271,7 +271,7 @@ public interface IUserDao {
 
 在 resources 文件夹下 创建文件 `log4j.properties`
 
-```
+```properties
 # Set root category priority to INFO and its only appender to CONSOLE.
 #log4j.rootCategory=INFO, CONSOLE            debug   info   warn error fatal
 log4j.rootCategory=debug, CONSOLE, LOGFILE
