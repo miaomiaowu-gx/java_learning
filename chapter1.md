@@ -120,7 +120,7 @@ public static void main(String[] args) {
 
 &emsp;&emsp;mybatis 通过 **xml 或注解**的方式将要执行的各种 statement 配置起来，并**通过 java 对象和 statement 中sql 的动态参数进行映射**生成最终执行的 sql 语句，最后由 **mybatis 框架执行** sql 并将结果映射为 java 对象并返回。
 
-&emsp;&emsp;采用 ORM 思想解决了**实体和数据库映射**的问题，对 jdbc 进行了封装，屏蔽了 jdbc api 底层访问细节，使我们不用与 jdbc api 打交道，就可以完成对数据库的持久化操作。
+&emsp;&emsp;采用 ORM 思想解决了**实体和数据库映射**的问题，对 jdbc 进行了封装，屏蔽了 jdbc api 底层访问细节，使开发者不用与 jdbc api 打交道，就可以完成对数据库的持久化操作。
 
 &emsp;&emsp;Object Relational Mapping对象关系映射。把数据库表与实体类及实体类的属性对应起来，可以通过操作实体类实现操作数据库表。实体类中的属性和数据库表的字段名称保持一致。
 
