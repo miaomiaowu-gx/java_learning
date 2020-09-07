@@ -53,7 +53,7 @@ public static void main(String[] args) {
 	PreparedStatement preparedStatement = null;
 	ResultSet resultSet = null;
 	try {
-	//加载数据库驱动
+	        //加载数据库驱动
 		Class.forName("com.mysql.jdbc.Driver");
 		//通过驱动管理类获取数据库链接
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8","root", "root");
