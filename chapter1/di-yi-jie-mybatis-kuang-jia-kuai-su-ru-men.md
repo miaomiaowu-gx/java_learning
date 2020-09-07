@@ -263,7 +263,36 @@ public interface IUserDao {
 
 🍓 当开发者遵从了第三，四，五点之后，在开发中就无须再写 dao 的实现类。
 
+
 ## 2. Mybatis 入门
+
+
+### 2.1 配置日志
+
+在 resources 文件夹下 创建文件 `log4j.properties`
+
+```
+# Set root category priority to INFO and its only appender to CONSOLE.
+#log4j.rootCategory=INFO, CONSOLE            debug   info   warn error fatal
+log4j.rootCategory=debug, CONSOLE, LOGFILE
+
+# Set the enterprise logger category to FATAL and its only appender to CONSOLE.
+log4j.logger.org.apache.axis.enterprise=FATAL, CONSOLE
+
+# CONSOLE is set to be a ConsoleAppender using a PatternLayout.
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p %30.30c %x - %m\n
+
+# LOGFILE is set to be a File appender using a PatternLayout.
+log4j.appender.LOGFILE=org.apache.log4j.FileAppender
+log4j.appender.LOGFILE.File=d:\axis.log
+log4j.appender.LOGFILE.Append=true
+log4j.appender.LOGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.LOGFILE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p %30.30c %x - %m\n
+```
+
+### 2.2 添加测试类
 
 
 
