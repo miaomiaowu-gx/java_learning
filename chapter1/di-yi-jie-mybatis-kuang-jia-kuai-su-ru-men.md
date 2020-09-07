@@ -361,4 +361,4 @@ User{id=46, username='老王', birthday=Wed Mar 07 17:37:26 CST 2018, sex='男',
 User{id=48, username='小马宝莉', birthday=Thu Mar 08 11:44:00 CST 2018, sex='女', address='北京修正'}
 ```
 
-上述实现是基于 xml 文件实现。
+上述实现是基于 xml 文件实现，另有基于注解实现。
