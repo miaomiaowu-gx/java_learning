@@ -33,7 +33,11 @@ SELECT * FROM USER;
 
 <img src="/chapter1/img1/02-dataset-mysql.png" width=800>
 
-③ 
+## 2. Mybatis 环境搭建
+
+③ 配置 Maven 项目中的 pom.xml 文件
+
+
 
 
 
