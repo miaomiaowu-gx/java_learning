@@ -42,13 +42,6 @@ SELECT * FROM USER;
 
 2）如果使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中
 
-```
-<dependency>
-  <groupId>org.mybatis</groupId>
-  <artifactId>mybatis</artifactId>
-  <version>x.x.x</version>
-</dependency>
-```
 
 3）
 
