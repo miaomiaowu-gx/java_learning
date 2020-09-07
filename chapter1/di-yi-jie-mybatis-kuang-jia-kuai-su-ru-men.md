@@ -247,11 +247,9 @@ public interface IUserDao {
 
 ## 3. Mybatis 环境搭建注意
 
-第一个：创建IUserDao.xml 和 IUserDao.java时名称是为了和我们之前的知识保持一致。
-在Mybatis中它把持久层的操作接口名称和映射文件也叫做：Mapper
-所以：IUserDao 和 IUserMapper是一样的
+第一个：创建 IUserDao.xml 和 IUserDao.java 时，名称是为了和之前的知识保持一致。在Mybatis中，它把持久层的操作接口名称和映射文件也叫做：Mapper。所以，**IUserDao 和 IUserMapper 是一样的**。
 
-第二个：在idea中创建目录的时候，它和包是不一样的包在创建时：com.itheima.dao它是三级结构目录在创建时：com.itheima.dao是一级目录
+第二个：在 idea 中创建目录的时候，它和包是不一样的。包在创建时：com.itheima.dao它是三级结构目录在创建时：com.itheima.dao是一级目录
 
 第三个：mybatis的映射配置文件位置必须和dao接口的包结构相同
 
