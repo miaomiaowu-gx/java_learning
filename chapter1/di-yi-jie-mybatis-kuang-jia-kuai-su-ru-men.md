@@ -206,7 +206,7 @@ public interface IUserDao {
                 <property name="driver" value="com.mysql.jdbc.Driver" />
                 <property name="url" value="jdbc:mysql://localhost:3306/eesy_mybatis" />
                 <property name="username" value="root" />
-                <property name="password" value="root" />
+                <property name="password" value="mysql" />
             </dataSource>
         </environment>
     </environments>
