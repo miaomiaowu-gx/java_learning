@@ -182,7 +182,8 @@ public interface IUserDao {
 ```
 
 
-⑥ 
+
+⑥ 在 src->main->resources->com->itheima->dao 下创建 `IUserDao.xml` 文件。
 
 
 
