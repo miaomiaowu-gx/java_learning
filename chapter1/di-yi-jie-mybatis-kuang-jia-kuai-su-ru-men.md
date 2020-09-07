@@ -172,7 +172,14 @@ public interface IUserDao {
 
 ⑤ 在 src->main->resources 下创建 `xml` 文件，命名为 `SqlMapConfig.xml` （命名没有要求，习惯用此命名）。
 
+添加 Config 的约束
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+```
 
 
 ⑥ 
