@@ -78,7 +78,7 @@ SELECT * FROM USER;
     </dependency>
 </dependencies>
 ```
-<img src="/chapter1/img1/03-external-libraries.png" width = 100>
+<img src="./img1/03-external-libraries.png" width = 100>
 
 ③ 
 
