@@ -247,8 +247,11 @@ public interface IUserDao {
 </mapper>
 ```
 
+### 1.3 文件结构
 
-### 1.3 Mybatis 环境搭建注意
+
+
+### 1.4 Mybatis 环境搭建注意
 
 第一个：创建 IUserDao.xml 和 IUserDao.java 时，名称是为了和之前的知识保持一致。在Mybatis中，它把持久层的操作接口名称和映射文件也叫做：Mapper。所以，**IUserDao 和 IUserMapper 是一样的**。
 
