@@ -44,15 +44,15 @@ SELECT * FROM USER;
 
 ```html
 <dependency>
-<groupId>org.mybatis</groupId>
-<artifactId>mybatis</artifactId>
-<version>x.x.x</version>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>x.x.x</version>
 </dependency>
 ```
 
 3）项目还需要使用数据库、日志、单元测试。
 
-```
+```html
 <dependencies>
     <dependency>
         <groupId>org.mybatis</groupId>
