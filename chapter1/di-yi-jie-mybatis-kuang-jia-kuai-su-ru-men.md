@@ -170,7 +170,7 @@ public interface IUserDao {
 ```
 
 
-⑤ 在 src->main->resources 下创建 `xml` 文件。
+⑤ 在 src->main->resources 下创建 `xml` 文件，命名为 `SqlMapConfig.xml` （命名没有要求，习惯用此命名）。
 
 
 
