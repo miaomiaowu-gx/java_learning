@@ -264,3 +264,9 @@ public interface IUserDao {
 🍓 当开发者遵从了第三，四，五点之后，在开发中就无须再写 dao 的实现类。
 
 ## 2. Mybatis 入门
+
+
+
+
+
+
