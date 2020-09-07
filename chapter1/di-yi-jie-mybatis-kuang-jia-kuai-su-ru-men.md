@@ -80,10 +80,76 @@ SELECT * FROM USER;
 ```
 <img src="./img1/03-external-libraries.png" width = 400>
 
-③ 创建类
+③ 创建 User 类，其**实体类中的属性和数据库表的字段名称保持一致**。
 
 在 src->main->java 文件夹下，创建类，包名为 `com.itheima.domain`，类名为 `User`，即在 Name 处填写 `com.itheima.domain.User`。
 
+```
+package com.itheima.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class User implements Serializable{
+    private Integer id;
+    private String username;
+    private Date birthday;
+    private String sex;
+    private String address;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", birthday=" + birthday +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+}
+
+```
 
 
 ④ 
