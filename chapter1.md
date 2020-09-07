@@ -33,5 +33,5 @@
 
 &emsp;**持久层**：与数据库交换
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200727203642426-881553924.png" width=800>
+<img src="./img1/01-three-tier-architecture.png" width=800>
 
