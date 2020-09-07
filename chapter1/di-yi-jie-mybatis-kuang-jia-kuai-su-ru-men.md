@@ -249,7 +249,7 @@ public interface IUserDao {
 
 ### 1.3 文件结构
 
-
+![](./img1/04-file-structure-for-first.png)
 
 ### 1.4 Mybatis 环境搭建注意
 
