@@ -42,8 +42,40 @@ SELECT * FROM USER;
 
 2）如果使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中
 
+```html
+<dependency>
+<groupId>org.mybatis</groupId>
+<artifactId>mybatis</artifactId>
+<version>x.x.x</version>
+</dependency>
+```
 
-3）
+3）项目还需要使用数据库、日志、单元测试。
+
+```
+<dependencies>
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.4.5</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.6</version>
+    </dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.12</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.10</version>
+    </dependency>
+</dependencies>
+```
 
 
 
