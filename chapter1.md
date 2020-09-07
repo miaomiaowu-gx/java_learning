@@ -116,7 +116,7 @@ public static void main(String[] args) {
 ### 三、MyBatis 框架概述
 
 
-&emsp;&emsp;mybatis 是一个优秀的**基于 java 的持久层框架**，它内部封装了 jdbc，使开发者只需要关注 sql 语句本身，而不需要花费精力去处理加载驱动、创建连接、创建 statement 等繁杂的过程。
+&emsp;&emsp;mybatis 是一个优秀的**基于 java 的持久层框架**，它内部封装了 jdbc，使开发者只需要关注 sql 语句本身，而不需要花费精力去处理**加载驱动、创建连接、创建 statement 等**繁杂的过程。
 
 &emsp;&emsp;mybatis 通过 **xml 或注解**的方式将要执行的各种 statement 配置起来，并通过 java 对象和 statement 中sql 的动态参数进行映射生成最终执行的 sql 语句，最后由 **mybatis 框架执行** sql 并将结果映射为 java 对象并返回。
 
