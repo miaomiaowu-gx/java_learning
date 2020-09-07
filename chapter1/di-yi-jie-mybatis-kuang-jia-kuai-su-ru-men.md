@@ -2,9 +2,8 @@
 
 ## 1. 安装前准备
 
-① 创建工程，选择 Maven，点击 Next，填写 GroupId 为 `com.itheima`，ArtifactId 为 `day01_eesy_01mybatis`，点击 Next、Finish。
 
-② 创建数据库要操作的表
+创建数据库要操作的表
 
 ```sql
 CREATE DATABASE eesy_mybatis;
@@ -35,7 +34,10 @@ SELECT * FROM USER;
 
 ## 2. Mybatis 环境搭建
 
-③ 配置 Maven 项目中的 pom.xml 文件
+① 创建工程，选择 Maven，点击 Next，填写 GroupId 为 `com.itheima`，ArtifactId 为 `day01_eesy_01mybatis`，点击 Next、Finish。
+
+
+② 配置 Maven 项目中的 pom.xml 文件
 
 1）配置打包方式
 `<packaging>jar</packaging>`
@@ -77,7 +79,19 @@ SELECT * FROM USER;
 </dependencies>
 ```
 
+③ 
 
+
+
+④ 
+
+
+
+⑤ 
+
+
+
+⑥ 
 
 
 
