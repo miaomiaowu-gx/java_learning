@@ -4,4 +4,6 @@
 
 2. 大部分代码同【第一节】代码一致，微修改。
 
-   * 删除 resources 文件夹下的 `IUserDao.xml` 文件及其所在包，
+   * 删除 resources 文件夹下的 `IUserDao.xml` 文件及其所在包。
+   
+   * 
