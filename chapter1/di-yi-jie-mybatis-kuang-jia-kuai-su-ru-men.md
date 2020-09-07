@@ -337,7 +337,18 @@ public class MybatisTest {
 }
 ```
 
-运行后报错： A query was run and no Result Maps were found for the Mapped Statement 'com.itheima.dao.IUserDao.findAll'.  It's likely that neither a Result Type nor a Result Map was specified.
+运行后报错（没有返回类型）： A query was run and no Result Maps were found for the Mapped Statement 'com.itheima.dao.IUserDao.findAll'.  It's likely that neither a Result Type nor a Result Map was specified.
+
+原因：在 `IUserDao.xml` 文件中没有设置返回类型，修改如下：
+
+```xml
+<mapper namespace="com.itheima.dao.IUserDao">
+    <!-- 配置查询所有 id放入IUserDao类中 查询所有的函数名-->
+    <select id="findAll" resultType="com.itheima.domain.User">
+        SELECT * FROM USER
+    </select>
+</mapper>
+```
 
 
 
