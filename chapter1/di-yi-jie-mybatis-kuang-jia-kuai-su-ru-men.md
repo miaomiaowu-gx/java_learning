@@ -82,6 +82,7 @@ SELECT * FROM USER;
 
 ③ 创建类
 
+在 src->main->java 文件夹下，创建类，包名为 `com.itheima.domain`，类名为 `User`，即在 Name 处填写 `com.itheima.domain.User`。
 
 
 
