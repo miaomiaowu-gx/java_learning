@@ -73,7 +73,7 @@ public static void main(String[] args) {
 		e.printStackTrace();
 	}finally{
 		//释放资源
-		if(resultSet!=null){
+		if(resultSet!=null){ //要先释放结果集资源！
 			try {
 				resultSet.close();
 			} catch (SQLException e) {
