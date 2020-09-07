@@ -350,5 +350,14 @@ public class MybatisTest {
 </mapper>
 ```
 
+运行成功，输出：
 
+```
+User{id=41, username='老王', birthday=Tue Feb 27 17:47:08 CST 2018, sex='男', address='北京'}
+User{id=42, username='小二王', birthday=Fri Mar 02 15:09:37 CST 2018, sex='女', address='北京金燕龙'}
+User{id=43, username='小二王', birthday=Sun Mar 04 11:34:34 CST 2018, sex='女', address='北京金燕龙'}
+User{id=45, username='传智播客', birthday=Sun Mar 04 12:04:06 CST 2018, sex='男', address='北京金燕龙'}
+User{id=46, username='老王', birthday=Wed Mar 07 17:37:26 CST 2018, sex='男', address='北京'}
+User{id=48, username='小马宝莉', birthday=Thu Mar 08 11:44:00 CST 2018, sex='女', address='北京修正'}
+```
 
