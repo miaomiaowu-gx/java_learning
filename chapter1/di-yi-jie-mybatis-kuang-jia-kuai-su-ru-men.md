@@ -152,7 +152,9 @@ public class User implements Serializable{
 ```
 
 
-④ changjian
+④ 创建 Dao 接口
+
+在 java 文件夹下创建接口 `com.itheima.IUserDao`(命名习惯：在接口文件前加I)。
 
 
 
