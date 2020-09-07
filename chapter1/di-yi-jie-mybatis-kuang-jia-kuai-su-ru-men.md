@@ -256,7 +256,7 @@ public interface IUserDao {
 
 第三个：**mybatis 的映射配置文件位置必须和 dao 接口的包结构相同**。
 
-第四个：**映射配置文件的 mapper 标签 namespace 属性的取值必须是dao 接口的全限定类名**。
+第四个：**映射配置文件的 mapper 标签 namespace 属性的取值必须是 dao 接口的全限定类名**。
 
 第五个：**映射配置文件的操作配置（select），id 属性的取值必须是 dao 接口的方法名**。
 
