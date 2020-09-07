@@ -297,8 +297,47 @@ log4j.appender.LOGFILE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p 
 
 ### 2.2 添加测试类
 
+在 src->test->java 文件夹下创建 `com.itheima.test.MybatisTest` 类。
 
+```java
+package com.itheima.test;
 
+import com.itheima.dao.IUserDao;
+import com.itheima.domain.User;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.InputStream;
+import java.util.List;
+
+// Mybatis 入门案例
+public class MybatisTest {
+    // 入门案例
+    public static void main(String[] args) throws Exception{
+        //1. 读取配置文件(连接数据库)
+        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        //2. 创建SqlSessionFactory对象（生成工厂）
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(in);
+        //3. 使用工厂生产SqlSession对象（由工厂生产操作对象）
+        SqlSession session = factory.openSession();
+        //4. 使用SqlSession创建Dao接口的代理对象
+        IUserDao userDao = session.getMapper(IUserDao.class);
+        //5. 使用代理对象执行方法
+        List<User> users = userDao.findAll();
+        for(User user: users){
+            System.out.println(user);
+        }
+        //6. 释放资源
+        session.close();
+        in.close();
+    }
+}
+```
+
+运行后报错： A query was run and no Result Maps were found for the Mapped Statement 'com.itheima.dao.IUserDao.findAll'.  It's likely that neither a Result Type nor a Result Map was specified.
 
 
 
