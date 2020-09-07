@@ -185,7 +185,14 @@ public interface IUserDao {
 
 ⑥ 在 src->main->resources->com->itheima->dao 下创建 `IUserDao.xml` 文件。该文件是针对 IUserDao 类的配置。
 
+添加 Mapper 的约束
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+```
 
 
 
