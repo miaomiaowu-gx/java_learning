@@ -37,7 +37,20 @@ SELECT * FROM USER;
 
 ③ 配置 Maven 项目中的 pom.xml 文件
 
+1）配置打包方式
+`<packaging>jar</packaging>`
 
+2）如果使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中
+
+```
+<dependency>
+  <groupId>org.mybatis</groupId>
+  <artifactId>mybatis</artifactId>
+  <version>x.x.x</version>
+</dependency>
+```
+
+3）
 
 
 
