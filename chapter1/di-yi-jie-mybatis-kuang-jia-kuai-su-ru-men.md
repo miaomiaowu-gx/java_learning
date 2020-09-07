@@ -6,7 +6,7 @@
 
 创建数据库要操作的表
 
-```mysql
+```sql
 CREATE DATABASE eesy_mybatis;
 USE eesy_mybatis;
 
