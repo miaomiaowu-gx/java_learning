@@ -122,7 +122,7 @@ public static void main(String[] args) {
 
 &emsp;&emsp;采用 ORM 思想解决了**实体和数据库映射**的问题，对 jdbc 进行了封装，屏蔽了 jdbc api 底层访问细节，使开发者不用与 jdbc api 打交道，就可以完成对数据库的持久化操作。
 
-&emsp;&emsp;Object Relational Mapping对象关系映射。把数据库表与实体类及实体类的属性对应起来，可以通过操作实体类实现操作数据库表。实体类中的属性和数据库表的字段名称保持一致。
+&emsp;&emsp;Object Relational Mapping（ORM） 对象关系映射。把数据库表与实体类及实体类的属性对应起来，可以**通过操作实体类实现操作数据库表**。实体类中的属性和数据库表的字段名称保持一致。
 
 
 
