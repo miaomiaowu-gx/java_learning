@@ -1,5 +1,7 @@
 # 第二节 Mybatis 基于注解开发
 
+## 1. 基于注解开发
+
 1. 创建 Maven 项目，`GroupId = com.itheima`，`ArtifactId = day01_eesy_02mybatis_annotation`。
 
 2. 大部分代码同【第一节】代码一致，微修改。
@@ -23,4 +25,12 @@
     </mappers>
    ```
    
-   
+      
+         
+## 2. Mybatis 开发注意
+
+需要明确
+
+* 在实际开发中，都是越简便越好。不管使用** XML 还是注解**配置，都是采用**不写 dao 实现类**的方式。
+
+* 但是 Mybatis 支持写 dao 实现类的。   
