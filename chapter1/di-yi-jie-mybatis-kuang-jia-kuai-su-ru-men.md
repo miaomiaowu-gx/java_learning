@@ -156,6 +156,18 @@ public class User implements Serializable{
 
 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`(命名习惯：在接口文件前加I)。
 
+```java
+package com.itheima.dao;
+
+import com.itheima.domain.User;
+import java.util.List;
+
+// 用户的持久层接口
+public interface IUserDao {
+    // 查询所有操作
+    List<User> findAll();
+}
+```
 
 
 ⑤ 
