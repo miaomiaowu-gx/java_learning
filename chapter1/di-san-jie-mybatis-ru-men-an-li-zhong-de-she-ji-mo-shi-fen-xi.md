@@ -7,6 +7,10 @@
 ## 3.1 Mybatis 执行查询所有(findAll)分析
 
 
+<img src="./img1/06-query-all-analyses.png" width=1400>
+
+
+
 
 
 
