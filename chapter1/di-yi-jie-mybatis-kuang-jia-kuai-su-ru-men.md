@@ -30,7 +30,7 @@ INSERT  INTO `user`(`id`,`username`,`birthday`,`sex`,`address`) VALUES (41,'老�
 SELECT * FROM USER;
 ```
 
-<img src="./img1/02-dataset-mysql.png" width=700>
+<img src="./img1/02-dataset-mysql.png" width=600>
 
 ## 2. Mybatis 环境搭建
 
