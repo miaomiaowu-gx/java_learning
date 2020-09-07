@@ -183,7 +183,7 @@ public interface IUserDao {
 
 
 
-⑥ 在 src->main->resources->com->itheima->dao 下创建 `IUserDao.xml` 文件。
+⑥ 在 src->main->resources->com->itheima->dao 下创建 `IUserDao.xml` 文件。该文件是针对 IUserDao 类的配置。
 
 
 
