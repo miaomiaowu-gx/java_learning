@@ -181,6 +181,39 @@ public interface IUserDao {
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 ```
 
+配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- mybatis 的主配置环境 -->
+<configuration>
+    <!-- 配置环境 -->
+    <environments default="mysql">
+        <!-- 配置 mysql 环境 -->
+        <environment id="mysql">
+            <!-- 配置事务类型 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源（连接池） -->
+            <dataSource type="POOLED">
+                <!-- 配置连接数据库的4个基本信息 -->
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/eesy_mybatis" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
+    <mappers>
+        <mapper resource="com/itheima/dao/IUserDao.xml" />
+    </mappers>
+</configuration>
+```
 
 
 ⑥ 在 src->main->resources->com->itheima->dao 下创建 `IUserDao.xml` 文件。该文件是针对 IUserDao 类的配置。
@@ -194,6 +227,22 @@ public interface IUserDao {
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 ```
 
+配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 处填写限定类名 -->
+<mapper namespace="com.itheima.dao.IUserDao">
+    <!-- 配置查询所有 id放入IUserDao类中 查询所有的函数名-->
+    <select id="findAll">
+        SELECT * FROM USER 
+    </select>
+</mapper>
+```
 
 
 ## 2. Mybatis 环境搭建
