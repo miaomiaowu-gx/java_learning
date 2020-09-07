@@ -1,4 +1,4 @@
-# 第一节 Mybatis 框架快速入门
+# 第一节 Mybatis 框架快速入门 - 基于 xml 开发
 
 ## 1. Mybatis 环境搭建
 
