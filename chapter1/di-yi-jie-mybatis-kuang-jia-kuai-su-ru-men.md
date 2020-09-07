@@ -33,7 +33,8 @@ SELECT * FROM USER;
 
 <img src="/chapter1/img1/02-dataset-mysql.png" width=800>
 
-![](/chapter1/img1/02-dataset-mysql.png)
+③ 
+
 
 
 
