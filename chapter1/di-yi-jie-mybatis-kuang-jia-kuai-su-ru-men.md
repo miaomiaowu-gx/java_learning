@@ -31,6 +31,8 @@ INSERT  INTO `user`(`id`,`username`,`birthday`,`sex`,`address`) VALUES (41,'è€ç
 SELECT * FROM USER;
 ```
 
+<img src="./chapter1/img1/02-dataset-mysql.png" width=800>
+
 
 
 
