@@ -17,4 +17,8 @@
    
    * 修改 `SqlMapConfig.xml` 文件中的 mapper 配置，使用 class 属性指定 dao 接口的全限定类名。
    
-   
+   ```xml
+   <mappers>
+        <mapper class = "com.itheima.dao.IUserDao"/>
+    </mappers>
+   ```
