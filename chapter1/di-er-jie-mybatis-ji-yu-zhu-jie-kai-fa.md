@@ -6,4 +6,15 @@
 
    * 删除 resources 文件夹下的 `IUserDao.xml` 文件及其所在包。
    
-   * 
+   * 在 IUserDao 接口上使用@Select注解，并且指定SQL语句。
+   
+   ```java
+   public interface IUserDao {
+      @Select("select * from user")
+      List<User> findAll();
+   }
+   ```
+   
+   * 修改 `SqlMapConfig.xml` 文件中的 mapper 配置，使用 class 属性指定 dao 接口的全限定类名。
+   
+   
