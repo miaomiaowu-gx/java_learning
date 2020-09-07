@@ -2,9 +2,9 @@
 
 ## 1. 安装前准备
 
-创建工程，选择 Maven，点击 Next，填写 GroupId 为 `com.itheima`，ArtifactId 为 `day01_eesy_01mybatis`，点击 Next、Finish。
+① 创建工程，选择 Maven，点击 Next，填写 GroupId 为 `com.itheima`，ArtifactId 为 `day01_eesy_01mybatis`，点击 Next、Finish。
 
-创建数据库要操作的表
+② 创建数据库要操作的表
 
 ```sql
 CREATE DATABASE eesy_mybatis;
@@ -30,6 +30,10 @@ INSERT  INTO `user`(`id`,`username`,`birthday`,`sex`,`address`) VALUES (41,'老�
 
 SELECT * FROM USER;
 ```
+
+
+
+
 
 
 
