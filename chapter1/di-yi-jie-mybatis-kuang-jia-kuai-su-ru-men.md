@@ -249,13 +249,13 @@ public interface IUserDao {
 
 第一个：创建 IUserDao.xml 和 IUserDao.java 时，名称是为了和之前的知识保持一致。在Mybatis中，它把持久层的操作接口名称和映射文件也叫做：Mapper。所以，**IUserDao 和 IUserMapper 是一样的**。
 
-第二个：在 idea 中创建目录的时候，它和包是不一样的。包在创建时：com.itheima.dao它是三级结构目录在创建时：com.itheima.dao是一级目录
+第二个：在 idea 中创建目录的时候，它和包是不一样的。包在创建时：输入 `com.itheima.dao` 创建三级结构。目录在创建时：`com.itheima.dao` 是一级目录，即目录名字为 `com.itheima.dao`。
 
-第三个：mybatis的映射配置文件位置必须和dao接口的包结构相同
+第三个：**mybatis 的映射配置文件位置必须和 dao 接口的包结构相同**。
 
-第四个：映射配置文件的mapper标签namespace属性的取值必须是dao接口的全限定类名
+第四个：**映射配置文件的 mapper 标签 namespace 属性的取值必须是dao 接口的全限定类名**。
 
-第五个：映射配置文件的操作配置（select），id属性的取值必须是dao接口的方法名
+第五个：**映射配置文件的操作配置（select），id 属性的取值必须是 dao 接口的方法名**。
 
 
 当我们遵从了第三，四，五点之后，我们在开发中就无须再写dao的实现类。
