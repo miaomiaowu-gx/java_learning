@@ -105,7 +105,7 @@ public interface SqlSession {
 
 3）解析 XML 的工具类介绍
 
-
+在 mybatis 下创建 utils 包，
 
 
 
