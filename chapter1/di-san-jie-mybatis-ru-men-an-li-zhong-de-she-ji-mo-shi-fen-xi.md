@@ -39,4 +39,8 @@
 * `interface SqlSession`
 
 
+### 实现
+
+基于入门案例修改，去掉 `pom.xml` 文件中有关 mybatis 的坐标（即 dependency 项）。
+
 
