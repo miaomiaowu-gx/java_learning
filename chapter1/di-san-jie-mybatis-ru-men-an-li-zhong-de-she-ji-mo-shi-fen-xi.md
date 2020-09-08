@@ -656,7 +656,13 @@ public class DataSourceUtil {
 
 ### 3.5 自定义Mybatis的编码-实现基于注解配置的查询所有
 
+1）修改 SqlMapConfig.xml 中的 mapper，将 resource 改为 class。
 
+```xml
+<mappers>
+    <mapper class="com.itheima.dao.IUserDao" />
+</mappers>
+```
 
 
 
