@@ -664,8 +664,30 @@ public class DataSourceUtil {
 </mappers>
 ```
 
-2）在 IUserDao 接口，写 
+2）在 IUserDao 接口，写注解
+
+ ```java
+ 
+ package com.itheima.dao;
+
+import com.itheima.domain.User;
+import com.itheima.mybatis.annotation.Select;
+
+import java.util.List;
+
+// 用户的持久层接口
+public interface IUserDao {
+    // 查询所有操作
+    @Select("select * from")
+    List<User> findAll();
+}
+ ``` 
 
 
 3）在 mybatis 文件夹下创建 Annotation 文件 `annotation.Select`
+
+
+
+
+
 
