@@ -434,4 +434,10 @@ public class Mapper {
 ⑤ 在 sqlsession 文件夹下，创建类 `defaults.DefaultSqlSessionFactory`。
 
 
+⑥ 在 sqlsession->defaults 文件夹下，创建类 `DefaultSqlSession`。
+
+
+⑦ 在 sqlsession 文件夹下，创建类 `proxy.MapperProxy`
+
+
 
