@@ -60,4 +60,4 @@ public class Resources {
 
 在主函数文件中导入包 `import com.itheima.mybatis.io.Resources;`
 
-2）
+2）在 mybatis 文件夹下，
