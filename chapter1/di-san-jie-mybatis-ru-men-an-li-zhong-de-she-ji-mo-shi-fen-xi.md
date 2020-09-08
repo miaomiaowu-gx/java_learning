@@ -130,10 +130,8 @@ public interface SqlSession {
 // XMLConfigBuilder.java
 package com.itheima.mybatis.utils;
 
-import com.itheima.mybatis.annotations.Select;
 import com.itheima.mybatis.io.Resources;
 import com.itheima.mybatis.cfg.Configuration;
-import com.itheima.mybatis.sqlsession.defaults.DefaultSqlSession;
 import com.itheima.mybatis.cfg.Mapper;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
@@ -405,6 +403,31 @@ public class Configuration {
 
 Mapper 应该包含：执行的 SQL 语句与封装结果的实体类全限定类名。
 
+```java
+package com.itheima.mybatis.cfg;
+
+//用于封装执行的SQL语句和结果类型的全限定类名
+public class Mapper {
+    private String queryString; //SQL
+    private String resultType;  //实体类的全限定类名
+
+    public String getQueryString() {
+        return queryString;
+    }
+
+    public void setQueryString(String queryString) {
+        this.queryString = queryString;
+    }
+
+    public String getResultType() {
+        return resultType;
+    }
+
+    public void setResultType(String resultType) {
+        this.resultType = resultType;
+    }
+}
+```
 
 ④ 将 `XMLConfigBuilder.java` 文件中，注解部分代码注释掉。
 
