@@ -63,7 +63,18 @@ public class Resources {
 2）在 mybatis 文件夹下，创建类 `sqlsession.SqlSessionFactoryBuilder`。在 sqlsession 文件夹下，创建接口 `SqlSessionFactory`、`SqlSession`。
 
 ```java
+// SqlSessionFactoryBuilder.java
+package com.itheima.mybatis.sqlsession;
 
+import java.io.InputStream;
+
+// 用于创建一个SqlSessionFactory对象
+public class SqlSessionFactoryBuilder {
+    // 根据参数的字节输入流来构建一个SqlSessionFactory工厂
+    public SqlSessionFactory build(InputStream config){
+        return null; //后续需要补充代码
+    }
+}
 ```
 
 
