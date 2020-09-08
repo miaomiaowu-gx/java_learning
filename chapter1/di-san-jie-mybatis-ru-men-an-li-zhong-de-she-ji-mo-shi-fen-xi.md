@@ -343,7 +343,7 @@ public class XMLConfigBuilder {
 
 ```
 
-② 在 mybatis 下创建类 `cfg.Configuration`，
+② 在 mybatis 下创建类 `cfg.Configuration`。
 
 ```java
 package com.itheima.mybatis.cfg;
@@ -396,7 +396,7 @@ public class Configuration {
 Mapper 应该包含：执行的 SQL 语句与封装结果的实体类全限定类名。
 
 
-
+④ 将 `XMLConfigBuilder.java` 文件中，注解部分代码注释掉。
 
 
 
