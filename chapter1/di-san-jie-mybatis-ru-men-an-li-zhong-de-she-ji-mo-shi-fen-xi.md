@@ -134,7 +134,7 @@ import com.itheima.mybatis.annotations.Select;
 import com.itheima.mybatis.io.Resources;
 import com.itheima.mybatis.cfg.Configuration;
 import com.itheima.mybatis.sqlsession.defaults.DefaultSqlSession;
-import com.itheima.mybatis.sqlsession.mappers.Mapper;
+import com.itheima.mybatis.cfg.Mapper;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
