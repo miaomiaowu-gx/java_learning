@@ -30,13 +30,13 @@
 
 自定义 Mybatis 通过入门案例看到类：
 
-* class Resources
+* `class Resources`
 
-* class SqlSessionFactoryBuilder
+* `class SqlSessionFactoryBuilder`
 
-* interface SqlSessionFactory
+* `interface SqlSessionFactory`
 
-* interface SqlSession
+* `interface SqlSession`
 
 
 
