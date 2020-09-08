@@ -105,7 +105,7 @@ public interface SqlSession {
 
 3）解析 XML 的工具类介绍
 
-① 在 mybatis 下创建 utils 包，创建文件 `XMLConfigBuilder.java`。导入 dom4j 坐标，为使用 xpath 需要导入 jaxen 坐标。
+① 在 mybatis 下创建 utils 包，创建文件 `XMLConfigBuilder`。导入 dom4j 坐标，为使用 xpath 需要导入 jaxen 坐标。
 
 ```xml
 <!-- 导入 dom4j 坐标 -->
@@ -130,9 +130,9 @@ public interface SqlSession {
 // XMLConfigBuilder.java
 package com.itheima.mybatis.utils;
 
+import com.itheima.mybatis.cfg.Mapper;
 import com.itheima.mybatis.io.Resources;
 import com.itheima.mybatis.cfg.Configuration;
-import com.itheima.mybatis.cfg.Mapper;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -140,9 +140,6 @@ import org.dom4j.io.SAXReader;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,6 +148,7 @@ import java.util.Map;
  *  用于解析配置文件
  */
 public class XMLConfigBuilder {
+
     /**
      * 解析主配置文件，把里面的内容填充到DefaultSqlSession所需要的地方
      * 使用的技术：
@@ -215,14 +213,14 @@ public class XMLConfigBuilder {
                     //给configuration中的mappers赋值
                     cfg.setMappers(mappers);
                 }else{
-                    System.out.println("使用的是注解");
-                    //表示没有resource属性，用的是注解
-                    //获取class属性的值
-                    String daoClassPath = mapperElement.attributeValue("class");
-                    //根据daoClassPath获取封装的必要信息
-                    Map<String,Mapper> mappers = loadMapperAnnotation(daoClassPath);
-                    //给configuration中的mappers赋值
-                    cfg.setMappers(mappers);
+//                    System.out.println("使用的是注解");
+//                    //表示没有resource属性，用的是注解
+//                    //获取class属性的值
+//                    String daoClassPath = mapperElement.attributeValue("class");
+//                    //根据daoClassPath获取封装的必要信息
+//                    Map<String,Mapper> mappers = loadMapperAnnotation(daoClassPath);
+//                    //给configuration中的mappers赋值
+//                    cfg.setMappers(mappers);
                 }
             }
             //返回Configuration
@@ -292,7 +290,7 @@ public class XMLConfigBuilder {
      * @param daoClassPath
      * @return
      */
-    private static Map<String,Mapper> loadMapperAnnotation(String daoClassPath)throws Exception{
+    /*private static Map<String,Mapper> loadMapperAnnotation(String daoClassPath)throws Exception{
         //定义返回值对象
         Map<String,Mapper> mappers = new HashMap<String, Mapper>();
 
@@ -337,6 +335,7 @@ public class XMLConfigBuilder {
         }
         return mappers;
     }
+    */
 }
 
 ```
@@ -346,23 +345,26 @@ public class XMLConfigBuilder {
 ```java
 package com.itheima.mybatis.cfg;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // 自定义mybatis的配置类
 public class Configuration {
     private String driver;
     private String url;
     private String username;
     private String password;
-
-    private Map<String, Mapper> mappers;
+    // 要有 new，否则后续putAll会产生空指针异常
+    private Map<String, Mapper> mappers = new HashMap<String,Mapper>();
 
     public Map<String, Mapper> getMappers() {
         return mappers;
     }
 
     public void setMappers(Map<String, Mapper> mappers) {
-        this.mappers.putAll(mappers); //追加方式
+        this.mappers.putAll(mappers);
     }
-    
+
     public String getDriver() {
         return driver;
     }
@@ -429,24 +431,123 @@ public class Mapper {
 }
 ```
 
-④ 将 `XMLConfigBuilder.java` 文件中，注解部分代码注释掉。
 
-⑤ 在 sqlsession 文件夹下，创建类 `defaults.DefaultSqlSessionFactory`。
+④ 在 sqlsession 文件夹下，创建类 `defaults.DefaultSqlSessionFactory`。
+
+```java
+package com.itheima.mybatis.sqlsession.defaults;
+
+import com.itheima.mybatis.cfg.Configuration;
+import com.itheima.mybatis.sqlsession.SqlSession;
+import com.itheima.mybatis.sqlsession.SqlSessionFactory;
+
+//SqlSessionFactory接口的实现类
+public class DefaultSqlSessionFactory implements SqlSessionFactory{
+
+    private Configuration cfg;
+    public DefaultSqlSessionFactory(Configuration cfg){
+        this.cfg = cfg;
+    }
+    // 用于创建一个新的操作数据库对象
+    public SqlSession openSession() {
+        return new DefaultSqlSession(cfg);
+    }
+}
+
+```
+
+⑤ 在 sqlsession->defaults 文件夹下，创建类 `DefaultSqlSession`。
+
+```java
+package com.itheima.mybatis.sqlsession.defaults;
+
+import com.itheima.mybatis.cfg.Configuration;
+import com.itheima.mybatis.sqlsession.SqlSession;
+import com.itheima.mybatis.sqlsession.proxy.MapperProxy;
+import com.itheima.mybatis.utils.DataSourceUtil;
+
+import java.lang.reflect.Proxy;
+import java.sql.Connection;
+
+//SqlSession接口的实现类
+public class DefaultSqlSession implements SqlSession {
+    private Configuration cfg;
+    private Connection connection;
+
+    public DefaultSqlSession(Configuration cfg){
+        this.cfg = cfg;
+        connection = DataSourceUtil.getConnection(cfg);
+    }
+    // 用于创建代理对象
+    public <T> T getMapper(Class<T> daoInterfaceClass) {
+        return (T) Proxy.newProxyInstance(daoInterfaceClass.getClassLoader(), new Class[]{daoInterfaceClass}, new MapperProxy(cfg.getMappers(),connection));
+
+    }
+
+    // 用于释放资源
+    public void close() {
+        if(connection!=null){
+            try{
+                connection.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+⑥ 在 sqlsession 文件夹下，创建类 `proxy.MapperProxy`
+
+```java
+package com.itheima.mybatis.sqlsession.proxy;
+
+import com.itheima.mybatis.cfg.Mapper;
+import com.itheima.mybatis.utils.Executor;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.sql.Connection;
+import java.util.Map;
+
+public class MapperProxy implements InvocationHandler{
+    // key是全限定类名+方法名
+    private Map<String, Mapper> mappers;
+    private Connection conn;
+
+    public MapperProxy(Map<String, Mapper> mappers, Connection conn){
+        this.mappers = mappers;
+        this.conn = conn;
+    }
+
+    //用于对方法进行增强，此处增强就是调用selectList方法
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        //1. 获取方法名
+        String methodName = method.getName();
+        //2. 获取方法所在类的名称
+        String className = method.getDeclaringClass().getName();
+        //3. 组合key
+        String key = className+ "."+methodName;
+        //4. 获取mappers中的Mapper对象
+        Mapper mapper = mappers.get(key);
+        //5. 判断是否有 mapper
+        if(mapper == null){
+            throw new IllegalArgumentException("传入的参数有误");
+        }
+        //6.调用工具类执行查询所有
+        return new Executor().selectList(mapper, conn);
+    }
+}
+```
 
 
-⑥ 在 sqlsession->defaults 文件夹下，创建类 `DefaultSqlSession`。
 
-
-⑦ 在 sqlsession 文件夹下，创建类 `proxy.MapperProxy`
-
+⑦ 在 utils 文件夹下，创建类 `Executor`
 
 
 
-⑧ 在 utils 文件夹下，创建类 `Executor`
-
-
-
-⑨ 在 utils 文件夹下，创建类 `DataSourceUtil`
+⑧ 在 utils 文件夹下，创建类 `DataSourceUtil`
 
 
 
