@@ -132,7 +132,7 @@ package com.itheima.mybatis.utils;
 
 import com.itheima.mybatis.annotations.Select;
 import com.itheima.mybatis.io.Resources;
-import com.itheima.mybatis.sqlsession.Configuration;
+import com.itheima.mybatis.cfg.Configuration;
 import com.itheima.mybatis.sqlsession.defaults.DefaultSqlSession;
 import com.itheima.mybatis.sqlsession.mappers.Mapper;
 import org.dom4j.Attribute;
@@ -391,9 +391,9 @@ public class Configuration {
 ```
 
 
-③ 
+③ 在 cfg文件夹下，定义 `Mapper` 类。
 
-Mapper应该包含：执行的 SQL 语句与封装结果的实体类全限定类名。
+Mapper 应该包含：执行的 SQL 语句与封装结果的实体类全限定类名。
 
 
 
