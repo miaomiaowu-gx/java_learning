@@ -355,6 +355,16 @@ public class Configuration {
     private String username;
     private String password;
 
+    private Map<String, Mapper> mappers;
+
+    public Map<String, Mapper> getMappers() {
+        return mappers;
+    }
+
+    public void setMappers(Map<String, Mapper> mappers) {
+        this.mappers.putAll(mappers); //追加方式
+    }
+    
     public String getDriver() {
         return driver;
     }
