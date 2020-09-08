@@ -28,7 +28,15 @@
 
    * 第二：在代理对象中调用selectList
 
+自定义mybatis能通过入门案例看到类：
 
+* class Resources
+
+* class SqlSessionFactoryBuilder
+
+* interface SqlSessionFactory
+
+* interface SqlSession
 
 
 
