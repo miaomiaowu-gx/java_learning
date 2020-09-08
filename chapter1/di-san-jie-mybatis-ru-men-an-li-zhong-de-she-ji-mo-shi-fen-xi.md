@@ -41,7 +41,7 @@
 
 ### 实现
 
-基于入门案例修改，去掉 `pom.xml` 文件中有关 mybatis 的坐标（即 dependency 项）。
+基于入门案例修改，去掉 `pom.xml` 文件中有关 mybatis 的坐标（即 dependency 项），并删除配置文件中的相关约束。
 
 1）在 main->java->com->itheima 下创建类 `mybatis.io.Resources`。
 
