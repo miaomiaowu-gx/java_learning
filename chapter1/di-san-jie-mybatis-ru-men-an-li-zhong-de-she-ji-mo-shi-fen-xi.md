@@ -393,6 +393,7 @@ public class Configuration {
 
 ③ 
 
+Mapper应该包含：执行的 SQL 语句与封装结果的实体类全限定类名。
 
 
 
