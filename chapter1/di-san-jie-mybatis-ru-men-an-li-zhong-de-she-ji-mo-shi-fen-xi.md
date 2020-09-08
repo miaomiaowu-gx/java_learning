@@ -18,7 +18,7 @@
 <img src="./img1/07-custom-mybatis-analysis.png" width=700>
 
 
-## 3.4 不使用 Mybatis，自己定义实现上述过程
+## 3.4 自定义 Mybatis 框架
 
 自定义 Mybatis 的分析：
 
