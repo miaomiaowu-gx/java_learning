@@ -686,7 +686,24 @@ public interface IUserDao {
 
 3）在 mybatis 文件夹下创建 Annotation 文件 `annotation.Select`
 
+```java
+package com.itheima.mybatis.annotation;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+// 查询注解
+// Retention 改变生命周期
+// Target 改变出现的位置
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Select {
+    //配置SQL语句
+    String value();
+}
+```
 
 
 
