@@ -13,7 +13,6 @@
 
 
 
-
 ## 3.3 Mybatis 创建代理对象的分析
 
 <img src="./img1/07-custom-mybatis-analysis.png" width=700>
