@@ -667,4 +667,5 @@ public class DataSourceUtil {
 2）在 IUserDao 接口，写 
 
 
+3）在 mybatis 文件夹下创建 Annotation 文件 `annotation.Select`
 
