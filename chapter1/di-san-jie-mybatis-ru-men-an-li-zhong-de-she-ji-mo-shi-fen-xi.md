@@ -105,7 +105,17 @@ public interface SqlSession {
 
 3）解析 XML 的工具类介绍
 
-在 mybatis 下创建 utils 包，
+在 mybatis 下创建 utils 包，创建文件 `XMLConfigBuilder.java`。导入 dom4j 坐标
+
+```xml
+<!-- 导入 dom4j 坐标 -->
+
+<dependency>
+    <groupId>dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>1.1</version>
+</dependency>
+```
 
 
 
