@@ -678,7 +678,7 @@ import java.util.List;
 // 用户的持久层接口
 public interface IUserDao {
     // 查询所有操作
-    @Select("select * from")
+    @Select("select * from user")
     List<User> findAll();
 }
  ``` 
@@ -705,6 +705,7 @@ public @interface Select {
 }
 ```
 
+4）将 `XMLConfigBuilder.java` 文件中注解部分代码取消注释。
 
 
 
