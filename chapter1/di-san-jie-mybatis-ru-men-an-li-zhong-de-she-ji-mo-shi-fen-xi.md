@@ -431,7 +431,7 @@ public class Mapper {
 
 ④ 将 `XMLConfigBuilder.java` 文件中，注解部分代码注释掉。
 
-
+⑤ 在 sqlsession 文件夹下，创建类 `defaults.DefaultSqlSessionFactory`。
 
 
 
