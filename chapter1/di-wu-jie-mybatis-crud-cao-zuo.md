@@ -231,7 +231,7 @@ public void testFindByName() {
 }
 ```
 
-#### 实现二 （不常用）
+#### 实现二 （不常用，了解）
 
 1）在 IUserDao 中，添加方法（同实现一一致）。
 
