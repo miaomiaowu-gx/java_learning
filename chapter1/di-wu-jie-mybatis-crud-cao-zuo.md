@@ -3,6 +3,9 @@
 
 ## 5.1 CRUD-保存操作
 
+1）在 IUserDao 中，添加方法。
+
+2）在映射配置文件 IUserDao.xml 中添加映射。
 
 
 
