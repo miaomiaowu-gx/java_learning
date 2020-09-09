@@ -253,14 +253,16 @@ List<User> findByName(String username);
 3）在测试类中添加新的测试方法
 
 ```java
-
+//测试模糊查询操作
+@Test
+public void testFindByName2() {
+    //5. 执行查询一个方法
+    List<User> users = userDao.findByName("王");
+    for(User user:users){
+        System.out.println(user);
+    }
+}
 ```
-
-
-
-
-
-
 
 
 ### 5.3.3 查询返回一行一列
