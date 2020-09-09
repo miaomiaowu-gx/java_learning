@@ -93,10 +93,23 @@ public class MybatisTest {
 
 
 
+## 5.2 CRUD-操作
+
+
+
+1）在 IUserDao 中，添加方法。
+2）在映射配置文件 IUserDao.xml 中添加映射。
+3）在测试类中添加新的测试方法
 
 
 
 
+## 5.3 CRUD-操作
 
+
+
+1）在 IUserDao 中，添加方法。
+2）在映射配置文件 IUserDao.xml 中添加映射。
+3）在测试类中添加新的测试方法
 
 
