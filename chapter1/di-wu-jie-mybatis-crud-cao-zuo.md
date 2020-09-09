@@ -135,21 +135,45 @@ public void testUpdate() {
 
 
 1）在 IUserDao 中，添加方法。
+
+```java
+void deleteUser(Integer userId);
+```
+
 2）在映射配置文件 IUserDao.xml 中添加映射。
+
+```xml
+
+```
+
 3）在测试类中添加新的测试方法
 
+```java
+
+```
 
 ## 5.3 CRUD-查询操作
 
 
 ### 5.3.1 查询一个操作
 
-
-
-
 1）在 IUserDao 中，添加方法。
+
+```java
+
+```
+
 2）在映射配置文件 IUserDao.xml 中添加映射。
+
+```xml
+
+```
+
 3）在测试类中添加新的测试方法
+
+```java
+
+```
 
 ### 5.3.2 模糊查询操作
 
@@ -157,6 +181,20 @@ public void testUpdate() {
 
 
 1）在 IUserDao 中，添加方法。
+
+```java
+
+```
+
 2）在映射配置文件 IUserDao.xml 中添加映射。
+
+```xml
+
+```
+
 3）在测试类中添加新的测试方法
+
+```java
+
+```
 
