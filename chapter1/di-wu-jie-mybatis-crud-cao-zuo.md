@@ -98,12 +98,34 @@ public class MybatisTest {
 ### 5.2.1 修改操作
 
 1）在 IUserDao 中，添加方法。
+
+```java
+void updateUser(User user);
+```
+
 2）在映射配置文件 IUserDao.xml 中添加映射。
+
+```xml
+<!--更新用户-->
+<update id="updateUser" parameterType="com.itheima.domain.User">
+    UPDATE USER SET username=#{username}, address=#{address}, sex=#{sex}, birthday=#{birthday} WHERE id=#{id};
+</update>
+```
+
 3）在测试类中添加新的测试方法
+
+
+```java
+
+
+```
 
 ### 5.2.2 删除操作
 
 
+1）在 IUserDao 中，添加方法。
+2）在映射配置文件 IUserDao.xml 中添加映射。
+3）在测试类中添加新的测试方法
 
 
 ## 5.3 CRUD-查询操作
@@ -123,4 +145,7 @@ public class MybatisTest {
 
 
 
+1）在 IUserDao 中，添加方法。
+2）在映射配置文件 IUserDao.xml 中添加映射。
+3）在测试类中添加新的测试方法
 
