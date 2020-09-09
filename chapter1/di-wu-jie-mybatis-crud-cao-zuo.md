@@ -175,13 +175,22 @@ User findById(Integer userId);
 2）在映射配置文件 IUserDao.xml 中添加映射。
 
 ```xml
-
+<!--据id查询用户-->
+<select id="findById" parameterType="Integer" resultType="com.itheima.domain.User">
+    SELECT * FROM USER WHERE id=#{uid};
+</select>
 ```
 
 3）在测试类中添加新的测试方法
 
 ```java
-
+//测试查询一个操作
+@Test
+public void testFindOne() {
+    //5. 执行查询一个方法
+    User user = userDao.findById(49);
+    System.out.println(user);
+}
 ```
 
 ### 5.3.2 模糊查询操作
