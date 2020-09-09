@@ -143,17 +143,26 @@ void deleteUser(Integer userId);
 2）在映射配置文件 IUserDao.xml 中添加映射。
 
 ```xml
-
+<!--根据id删除用户-->
+<!--parameterType为基本类型时，如int，其取值可以写为：Integer、INT、INTEGER、java.lang.Integer-->
+<delete id="deleteUser" parameterType="Integer">
+    <!--#{id}，由于只有一个参数，该括号内的文字只是一个占位符，可以取任意的名字-->
+    DELETE FROM USER WHERE id=#{uid};
+</delete>
 ```
 
 3）在测试类中添加新的测试方法
 
 ```java
-
+//测试删除操作
+@Test
+public void testDelete() {
+    //5. 执行删除方法
+    userDao.deleteUser(48);
+}
 ```
 
 ## 5.3 CRUD-查询操作
-
 
 ### 5.3.1 查询一个操作
 
