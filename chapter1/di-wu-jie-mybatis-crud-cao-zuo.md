@@ -116,8 +116,19 @@ void updateUser(User user);
 
 
 ```java
+//测试更新操作
+@Test
+public void testUpdate() {
+    User user = new User();
+    user.setId(49);
+    user.setUsername("mybatis Update");
+    user.setAddress("北京顺义区");
+    user.setSex("女");
+    user.setBirthday(new Date());
 
-
+    //5. 执行保存方法
+    userDao.updateUser(user);
+}
 ```
 
 ### 5.2.2 删除操作
