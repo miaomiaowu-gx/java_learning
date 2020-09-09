@@ -133,6 +133,7 @@ public void testUpdate() {
 
 ### 5.2.2 删除操作
 
+功能：根据 id 删除用户
 
 1）在 IUserDao 中，添加方法。
 
@@ -165,6 +166,8 @@ public void testDelete() {
 ## 5.3 CRUD-查询操作
 
 ### 5.3.1 查询一个操作
+
+功能：据 id 查询用户
 
 1）在 IUserDao 中，添加方法。
 
