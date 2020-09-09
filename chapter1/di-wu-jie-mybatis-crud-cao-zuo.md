@@ -76,7 +76,7 @@ public class MybatisTest {
         }
     }
 
-    //测试报错操作
+    //测试保存操作
     @Test
     public void testSave() {
         User user = new User();
@@ -90,6 +90,55 @@ public class MybatisTest {
     }
 }
 ```
+
+### 5.1.1 问题扩展：新增用户 id 的返回值
+
+
+
+
+1）修改映射配置文件 IUserDao.xml。
+
+```xml
+<insert id="saveUser" parameterType="com.itheima.domain.User">
+    <!-- 配置插入操作后，获取插入数据的id -->
+    <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+        SELECT LAST_INSERT_ID();
+    </selectKey>
+    INSERT into user(username, address, sex, birthday) VALUES(#{username},#{address},#{sex},#{birthday});
+</insert>
+```
+
+2）在测试类中添加新的测试方法
+
+```java
+//测试保存操作
+@Test
+public void testSave() {
+    User user = new User();
+    user.setUsername("mybatis saveuser id");
+    user.setAddress("北京顺义区");
+    user.setSex("男");
+    user.setBirthday(new Date());
+
+    System.out.println("保存操作之前："+user);
+    //5. 执行保存方法
+    userDao.saveUser(user);
+
+    System.out.println("保存操作之后："+user);
+
+}
+```
+
+执行结果：
+```
+保存操作之前：User{id=null, username='mybatis saveuser id', address='北京顺义区', sex='男', birthday=Wed Sep 09 13:54:51 CST 2020}
+保存操作之后：User{id=50, username='mybatis saveuser id', address='北京顺义区', sex='男', birthday=Wed Sep 09 13:54:51 CST 2020}
+```
+
+
+
+
+
 
 
 
@@ -301,7 +350,6 @@ public void testfindTotal() {
 ```
 
 
-## 5.4 CURD 操作分析
 
 
 
@@ -311,31 +359,10 @@ public void testfindTotal() {
 
 
 
-## 5.5 保存操作的细节-获取保存数据的id
 
 
 
 
-
-
-
-1）在 IUserDao 中，添加方法。
-
-```java
-
-```
-
-2）在映射配置文件 IUserDao.xml 中添加映射。
-
-```xml
-
-```
-
-3）在测试类中添加新的测试方法
-
-```java
-
-```
 
 
 
