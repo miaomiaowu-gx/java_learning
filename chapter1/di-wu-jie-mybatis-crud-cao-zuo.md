@@ -227,7 +227,7 @@ public void testFindByName() {
 }
 ```
 
-## 5.4 查询返回一行一列和占位符分析
+### 5.3.3 查询返回一行一列
 
 功能：查询总用户数。
 
@@ -240,17 +240,28 @@ int findTotal();
 2）在映射配置文件 IUserDao.xml 中添加映射。
 
 ```xml
-
+<!--查询总用户数-->
+<select id="findTotal" resultType="int">
+    SELECT COUNT(id) FROM USER;
+</select>
 ```
 
 3）在测试类中添加新的测试方法
 
 ```java
-
+//测试查询总记录条数操作
+@Test
+public void testfindTotal() {
+    //5. 执行查询总记录条数方法
+    int i = userDao.findTotal();
+    System.out.println("总记录条数："+i);
+}
 ```
 
 
+## 5.4 CURD 操作分析
 
+和占位符分析
 
 
 
