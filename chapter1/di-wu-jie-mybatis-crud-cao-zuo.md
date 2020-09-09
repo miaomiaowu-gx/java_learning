@@ -200,6 +200,8 @@ public void testFindOne() {
 
 功能：根据名称模糊查询用户信息。
 
+#### 实现一
+
 1）在 IUserDao 中，添加方法。
 
 ```java
@@ -221,11 +223,45 @@ List<User> findByName(String username);
 //测试模糊查询操作
 @Test
 public void testFindByName() {
-    //5. 执行模糊查询方法
-    User user = userDao.findById(49);
-    System.out.println(user);
+    //5. 执行查询一个方法
+    List<User> users = userDao.findByName("%王%");
+    for(User user:users){
+        System.out.println(user);
+    }
 }
 ```
+
+#### 实现二 （不常用）
+
+1）在 IUserDao 中，添加方法（同实现一一致）。
+
+```java
+List<User> findByName(String username);
+```
+
+2）在映射配置文件 IUserDao.xml 中添加映射。
+
+```xml
+<!--根据名称模糊查询用户信息-->
+<select id="findByName" parameterType="String" resultType="com.itheima.domain.User">
+    SELECT * FROM USER WHERE username LIKE '%${value}%';
+</select>
+```
+
+* 注：`'%${value}%'`中的 value 名字不可以修改。
+
+3）在测试类中添加新的测试方法
+
+```java
+
+```
+
+
+
+
+
+
+
 
 ### 5.3.3 查询返回一行一列
 
