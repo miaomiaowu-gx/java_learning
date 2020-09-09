@@ -209,13 +209,22 @@ List<User> findByName(String username);
 2）在映射配置文件 IUserDao.xml 中添加映射。
 
 ```xml
-
+<!--根据名称模糊查询用户信息-->
+<select id="findByName" parameterType="String" resultType="com.itheima.domain.User">
+    SELECT * FROM USER WHERE username LIKE #{name};
+</select>
 ```
 
 3）在测试类中添加新的测试方法
 
 ```java
-
+//测试模糊查询操作
+@Test
+public void testFindByName() {
+    //5. 执行模糊查询方法
+    User user = userDao.findById(49);
+    System.out.println(user);
+}
 ```
 
 ## 5.4 查询返回一行一列和占位符分析
