@@ -198,6 +198,7 @@ public void testFindOne() {
 
 ### 5.3.2 模糊查询操作
 
+功能：根据名称模糊查询用户信息。
 
 1）在 IUserDao 中，添加方法。
 
