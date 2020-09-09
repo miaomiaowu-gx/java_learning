@@ -203,7 +203,7 @@ public void testFindOne() {
 1）在 IUserDao 中，添加方法。
 
 ```java
-
+List<User> findByName(String username);
 ```
 
 2）在映射配置文件 IUserDao.xml 中添加映射。
