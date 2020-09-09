@@ -265,7 +265,7 @@ public void testFindByName2() {
 ```
 #### 两种实现的区别
 
-<img src="./img1/09-the-difference-between-the-two-implementations.png" width=600>
+<img src="./img1/09-the-difference-between-the-two-implementations.png" width=800>
 
 
 
