@@ -7,6 +7,7 @@
   * [第三节 Mybatis 入门案例中的设计模式分析](chapter1/di-san-jie-mybatis-ru-men-an-li-zhong-de-she-ji-mo-shi-fen-xi.md)
   * [第四节 自定义 Mybatis 小结](chapter1/di-si-jie-zi-ding-yi-mybatis-xiao-jie.md)
   * [第五节 Mybatis CRUD操作](chapter1/di-wu-jie-mybatis-crud-cao-zuo.md)
+  * [第六节 Mybatis 的参数深入]()
 * [第二章 Spring](chapter2.md)
 * [第三章 SpringMVC](chapter3.md)
 
