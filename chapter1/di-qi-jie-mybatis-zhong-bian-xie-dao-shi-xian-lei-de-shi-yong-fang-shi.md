@@ -229,7 +229,15 @@ public void testFindOne() {
 1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
 
 ```java
-
+public List<User> findByName(String username) {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用SqlSession方法，实现查询列表
+    List<User> users = session.selectList("com.itheima.dao.IUserDao.findByName",username); //参数就是能获取配置信息的key
+    //3. 释放资源
+    session.close();
+    return users;
+}
 ```
 
 2）测试
