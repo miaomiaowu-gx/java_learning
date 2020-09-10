@@ -23,7 +23,7 @@ Mybatis 使用 ognl 表达式解析对象字段的值，#{}或者${}括号中的
 * 类中的写法：`user.getUsername();`
 
 * OGNL 表达式写法：`user.username`
- 
+
 那么 Mybatis 中为什么能直接写 `username`，而不用 `user.` ？：
 
 &emsp;因为在 parameterType 中已经提供了属性所属的类，所以此时不需要写对象名。
@@ -159,7 +159,7 @@ List<User> findAll();
 
 此时运行测试函数，输出
 
-<img src="./img1/10-idea-output-resulttype.png" width=600>
+<img src="./img1/10-idea-output-resulttype.png" width=800>
 
 
 
@@ -168,13 +168,13 @@ List<User> findAll();
 
 ### 6.2.2
 
- 
+
 ### 6.2.3 
 
 
 
 
-   
+
 
 
 
