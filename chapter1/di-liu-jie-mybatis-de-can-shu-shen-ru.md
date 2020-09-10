@@ -156,11 +156,8 @@ List<User> findAll();
     SELECT * FROM USER;
 </select>
 ```
-【Dao 接口】
 
-
-【映射配置】
-
+此时运行测试函数，输出
 
 
 
