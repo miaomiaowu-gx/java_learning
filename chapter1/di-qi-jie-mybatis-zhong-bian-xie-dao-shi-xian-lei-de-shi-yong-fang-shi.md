@@ -223,11 +223,22 @@ public void testFindOne() {
 }
 ```
 
-### 7.6 操作
+### 7.6 模糊操作
 
 
 1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+
+```java
+
+```
+
 2）测试
+
+```java
+
+```
+
+
 
 
 ### 7.7 操作
