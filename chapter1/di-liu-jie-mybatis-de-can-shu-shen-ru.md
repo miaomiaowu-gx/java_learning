@@ -83,6 +83,22 @@ public void testFindByVo() {
 
 ## 6.2 Mybatis 输出结果封装
 
+### 6.2.1 
+
+
+### 6.2.2
+
+ 
+### 6.2.3 
+
+
+
+
+   
+
+
+
+
 
 
 ## 6.3 resultMap 结果类型
