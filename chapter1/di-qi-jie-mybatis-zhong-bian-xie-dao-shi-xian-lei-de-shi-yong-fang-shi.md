@@ -32,7 +32,74 @@ public class UserDaoImpl implements IUserDao{
     }
 ```
 
-2）修改测试文件
+2）修改测试文件，配置文件保持不变
 
 ① 取消私有变量 `SqlSession` 的定义。
 ② 无需对 SqlSession 对象进行 commit 与 close 操作。
+
+
+```java
+package com.itheima.test;
+
+import com.itheima.dao.IUserDao;
+import com.itheima.dao.impl.UserDaoImpl;
+import com.itheima.domain.User;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.InputStream;
+import java.util.Date;
+import java.util.List;
+
+public class MybatisTest {
+
+    private InputStream in;
+    //private SqlSession session;
+    private IUserDao userDao;
+
+    @Before //该注解用于在测试方法执行之前执行
+    public void init() throws Exception{
+        //1. 读取配置文件，生成字节输入流
+        in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        //2. 获取SqlSessionFactory对象
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        //3. 使用工厂对象创建dao对象
+
+        userDao = new UserDaoImpl(factory);
+    }
+
+    @After //该方法用于在测试方法执行之后执行
+    public void destroy() throws Exception{
+        in.close();
+    }
+
+    @Test
+    public void testFindAll() {
+
+        //5. 执行查询所有方法
+        List<User> users = userDao.findAll();
+        for(User user : users){
+            System.out.println(user);
+        }
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
