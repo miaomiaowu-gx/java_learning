@@ -161,7 +161,7 @@ List<User> findAll();
 
 <img src="./img1/10-idea-output-resulttype.png" width=800>
 
-
+由于 MySQL 在 windows 系统中不区分大小写，所以 userName 可以与数据库中的列名 username 匹配，而其他不能匹配的属性值为 null。
 
 
 
