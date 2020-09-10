@@ -243,9 +243,16 @@ public List<User> findByName(String username) {
 2）测试
 
 ```java
-
+//测试模糊查询操作
+@Test
+public void testFindByName() {
+    //5. 执行模糊查询方法
+    List<User> users = userDao.findByName("%王%");
+    for(User user:users){
+        System.out.println(user);
+    }
+}
 ```
-
 
 
 
