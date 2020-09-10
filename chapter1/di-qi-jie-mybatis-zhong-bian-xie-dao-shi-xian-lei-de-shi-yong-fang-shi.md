@@ -260,6 +260,17 @@ public void testFindByName() {
 
 1）为类添加 `impl.UserDaoImpl`实现方法 `findTotal`
 
+```java
+public int findTotal() {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用SqlSession方法，实现查询总记录条数
+    Integer count = session.selectOne("com.itheima.dao.IUserDao.findTotal");
+    //3. 释放资源
+    session.close();
+    return count;
+}
+```
 
 2）测试
 
