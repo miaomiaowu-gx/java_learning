@@ -91,7 +91,44 @@ public class MybatisTest {
 ```
 
 
-### 7.2 保存
+### 7.2 保存操作
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+
+```java
+public void saveUser(User user) {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用方法实现保存
+    session.insert("com.itheima.dao.IUserDao.saveUser");
+    //3. 提交
+    session.commit();
+    //4. 释放资源
+    session.close();
+
+}
+```
+
+2）
+
+
+
+
+
+
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+
+
+
+
+
+
+
+
+
+
+
 
 
 
