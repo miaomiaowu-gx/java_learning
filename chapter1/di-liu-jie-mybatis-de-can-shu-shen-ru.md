@@ -32,14 +32,25 @@ Pojo 类中包含 pojo。
 
 ```java
 //根据queryVo中的条件查询用户
-int findUserByVo(QueryVo vo);
+List<User> findUserByVo(QueryVo vo);
 ```
 
 2）在 domain 文件夹下，创建 `QueryVo`类。
 
 ```java
+package com.itheima.domain;
 
+public class QueryVo {
+    private User user;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+}
 ```
 
 2）在映射配置文件 IUserDao.xml 中添加映射。
