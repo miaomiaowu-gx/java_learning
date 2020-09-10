@@ -35,6 +35,12 @@ Pojo 类中包含 pojo。
 int findUserByVo(QueryVo vo);
 ```
 
+2）在 domain 文件夹下，创建 `QueryVo`类。
+
+```java
+
+
+```
 
 2）在映射配置文件 IUserDao.xml 中添加映射。
 
