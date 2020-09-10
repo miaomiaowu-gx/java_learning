@@ -274,6 +274,16 @@ public int findTotal() {
 
 2）测试
 
+```java
+//测试查询总记录条数操作
+@Test
+public void testfindTotal() {
+    //5. 执行查询总记录条数方法
+    int i = userDao.findTotal();
+    System.out.println("总记录条数："+i);
+}
+```
+
 ### 7.8 操作
 
 
