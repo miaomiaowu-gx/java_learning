@@ -100,7 +100,7 @@ public void saveUser(User user) {
     //1. 根据factory获取SqlSession对象
     SqlSession session = factory.openSession();
     //2. 调用方法实现保存
-    session.insert("com.itheima.dao.IUserDao.saveUser");
+    session.insert("com.itheima.dao.IUserDao.saveUser",user);
     //3. 提交
     session.commit();
     //4. 释放资源
