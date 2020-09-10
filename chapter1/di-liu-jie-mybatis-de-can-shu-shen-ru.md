@@ -26,6 +26,23 @@ Mybatis 使用 ognl 表达式解析对象字段的值，#{}或者${}括号中的
 
 Pojo 类中包含 pojo。
 
+功能：
+
+1）在 IUserDao 中，添加方法。
+
+```java
+//根据queryVo中的条件查询用户
+int findUserByVo(QueryVo vo);
+```
+
+
+2）在映射配置文件 IUserDao.xml 中添加映射。
+
+
+
+
+3）在测试类中添加新的测试方法
+
 
 
 
@@ -34,3 +51,18 @@ Pojo 类中包含 pojo。
 
 
 ## 6.3 resultMap 结果类型
+
+
+
+
+
+1）在 IUserDao 中，添加方法。
+
+2）在映射配置文件 IUserDao.xml 中添加映射。
+
+
+3）在测试类中添加新的测试方法
+
+
+
+
