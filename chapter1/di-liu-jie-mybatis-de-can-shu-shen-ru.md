@@ -159,7 +159,7 @@ List<User> findAll();
 
 此时运行测试函数，输出
 
-
+<img src="./img1/10-idea-output-resulttype.png" width=600>
 
 
 
