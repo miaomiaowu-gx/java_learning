@@ -53,14 +53,32 @@ public class QueryVo {
 }
 ```
 
-2）在映射配置文件 IUserDao.xml 中添加映射。
+3）在映射配置文件 IUserDao.xml 中添加映射。
 
+```xml
+<!--根据queryVo中的条件查询用户-->
+<select id="findUserByVo" parameterType="com.itheima.domain.QueryVo" resultType="com.itheima.domain.User">
+    SELECT * FROM USER WHERE username LIKE #{user.username};
+</select>
+```
 
+4）在测试类中添加新的测试方法
 
-
-3）在测试类中添加新的测试方法
-
-
+```java
+//根据使用QueryVo中作为查询条件
+@Test
+public void testFindByVo() {
+    QueryVo vo = new QueryVo();
+    User user = new User();
+    user.setUsername("%王%");
+    vo.setUser(user);
+    //5. 根据queryVo中的条件查询用户
+    List<User> users = userDao.findUserByVo(vo);
+    for(User t : users){
+        System.out.println(t);
+    }
+}
+```
 
 
 ## 6.2 Mybatis 输出结果封装
