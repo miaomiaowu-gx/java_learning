@@ -10,3 +10,5 @@
 
 2）修改测试文件
 
+① 取消私有变量 `SqlSession` 的定义。
+② 无需对 SqlSession 对象进行 commit 与 close 操作。
