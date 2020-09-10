@@ -203,7 +203,7 @@ public void testDelete() {
 public User findById(Integer userId) {
     //1. 根据factory获取SqlSession对象
     SqlSession session = factory.openSession();
-    //2. 调用SqlSession方法，实现查询列表
+    //2. 调用SqlSession方法，实现查询一个
     User user = session.selectOne("com.itheima.dao.IUserDao.findById",userId);
     //3. 释放资源
     session.close();
@@ -226,13 +226,13 @@ public void testFindOne() {
 ### 7.6 模糊操作
 
 
-1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+1）为类添加 `impl.UserDaoImpl`实现方法 `findByName`
 
 ```java
 public List<User> findByName(String username) {
     //1. 根据factory获取SqlSession对象
     SqlSession session = factory.openSession();
-    //2. 调用SqlSession方法，实现查询列表
+    //2. 调用SqlSession方法，实现模糊查询列表
     List<User> users = session.selectList("com.itheima.dao.IUserDao.findByName",username); //参数就是能获取配置信息的key
     //3. 释放资源
     session.close();
@@ -256,15 +256,11 @@ public void testFindByName() {
 
 
 
-### 7.7 操作
+### 7.7 查询总记录条数操作
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `findTotal`
 
 
-
-
-
-
-
-1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
 2）测试
 
 ### 7.8 操作
