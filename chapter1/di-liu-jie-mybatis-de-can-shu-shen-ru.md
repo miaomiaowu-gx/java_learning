@@ -179,26 +179,43 @@ List<User> findAll();
 
 2）使用 resultMap 标签
 
+
+### 6.2.2 resultMap 结果类型
+
 resultMap 标签可以建立查询的列名和实体类的属性名称不一致时建立对应关系。从而实现封装。
 
 在 select 标签中使用 resultMap 属性指定引用即可。同时 resultMap 可以实现将查询结果映射为复杂类型的 pojo，比如在查询结果映射对象中包括 pojo 和 list 实现一对一查询和一对多查询。
 
 
+#### ① 定义 resultMap
 
+```xml
+<!-- 建立 User 实体和数据库表的对应关系
+type 属性：指定实体类的全限定类名
+id 属性：给定一个唯一标识，是给查询 select 标签引用用的。
+-->
+<resultMap type="com.itheima.domain.User" id="userMap">
+    <id column="id" property="userId"/>
+    <result column="username" property="userName"/>
+    <result column="sex" property="userSex"/>
+    <result column="address" property="userAddress"/>
+    <result column="birthday" property="userBirthday"/>
+</resultMap>
+```
 
-### 6.2.2
+* id 标签：用于指定主键字段
+* result 标签：用于指定非主键字段
+* column 属性：用于指定数据库列名
+* property 属性：用于指定实体类属性名称
 
+#### ② 映射配置
 
-### 6.2.3 
-
-
-
-
-
-
-
-
-
+```xml
+<!-- 查询所有 -->
+<select id="findAll" resultMap="userMap">
+    SELECT *  FROM USER;
+</select>
+```
 
 
 ## 6.3 resultMap 结果类型
