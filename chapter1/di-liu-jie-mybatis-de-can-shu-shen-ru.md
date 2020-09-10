@@ -95,16 +95,72 @@ public void testFindByVo() {
 
 resultType 属性可以指定**结果集的类型**，它支持**基本类型**和**实体类类型**。和 parameterType 一样，如果注册过类型别名的，可以直接使用别名。没有注册过的必须使用全限定类名。实体类中的**属性名称**必须和查询语句中的**列名**保持一致，否则无法实现封装。
 
-#### 基本类型示例
+#### ① 基本类型示例
+
+【Dao 接口】
+
+```java
+int findTotal();
+```
+
+【映射配置】
+
+```xml
+<!-- 查询总记录条数 -->
+<select id="findTotal" resultType="int">
+    select count(id) from user;
+</select>
+```
+
+#### ② 实体类类型示例
+
+【Dao 接口】
+
+```java
+List<User> findAll();
+```
+
+【映射配置】
+
+```xml
+<!-- 配置查询所有操作 -->
+<select id="findAll" resultType="com.itheima.domain.User">
+    select * from user
+</select>
+```
 
 
-#### 
+#### ③ 特殊情况示例
+
+修改 User实体类中的属性名，使其实体类属性和数据库表的列名不一致，代码如下：
+
+```java
+public class User implements Serializable {
+
+    private Integer userId;
+    private String userName;
+    private String userAddress;
+    private String userSex;
+    private Date userBirthday;
+    
+    //省略 getter & setter 与 toString 方法
+}
+```
+
+Dao 接口与映射配置文件不变
+
+```java
+List<User> findAll();
+
+<select id="findAll" resultType="com.itheima.domain.User">
+    SELECT * FROM USER;
+</select>
+```
+【Dao 接口】
 
 
+【映射配置】
 
-
-
-#### 
 
 
 
