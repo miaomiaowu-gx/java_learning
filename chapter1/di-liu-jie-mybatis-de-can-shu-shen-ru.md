@@ -177,7 +177,10 @@ List<User> findAll();
 </select>
 ```
 
-2）
+2）使用 resultMap 标签
+
+
+
 
 
 ### 6.2.2
