@@ -109,15 +109,60 @@ public void saveUser(User user) {
 }
 ```
 
-2）
+2）测试
 
+```java
+//测试保存操作
+@Test
+public void testSave() {
+    User user = new User();
+    user.setUsername("Dao impl user3");
+    user.setAddress("东北");
+    user.setSex("女");
+    user.setBirthday(new Date());
 
+    System.out.println("保存操作之前："+user);
+    //5. 执行保存方法
+    userDao.saveUser(user);
+    
+    System.out.println("保存操作之后："+user);
+}
+```
 
-
+### 7.3 保存操作
 
 
 
 1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+2）测试
+
+
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
+2）测试
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
