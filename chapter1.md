@@ -126,7 +126,7 @@ public static void main(String[] args) {
 
 
 
-
+> MySQL 在 windows 下不区分大小写，但在 Linux 系统下严格区分大小写。
 
 
 
