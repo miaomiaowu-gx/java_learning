@@ -129,7 +129,62 @@ public void testSave() {
 }
 ```
 
-### 7.3 保存操作
+### 7.3 更新操作
+
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `updateUser`
+
+```java
+public void updateUser(User user) {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用方法实现更新
+    session.update("com.itheima.dao.IUserDao.updateUser",user);
+    //3. 提交
+    session.commit();
+    //4. 释放资源
+    session.close();
+}
+```
+
+2）测试
+
+```java
+//测试更新操作
+@Test
+public void testUpdate() {
+    User user = new User();
+    user.setId(55);
+    user.setUsername("mybatis Update resultMap");
+    user.setAddress("扬州");
+    user.setSex("女");
+    user.setBirthday(new Date());
+
+    //5. 执行更新方法
+    userDao.updateUser(user);
+}
+```
+
+### 7.4 删除操作
+
+
+1）为类添加 `impl.UserDaoImpl`实现方法 `deleteUser`
+
+```java
+public void deleteUser(Integer userId) {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用方法实现删除，调用的是update方法
+    session.update("com.itheima.dao.IUserDao.deleteUser",userId);
+    //3. 提交
+    session.commit();
+    //4. 释放资源
+    session.close();
+}
+```
+
+2）测试
+
 
 
 
@@ -138,8 +193,51 @@ public void testSave() {
 
 
 
-1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
-2）测试
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
