@@ -195,21 +195,35 @@ public void testDelete() {
 }
 ```
 
-### 7.5 操作
+### 7.5 查询一个操作
 
+1）为类添加 `impl.UserDaoImpl`实现方法 `findById`
 
+```java
+public User findById(Integer userId) {
+    //1. 根据factory获取SqlSession对象
+    SqlSession session = factory.openSession();
+    //2. 调用SqlSession方法，实现查询列表
+    User user = session.selectOne("com.itheima.dao.IUserDao.findById",userId);
+    //3. 释放资源
+    session.close();
+    return user;
+}
+```
 
-
-
-1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
 2）测试
 
+```java
+//测试查询一个操作
+@Test
+public void testFindOne() {
+    //5. 执行查询一个方法
+    User user = userDao.findById(49);
+    System.out.println(user);
+}
+```
+
 ### 7.6 操作
-
-
-
-
-
 
 
 1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
