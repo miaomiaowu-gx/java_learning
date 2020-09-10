@@ -179,6 +179,9 @@ List<User> findAll();
 
 2）使用 resultMap 标签
 
+resultMap 标签可以建立查询的列名和实体类的属性名称不一致时建立对应关系。从而实现封装。
+
+在 select 标签中使用 resultMap 属性指定引用即可。同时 resultMap 可以实现将查询结果映射为复杂类型的 pojo，比如在查询结果映射对象中包括 pojo 和 list 实现一对一查询和一对多查询。
 
 
 
