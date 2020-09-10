@@ -170,6 +170,12 @@ List<User> findAll();
 优点：效率高。
 缺点：相关的每一处 sql 语句都需要修改。
 
+```xml
+<!-- 查询所有 -->
+<select id="findAll" resultType="com.itheima.domain.User">
+    SELECT id as userId,username as userName,birthday as userBirthday, sex as userSex,address as userAddress  FROM USER;
+</select>
+```
 
 ### 6.2.2
 
