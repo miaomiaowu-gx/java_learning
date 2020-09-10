@@ -284,16 +284,7 @@ public void testfindTotal() {
 }
 ```
 
-### 7.8 操作
 
-
-
-
-
-
-
-1）为类添加 `impl.UserDaoImpl`实现方法 `saveUser`
-2）测试
 
 
 
