@@ -12,7 +12,9 @@
 
 <img src="./img1/13-major-sqlconfig-file-properties.png" width=1400>
 
-### 8.4 
+### 8.4 typeAliases 标签和 package 标签
+
+
 
 
 
