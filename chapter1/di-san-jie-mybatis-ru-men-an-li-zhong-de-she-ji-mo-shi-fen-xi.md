@@ -1,24 +1,24 @@
-# 第三节 Mybatis入门案例中的设计模式分析
+## 第三节 Mybatis入门案例中的设计模式分析
 
-## 3.1 Mybatis 主函数分析
+### 3.1 Mybatis 主函数分析
 
 <img src="./img1/05-code-quick-start.png" width=800>
 
 
 
-## 3.2 Mybatis 执行查询所有(findAll)分析
+### 3.2 Mybatis 执行查询所有(findAll)分析
 
 
 <img src="./img1/06-query-all-analyses.png" width=1400>
 
 
 
-## 3.3 Mybatis 创建代理对象的分析
+### 3.3 Mybatis 创建代理对象的分析
 
 <img src="./img1/07-custom-mybatis-analysis.png" width=700>
 
 
-## 3.4 自定义 Mybatis 框架
+### 3.4 自定义 Mybatis 框架
 
 自定义 Mybatis 的分析：
 
@@ -39,7 +39,7 @@
 * `interface SqlSession`
 
 
-### 实现
+#### 实现
 
 基于入门案例修改，去掉 `pom.xml` 文件中有关 mybatis 的坐标（即 dependency 项），并删除配置文件中的相关约束。
 
@@ -654,7 +654,7 @@ public class DataSourceUtil {
 }
 ```
 
-### 3.5 自定义Mybatis的编码-实现基于注解配置的查询所有
+#### 3.5 自定义Mybatis的编码-实现基于注解配置的查询所有
 
 1）修改 SqlMapConfig.xml 中的 mapper，将 resource 改为 class。
 
