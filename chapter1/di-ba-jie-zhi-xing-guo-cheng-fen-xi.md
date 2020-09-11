@@ -10,7 +10,7 @@ PreoaredStatement对象执行方法
 
 SqlMapConfig.xml 文件的 properties 标签
 
-<img src="./img1/13-major-sqlconfig-file-properties.png" width=1200>
+<img src="./img1/13-major-sqlconfig-file-properties.png" width=1400>
 
 
 
