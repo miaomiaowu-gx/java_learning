@@ -1,6 +1,6 @@
-# 第二节 Mybatis 基于注解开发
+## 第二节 Mybatis 基于注解开发
 
-## 1. 基于注解开发
+### 1. 基于注解开发
 
 1. 创建 Maven 项目，`GroupId = com.itheima`，`ArtifactId = day01_eesy_02mybatis_annotation`。
 
@@ -27,7 +27,7 @@
    
       
          
-## 2. Mybatis 开发注意
+### 2. Mybatis 开发注意
 
 需要明确
 
@@ -35,7 +35,7 @@
 
 * 但是 Mybatis 支持写 dao 实现类的。 
 
-## 3. 基于实现类的开发示例
+### 3. 基于实现类的开发示例
 
 1）基于上述代码，在 dao 文件夹下，添加实现类 `impl.UserDaoImpl`。
     
