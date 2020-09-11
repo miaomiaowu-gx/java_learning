@@ -14,6 +14,8 @@
 
 ### 8.4 typeAliases 标签和 package 标签
 
+<img src="./img1/14-typeAliases-package-pic.png" width=700>
+
 
 
 
