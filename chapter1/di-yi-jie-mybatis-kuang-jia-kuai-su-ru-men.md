@@ -1,9 +1,9 @@
-# 第一节 Mybatis 框架快速入门 - 基于 xml 开发
+## 第一节 Mybatis 框架快速入门 - 基于 xml 开发
 
-## 1. Mybatis 环境搭建
+### 1. Mybatis 环境搭建
 
 
-### 1.1 安装前准备
+#### 1.1 安装前准备
 
 
 创建数据库要操作的表
@@ -35,7 +35,7 @@ SELECT * FROM USER;
 
 <img src="./img1/02-dataset-mysql.png" width=600>
 
-### 1.2 Mybatis 环境搭建
+#### 1.2 Mybatis 环境搭建
 
 ① 创建工程，选择 Maven，点击 Next，填写 GroupId 为 `com.itheima`，ArtifactId 为 `day01_eesy_01mybatis`，点击 Next、Finish。
 
@@ -247,11 +247,11 @@ public interface IUserDao {
 </mapper>
 ```
 
-### 1.3 文件结构
+#### 1.3 文件结构
 
 <img src="./img1/04-file-structure-for-first.png" width=500>
 
-### 1.4 Mybatis 环境搭建注意
+#### 1.4 Mybatis 环境搭建注意
 
 第一个：创建 IUserDao.xml 和 IUserDao.java 时，名称是为了和之前的知识保持一致。在Mybatis中，它把持久层的操作接口名称和映射文件也叫做：Mapper。所以，**IUserDao 和 IUserMapper 是一样的**。
 
@@ -267,10 +267,10 @@ public interface IUserDao {
 🍓 当开发者遵从了第三，四，五点之后，在开发中就无须再写 dao 的实现类。
 
 
-## 2. Mybatis 入门
+### 2. Mybatis 入门
 
 
-### 2.1 配置日志
+#### 2.1 配置日志
 
 在 resources 文件夹下 创建文件 `log4j.properties`
 
@@ -295,7 +295,7 @@ log4j.appender.LOGFILE.layout=org.apache.log4j.PatternLayout
 log4j.appender.LOGFILE.layout.ConversionPattern=%d{ISO8601} %-6r [%15.15t] %-5p %30.30c %x - %m\n
 ```
 
-### 2.2 添加测试类
+#### 2.2 添加测试类
 
 在 src->test->java 文件夹下创建 `com.itheima.test.MybatisTest` 类。
 
