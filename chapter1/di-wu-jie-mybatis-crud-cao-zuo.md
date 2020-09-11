@@ -1,7 +1,7 @@
-# 第五节 基于代理 Dao 实现 CRUD 操作
+## 第五节 基于代理 Dao 实现 CRUD 操作
 
 
-## 5.1 CRUD-保存操作
+### 5.1 CRUD-保存操作
 
 1）在 IUserDao 中，添加方法。
 
@@ -91,7 +91,7 @@ public class MybatisTest {
 }
 ```
 
-### 5.1.1 问题扩展：新增用户 id 的返回值
+#### 5.1.1 问题扩展：新增用户 id 的返回值
 
 
 
@@ -142,9 +142,9 @@ public void testSave() {
 
 
 
-## 5.2 CRUD-修改和删除操作
+### 5.2 CRUD-修改和删除操作
 
-### 5.2.1 修改操作
+#### 5.2.1 修改操作
 
 1）在 IUserDao 中，添加方法。
 
@@ -180,7 +180,7 @@ public void testUpdate() {
 }
 ```
 
-### 5.2.2 删除操作
+#### 5.2.2 删除操作
 
 功能：根据 id 删除用户
 
@@ -212,9 +212,9 @@ public void testDelete() {
 }
 ```
 
-## 5.3 CRUD-查询操作
+### 5.3 CRUD-查询操作
 
-### 5.3.1 查询一个操作
+#### 5.3.1 查询一个操作
 
 功能：据 id 查询用户
 
@@ -245,11 +245,11 @@ public void testFindOne() {
 }
 ```
 
-### 5.3.2 模糊查询操作
+#### 5.3.2 模糊查询操作
 
 功能：根据名称模糊查询用户信息。
 
-#### 实现一
+##### 实现一
 
 1）在 IUserDao 中，添加方法。
 
@@ -280,7 +280,7 @@ public void testFindByName() {
 }
 ```
 
-#### 实现二 （不常用，了解）
+##### 实现二 （不常用，了解）
 
 1）在 IUserDao 中，添加方法（同实现一一致）。
 
@@ -312,13 +312,13 @@ public void testFindByName2() {
     }
 }
 ```
-#### 两种实现的区别
+##### 两种实现的区别
 
 <img src="./img1/09-the-difference-between-the-two-implementations.png" width=800>
 
 
 
-### 5.3.3 查询返回一行一列
+#### 5.3.3 查询返回一行一列
 
 功能：查询总用户数。
 
