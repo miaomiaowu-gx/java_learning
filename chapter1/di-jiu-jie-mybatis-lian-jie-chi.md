@@ -18,5 +18,6 @@
 
 在 IDEA 中，ctrl+N 弹出类搜索框，分别输入 `PooledDataSource` 与 `UnpooledDataSource` 。
 
+### 9.1 mybatis 中使用 unpooled 配置连接池的原理分析
 
 
