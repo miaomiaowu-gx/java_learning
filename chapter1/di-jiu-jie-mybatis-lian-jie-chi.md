@@ -14,3 +14,9 @@
 
 * 注意：如果不是 web 或者 maven 的 war 工程，是不能使用的。课程中使用的是 tomcat 服务器，采用连接池就是 dbcp 连接池。
 
+<hr>
+
+在 IDEA 中，ctrl+N 弹出类搜索框，分别输入 `PooledDataSource` 与 `UnpooledDataSource` 。
+
+
+
