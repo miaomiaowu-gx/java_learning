@@ -67,7 +67,9 @@ public void testFindByCondition() {
 
 ### 10.3 
 
+需求 `select * from user where id in()`
 
+1 在 QueryVo.java 文件中定义
 
 
 
