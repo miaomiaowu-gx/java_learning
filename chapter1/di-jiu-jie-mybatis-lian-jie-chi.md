@@ -36,7 +36,7 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 ### 9.2 Mybatis 中使用 POOLED 配置连接的原理分析
 
-
+<img src="./img1/15-mybatis-pooled-conn.png" width=1100>
 
 
 
