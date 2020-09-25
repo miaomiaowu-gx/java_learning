@@ -32,3 +32,25 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 ### 9.1 Mybatis 中使用 UNPOOLED 配置连接池的原理分析
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
