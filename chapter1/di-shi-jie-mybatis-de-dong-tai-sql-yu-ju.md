@@ -2,7 +2,7 @@
 
 ### 10.1 动态 SQL 之 if 标签
 
-1. 持久层 Dao 接口：在 IUserDao.java 文件中，添加：
+1 持久层 Dao 接口：在 IUserDao.java 文件中，添加：
 
 ```java
 /**
@@ -13,7 +13,7 @@
 List<User> findUserByCondition(User user);
 ```
 
-2. 在 `IUserDao.xml` 中添加配置：
+2 在 `IUserDao.xml` 中添加配置：
 
 ```xml
 <!-- 根据条件查询 -->
@@ -28,7 +28,7 @@ List<User> findUserByCondition(User user);
 </select>
 ```
 
-3. 
+3  
 
 
 ### 10.2 
