@@ -11,3 +11,18 @@
    * UNPOOLED 采用传统的获取连接的方式，虽然也实现Javax.sql.DataSource 接口，但是并没有使用池的思想。每次用重新创建连接。
    * JNDI 采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到 DataSource 是不一样。
    * MyBatis 内部分别定义了实现了 java.sql.DataSource 接口的 UnpooledDataSource，PooledDataSource 类来表示 UNPOOLED、 POOLED 类型的数据源。
+   
+```xml
+数据源配置就是在 SqlMapConfig.xml 文件中， 具体配置如下：
+<!-- 配置数据源（连接池）信息 -->
+<dataSource type="POOLED">
+<property name="driver" value="${jdbc.driver}"/>
+<property name="url" value="${jdbc.url}"/>
+<property name="username" value="${jdbc.username}"/>
+<property name="password" value="${jdbc.password}"/>
+</dataSource>
+MyBatis 在初始化时， 根据<dataSource>的 type 属性来创建相应类型的的数据源 DataSource，即：
+type=”POOLED”： MyBatis 会创建 PooledDataSource 实例
+type=”UNPOOLED” ： MyBatis 会创建 UnpooledDataSource 实例
+type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然后返回使用
+```   
