@@ -140,12 +140,12 @@ public void testFindInIds() {
     SELECT * FROM USER
 </sql>
 
-<!-- 查询所有 SELECT *  FROM USER;-->
+<!-- 查询所有 include 引入 -->
 <select id="findAll" resultMap="userMap">
     <include refid="defaultUser"></include>
 </select>
 
-<!-- 根据QueryVo中提供的id集合，查询用户信息 -->
+<!-- 根据QueryVo中提供的id集合，查询用户信息 include 引入-->
 <select id="findUserInIds" resultMap="userMap" parameterType="com.itheima.domain.QueryVo">
     <include refid="defaultUser"></include>
     <where>
