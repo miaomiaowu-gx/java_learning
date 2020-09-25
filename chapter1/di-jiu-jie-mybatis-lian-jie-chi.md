@@ -26,5 +26,5 @@ type=”POOLED”： MyBatis 会创建 PooledDataSource 实例
 type=”UNPOOLED” ： MyBatis 会创建 UnpooledDataSource 实例
 type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然后返回使用
 ```   
-
+* 注意：如果不是 web 或者 maven 的 war 工程，是不能使用的。课程中使用的是 tomcat 服务器，采用连接池就是 dbcp 连接池。
 
