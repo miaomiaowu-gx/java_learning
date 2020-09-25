@@ -85,7 +85,7 @@ public class QueryVo {
 }
 ```
 
-2 在 IUserDao.java 文件中，添加
+2 持久层 Dao 接口：在 IUserDao.java 文件中，添加
 
 ```java
 /**
@@ -96,7 +96,7 @@ public class QueryVo {
 List<User> findUserInIds(QueryVo vo);
 ```
 
-3. 在 `IUserDao.xml` 中添加配置：
+3. 持久层 Dao 映射配置：在 `IUserDao.xml` 中添加配置：
 
 
 
