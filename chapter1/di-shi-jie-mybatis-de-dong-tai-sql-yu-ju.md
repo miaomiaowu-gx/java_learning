@@ -48,7 +48,7 @@ public void testFindByCondition() {
 
 ### 10.2 动态 SQL 之 where 标签
 
-
+为了简化上面 `where 1=1` 的条件拼装，可以采用 `<where>` 标签来简化开发。
 
 
 
