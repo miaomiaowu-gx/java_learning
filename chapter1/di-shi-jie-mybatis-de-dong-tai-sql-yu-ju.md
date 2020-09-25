@@ -30,7 +30,20 @@ List<User> findUserByCondition(User user);
 
 3  测试
 
+```java
+@Test
+public void testFindByCondition() {
+    User user = new User();
+    user.setUserName("老王");
+    user.setUserSex("女");
+    //5. 执行查询所有方法
+    List<User> users = userDao.findUserByCondition(user);
+    for(User u : users){
+        System.out.println(u);
+    }
 
+}
+```
 
 
 ### 10.2 
