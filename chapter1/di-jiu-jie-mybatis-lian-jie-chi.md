@@ -40,7 +40,14 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 ### 9.3 Mybatis 的事务控制
 
+常见面试题：
+1. 什么是事务
+2. 事务的四大特性ACID
+3. 不考虑隔离性会产生的3个问题
+4. 解决办法：四种隔离级别
 
+mybatis中的事务
+它是通过sqlsession对象的commit方法和rollback方法实现事务的提交和回滚
 
 
 
