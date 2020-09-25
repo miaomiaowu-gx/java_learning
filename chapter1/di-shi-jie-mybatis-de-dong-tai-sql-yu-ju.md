@@ -132,7 +132,15 @@ public void testFindInIds() {
 }
 ```
 
+### 10.4 sql 标签
 
+```xml
+<!-- 抽取重复的语句，了解-->
+<sql id="defaultUser">
+    SELECT * FROM USER
+</sql>
+
+```
 
 
 
