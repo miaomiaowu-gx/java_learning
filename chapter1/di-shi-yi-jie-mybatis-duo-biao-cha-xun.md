@@ -37,8 +37,6 @@ CREATE TABLE `account` (
   CONSTRAINT `FK_Reference_8` FOREIGN KEY (`UID`) REFERENCES `user` (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
-
-
 INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,2000);
 ```
 
