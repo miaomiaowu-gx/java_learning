@@ -30,5 +30,5 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 在 IDEA 中，ctrl+N 弹出类搜索框，分别输入 `PooledDataSource` 与 `UnpooledDataSource` 。
 
-
+### 9.1 Mybatis 中使用 UNPOOLED 配置连接池的原理分析
 
