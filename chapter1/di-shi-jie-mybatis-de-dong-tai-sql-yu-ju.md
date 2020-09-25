@@ -144,6 +144,18 @@ public void testFindInIds() {
 <select id="findAll" resultMap="userMap">
     <include refid="defaultUser"></include>
 </select>
+
+<!-- 根据QueryVo中提供的id集合，查询用户信息 -->
+<select id="findUserInIds" resultMap="userMap" parameterType="com.itheima.domain.QueryVo">
+    <include refid="defaultUser"></include>
+    <where>
+        <if test="ids != null and ids.size()>0">
+            <foreach collection="ids" open="and id in (" close=")" item="uid" separator=",">
+                #{uid}
+            </foreach>
+        </if>
+    </where>
+</select>
 ```
 
 
