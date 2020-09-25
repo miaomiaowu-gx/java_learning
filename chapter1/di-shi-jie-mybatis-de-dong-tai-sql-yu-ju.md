@@ -96,7 +96,7 @@ public class QueryVo {
 List<User> findUserInIds(QueryVo vo);
 ```
 
-3. 持久层 Dao 映射配置：在 `IUserDao.xml` 中添加配置：
+3 持久层 Dao 映射配置：在 `IUserDao.xml` 中添加配置：
 
 ```java
 <!-- 根据QueryVo中提供的id集合，查询用户信息 -->
@@ -111,6 +111,8 @@ List<User> findUserInIds(QueryVo vo);
     </where>
 </select>
 ```
+
+4 测试
 
 
 
