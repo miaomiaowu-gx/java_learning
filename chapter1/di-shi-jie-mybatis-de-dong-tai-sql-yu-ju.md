@@ -16,7 +16,16 @@ List<User> findUserByCondition(User user);
 2. 在 `IUserDao.xml` 中添加配置：
 
 ```xml
-
+<!-- 根据条件查询 -->
+<select id="findUserByCondition" resultMap="userMap" parameterType="user">
+    SELECT *  FROM USER WHERE 1=1
+    <if test="userName != null">
+        AND username = #{userName}
+    </if>
+    <if test="userSex != null">
+        AND sex = #{userSex}
+    </if>
+</select>
 ```
 
 
