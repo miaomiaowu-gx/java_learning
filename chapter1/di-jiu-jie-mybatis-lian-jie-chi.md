@@ -48,7 +48,7 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 mybatis中的事务：通过 sqlsession 对象的 commit 方法和 rollback 方法实现事务的提交和回滚。
 
-
+Mybatis 中事务的提交方式，本质上就是调用 JDBC 的 setAutoCommit()来实现事务控制。
 
 
 
