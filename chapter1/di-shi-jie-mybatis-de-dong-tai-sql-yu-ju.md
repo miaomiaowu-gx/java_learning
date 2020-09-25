@@ -140,6 +140,10 @@ public void testFindInIds() {
     SELECT * FROM USER
 </sql>
 
+<!-- 查询所有 SELECT *  FROM USER;-->
+<select id="findAll" resultMap="userMap">
+    <include refid="defaultUser"></include>
+</select>
 ```
 
 
