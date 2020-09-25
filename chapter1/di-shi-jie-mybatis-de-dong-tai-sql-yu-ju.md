@@ -69,7 +69,7 @@ public void testFindByCondition() {
 
 需求 `select * from user where id in(41,41,43,46)`
 
-1 在 QueryVo.java 文件中添加:
+1 在 QueryVo.java 中加入一个 List 集合用于封装参数:
 
 ```java
 public class QueryVo {
