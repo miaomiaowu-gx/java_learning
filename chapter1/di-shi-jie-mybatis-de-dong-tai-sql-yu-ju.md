@@ -98,7 +98,19 @@ List<User> findUserInIds(QueryVo vo);
 
 3. 持久层 Dao 映射配置：在 `IUserDao.xml` 中添加配置：
 
-
+```java
+<!-- 根据QueryVo中提供的id集合，查询用户信息 -->
+<select id="findUserInIds" resultMap="userMap" parameterType="com.itheima.domain.QueryVo">
+    SELECT * FROM USER
+    <where>
+        <if test="ids != null and ids.size()>0">
+            <foreach collection="ids" open="and id in (" close=")" item="uid" separator=",">
+                #{uid}
+            </foreach>
+        </if>
+    </where>
+</select>
+```
 
 
 
