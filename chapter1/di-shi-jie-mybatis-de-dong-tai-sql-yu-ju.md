@@ -67,7 +67,7 @@ public void testFindByCondition() {
 
 ### 10.3 
 
-需求 `select * from user where id in()`
+需求 `select * from user where id in(41,41,43,46)`
 
 1 在 QueryVo.java 文件中定义
 
