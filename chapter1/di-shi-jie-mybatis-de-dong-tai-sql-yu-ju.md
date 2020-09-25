@@ -65,7 +65,7 @@ public void testFindByCondition() {
 </select>
 ```
 
-### 10.3 in 语句
+### 10.3 动态标签之 foreach 标签
 
 需求 `select * from user where id in(41,41,43,46)`
 
