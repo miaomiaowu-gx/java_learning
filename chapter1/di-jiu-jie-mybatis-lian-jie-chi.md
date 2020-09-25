@@ -26,3 +26,5 @@ type=”POOLED”： MyBatis 会创建 PooledDataSource 实例
 type=”UNPOOLED” ： MyBatis 会创建 UnpooledDataSource 实例
 type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然后返回使用
 ```   
+
+
