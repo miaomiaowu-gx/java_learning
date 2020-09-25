@@ -69,7 +69,21 @@ public void testFindByCondition() {
 
 需求 `select * from user where id in(41,41,43,46)`
 
-1 在 QueryVo.java 文件中定义
+1 在 QueryVo.java 文件中添加:
+
+```java
+public class QueryVo {
+    private List<Integer> ids;
+
+    public List<Integer> getIds() {
+        return ids;
+    }
+
+    public void setIds(List<Integer> ids) {
+        this.ids = ids;
+    }
+}
+```
 
 
 
