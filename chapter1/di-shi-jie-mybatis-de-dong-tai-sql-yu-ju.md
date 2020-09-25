@@ -5,7 +5,12 @@
 1. 持久层 Dao 接口：在 IUserDao.java 文件中，添加：
 
 ```java
-
+/**
+ * 根据传入参数条件查询
+ * @param user 查询条件：有可能有用户名、有可能有性别或其他，也可能是都有
+ * @return
+ */
+List<User> findUserByCondition(User user);
 ```
 
 
