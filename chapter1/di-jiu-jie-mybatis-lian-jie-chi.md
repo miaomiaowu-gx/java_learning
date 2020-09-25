@@ -38,7 +38,7 @@ type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然�
 
 <img src="./img1/15-mybatis-pooled-conn.png" width=1100>
 
-
+### 9.3 Mybatis 的事务控制
 
 
 
