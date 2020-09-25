@@ -25,7 +25,22 @@
 
 账户表准备：
 
+```sql
+DROP TABLE IF EXISTS `account`;
 
+CREATE TABLE `account` (
+  `ID` INT(11) NOT NULL COMMENT '编号',
+  `UID` INT(11) DEFAULT NULL COMMENT '用户编号',
+  `MONEY` DOUBLE DEFAULT NULL COMMENT '金额',
+  PRIMARY KEY  (`ID`),
+  KEY `FK_Reference_8` (`UID`),
+  CONSTRAINT `FK_Reference_8` FOREIGN KEY (`UID`) REFERENCES `user` (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+
+INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,2000);
+```
 
 
 ### 10.2 示例：用户和角色
