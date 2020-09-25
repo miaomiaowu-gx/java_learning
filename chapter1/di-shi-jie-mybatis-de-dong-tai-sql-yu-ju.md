@@ -50,6 +50,20 @@ public void testFindByCondition() {
 
 为了简化上面 `where 1=1` 的条件拼装，可以采用 `<where>` 标签来简化开发。
 
+```xml
+<!-- 根据条件查询 -->
+<select id="findUserByCondition" resultMap="userMap" parameterType="user">
+    SELECT *  FROM USER
+    <where>
+        <if test="userName != null">
+            AND username = #{userName}
+        </if>
+        <if test="userSex != null">
+            AND sex = #{userSex}
+        </if>
+    </where>
+</select>
+```
 
 
 
