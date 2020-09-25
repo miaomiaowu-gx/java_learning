@@ -96,6 +96,8 @@ public class QueryVo {
 List<User> findUserInIds(QueryVo vo);
 ```
 
+3. 在 `IUserDao.xml` 中添加配置：
+
 
 
 
