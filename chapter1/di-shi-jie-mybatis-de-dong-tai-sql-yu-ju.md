@@ -13,7 +13,11 @@
 List<User> findUserByCondition(User user);
 ```
 
-2. 
+2. 在 `IUserDao.xml` 中添加配置：
+
+```xml
+
+```
 
 
 
