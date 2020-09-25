@@ -87,7 +87,14 @@ public class QueryVo {
 
 2 在 IUserDao.java 文件中，添加
 
-
+```java
+/**
+ * 根据QueryVo中提供的id集合，查询用户信息
+ * @param vo
+ * @return
+ */
+List<User> findUserInIds(QueryVo vo);
+```
 
 
 
