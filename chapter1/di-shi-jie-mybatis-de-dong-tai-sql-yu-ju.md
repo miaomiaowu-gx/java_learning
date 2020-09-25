@@ -114,7 +114,23 @@ List<User> findUserInIds(QueryVo vo);
 
 4 测试
 
+```java
+@Test
+public void testFindInIds() {
+    QueryVo vo =new QueryVo();
+    List<Integer> list = new ArrayList<Integer>();
+    list.add(41);
+    list.add(43);
+    list.add(45);
+    vo.setIds(list);
 
+    //5. 执行查询所有方法
+    List<User> users = userDao.findUserInIds(vo);
+    for(User u : users){
+        System.out.println(u);
+    }
+}
+```
 
 
 
