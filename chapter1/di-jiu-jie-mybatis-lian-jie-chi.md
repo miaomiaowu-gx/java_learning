@@ -12,7 +12,7 @@
    * JNDI 采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同的服务器所能拿到 DataSource 是不一样。
    * MyBatis 内部分别定义了实现了 java.sql.DataSource 接口的 UnpooledDataSource，PooledDataSource 类来表示 UNPOOLED、 POOLED 类型的数据源。
    
-   ```
+```
    数据源配置就是在 SqlMapConfig.xml 文件中， 具体配置如下：
 <!-- 配置数据源（连接池）信息 -->
 <dataSource type="POOLED">
@@ -25,7 +25,7 @@ MyBatis 在初始化时， 根据<dataSource>的 type 属性来创建相应类�
 type=”POOLED”： MyBatis 会创建 PooledDataSource 实例
 type=”UNPOOLED” ： MyBatis 会创建 UnpooledDataSource 实例
 type=”JNDI”： MyBatis 会从 JNDI 服务上查找 DataSource 实例，然后返回使用
-   ```
+```
 
 
 * 注意：如果不是 web 或者 maven 的 war 工程，是不能使用的。课程中使用的是 tomcat 服务器，采用连接池就是 dbcp 连接池。
