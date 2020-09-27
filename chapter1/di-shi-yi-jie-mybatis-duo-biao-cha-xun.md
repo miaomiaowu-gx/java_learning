@@ -48,5 +48,7 @@ INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,
 
 
 
+
+
 ### 10.2 示例：用户和角色
 
