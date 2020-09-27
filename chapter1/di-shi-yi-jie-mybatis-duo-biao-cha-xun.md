@@ -300,7 +300,30 @@ public interface IRoleDao {
 
 3 创建配置文件 IRoleDao.xml
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<mapper namespace="com.itheima.dao.IRoleDao">
+
+    <!--定义User的resultMap-->
+    <resultMap id="roleMap" type="role">
+        <id property="roleId" column="id"></id>
+        <result property="roleName" column="role_name"></result>
+        <result property="roleDesc" column="role_desc"></result>
+
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="roleMap">
+        SELECT * FROM role;
+    </select>
+
+</mapper>
+```
+
+4 
 
 
 
