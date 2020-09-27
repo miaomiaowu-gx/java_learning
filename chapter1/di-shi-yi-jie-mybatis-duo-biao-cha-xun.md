@@ -45,6 +45,40 @@ INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,
 
 查询 Account 表，并显示对应的用户名以及地址信息（在User表中）。
 
+1 建立 AccountUser.java 
+
+```java
+package com.itheima.domain;
+
+public class AccountUser extends Account {
+    private String username;
+    private String address;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "          AccountUser{" +
+                "username='" + username + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+}
+```
 
 
 
