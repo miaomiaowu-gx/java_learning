@@ -113,6 +113,19 @@ public void testFindAccountUser() {
 
 常用的方法：让用户和账户的实体类能体现出来一对多的关系
 
+1 在 Account 类中，添加 User 私有变量。
+
+```java
+public class Account implements Serializable {
+    private Integer id;
+    private Integer uid;
+    private Double money;
+
+    private User user;
+    
+    getter and setter方法
+```
+
 
 
 
