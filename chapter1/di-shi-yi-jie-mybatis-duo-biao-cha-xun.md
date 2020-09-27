@@ -186,7 +186,33 @@ public class User implements Serializable {
     getter and setter 方法... ...
 ```
 
-2 
+2 在 IUserDao.xml 中添加配置：
+
+```xml
+<mapper namespace="com.itheima.dao.IUserDao">
+
+    <!--定义User的resultMap-->
+    <resultMap id="userAccountMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="address" column="address"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
+        <!--配置user对象中account集合的映射-->
+        <collection property="accounts" ofType="account">
+            <id property="id" column="aid"></id>
+            <result property="uid" column="uid"></result>
+            <result property="money" column="money"></result>
+        </collection>
+        
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="userAccountMap">
+        SELECT * FROM user u LEFT OUTER JOIN account a ON u.id = a.uid;
+    </select>
+    
+</mapper>
+```
 
 
 
