@@ -360,7 +360,32 @@ public class User implements Serializable {
 
 6 创建配置文件 IUserDao.xml
 
+```xml
+<mapper namespace="com.itheima.dao.IUserDao">
 
+    <!--定义User的resultMap-->
+    <resultMap id="userMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="address" column="address"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
+        <collection property="roles" ofType="role">
+            <id property="roleId" column="rid"></id>
+            <result property="roleName" column="role_name"></result>
+            <result property="roleDesc" column="role_desc"></result>
+        </collection>
+        
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="userMap">
+        SELECT u.*,r.id as rid,r.role_name,r.role_desc FROM user u
+         LEFT OUTER JOIN user_role ur ON u.id = ur.uid
+         LEFT OUTER JOIN role r ON r.id = ur.rid;
+    </select>
+
+</mapper>
+```
 
 
 
