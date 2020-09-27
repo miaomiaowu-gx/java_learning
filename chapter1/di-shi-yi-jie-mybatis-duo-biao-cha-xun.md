@@ -40,6 +40,10 @@ CREATE TABLE `account` (
 INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,2000);
 ```
 
+建立 Account.java 实体类文件，
+
+
+
 
 
 
