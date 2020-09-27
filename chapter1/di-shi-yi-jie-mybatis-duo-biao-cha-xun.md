@@ -40,7 +40,7 @@ CREATE TABLE `account` (
 INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,2000);
 ```
 
-建立 Account.java 实体类文件，IAccountDao.java 接口文件（生命方法），以及配置文件 IUserDao.xml，以及测试文件 MybatisTest.java。
+建立 Account.java 实体类文件，IAccountDao.java 接口文件（生命方法），以及配置文件 IAccountDao.xml，以及测试文件 MybatisTest.java。
 
 
 查询 Account 表，并显示对应的用户名以及地址信息（在User表中）。
@@ -80,7 +80,15 @@ public class AccountUser extends Account {
 }
 ```
 
-2 
+2 在 IAccountDao.java 中添加方法：
+
+```java
+List<AccountUser> findAllAccount();
+```
+
+3 在 IAccountDao.xml 文件中添加配置：
+
+
 
 
 
