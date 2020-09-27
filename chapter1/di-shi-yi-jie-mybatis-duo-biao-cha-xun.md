@@ -251,7 +251,31 @@ public void testFindAll() {
 
 创建角色表与中间表（用户表之前创建过）
 
+```sql
+DROP TABLE IF EXISTS `role`;
 
+CREATE TABLE `role` (
+  `ID` int(11) NOT NULL COMMENT '编号',
+  `ROLE_NAME` varchar(30) default NULL COMMENT '角色名称',
+  `ROLE_DESC` varchar(60) default NULL COMMENT '角色描述',
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert  into `role`(`ID`,`ROLE_NAME`,`ROLE_DESC`) values (1,'院长','管理整个学院'),(2,'总裁','管理整个公司'),(3,'校长','管理整个学校');
+
+DROP TABLE IF EXISTS `user_role`;
+
+CREATE TABLE `user_role` (
+  `UID` int(11) NOT NULL COMMENT '用户编号',
+  `RID` int(11) NOT NULL COMMENT '角色编号',
+  PRIMARY KEY  (`UID`,`RID`),
+  KEY `FK_Reference_10` (`RID`),
+  CONSTRAINT `FK_Reference_10` FOREIGN KEY (`RID`) REFERENCES `role` (`ID`),
+  CONSTRAINT `FK_Reference_9` FOREIGN KEY (`UID`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert  into `user_role`(`UID`,`RID`) values (41,1),(45,1),(41,2);
+```
 
 
 
