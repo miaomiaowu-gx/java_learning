@@ -169,8 +169,22 @@ public void testFindAll() {
 
 ### 10.2 user 的一对多查询操作
 
+1 在 User.java 中添加 List<Account> 变量
 
+```java
+public class User implements Serializable {
 
+    private Integer id;
+    private String username;
+    private String address;
+    private String sex;
+    private Date birthday;
+
+    //一对多关系映射：主表实体应该包含从表实体的集合引用。
+    private List<Account> accounts;
+    
+    getter and setter 方法
+```
 
 
 
