@@ -5,3 +5,6 @@ JNDI：Java Naming and Directory Interface。是 SUN 公司推出的一套规范
 <img src="./img1/17-JNDI.png" width=400>
 
 
+<img src="./img1/19-war02.png" width=400>
+
+
