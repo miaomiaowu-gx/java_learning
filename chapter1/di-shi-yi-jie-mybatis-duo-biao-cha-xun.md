@@ -285,8 +285,9 @@ insert  into `user_role`(`UID`,`RID`) values (41,1),(45,1),(41,2);
 public class Role implements Serializable {
     //注意 变量名与数据库的名字不一致
     private Integer roleId;
-    private Integer roleName;
-    private Integer roleDesc;
+    private String roleName;
+    private String roleDesc;
+    getter and setter... toString...
 }
 ```
 
