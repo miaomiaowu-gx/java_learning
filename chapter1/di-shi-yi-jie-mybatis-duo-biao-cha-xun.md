@@ -89,7 +89,7 @@ List<AccountUser> findAllAccount();
 3 在 IAccountDao.xml 文件中添加配置：
 
 
-
+4 在 AccountTest 中，添加测试方法：
 
 
 ### 10.2 示例：用户和角色
