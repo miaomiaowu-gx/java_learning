@@ -126,7 +126,29 @@ public class Account implements Serializable {
     getter and setter方法
 ```
 
+2. 
 
+```xml
+<mapper namespace="com.itheima.dao.IAccountDao">
+
+    <resultMap id="accountUserMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <!--一对一的关系映射：配置user的内容-->
+        <association property="user" column="uid" javaType="user">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="address" column="address"></result>
+            <result property="sex" column="sex"></result>
+            <result property="birthday" column="birthday"></result>
+        </association>
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="accountUserMap">
+        SELECT a.*,u.username,u.address FROM account a, user u where u.id = a.uid;
+    </select>
+```
 
 
 ### 10.2 示例：用户和角色
