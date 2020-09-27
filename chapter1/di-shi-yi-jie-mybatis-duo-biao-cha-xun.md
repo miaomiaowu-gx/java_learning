@@ -277,7 +277,7 @@ CREATE TABLE `user_role` (
 insert  into `user_role`(`UID`,`RID`) values (41,1),(45,1),(41,2);
 ```
 
-
+<img src="./img1/16-table-role-user-middletable.png" width=400>
 
 
 
