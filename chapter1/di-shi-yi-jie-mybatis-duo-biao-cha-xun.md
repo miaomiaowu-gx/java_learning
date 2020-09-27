@@ -358,7 +358,9 @@ public class User implements Serializable {
 }
 ```
 
-6 创建配置文件 IUserDao.xml
+6 
+
+7 创建配置文件 IUserDao.xml
 
 ```xml
 <mapper namespace="com.itheima.dao.IUserDao">
