@@ -96,6 +96,18 @@ List<AccountUser> findAllAccount();
 
 4 在 AccountTest 中，添加测试方法：
 
+```java
+@Test
+public void testFindAccountUser() {
+
+    //5. 执行查询所有方法
+    List<AccountUser> aus = accountDao.findAllAccount();
+    for(Account au : aus){
+        System.out.println(au);
+    }
+
+}
+```
 
 ### 10.2 示例：用户和角色
 
