@@ -111,7 +111,7 @@ public void testFindAccountUser() {
 
 上述建立子类方法并不常用。
 
-
+常用的方法：让用户和账户的实体类能体现出来一对多的关系
 
 
 
