@@ -292,6 +292,15 @@ public class Role implements Serializable {
 
 2 创建 IRoleDao.java 接口
 
+```java
+public interface IRoleDao {
+    List<Role> findAll();
+}
+```
+
+3 创建配置文件 IRoleDao.xml
+
+
 
 
 
