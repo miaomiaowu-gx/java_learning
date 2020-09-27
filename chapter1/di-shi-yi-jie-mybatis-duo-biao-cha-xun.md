@@ -43,7 +43,7 @@ INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,
 建立 Account.java 实体类文件，IAccountDao.java 接口文件（生命方法），以及配置文件 IUserDao.xml，以及测试文件 MybatisTest.java。
 
 
-
+查询 Account 表，并显示对应的用户名以及地址信息（在User表中）
 
 
 
