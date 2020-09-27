@@ -109,5 +109,8 @@ public void testFindAccountUser() {
 }
 ```
 
+上述建立子类方法并不常用。
+
+
 ### 10.2 示例：用户和角色
 
