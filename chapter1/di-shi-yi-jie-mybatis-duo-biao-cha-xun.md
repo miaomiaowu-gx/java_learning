@@ -324,7 +324,18 @@ public interface IRoleDao {
 </mapper>
 ```
 
-4 
+4 测试
+
+```java
+@Test
+public void testFindAll() {
+    List<Role> roles = roleDao.findAll();
+    for(Role role : roles){
+        System.out.println("---------每个用户的信息---------");
+        System.out.println(role);
+    }
+}
+```
 
 
 
