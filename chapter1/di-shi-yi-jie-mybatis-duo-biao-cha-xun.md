@@ -88,6 +88,11 @@ List<AccountUser> findAllAccount();
 
 3 在 IAccountDao.xml 文件中添加配置：
 
+```xml
+<select id="findAllAccount" resultType="accountuser">
+    SELECT a.*,u.username,u.address FROM account a, user u where u.id = a.uid;
+</select>
+```
 
 4 在 AccountTest 中，添加测试方法：
 
