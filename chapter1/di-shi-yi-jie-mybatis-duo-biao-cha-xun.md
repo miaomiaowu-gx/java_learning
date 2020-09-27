@@ -287,6 +287,9 @@ public class Role implements Serializable {
     private Integer roleId;
     private String roleName;
     private String roleDesc;
+    //多对多关系映射：一个角色可以赋予多个用户
+    private List<User> users;
+    
     getter and setter... toString...
 }
 ```
