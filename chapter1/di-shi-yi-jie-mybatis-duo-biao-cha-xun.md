@@ -214,7 +214,19 @@ public class User implements Serializable {
 </mapper>
 ```
 
+3 测试
 
+```java
+@Test
+public void testFindAll() {
+    List<User> users = userDao.findAll();
+    for(User user : users){
+        System.out.println("---------每个用户的信息---------");
+        System.out.println(user);
+        System.out.println(user.getAccounts());
+    }
+}
+```
 
 
 
