@@ -342,5 +342,21 @@ public void testFindAll() {
 
 上述操作实现了 Role 表一对多查询查询
 
-5 
+5 为 User.java 添加：
+
+```java
+public class User implements Serializable {
+
+    private Integer id;
+    private String username;
+    private String address;
+    private String sex;
+    private Date birthday;
+
+    //多对多关系映射：一个用户可以对应多个角色
+    private List<Role> roles;
+}
+```
+
+
 
