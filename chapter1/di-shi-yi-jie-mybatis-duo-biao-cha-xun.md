@@ -289,6 +289,8 @@ public class Role implements Serializable {
     private Integer roleDesc;
 }
 ```
+2 创建 IRoleDao.java 接口
+
 
 
 
