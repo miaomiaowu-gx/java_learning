@@ -358,5 +358,10 @@ public class User implements Serializable {
 }
 ```
 
-6 
+6 创建配置文件 IUserDao.xml
+
+
+
+
+
 
