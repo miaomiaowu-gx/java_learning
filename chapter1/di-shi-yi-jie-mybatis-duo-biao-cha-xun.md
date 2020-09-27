@@ -126,7 +126,7 @@ public class Account implements Serializable {
     getter and setter方法
 ```
 
-2. 在 IAccountDao.xml 文件中添加 resultMap 配置：
+2 在 IAccountDao.xml 文件中添加 resultMap 配置：
 
 ```xml
 <mapper namespace="com.itheima.dao.IAccountDao">
@@ -150,6 +150,22 @@ public class Account implements Serializable {
     </select>
 ```
 
+3 测试
+
+```java
+@Test
+public void testFindAll() {
+
+    //5. 执行查询所有方法
+    List<Account> accounts = accountDao.findAll();
+    for(Account account : accounts){
+        System.out.println("---------每个 Account 信息---------");
+        System.out.println(account);
+        System.out.println(account.getUser());
+    }
+
+}
+```
 
 ### 10.2 示例：用户和角色
 
