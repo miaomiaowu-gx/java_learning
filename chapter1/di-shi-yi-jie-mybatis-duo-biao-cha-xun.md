@@ -121,7 +121,7 @@ public class Account implements Serializable {
     private Integer uid;
     private Double money;
 
-    private User user;
+    private User user; //新增
     
     getter and setter方法
 ```
