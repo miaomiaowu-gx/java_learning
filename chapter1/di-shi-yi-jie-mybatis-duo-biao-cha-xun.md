@@ -40,8 +40,7 @@ CREATE TABLE `account` (
 INSERT  INTO `account`(`ID`,`UID`,`MONEY`) VALUES (1,46,1000),(2,45,1000),(3,46,2000);
 ```
 
-建立 Account.java 实体类文件，
-
+建立 Account.java 实体类文件，IAccountDao.java 接口文件（生命方法），以及配置文件 IUserDao.xml，以及测试文件 MybatisTest.java。
 
 
 
