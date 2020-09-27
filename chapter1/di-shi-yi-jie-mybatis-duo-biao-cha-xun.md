@@ -183,7 +183,7 @@ public class User implements Serializable {
     //一对多关系映射：主表实体应该包含从表实体的集合引用。
     private List<Account> accounts;
     
-    getter and setter 方法
+    getter and setter 方法... ...
 ```
 
 
