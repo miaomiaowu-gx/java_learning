@@ -126,7 +126,7 @@ public class Account implements Serializable {
     getter and setter方法
 ```
 
-2. 
+2. 在 IAccountDao.xml 文件中添加 resultMap 配置：
 
 ```xml
 <mapper namespace="com.itheima.dao.IAccountDao">
