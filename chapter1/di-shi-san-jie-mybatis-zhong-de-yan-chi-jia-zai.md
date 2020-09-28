@@ -41,7 +41,22 @@
 </settings>
 ```
 
-2. 
+2. 账户的持久层 DAO 接口
+
+```java
+public interface IAccountDao {
+  
+    List<Account> findAll();
+}
+```
+
+3. 账户的持久层映射文件
+
+  
+
+
+4. 
+
 
 ### 13.2 使用 Collection 实现延迟加载 
 
