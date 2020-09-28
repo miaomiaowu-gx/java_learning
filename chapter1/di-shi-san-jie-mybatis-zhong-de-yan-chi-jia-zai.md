@@ -27,11 +27,11 @@
 * 使用了 resultMap 来实现**一对一，一对多，多对多**关系的操作。主要是通过 `association、collection` 实现一对一及一对多映射。`association、collection` 具备延迟加载功能。
 
 
+### 13.1 使用 assocation 实现延迟加载
 
 
 
-
-
+### 13.2 使用 Collection 实现延迟加载 
 
 
 
