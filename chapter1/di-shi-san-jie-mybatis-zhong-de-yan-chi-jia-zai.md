@@ -24,7 +24,7 @@
 
 **实现需求**
 * 查询账户(Account)信息并且关联查询用户(User)信息。如果先查询账户(Account)信息即可满足要求，当需要查询用户(User)信息时再查询用户(User)信息。把对用户(User)信息的按需去查询就是延迟加载。
-
+* 使用了 resultMap 来实现**一对一，一对多，多对多**关系的操作。主要是通过 `association、collection` 实现一对一及一对多映射。`association、collection` 具备延迟加载功能。
 
 
 
