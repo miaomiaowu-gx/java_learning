@@ -102,7 +102,7 @@ public void testFindAll() {
 <img src="./img1/20-one2one-lazy.png" width=200>
 
 
-### 13.2 使用 Collection 实现延迟加载 
+### 13.2 使用 Collection 实现延迟加载（一对多） 
 
 
 
