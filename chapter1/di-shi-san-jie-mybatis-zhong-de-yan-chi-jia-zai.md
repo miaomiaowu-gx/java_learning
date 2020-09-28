@@ -74,8 +74,20 @@ public interface IAccountDao {
 ```  
 
 
-4. 
+4. 用户的持久层接口和映射文件
 
+```java
+public interface IUserDao {
+    User findById(Integer userId);
+}
+```
+
+```xml
+<!--根据id查询用户-->
+<select id="findById" parameterType="int" resultType="user">
+    SELECT * FROM user WHERE id=#{uid}
+</select>
+```
 
 ### 13.2 使用 Collection 实现延迟加载 
 
