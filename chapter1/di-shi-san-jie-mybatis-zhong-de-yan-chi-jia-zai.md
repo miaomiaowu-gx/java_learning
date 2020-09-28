@@ -91,6 +91,14 @@ public interface IUserDao {
 
 5. 测试只查账户信息不查用户信息
 
+```java
+@Test
+public void testFindAll() {
+    // 执行查询所有方法
+    List<Account> accounts = accountDao.findAll();
+}
+```
+
 
 
 
