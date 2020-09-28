@@ -29,7 +29,7 @@
 
 ### 13.1 使用 assocation 实现延迟加载
 
-
+1. 在 SqlMapConfig.xml 中
 
 
 
