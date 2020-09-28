@@ -52,7 +52,26 @@ public interface IAccountDao {
 
 3. 账户的持久层映射文件
 
-  
+```xml
+<mapper namespace="com.itheima.dao.IAccountDao">
+
+    <resultMap id="accountUserMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <!--一对一的关系映射：配置user的内容
+            select属性指定的内容：查询用户的唯一标识
+            column属性指定的内容：用户根据id查询时，所需要的参数值-->
+        <association property="user" column="uid" javaType="user" select="com.itheima.dao.IUserDao.findById"></association>
+
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="accountUserMap">
+        SELECT * FROM account
+    </select>
+
+</mapper>
+```  
 
 
 4. 
