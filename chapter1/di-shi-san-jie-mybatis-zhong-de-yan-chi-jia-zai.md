@@ -99,7 +99,7 @@ public void testFindAll() {
 }
 ```
 
-
+<img src="./img1/20-one2one-lazy.png" width=200>
 
 
 
