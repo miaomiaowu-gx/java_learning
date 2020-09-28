@@ -89,7 +89,9 @@ public interface IUserDao {
 </select>
 ```
 
-5. 
+5. 测试只查账户信息不查用户信息
+
+
 
 
 
