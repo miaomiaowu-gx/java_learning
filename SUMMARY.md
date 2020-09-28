@@ -14,6 +14,7 @@
   * [第十节 Mybatis 的动态 SQL 语句](chapter1/di-shi-jie-mybatis-de-dong-tai-sql-yu-ju.md)
   * [第十一节 Mybatis 多表查询](chapter1/di-shi-yi-jie-mybatis-duo-biao-cha-xun.md)
   * [第十二节 JNDI概述和原理](chapter1/di-shi-er-jie-jndi-gai-shu-he-yuan-li.md)
+  * 第十三节 Mybatis中的延迟加载
 * [第二章 Spring](chapter2.md)
 * [第三章 SpringMVC](chapter3.md)
 
