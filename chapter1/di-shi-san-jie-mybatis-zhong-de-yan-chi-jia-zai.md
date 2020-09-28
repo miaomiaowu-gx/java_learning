@@ -29,7 +29,7 @@
 
 ### 13.1 使用 assocation 实现延迟加载
 
-1. 在 SqlMapConfig.xml 的 configuration 标签内添加延迟设置：
+1. 开启 Mybatis 的延迟加载策略：在 SqlMapConfig.xml 的 configuration 标签内添加延迟设置：
 
 ```xml
 <!--配置参数-->
@@ -89,7 +89,7 @@ public interface IUserDao {
 </select>
 ```
 
-
+5. 
 
 
 
