@@ -121,8 +121,17 @@ public interface IAccountDao {
 }
 ```
 
+3. 用户持久层映射配置
 
 
+4. 账户持久层映射配置
+
+```xml
+<!--根据id查询用户-->
+<select id="findById" parameterType="int" resultType="user">
+    SELECT * FROM user WHERE id=#{uid}
+</select>
+```
 
 
 
