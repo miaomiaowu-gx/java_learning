@@ -158,5 +158,12 @@ public interface IAccountDao {
 </select>
 ```
 
+5. 测试
 
+```java
+@Test
+public void testFindAll() {
+    List<User> users = userDao.findAll();
+}
+```
 
