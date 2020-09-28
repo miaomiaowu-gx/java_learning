@@ -108,9 +108,18 @@ public void testFindAll() {
 
 1. 在 User 实体类中加入 List<Account>属性：`private List<Account> accounts;`，以及对应的 getter 与 setter方法。
 
+2. 编写用户和账户持久层接口的方法
 
-
-
+```java
+//IUserDao.java 
+public interface IUserDao {
+    List<User> findAll();
+}
+//IAccountDao.java 
+public interface IAccountDao {
+    List<Account> findAccountByUid(Integer uid);
+}
+```
 
 
 
