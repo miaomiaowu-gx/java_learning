@@ -104,6 +104,10 @@ public void testFindAll() {
 
 ### 13.2 使用 Collection 实现延迟加载（一对多） 
 
+完成加载用户对象时，查询该用户所拥有的账户信息。
+
+1. 在 User 实体类中加入 List<Account>属性：`private List<Account> accounts;`，以及对应的 getter 与 setter方法。
+
 
 
 
