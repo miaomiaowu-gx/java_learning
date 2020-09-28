@@ -123,13 +123,38 @@ public interface IAccountDao {
 
 3. 用户持久层映射配置
 
+```java
+<mapper namespace="com.itheima.dao.IUserDao">
+
+    <!--定义User的resultMap-->
+    <resultMap id="userAccountMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="address" column="address"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birthday" column="birthday"></result>
+        <!--配置user对象中account集合的映射-->
+        <collection property="accounts" column="id" ofType="account" select="com.itheima.dao.IAccountDao.findAccountByUid"></collection>
+        
+    </resultMap>
+    <!-- 查询所有 SELECT *  FROM USER;-->
+    <select id="findAll" resultMap="userAccountMap">
+        SELECT * FROM user
+    </select>
+
+    <!--根据id查询用户-->
+    <select id="findById" parameterType="int" resultType="user">
+        SELECT * FROM user WHERE id=#{uid}
+    </select>
+</mapper>
+```
 
 4. 账户持久层映射配置
 
 ```xml
 <!--根据id查询用户-->
-<select id="findById" parameterType="int" resultType="user">
-    SELECT * FROM user WHERE id=#{uid}
+<select id="findAccountByUid" resultType="account">
+    SELECT * FROM account WHERE uid = #{uid}
 </select>
 ```
 
