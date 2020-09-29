@@ -98,5 +98,7 @@ public interface IUserDao {
 }
 ```
 
-5. 
+5. 在 test->java 下创建 `com.itheima.test.MybatisAnnoTest`
+
+
 
