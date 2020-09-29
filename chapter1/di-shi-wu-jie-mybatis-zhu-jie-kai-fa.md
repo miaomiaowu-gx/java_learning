@@ -90,7 +90,12 @@ public class User implements Serializable{
 
 在 mybatis 中针对，CRUD 一共有四个注解 `@Select @Insert @Update @Delete`
 
-
-
+```java
+public interface IUserDao {
+    // @Select(value="select * from user") 只有一个value属性，则value可以省略
+    @Select("select * from user")
+    List<User> findAll();
+}
+```
 
 
