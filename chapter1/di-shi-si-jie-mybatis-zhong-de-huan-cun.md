@@ -33,11 +33,39 @@ Mybatis 提供了缓存策略，通过缓存策略来减少数据库的查询次
   * 第三步：让当前的操作支持二级缓存（在select标签中配置）
 
 【SqlMapConfig.xml中配置】
+
+因为 cacheEnabled 的取值默认就为 true，所以这一步可以省略不配置。为 true 代表开启二级缓存；为false 代表不开启二级缓存。
+
 ```xml
 <settings>
   <!-- 开启二级缓存的支持 -->
   <setting name="cacheEnabled" value="true"/>
 </settings>
-因为 cacheEnabled 的取值默认就为 true，所以这一步可以省略不配置。为 true 代表开启二级缓存；为
-false 代表不开启二级缓存
 ```
+
+【配置相关的 Mapper 映射文件】
+
+```xml
+<mapper namespace="com.itheima.dao.IUserDao">
+  <!-- 开启二级缓存的支持 -->
+  <cache></cache>
+</mapper>
+```
+
+【配置 statement 上面的 useCache 属性】
+
+```xml
+<!-- 根据 id 查询 -->
+<select id="findById" resultType="user" parameterType="int" useCache="true">
+select * from user where id = #{uid}
+</select>
+```
+
+
+
+
+
+
+
+
+
