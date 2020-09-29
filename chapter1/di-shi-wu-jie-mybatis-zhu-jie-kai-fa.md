@@ -272,6 +272,23 @@ public class AccountTest {
 
 ### 15.4 Mybatis 注解开发一对多的查询配置
 
+1. 在 User 实体类中添加关系映射：
+
+```java
+//一对多关系映射：一个用户对应多个账户
+private List<Account> accounts;
+
+public List<Account> getAccounts() {
+    return accounts;
+}
+
+public void setAccounts(List<Account> accounts) {
+    this.accounts = accounts;
+}
+```
+
+2. 在 IUserDao 中添加 Account 相关注解
+
 
 
 
