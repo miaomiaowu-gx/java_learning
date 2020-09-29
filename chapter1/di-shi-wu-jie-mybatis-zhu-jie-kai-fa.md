@@ -31,7 +31,7 @@
 </dependencies>
 ```
 
-2. 添加主配置文件 SqlMapConfig.xml
+2. 在 main->resources 添加主配置文件 SqlMapConfig.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -72,7 +72,7 @@
 ```
 
 
-3. 在 java 文件夹下创建实体类 `com.itheima.domain.User`
+3. 在 main->java 文件夹下创建实体类 `com.itheima.domain.User`
 
 ```java
 public class User implements Serializable{
@@ -86,7 +86,7 @@ public class User implements Serializable{
 }
 ```
 
-4. 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`
+4. 在 main->java 文件夹下创建接口 `com.itheima.dao.IUserDao`
 
 在 mybatis 中针对，CRUD 一共有四个注解 `@Select @Insert @Update @Delete`
 
