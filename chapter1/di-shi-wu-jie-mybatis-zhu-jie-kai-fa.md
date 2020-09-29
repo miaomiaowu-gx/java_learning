@@ -234,6 +234,42 @@ public @interface Result {
 User findById(Integer  Id);
 ```
 
+4. 测试
+
+```java
+public class AccountTest {
+    private InputStream in;
+    private SqlSessionFactory factory;
+    private SqlSession session;
+    private IAccountDao accountDao;
+
+    @Before
+    public  void init()throws Exception{
+        in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        factory = new SqlSessionFactoryBuilder().build(in);
+        session = factory.openSession();
+        accountDao = session.getMapper(IAccountDao.class);
+    }
+
+    @After
+    public  void destroy()throws  Exception{
+        session.commit();
+        session.close();
+        in.close();
+    }
+
+    @Test
+    public  void  testFindAll(){
+        List<Account> accounts = accountDao.findAll();
+        for(Account account : accounts){
+            System.out.println("----每个账户的信息-----");
+            System.out.println(account);
+            System.out.println(account.getUser());
+        }
+    }
+}
+```
+
 
 
 
