@@ -287,7 +287,14 @@ public void setAccounts(List<Account> accounts) {
 }
 ```
 
-2. 在 IUserDao 中添加 Account 相关注解
+2. 在 AccountDao 中添加 findAccountByUid 方法：
+
+```java
+@Select("select * from account where uid = #{userId}")
+List<Account> findAccountByUid(Integer userId);
+```
+
+3. 在 IUserDao 中添加 Account 相关注解
 
 
 
