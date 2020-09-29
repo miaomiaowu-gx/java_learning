@@ -30,3 +30,6 @@
     </dependency>
 </dependencies>
 ```
+
+2. 在 java 文件夹下创建类 `com.itheima.domain.User`
+
