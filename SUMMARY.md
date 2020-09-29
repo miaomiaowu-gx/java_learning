@@ -18,6 +18,6 @@
   * [第十四节 Mybatis 中的缓存](chapter1/di-shi-si-jie-mybatis-zhong-de-huan-cun.md)
   * [第十五节 Mybatis 注解开发](chapter1/di-shi-wu-jie-mybatis-zhu-jie-kai-fa.md)
 * [第二章 Spring](chapter2.md)
-  * [第一节 Spring 概述](chapter2/di-yi-jie-spring-gai-shu.md)
+  * 
 * [第三章 SpringMVC](chapter3.md)
 
