@@ -54,14 +54,16 @@ Mybatis 提供了缓存策略，通过缓存策略来减少数据库的查询次
 
 【配置 statement 上面的 useCache 属性】
 
+将 UserDao.xml 映射文件中的<select>标签中设置 useCache=”true” 代表当前这个 statement 要使用二级缓存，如果不使用二级缓存可以设置为 false。
+
 ```xml
 <!-- 根据 id 查询 -->
 <select id="findById" resultType="user" parameterType="int" useCache="true">
-select * from user where id = #{uid}
+  select * from user where id = #{uid}
 </select>
 ```
 
-
+注意：针对每次查询都需要最新的数据 sql，要设置成 useCache=false，禁用二级缓存。
 
 
 
