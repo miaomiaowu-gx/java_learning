@@ -60,6 +60,6 @@ public class JdbcDemo1 {
 
 【2】问题如下:
 
-  
+<img src="./img2/01-wrong-code-analysis.png" width=1100>
 
 ### 1.2 
