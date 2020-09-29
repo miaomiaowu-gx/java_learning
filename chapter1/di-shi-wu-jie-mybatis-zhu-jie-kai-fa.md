@@ -33,3 +33,14 @@
 
 2. 在 java 文件夹下创建实体类 `com.itheima.domain.User`
 
+```java
+public class User implements Serializable{
+    private Integer id;
+    private String username;
+    private String address;
+    private String sex;
+    private Date birthday;
+    
+    ... getter and setter 方法
+}
+```
