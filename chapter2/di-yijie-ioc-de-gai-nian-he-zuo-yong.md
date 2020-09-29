@@ -54,7 +54,7 @@ public class JdbcDemo1 {
 ```
 
 1. 使用 `DriverManager.registerDriver` 注册驱动时，当对应的 mysql jar包不存在，会在编译器报错。应该尽量避免编译器报错。
-2. 用 `Class.forName("com.mysql.jdbc.Driver")` 替换 `new com.mysql.jdbc.Driver()` 
+2. 用 `Class.forName("com.mysql.jdbc.Driver")` 替换 `new com.mysql.jdbc.Driver()`，此时，`"com.mysql.jdbc.Driver"`只是一个字符串，当 jar 包不存在时，会抛出异常（编译可以通过）。
 
 
 
