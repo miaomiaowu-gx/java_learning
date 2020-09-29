@@ -88,7 +88,7 @@ public class User implements Serializable{
 
 4. 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`
 
- 
+在 mybatis 中针对，CRUD 一共有四个注解 `@Select @Insert @Update @Delete`
 
 
 
