@@ -24,7 +24,7 @@ Mybatis 提供了缓存策略，通过缓存策略来减少数据库的查询次
   * 当 SqlSession 对象消失时，mybatis 的一级缓存也就消失了。
 	
 * 二级缓存:
-  * 它指的是 Mybatis 中 SqlSessionFactory 对象的缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。
+  * 它指的是 Mybatis 中 SqlSessionFactory 对象的缓存。由同一个SqlSessionFactory 对象创建的 SqlSession 共享其缓存。
 		二级缓存的使用步骤：
 			第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
 			第二步：让当前的映射文件支持二级缓存（在IUserDao.xml中配置）
