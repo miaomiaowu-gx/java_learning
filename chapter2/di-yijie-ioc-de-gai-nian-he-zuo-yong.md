@@ -62,4 +62,6 @@ public class JdbcDemo1 {
 
 <img src="./img2/01-wrong-code-analysis.png" width=1100>
 
+当持久层具体实现类 `AccountDaoImpl.java` 不存在，
+
 ### 1.2 
