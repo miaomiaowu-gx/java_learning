@@ -186,7 +186,20 @@ public class Account implements Serializable {
 }
 ```
 
-2. 
+2. 创建账户接口文件 IAccountDao
+
+```java
+public interface IAccountDao {
+    @Select("select * from account")
+    @Results(id="accountMap",value = {
+            @Result(id=true,column = "id",property = "id"),
+            @Result(column = "uid",property = "uid"),
+            @Result(column = "money",property = "money"),
+            @Result(property = "user",column = "uid",one=@One(select="com.itheima.dao.IUserDao.findById",fetchType= FetchType.EAGER))
+    })
+    List<Account> findAll();
+}
+```
 
 
 
