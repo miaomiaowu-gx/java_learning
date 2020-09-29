@@ -202,6 +202,30 @@ public interface IAccountDao {
 ```
 
 
+@Result注解源码
+
+```java
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target({})
+public @interface Result {
+    boolean id() default false;
+
+    String column() default "";
+
+    String property() default "";
+
+    Class<?> javaType() default void.class;
+
+    JdbcType jdbcType() default JdbcType.UNDEFINED;
+
+    Class<? extends TypeHandler> typeHandler() default UnknownTypeHandler.class;
+
+    One one() default @One; //一对一
+
+    Many many() default @Many; //多对一
+}
+```
 
 
 
