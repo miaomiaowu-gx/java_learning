@@ -296,7 +296,40 @@ List<Account> findAccountByUid(Integer userId);
 
 3. 在 IUserDao 中添加 Account 相关注解
 
+```java
+public interface IUserDao {
+    // @Select(value="select * from user") 只有一个value属性，则value可以省略
+    @Select("select * from user")
+    @Results(id="userMap",value={
+            @Result(id=true,column = "id",property = "id"),
+            @Result(column = "username",property = "username"),
+            @Result(column = "address",property = "address"),
+            @Result(column = "sex",property = "sex"),
+            @Result(column = "birthday",property = "birthday"),
+            @Result(property = "accounts",column = "id",
+                    many = @Many(select = "com.itheima.dao.IAccountDao.findAccountByUid",
+                            fetchType = FetchType.LAZY))
+    })
+    List<User> findAll();
 
+    @Select("select * from user where id = #{id}")
+    User findById(Integer  Id);
+}
+```
+
+4. 测试
+
+```java
+@Test
+public  void  testFindAll(){
+    List<User> users = userDao.findAll();
+    for(User user : users){
+        System.out.println("---每个用户的信息----");
+        System.out.println(user);
+        System.out.println(user.getAccounts());
+    }
+}
+```
 
 
 
