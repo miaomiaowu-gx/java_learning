@@ -24,9 +24,9 @@
 * 第一步：使用反射来创建对象，而避免使用new关键字。
 * 第二步：通过读取配置文件来获取要创建的对象全限定类名
 
-#### 两个示例
+#### JDBC 注册驱动解耦
 
-【1】 JDBC 操作，注册驱动时，为什么不使用 DriverManager 的 register 方法，而是采用 Class.forName 的方式。
+【问题】 JDBC 操作，注册驱动时，为什么不使用 DriverManager 的 register 方法，而是采用 Class.forName 的方式。
 
 ```java
 public class JdbcDemo1 {
@@ -58,10 +58,25 @@ public class JdbcDemo1 {
   * 好处：类中不再依赖具体的驱动类，此时就算删除 mysql 的驱动 jar 包，依然可以编译（运行就不要想了，没有驱动不可能运行成功的） 。
   * mysql 驱动的全限定类名字符串是在 java 类中写死的，一旦要改还是要修改源码。（解决：使用配置文件配置。）
 
-【2】问题如下:
+
+### 1.2 工厂模式解耦
+
+
+【问题如下】
 
 <img src="./img2/01-wrong-code-analysis.png" width=1100>
 
 当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。
 
-### 1.2 
+
+
+
+
+
+
+
+
+
+
+
+
