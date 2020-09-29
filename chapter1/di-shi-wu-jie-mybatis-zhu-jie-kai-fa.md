@@ -227,7 +227,12 @@ public @interface Result {
 }
 ```
 
+3. IUserDao 中实现 findById 方法
 
+```java
+@Select("select * from user where id = #{id}")
+User findById(Integer  Id);
+```
 
 
 
