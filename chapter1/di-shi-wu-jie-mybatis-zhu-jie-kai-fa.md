@@ -31,7 +31,48 @@
 </dependencies>
 ```
 
-2. 在 java 文件夹下创建实体类 `com.itheima.domain.User`
+2. 添加主配置文件 SqlMapConfig.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 配置properties -->
+    <properties resource="jdbcConfig.properties"></properties>
+
+    <!--使用typeAliases配置别名，它只能配置domain中类的别名 -->
+    <typeAliases>
+        <package name="com.itheima.domain"></package>
+    </typeAliases>
+
+    <!-- 配置环境，default参数为默认选择的环境 -->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!-- 配置事务 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置映射文件位置 -->
+    <mappers>
+        <!-- package标签是用于指定dao接口所在的包,当指定了之后就不需要在写mapper以及resource或者class了 -->
+        <package name="com.itheima.dao"></package>
+    </mappers>
+</configuration>
+```
+
+
+3. 在 java 文件夹下创建实体类 `com.itheima.domain.User`
 
 ```java
 public class User implements Serializable{
@@ -45,7 +86,7 @@ public class User implements Serializable{
 }
 ```
 
-3. 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`
+4. 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`
 
  
 
