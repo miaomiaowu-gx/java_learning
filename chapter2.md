@@ -30,7 +30,7 @@ Spring 是分层的 Java SE/EE 应用 **full-stack 轻量级**开源框架，以
 
 ### Spring 的体系结构
 
-
+<img src="./chapter2/img2/spring-overview.png" width=400>
 
 
 
