@@ -174,6 +174,17 @@ public interface IUserDao {
 
 ### 15.3 Mybatis 注解开发一对一的查询配置
 
+1. 创建 Account 实体类
+
+```java
+public class Account implements Serializable {
+    private Integer id;
+    private Integer uid;
+    private Double money;
+    //多对一（mybatis中称之为一对一）的映射：一个账户只能属于一个用户
+    private User user;
+}
+```
 
 
 ### 15.4 Mybatis 注解开发一对多的查询配置
