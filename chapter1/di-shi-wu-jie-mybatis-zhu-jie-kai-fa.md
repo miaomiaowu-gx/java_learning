@@ -346,5 +346,11 @@ public  void  testFindAll(){
 
 2. 
 
+```java
+@CacheNamespace(blocking = true)
+public interface IUserDao {
+    ...
+}
+```
 
  
