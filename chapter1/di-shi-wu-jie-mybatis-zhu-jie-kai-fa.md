@@ -132,13 +132,12 @@ public class MybatisAnnoTest  {
 
 ```java
 public class User implements Serializable{
-
     private Integer userId;
     private String userName;
     private String userAddress;
     private String userSex;
     private Date userBirthday;
-    
+    ....
 }
 ```
 
