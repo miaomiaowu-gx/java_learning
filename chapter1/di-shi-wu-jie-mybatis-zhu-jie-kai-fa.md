@@ -335,7 +335,14 @@ public  void  testFindAll(){
  
 一级缓存，不用开启、不用操作，默认就有的。
 
+1. 在主配置文件中添加开启二级缓存
 
+```xml
+<!--配置开启二级缓存-->
+<settings>
+	<setting name="cacheEnabled" value="true"/>
+</settings>
+```
 
 
 
