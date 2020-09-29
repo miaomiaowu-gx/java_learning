@@ -128,7 +128,19 @@ public class MybatisAnnoTest  {
 
 ### 15.2 注解开发-当实体类名与数据库名字不对应时
 
+实体类修改为
 
+```java
+public class User implements Serializable{
+
+    private Integer userId;
+    private String userName;
+    private String userAddress;
+    private String userSex;
+    private Date userBirthday;
+    
+}
+```
 
 
 
