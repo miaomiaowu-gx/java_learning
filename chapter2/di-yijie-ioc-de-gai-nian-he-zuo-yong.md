@@ -62,6 +62,6 @@ public class JdbcDemo1 {
 
 <img src="./img2/01-wrong-code-analysis.png" width=1100>
 
-当持久层具体实现类 `AccountDaoImpl.java` 不存在，
+当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。
 
 ### 1.2 
