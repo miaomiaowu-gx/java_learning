@@ -44,3 +44,12 @@ public class User implements Serializable{
     ... getter and setter 方法
 }
 ```
+
+3. 在 java 文件夹下创建接口 `com.itheima.dao.IUserDao`
+
+ 
+
+
+
+
+
