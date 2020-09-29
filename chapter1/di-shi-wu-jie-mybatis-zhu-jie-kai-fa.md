@@ -344,7 +344,7 @@ public  void  testFindAll(){
 </settings>
 ```
 
-2. 
+2. 在 IUserDao 开启二级缓存
 
 ```java
 @CacheNamespace(blocking = true)
@@ -353,4 +353,10 @@ public interface IUserDao {
 }
 ```
 
+3. 测试
+
  
+  
+   
+    
+      
