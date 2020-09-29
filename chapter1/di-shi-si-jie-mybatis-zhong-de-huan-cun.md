@@ -25,11 +25,19 @@ Mybatis 提供了缓存策略，通过缓存策略来减少数据库的查询次
   * 一级缓存是 SqlSession 范围的缓存，当调用 SqlSession 的修改，添加，删除，commit()，close()等方法时，就会清空一级缓存。
 	
 * 二级缓存:
-  * 它指的是 Mybatis 中 SqlSessionFactory 对象的缓存。由同一个SqlSessionFactory 对象创建的 SqlSession 共享其缓存。
+  * 它指的是 Mybatis 中 SqlSessionFactory 对象的缓存。由同一个SqlSessionFactory 对象创建的 SqlSession 共享其缓存。二级缓存是 mapper 映射级别的缓存，多个 SqlSession 去操作同一个 Mapper 映射的 sql 语句，多个SqlSession 可以共用二级缓存，二级缓存是跨 SqlSession 的。
 
 * 二级缓存的使用步骤：
   * 第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）
   * 第二步：让当前的映射文件支持二级缓存（在IUserDao.xml中配置）
   * 第三步：让当前的操作支持二级缓存（在select标签中配置）
 
-
+【SqlMapConfig.xml中配置】
+```xml
+<settings>
+  <!-- 开启二级缓存的支持 -->
+  <setting name="cacheEnabled" value="true"/>
+</settings>
+因为 cacheEnabled 的取值默认就为 true，所以这一步可以省略不配置。为 true 代表开启二级缓存；为
+false 代表不开启二级缓存
+```
