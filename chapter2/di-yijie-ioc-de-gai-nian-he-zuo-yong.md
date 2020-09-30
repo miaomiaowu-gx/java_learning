@@ -78,11 +78,15 @@ public class JdbcDemo1 {
 * 配置的内容：唯一标识=全限定类名（key=value)
 * 配置文件可以是xml也可以是properties
 
-（2）第二个：通过读取配置文件中配置的内容，反射创建对象
+（2）通过读取配置文件中配置的内容，反射创建对象
 
 
+1. 在 src->main->resources 文件夹下创建配置文件 `bean.properties`：
 
-
+```properties
+accountService=com.itheima.service.impl.AccountServiceImpl
+accountDao=com.itheima.dao.impl.AccountDaoImpl
+```
 
 
 
