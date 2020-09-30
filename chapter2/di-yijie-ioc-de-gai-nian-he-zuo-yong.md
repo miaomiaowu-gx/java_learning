@@ -148,6 +148,17 @@ public class BeanFactory {
 
 4. 替换 new 语句
 
+```java
+public class AccountServiceImpl implements IAccountService {
 
+    //private IAccountDao accountDao = new AccountDaoImpl();
+    private IAccountDao accountDao = (IAccountDao)BeanFactory.getBean("accountDao");
+
+    public void  saveAccount(){
+        accountDao.saveAccount();
+        System.out.println(i);
+    }
+}
+```
 
 
