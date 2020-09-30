@@ -22,4 +22,6 @@
 </dependencies>
 ```
 
-2. 
+2. 在 src->main->resources 下，创建文件 `bean.xml`
+
+
