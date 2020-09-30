@@ -22,6 +22,8 @@
 </dependencies>
 ```
 
-2. 在 src->main->resources 下，创建文件 `bean.xml`
+2. 在 src->main->resources 下，创建文件 `bean.xml`，添加约束
+
+
 
 
