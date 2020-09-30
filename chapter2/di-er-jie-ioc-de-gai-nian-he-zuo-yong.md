@@ -12,5 +12,13 @@
 
 ```xml
 <packaging>jar</packaging>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.0.2.RELEASE</version>
+    </dependency>
+</dependencies>
 ```
 
