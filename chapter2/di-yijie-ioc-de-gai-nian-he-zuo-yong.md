@@ -138,8 +138,6 @@ public class BeanFactory {
 
     /**
      * 根据bean的名称获取对象
-     * @param beanName
-     * @return
      */
     public static Object getBean(String beanName){
         return beans.get(beanName);
