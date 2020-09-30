@@ -66,7 +66,7 @@ public class JdbcDemo1 {
 
 <img src="./img2/01-wrong-code-analysis.png" width=1100>
 
-当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。
+当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。表现层的 `new AccountServiceImpl()`也会由于 AccountServiceImpl 类不存在，而编译不通过。
 
 
 
