@@ -19,7 +19,7 @@
   * [第十五节 Mybatis 注解开发](chapter1/di-shi-wu-jie-mybatis-zhu-jie-kai-fa.md)
 * [第二章 Spring](chapter2.md)
   * [第一节 程序耦合](chapter2/di-yijie-ioc-de-gai-nian-he-zuo-yong.md)
-  * [第一节 IoC 的概念和作用
+  * 第二节 IoC 的概念和作用
 
 * [第三章 SpringMVC](chapter3.md)
 
