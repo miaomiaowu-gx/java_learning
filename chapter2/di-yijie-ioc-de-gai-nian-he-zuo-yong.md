@@ -161,4 +161,19 @@ public class AccountServiceImpl implements IAccountService {
 }
 ```
 
+```java
+public class Client {
+
+    public static void main(String[] args) {
+        //IAccountService as = new AccountServiceImpl();
+        //as.saveAccount();
+        for(int i=0;i<1;i++) {
+            IAccountService as = (IAccountService) BeanFactory.getBean("accountService");
+            System.out.println("main "+as);
+            as.saveAccount();
+        }
+
+    }
+}
+```
 
