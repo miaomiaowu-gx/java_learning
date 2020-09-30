@@ -88,7 +88,9 @@ accountService=com.itheima.service.impl.AccountServiceImpl
 accountDao=com.itheima.dao.impl.AccountDaoImpl
 ```
 
+2. 文件 `IAccountDao.java`、 `AccountDaoImpl.java`、 `IAccountService.java` 文件内容不变。
 
+3. 
 
 
 
