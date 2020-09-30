@@ -68,6 +68,18 @@ public class JdbcDemo1 {
 
 当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。表现层的 `new AccountServiceImpl()`也会由于 AccountServiceImpl 类不存在，而编译不通过。
 
+【工厂模式 + 配置文件】
+
+使用一个创建 Bean 对象的工厂，用于创建 service 和 dao 对象的。
+ * Bean：在计算机英语中，有可重用组件的含义。
+ * JavaBean：用java语言编写的可重用组件。javabean >  实体类
+
+（1）需要一个配置文件来配置 service 和 dao。
+* 配置的内容：唯一标识=全限定类名（key=value)
+* 配置文件可以是xml也可以是properties
+
+（2）第二个：通过读取配置文件中配置的内容，反射创建对象
+
 
 
 
