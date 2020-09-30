@@ -144,7 +144,7 @@ public class BeanFactory {
     }
 ```
 
-单例模式，将 `Class.forName(beanPath).newInstance()` 放入静态代码块，
+单例模式，将 `Class.forName(beanPath).newInstance()` 放入静态代码块，只会执行一次。
 
 
 
