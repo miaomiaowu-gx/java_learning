@@ -114,9 +114,29 @@ public class Generic<T>{
 Generic<Integer> genericInteger = new Generic<Integer>(123456);
 ```
 
+2) 泛型接口
 
+```java
+public interface Generator<T> {
+    public T method();
+}
 
-2) 
+//实现泛型接口，不指定类型：
+class GeneratorImpl<T> implements Generator<T>{
+    @Override
+    public T method() {
+        return null;
+    }
+}
+
+//实现泛型接口，指定类型：
+class GeneratorImpl<T> implements Generator<String>{
+    @Override
+    public String method() {
+        return "hello";
+    }
+}
+```
 
 3) 
 
