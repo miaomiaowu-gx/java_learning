@@ -161,7 +161,11 @@ printArray( intArray );
 printArray( stringArray );
 ```
 
+【4】常用的通配符为： T，E，K，V，？
 
+【5】
+
+【6】
 
 #### 1.2.2 基本数据类型
 
