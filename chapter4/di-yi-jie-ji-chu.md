@@ -110,9 +110,8 @@ public class Generic<T>{
         return key;
     }
 }
-
+//实例化泛型类
 Generic<Integer> genericInteger = new Generic<Integer>(123456);
-
 ```
 
 
