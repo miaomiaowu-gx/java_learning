@@ -437,9 +437,9 @@ Java 程序设计语言对对象采用的不是引用调用，实际上，对象
 
 [面向过程性能比面向对象高？](https://github.com/Snailclimb/JavaGuide/issues/431)
 
-##### 【2】
+##### 【2】构造器 Constructor 是否可被 override?
 
-
+Constructor 不能被 override（重写），但是可以 overload（重载），所以可以看到一个类中有多个构造函数的情况。
 
 ##### 【3】
 
