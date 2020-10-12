@@ -277,7 +277,11 @@ public native int hashCode();
 
 #### 1.2.2 基本数据类型
 
-
+Java中有 8 种基本数据类型，分别为：
+* 6 种数字类型 ：byte、short、int、long、float、double
+* 1 种字符类型：char
+* 1 种布尔型：boolean。
+这八种基本类型都有对应的包装类分别为：Byte、Short、Integer、Long、Float、Double、Character、Boolean
 
 
 
