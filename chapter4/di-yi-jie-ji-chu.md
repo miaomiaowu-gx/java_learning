@@ -92,6 +92,7 @@ if (employee.isEligibleForFullBenefits())
 
 【3】Java 泛型及类型擦除？
 
+[详细解释](https://www.cnblogs.com/wuqinglong/p/9456193.html)
 
 
 
