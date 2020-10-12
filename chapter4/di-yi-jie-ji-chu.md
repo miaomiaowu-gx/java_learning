@@ -332,7 +332,7 @@ public class Main {
          
         System.out.println(c==d); //true
         System.out.println(e==f); //false
-        System.out.println(c==(a+b)); //true
+        System.out.println(c==(a+b)); //true 包含了算术运算，因此会触发自动拆箱过程，比较的是数值是否相等
         System.out.println(c.equals(a+b)); //true
         System.out.println(g==(a+b)); //true
         System.out.println(g.equals(a+b)); //false
@@ -344,6 +344,7 @@ public class Main {
 > 当 "=="运算符的两个操作数都是 包装器类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式（即包含算术运算）则比较的是数值（即会触发自动拆箱的过程）。
 > 对于包装器类型，equals方法并不会进行类型转换。
 
+* c.equals(a+b)会先触发自动拆箱过程，再触发自动装箱过程，也就是说a+b，会先各自调用intValue方法，得到了加法运算后的数值之后，便调用Integer.valueOf方法，再进行equals比较。
 
 #### 1.2.3 方法（函数）
 
