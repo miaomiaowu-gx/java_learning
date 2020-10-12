@@ -94,7 +94,8 @@ if (employee.isEligibleForFullBenefits())
 
 🍓🍓🍓 一定要看 [详细解释](https://www.cnblogs.com/wuqinglong/p/9456193.html)
 
-Java 泛型: `List<Object>`、`List<String>`
+Java 泛型: `List<Object>`、`List<String>` 等
+类型擦除：
 
 
 
