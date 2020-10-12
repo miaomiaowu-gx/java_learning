@@ -354,7 +354,9 @@ public class Main {
 
 Java 程序设计语言总是采用按值调用。也就是说，方法得到的是所有参数值的一个拷贝，也就是说，方法不能修改传递给它的任何参数变量的内容。
 
-<img src="./img4/03-zhichuandi.jpg" width=800>
+<img src="./img4/03-zhichuandi.jpg" width=1000>
+
+
 
 
 ##### 【2】重载和重写的区别
