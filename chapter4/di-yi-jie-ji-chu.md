@@ -136,6 +136,12 @@ class GeneratorImpl<T> implements Generator<String>{
         return "hello";
     }
 }
+
+//使用
+Integer[] intArray = { 1, 2, 3 };
+String[] stringArray = { "Hello", "World" };
+printArray( intArray  ); 
+printArray( stringArray  ); 
 ```
 
 3) 
