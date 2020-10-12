@@ -281,6 +281,8 @@ Java中有 8 种基本数据类型，分别为：
 * 6 种数字类型 ：byte、short、int、long、float、double
 * 1 种字符类型：char
 * 1 种布尔型：boolean。
+  * 对于boolean，官方文档未明确定义，它依赖于 JVM 厂商的具体实现。逻辑上理解是占用 1位，但是实际中会考虑计算机高效存储因素。
+  
 这八种基本类型都有对应的包装类分别为：Byte、Short、Integer、Long、Float、Double、Character、Boolean
 
 |基本类型|位数|字节|默认值|
@@ -293,6 +295,12 @@ Java中有 8 种基本数据类型，分别为：
 |float	|32	|4	|0f     |
 |double	|64	|8	|0d     |
 |boolean|	|1	|false  |
+
+##### 自动装箱与拆箱
+
+
+
+
 
 
 #### 1.2.3 方法（函数）
