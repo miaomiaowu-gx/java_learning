@@ -283,7 +283,16 @@ Java中有 8 种基本数据类型，分别为：
 * 1 种布尔型：boolean。
 这八种基本类型都有对应的包装类分别为：Byte、Short、Integer、Long、Float、Double、Character、Boolean
 
-
+|基本类型|位数|字节|默认值|
+| ---- | ---- | ---- | ---- |			
+|int	|32	|4	|0      |
+|short	|16	|2	|0      |
+|long	|64	|8	|0L     |
+|byte	|8	|1	|0      |
+|char	|16	|2	|'u0000'|
+|float	|32	|4	|0f     |
+|double	|64	|8	|0d     |
+|boolean|	|1	|false  |
 
 
 #### 1.2.3 方法（函数）
