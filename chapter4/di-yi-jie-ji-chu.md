@@ -71,6 +71,8 @@ Java 语言既具有编译型语言的特征，也具有解释型语言的特征
 3. 占内存大小：字符常量只占 2 个字节; 字符串常量占若干个字节 (注意： char 在 Java 中占两个字节)
   * 字符封装类 Character 有一个成员常量 Character.SIZE 值为 16，单位是 bits。该值除以 8(1byte=8bits) 后就可以得到 2 个字节。
   
+![](/chapter4/img4/02-java-size.jpg)
+  
 【2】
 
 
