@@ -177,6 +177,20 @@ printArray( stringArray );
   * 因为 Java 只有值传递，所以，对于 == 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是引用类型变量存的值是对象的地址。
 * `equals()` : 作用是[判断两个对象是否相等]，它不能用于比较基本数据类型的变量。equals()方法存在于 Object 类中，而 Object 类是所有类的直接或间接父类。
 
+````java
+//Object类equals()方法：
+public boolean equals(Object obj) {
+     return (this == obj);
+}
+```
+
+equals() 方法存在两种使用情况：
+* 情况 1：**类没有覆盖 equals()方法**。则通过 equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。使用的默认是 Object类equals()方法。
+* 情况 2：**类覆盖了 equals()方法**。一般，都覆盖 equals()方法来两个对象的内容相等；若它们的内容相等，则返回 true(即，认为这两个对象相等)。
+
+
+
+
 【6】
 
 #### 1.2.2 基本数据类型
