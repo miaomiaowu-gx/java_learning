@@ -252,6 +252,10 @@ public boolean equals(Object anObject) {
 2. hashCode() 定义在 JDK 的 Object 类中，这就意味着 Java 中的任何类都包含有 hashCode() 函数。
   * 虽然，每个 Java 类都包含 hashCode() 函数。但是，仅仅当创建并某个“类的散列表”(Java集合中本质是散列表的类，如HashMap，Hashtable，HashSet)时，该类的 hashCode() 才有用(作用是：确定该类的每一个对象在散列表中的位置；其它情况下(例如，创建类的单个对象，或者创建类的对象数组等等)，类的 hashCode() 没有作用。
   * 即，hashCode() 在散列表中才有用，在其它情况下没用。
+3. 需要注意的是：Object 的 hashcode 方法是本地方法，也就是用 c 语言或 c++ 实现的，该方法通常用来将对象的 内存地址 转换为整数之后返回。
+```java
+public native int hashCode();
+```
 
 2) 
 
