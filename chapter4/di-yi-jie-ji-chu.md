@@ -77,8 +77,18 @@ Java 语言既具有编译型语言的特征，也具有解释型语言的特征
 
 代码的注释不是越详细越好。实际上好的代码本身就是注释，要尽量规范和美化自己的代码来减少不必要的注释。若编程语言足够有表达力，就不需要注释，尽量通过代码来阐述。
 
+去掉下面复杂的注释，只需要创建一个与注释所言同一事物的函数即可
 
+```java
+// check to see if the employee is eligible for full benefits
+if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
+```
 
+应替换为
+
+```java
+if (employee.isEligibleForFullBenefits())
+```
 
 【3】
 
