@@ -175,10 +175,11 @@ printArray( stringArray );
 
 * `==` : 作用是[判断两个对象的地址是不是相等]。即**判断两个对象是不是同一个对象**。(基本数据类型==比较的是值，**引用数据类型**==比较的是**内存地址**)
   * 因为 Java 只有值传递，所以，对于 == 来说，不管是比较基本数据类型，还是引用数据类型的变量，其本质比较的都是值，只是引用类型变量存的值是对象的地址。
-* `equals()` : 作用是[判断两个对象是否相等]，它不能用于比较基本数据类型的变量。equals()方法存在于 Object 类中，而 Object 类是所有类的直接或间接父类。
+* `equals()` : 作用也是[判断两个对象是否相等]，它不能用于比较基本数据类型的变量。equals()方法存在于 Object 类中，而 Object 类是所有类的直接或间接父类。
 
 ````java
-//Object类equals()方法：
+//Object 类 equals()方法：
+//🍓Object 的 equals 方法是比较的对象的内存地址
 public boolean equals(Object obj) {
      return (this == obj);
 }
