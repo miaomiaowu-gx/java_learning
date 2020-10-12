@@ -136,16 +136,25 @@ class GeneratorImpl<T> implements Generator<String>{
         return "hello";
     }
 }
+```
+
+3) 泛型方法
+
+```java
+public static < E > void printArray( E[] inputArray )
+{         
+     for ( E element : inputArray ){        
+        System.out.printf( "%s ", element );
+     }
+     System.out.println();
+}
 
 //使用
 Integer[] intArray = { 1, 2, 3 };
 String[] stringArray = { "Hello", "World" };
-printArray( intArray  ); 
-printArray( stringArray  ); 
+printArray( intArray );
+printArray( stringArray );
 ```
-
-3) 
-
 
 
 
