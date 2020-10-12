@@ -380,7 +380,14 @@ public class Test {
         System.out.println("y:" + y.getName());
     }
 }
+
+//结果
+x:小李
+y:小张
+s1:小张
+s2:小李
 ```
+
 
 
 
