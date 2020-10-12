@@ -257,9 +257,12 @@ public boolean equals(Object anObject) {
 public native int hashCode();
 ```
 
-2) 
+2) 为什么要有 hashCode？
 
+“HashSet 如何检查重复”为例子来说明为什么要有 hashCode？
 
+1. 当把对象加入 HashSet 时，HashSet 会先计算对象的 hashcode 值来判断对象加入的位置，同时也会与其他已经加入的对象的 hashcode 值作比较，如果没有相符的 hashcode，HashSet 会假设对象没有重复出现。
+2. 
 
 3) 
 
