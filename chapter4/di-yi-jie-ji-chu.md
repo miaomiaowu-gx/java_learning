@@ -303,17 +303,19 @@ Java中有 8 种基本数据类型，分别为：
 
 装箱过程是通过调用包装器的 `valueOf` 方法实现的，而拆箱过程是通过调用包装器的 `xxxValue` 方法实现的。（xxx代表对应的基本数据类型）。
 
+[深入剖析 Java 中的装箱和拆箱](https://www.cnblogs.com/dolphin0520/p/3780005.html)
 
 
-
-
-
-
-谈谈 `Integer i = new Integer(xxx)` 和 `Integer i =xxx;` 这两种方式的区别？
+面试题 1：谈谈 `Integer i = new Integer(xxx)` 和 `Integer i =xxx;` 这两种方式的区别？
 主要有以下这两点区别：
 * 第一种方式不会触发自动装箱的过程；而第二种方式会触发；
 * 在执行效率和资源占用上的区别。第二种方式的执行效率和资源占用在一般性情况下要优于第一种情况（注意这并不是绝对的）。
 
+🍓 Java 基本类型的包装类的大部分都实现了常量池技术，即 Byte,Short,Integer,Long,Character,Boolean；前面 4 种包装类默认创建了数值[-128，127] 的相应类型的缓存数据，Character创建了数值在[0,127]范围的缓存数据，Boolean 直接返回True Or False。如果超出对应范围仍然会去创建新的对象。两种浮点数类型的包装类 Float,Double 并没有实现常量池技术。
+
+
+
+面试题 2：
 
 
 #### 1.2.3 方法（函数）
