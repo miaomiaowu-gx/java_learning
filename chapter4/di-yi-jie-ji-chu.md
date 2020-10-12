@@ -94,6 +94,8 @@ if (employee.isEligibleForFullBenefits())
 
 🍓🍓🍓 一定要看 [详细解释](https://www.cnblogs.com/wuqinglong/p/9456193.html)
 
+泛型一般有三种使用方式:泛型类、泛型接口、泛型方法。
+
 
 
 
