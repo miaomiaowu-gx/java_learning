@@ -30,7 +30,7 @@ Java 语言既具有编译型语言的特征，也具有解释型语言的特征
 
 一般有下面 3 步：
 
-<img src="./img4/01-Java-run.png" >
+<img src="./img4/01-Java-run.png" width=500>
 
 4.1 什么是字节码?采用字节码的好处是什么?
 
