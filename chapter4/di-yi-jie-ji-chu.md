@@ -273,7 +273,7 @@ public native int hashCode();
 
 > hashCode()的默认行为是对堆上的对象(对内存)产生独特值。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）。
 
-
+[Java hashCode() 和 equals()的若干问题解答](https://www.cnblogs.com/skywang12345/p/3324958.html)
 
 #### 1.2.2 基本数据类型
 
