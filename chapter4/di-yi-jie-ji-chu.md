@@ -95,7 +95,7 @@ if (employee.isEligibleForFullBenefits())
 🍓🍓🍓 一定要看 [详细解释](https://www.cnblogs.com/wuqinglong/p/9456193.html)
 
 Java 泛型: `List<Object>`、`List<String>` 等
-类型擦除：
+类型擦除：Java的泛型是伪泛型，这是因为Java在编译期间，所有的泛型信息都会被擦掉。Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。如在代码中定义 List<Object> 和 List<String> 等类型，在编译后都会变成 List，JVM 看到的只是List，而由泛型附加的类型信息对 JVM 是看不到的。类型擦除也是 Java 的泛型与 C++ 模板机制实现方式之间的重要区别。
 
 
 
