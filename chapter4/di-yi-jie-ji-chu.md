@@ -246,6 +246,16 @@ public boolean equals(Object anObject) {
 
 面试官可能会问你：“你重写过 hashcode 和 equals 么，为什么重写 equals 时必须重写 hashCode 方法？”
 
+1) hashCode()介绍
+
+
+2) 
+
+
+
+3) 
+
+
 
 
 
