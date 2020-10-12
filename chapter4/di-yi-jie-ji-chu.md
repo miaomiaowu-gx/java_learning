@@ -248,6 +248,9 @@ public boolean equals(Object anObject) {
 
 1) hashCode()介绍
 
+1. hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返回一个 int 整数。这个哈希码的作用是确定该对象在哈希表中的索引位置。
+2. hashCode() 定义在 JDK 的 Object 类中，这就意味着 Java 中的任何类都包含有 hashCode() 函数。
+
 
 2) 
 
