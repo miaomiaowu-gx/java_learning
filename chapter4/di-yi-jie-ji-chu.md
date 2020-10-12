@@ -190,7 +190,6 @@ public boolean equals(Object obj) {
 }
 ```
 
-
 举个例子：
 
 ```java
@@ -245,7 +244,7 @@ public boolean equals(Object anObject) {
 
 ##### 【6】hashCode()与 equals()
 
-
+面试官可能会问你：“你重写过 hashcode 和 equals 么，为什么重写 equals 时必须重写 hashCode 方法？”
 
 
 
