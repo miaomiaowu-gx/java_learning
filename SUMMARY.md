@@ -22,6 +22,7 @@
   * [第二节 使用 spring 的 IOC 解决程序耦合](chapter2/di-er-jie-ioc-de-gai-nian-he-zuo-yong.md)
 * [第三章 SpringMVC](chapter3.md)
 * [第四章 Java 基础知识点](chapter4.md)
+  * 第一节 基础
 
 
 
