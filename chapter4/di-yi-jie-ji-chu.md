@@ -169,7 +169,7 @@ printArray( stringArray );
 * `K V (key value)` 分别代表 java 键值中的 Key Value
 * `E (element)` 代表 Element
 
-
+[通配符详解](https://juejin.im/post/6844903917835419661)
 
 【5】
 
