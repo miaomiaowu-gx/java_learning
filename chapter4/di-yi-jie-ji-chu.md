@@ -215,7 +215,31 @@ public class test1 {
 * String 中的 equals 方法是被重写过的，**因为 Object 的 equals 方法是比较的对象的内存地址，而 String 的 equals 方法比较的是对象的值**。
 * 当创建 String 类型的对象时，虚拟机会**在常量池中查找**有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个 String 对象。
 
+String 类 equals() 方法：
 
+```java
+public boolean equals(Object anObject) {
+    if (this == anObject) {
+        return true;
+    }
+    if (anObject instanceof String) {
+        String anotherString = (String)anObject;
+        int n = value.length;
+        if (n == anotherString.value.length) {
+            char v1[] = value;
+            char v2[] = anotherString.value;
+            int i = 0;
+            while (n-- != 0) {
+                if (v1[i] != v2[i])
+                    return false;
+                i++;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+```
 
 
 【6】
