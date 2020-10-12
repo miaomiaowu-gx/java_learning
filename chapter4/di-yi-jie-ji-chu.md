@@ -163,6 +163,14 @@ printArray( stringArray );
 
 【4】常用的通配符为： T，E，K，V，？
 
+本质上这些个都是通配符，没什么区别，只不过是编码时的一种约定俗成的东西。通常情况下，
+* `？` 表示不确定的 java 类型
+* `T (type)` 表示具体的一个 java 类型
+* `K V (key value)` 分别代表 java 键值中的 Key Value
+* `E (element)` 代表 Element
+
+
+
 【5】
 
 【6】
