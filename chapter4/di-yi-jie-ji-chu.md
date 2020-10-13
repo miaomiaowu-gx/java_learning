@@ -612,10 +612,11 @@ public class Sub extends Super {
 
 ##### 【1】String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?
 
-String 类中使用 final 关键字修饰字符数组来保存字符串，`private final char value[]`，所以 String 对象是不可变的。在 Java 9 之后，String 类的实现改用 byte 数组存储字符串 `private final byte[] value;`。
+* String 类中使用 final 关键字修饰字符数组来保存字符串，`private final char value[]`，所以 String 对象是不可变的。在 Java 9 之后，String 类的实现改用 byte 数组存储字符串 `private final byte[] value;`。
 
+* StringBuilder 与 StringBuffer 都继承自 AbstractStringBuilder 类，在 AbstractStringBuilder 中也是使用字符数组保存字符串 char[]value 但是没有用 final 关键字修饰，所以这两种对象都是可变的。
 
-
+StringBuilder 与 StringBuffer 的构造方法都是调用父类构造方法也就是 AbstractStringBuilder 实现的
 
 
 
