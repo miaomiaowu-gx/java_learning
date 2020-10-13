@@ -79,17 +79,16 @@ public class JdbcDemo1 {
 
 使用一个创建 Bean 对象的工厂，用于创建 service 和 dao 对象的。
  * Bean：在计算机英语中，有可重用组件的含义。
- * JavaBean：用java语言编写的可重用组件。javabean >  实体类
+ * JavaBean：用 java 语言编写的可重用组件。javabean >  实体类
 
 （1）需要一个配置文件来配置 service 和 dao。
-* 配置的内容：唯一标识=全限定类名（key=value)
-* 配置文件可以是xml也可以是properties
+* 配置的内容：唯一标识  = 全限定类名（key=value)
+* 配置文件可以是 xml 也可以是 properties
 
 （2）通过读取配置文件中配置的内容，反射创建对象
 
 
 1. 在 src->main->resources 文件夹下创建配置文件 `bean.properties`：
-
 ```properties
 accountService=com.itheima.service.impl.AccountServiceImpl
 accountDao=com.itheima.dao.impl.AccountDaoImpl
@@ -98,7 +97,6 @@ accountDao=com.itheima.dao.impl.AccountDaoImpl
 2. 文件 `IAccountDao.java`、 `AccountDaoImpl.java`、 `IAccountService.java` 文件内容不变。
 
 3. src->main->java->com->itheima->factory 下创建 `BeanFactory.java`：
-
 ```java
 package com.itheima.factory;
 
@@ -154,7 +152,6 @@ public class BeanFactory {
 单例模式，将 `Class.forName(beanPath).newInstance()` 放入静态代码块，只会执行一次。如果放入 `getBean` 函数中，则每次调用，都会产生新的对象。
 
 4. 替换 new 语句
-
 ```java
 public class AccountServiceImpl implements IAccountService {
 
