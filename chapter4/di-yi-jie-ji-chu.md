@@ -636,6 +636,22 @@ public class Sub extends Super {
 
 Java 序列化中如果有些字段不想进行序列化，对于不想进行序列化的变量，使用 transient 关键字修饰。transient 关键字的作用是：阻止实例中那些用此关键字修饰的的变量序列化；当对象被反序列化时，被 transient 修饰的变量值不会被持久化和恢复。transient 只能修饰变量，不能修饰类和方法。
 
+##### 【3】
+
+方法 1：通过 Scanner
+
+```java
+Scanner input = new Scanner(System.in);
+String s  = input.nextLine();
+input.close();
+```
+
+方法 2：通过 BufferedReader
+
+```java
+BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+String s = input.readLine();
+```
 
 ### 1.6 Java 核心技术
 
