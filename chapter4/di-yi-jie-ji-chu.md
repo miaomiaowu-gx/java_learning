@@ -533,6 +533,18 @@ public class Singleton {
 **当 Singleton 类加载时，静态内部类 SingletonHolder 没有被加载进内存**。只有当调用 getUniqueInstance() 方法从而触发 SingletonHolder.INSTANCE 时 SingletonHolder 才会被加载，此时初始化 INSTANCE 实例，并且 **JVM 能确保 INSTANCE 只被实例化一次**。这种方式不仅具有延迟初始化的好处，而且由 JVM 提供了对线程安全的支持。
 
 * ** 静态导包**(用来导入类中的静态资源，1.5之后的新特性): 格式为：import static 这两个关键字连用可以指定导入某个类中的**指定静态资源**，并且不需要使用类名调用类中静态成员，可以直接使用类中静态成员变量和成员方法。
+```java
+ //将Math中的所有静态资源导入，这时候可以直接使用里面的静态方法，而不用通过类名进行调用
+ //如果只想导入单一某个静态方法，只需要将换成对应的方法名即可
+
+import static java.lang.Math.*;//换成import static java.lang.Math.max;具有一样的效果
+public class Demo {
+  public static void main(String[] args) {
+    int max = max(1,2);
+    System.out.println(max);
+  }
+}
+```
 
 ###### this 关键字
 
