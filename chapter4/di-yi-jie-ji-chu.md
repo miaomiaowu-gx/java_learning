@@ -610,6 +610,16 @@ public class Sub extends Super {
 
 #### 1.5.5 其他重要知识点
 
+##### 【1】String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?
+
+
+
+
+
+
+
+
+##### 【】
 
 
 
