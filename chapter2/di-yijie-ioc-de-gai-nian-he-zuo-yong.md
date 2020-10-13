@@ -96,16 +96,14 @@ accountDao=com.itheima.dao.impl.AccountDaoImpl
 
 2. 文件 `IAccountDao.java`、 `AccountDaoImpl.java`、 `IAccountService.java` 文件内容不变。
 
-3. src->main->java->com->itheima->factory 下创建 `BeanFactory.java` ： 
+3. src->main->java->com->itheima->factory 下创建 `BeanFactory.java`文件： 
 ```java
 package com.itheima.factory;
-
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
 public class BeanFactory {
     //定义一个Properties对象
     private static Properties props;
