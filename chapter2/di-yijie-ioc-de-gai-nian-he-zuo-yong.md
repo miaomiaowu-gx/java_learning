@@ -96,7 +96,7 @@ accountDao=com.itheima.dao.impl.AccountDaoImpl
 
 2. 文件 `IAccountDao.java`、 `AccountDaoImpl.java`、 `IAccountService.java` 文件内容不变。
 
-3. src->main->java->com->itheima->factory 下创建 `BeanFactory.java`：
+3. src->main->java->com->itheima->factory 下创建 `BeanFactory.java` ： 
 ```java
 package com.itheima.factory;
 
