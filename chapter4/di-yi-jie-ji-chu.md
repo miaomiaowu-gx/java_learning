@@ -621,6 +621,11 @@ public class Sub extends Super {
 * StringBuffer 对方法加了同步锁或者对调用的方法加了同步锁，所以是**线程安全**的。
 * StringBuilder 并没有对方法进行加同步锁，所以是非线程安全的。
 
+性能：
+* 每次对 String 类型进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象。
+* StringBuffer 每次都会对 StringBuffer 对象本身进行操作，而不是生成新的对象并改变对象引用。相同情况下使用 StringBuilder 相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险。
+
+
 
 
 
