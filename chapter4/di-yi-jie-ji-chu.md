@@ -488,6 +488,12 @@ new 运算符，new 创建对象实例（对象实例在堆内存中），对象
 <img src="./img4/06-classload.png" width=700>
 
 
+##### 【2】常见关键字总结: static/final/this/super
+
+
+
+
+
 #### 1.5.4 接口和抽象类
 
 
