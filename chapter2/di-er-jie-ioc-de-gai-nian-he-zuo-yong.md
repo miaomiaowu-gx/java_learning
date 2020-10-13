@@ -8,7 +8,7 @@
 
 ### 2.2 使用 spring 的 IOC 解决程序耦合
 
-1. 创建 Maven 工程，添加 Spring 坐标。 
+1. 创建 Maven 工程，添加 Spring 坐标
 ```xml
 <packaging>jar</packaging>
 
