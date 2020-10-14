@@ -34,7 +34,7 @@
 
 6. 一般会使用断言操作来处理结果 `Assert.assertEquals(期望的结果,运算的结果);`
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202006/2051825-20200626235609372-1465729186.png" width=500>
+<img src="./img6/01-file-structure.png" width=500>
 
 **计算器类：**
 
