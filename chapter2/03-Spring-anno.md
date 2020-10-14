@@ -185,7 +185,7 @@ public class AccountServiceImpl implements IAccountService {
 * Value
  * 作用：用于注入基本类型和 String 类型的数据
  * 属性：value，用于指定数据的值。它可以使用 Spring 中 SpEL (也就是 Spring 的 el 表达式）
- * SpEL 的写法：${表达式}
+ * SpEL 的写法：`${表达式}`
 
 
 
