@@ -187,9 +187,6 @@ public class AccountServiceImpl implements IAccountService {
  * 属性：value，用于指定数据的值。它可以使用 Spring 中 SpEL (也就是 Spring 的 el 表达式）
  * SpEL 的写法：`${表达式}`
 
-
-
-
 ##### 3）用于改变作用范围的注解
 
 * Scope
@@ -280,7 +277,7 @@ insert into account(name,money) values('bbb',1000);
 insert into account(name,money) values('ccc',1000);
 ```
 
-3. 在 main->java 文件夹下创建 `com.itheima.service.IAccountService` 接口
+3. 
 
 ### 3.3 Spring 的新注解
 
