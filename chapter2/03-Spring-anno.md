@@ -154,9 +154,13 @@ public class AccountServiceImpl implements IAccountService {
 
  
 * Qualifier:
- * 作用：在按照类中注入的基础之上再按照名称注入。它**在给类成员注入时不能单独使用**。但是在**给方法参数注入时可以**。
+ * 作用：在按照**类型注入**的基础之上再按照**名称注入**。它**在给类成员注入时不能单独使用**。但是在**给方法参数注入时可以**。
  * 属性：value，用于指定注入 bean 的 id。
- 
+ ```java
+ @Autowired
+ @Qualifier("accountDao1")
+ private IAccountDao accountDao = null;
+ ```
  
 * Resource
  * 作用：直接按照 bean 的 id 注入。它可以独立使用
