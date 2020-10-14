@@ -150,7 +150,7 @@ public class AccountServiceImpl implements IAccountService {
 }
 ```
  
- <img src="./img2/04-auto.png" width=700>
+ <img src="./img2/04-auto.png" width=900>
 
  
 * Qualifier:
