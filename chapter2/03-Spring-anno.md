@@ -441,11 +441,10 @@ public class Account implements Serializable {
     }
 }
 ```
+#### 3.2.2 编写 Spring 的 Ioc 配置
 
 
 
-
-#### 3.2.2 
 
 ### 3.3 Spring 的新注解
 
