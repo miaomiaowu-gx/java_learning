@@ -133,10 +133,26 @@ public class Client {
    * 只要容器中有唯一的一个 bean 对象类型和要注入的变量类型匹配，就可以注入成功。
    * 如果 ioc 容器中没有任何 bean 的类型和要注入的变量类型匹配，则报错。
    * 如果Ioc容器中有多个类型匹配时：
- *          出现位置：
- *              可以是变量上，也可以是方法上
- *          细节：
- *              在使用注解注入时，set方法就不是必须的了。
+ * 出现位置：可以是变量上，也可以是方法上
+ * 细节：在使用注解注入时，set 方法不是必须的。
+```java
+ @Component
+public class AccountServiceImpl implements IAccountService {
+    @Autowired //作用于变量
+    private IAccountDao accountDao;
+
+    public AccountServiceImpl(){
+        System.out.println("对象创建了！");
+    }
+    public void  saveAccount(){
+        accountDao.saveAccount();
+    }
+}
+```
+ 
+ 
+ 
+ 
 * Qualifier:
  *          作用：在按照类中注入的基础之上再按照名称注入。它在给类成员注入时不能单独使用。但是在给方法参数注入时可以（稍后我们讲）
  *          属性：
