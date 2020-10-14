@@ -115,7 +115,7 @@ public class Client {
         //1.获取核心容器对象
         ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         //2.根据id获取Bean对象
-        IAccountService as  = (IAccountService)ac.getBean("accountServiceImpl");
+        IAccountService as  = (IAccountService)ac.getBean("accountServiceImpl"); //类名首字母小写！
         System.out.println(as);
         as.saveAccount();
 
