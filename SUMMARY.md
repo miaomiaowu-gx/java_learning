@@ -23,4 +23,5 @@
 * [第三章 SpringMVC](chapter3.md)
 * [第四章 Java 基础知识点](chapter4.md)
   * [第一节 基础](chapter4/di-yi-jie-ji-chu.md)
+  * [第二节 使用 spring 的 IOC 解决程序耦合](chapter4/di-er-jie-ioc-de-gai-nian-he-zuo-yong.md)
 
