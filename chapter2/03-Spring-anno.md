@@ -170,6 +170,14 @@ public class AccountServiceImpl implements IAccountService {
  private IAccountDao accountDao = null;
  ```
  上述代码会报空指针异常：`javax.annotation.Resource` 是 JDK1.6 才支持的，jdk1.8 以上没有 javax.annotation。
+ 导入依赖
+ ```xml
+ <dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+ </dependency>
+ ```
 
 
 
