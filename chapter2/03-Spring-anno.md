@@ -67,9 +67,12 @@ public class AccountServiceImpl implements IAccountService {
 
 #### 3.1.3 注解配置
 
-
-
-
+```
+曾经 XML 的配置：
+<bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl" scope=""  init-method="" destroy-method="">
+    <property name=""  value="" / ref=""></property>
+</bean>
+```
 
 
 
