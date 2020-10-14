@@ -38,7 +38,7 @@
 
 **计算器类：**
 
-~~~
+~~~java
 package cn.itcast.junit;
 
 /**
@@ -73,7 +73,7 @@ public class Calculator {
 
 **测试类：**
 
-~~~
+~~~java
 package cn.itcast.test;
 
 import cn.itcast.junit.Calculator;
@@ -137,7 +137,6 @@ public class CalculatorTest {
   - 软件输出窗口绿色：成功
 
 
-
 ## 二、反射：框架设计的灵魂
 
 ### 2.1 介绍
@@ -146,7 +145,7 @@ public class CalculatorTest {
 
 反射：将类的**各个组成部分**封装为其他对象(如Field[] fields, Method[] methods等)，这就是**反射机制**。
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202006/2051825-20200629230300917-122843953.bmp" width=900>
+<img src="./img6/02-java-code-three.bmp" width=900>
 
 反射好处：
 1. 可以在程序运行过程中，操作这些对象。
