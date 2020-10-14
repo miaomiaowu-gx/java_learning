@@ -208,3 +208,14 @@ public class AccountServiceImpl implements IAccountService{...}
 * PreDestroy：用于指定销毁方法。
 * PostConstruct：用于指定初始化方法。
 
+```java
+@PostConstruct
+public void  init(){
+    System.out.println("初始化方法执行了");
+}
+
+@PreDestroy
+public void  destroy(){
+    System.out.println("销毁方法执行了");
+}
+```
