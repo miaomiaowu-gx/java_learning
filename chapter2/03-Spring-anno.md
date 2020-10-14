@@ -556,10 +556,54 @@ public class AccountServiceTest {
 
 #### 3.2.5 注解IOC案例-把自己编写的类使用注解配置
 
-1 修改 `bean.xml` 文件
+1 修改 `bean.xml` 文件：添加 context 约束，并删除 Service 与 Dao 相关的配置。
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 告知spring在创建容器时要扫描的包 -->
+    <context:component-scan base-package="com.itheima"></context:component-scan>
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <!--注入数据源-->
+        <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+    </bean>
 
-  
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="mysql"></property>
+    </bean>
+</beans>
+```
+
+2 在 AccountDaoImpl 与 AccountDaoImpl 中添加注解
+
+```java
+@Service("accountService")
+public class AccountServiceImpl implements IAccountService{
+    //业务层是要调用持久层的
+    @Autowired //只有一个变量，不会发生类型冲突，可以使用该注解
+    private IAccountDao accountDao; //删除改变量的 setter 方法
+    ...
+}
+
+@Repository("accountDao")
+public class AccountDaoImpl implements IAccountDao {
+    @Autowired
+    private QueryRunner runner; //删除改变量的 setter 方法
+    ...
+}
+``` 
 ### 3.3 Spring 的新注解
 
 
