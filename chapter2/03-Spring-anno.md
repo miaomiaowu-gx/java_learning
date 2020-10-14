@@ -277,7 +277,13 @@ insert into account(name,money) values('bbb',1000);
 insert into account(name,money) values('ccc',1000);
 ```
 
-3. 
+3. 文件结构及内容
+
+<img src="./img2/05-file-structure.png" width=500>
+
+
+
+#### 3.2.2 
 
 ### 3.3 Spring 的新注解
 
