@@ -110,12 +110,6 @@ public class Client {
 //com.itheima.service.impl.AccountServiceImpl@6f45df59
 //com.itheima.dao.impl.AccountDaoImpl@38e79ae3
 //保存了账户
-```
-
-
-
-
-
-
+``
 
 > spring5 版本是用 jdk8 编写的，所以要求 jdk 版本是 8 及以上，同时 tomcat 的版本要求 8.5 及以上。 
