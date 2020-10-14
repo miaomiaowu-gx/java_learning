@@ -204,5 +204,7 @@ public class AccountServiceImpl implements IAccountService{...}
 
 ##### 4）与生命周期相关的注解（了解）
 
-
+作用：与 bean 标签中使用 init-method 和 destroy-method 的作用是一样的。
+* PreDestroy：用于指定销毁方法。
+* PostConstruct：用于指定初始化方法。
 
