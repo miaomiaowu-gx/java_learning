@@ -38,18 +38,18 @@
 ```md
 文件结构
 java.com.itheima
-|____dao
-| |_____impl
-| | |____AccountDaoIpml.java   
-| |_____IAccountDao.java 
+|___dao
+| |___impl
+| | |___AccountDaoIpml.java   
+| |___IAccountDao.java 
 |
-|____service
-| |_____impl
-| | |____AccountServiceIpml.java   
-| |_____IAccountService.java 
+|___service
+| |___impl
+| | |___AccountServiceIpml.java   
+| |___IAccountService.java 
 |
-|____ui
-  |_____Client
+|___ui
+  |___Client
 ```
 其中 AccountServiceImpl 实现如下：
 ```java
