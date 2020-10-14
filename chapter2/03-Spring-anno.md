@@ -74,10 +74,16 @@ public class AccountServiceImpl implements IAccountService {
 </bean>
 ```
 
+##### 用于创建对象的 Component 注解
 
+作用：与 XML 配置文件中编写一个 `<bean>` 标签实现的功能是一样的。
 
-
-
-
+* Component:
+  * 作用：用于把当前类对象存入 Spring 容器中
+  * 属性：value，用于指定 bean 的 id。当不写时，它的默认值是当前类名，且首字母改小写。
+* Controller：一般用在表现层
+* Service：一般用在业务层
+* Repository：一般用在持久层
+* 以上三个注解他们的作用和属性与 Component 是一模一样的。他们三个是 Spring 框架为使用者提供明确的三层使用的注解。
 
 
