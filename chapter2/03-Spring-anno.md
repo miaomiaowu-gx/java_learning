@@ -163,7 +163,7 @@ public class AccountServiceImpl implements IAccountService {
  ```
  
 * Resource
- * 作用：直接按照 bean 的 id 注入。它可以独立使用
+ * 作用：直接按照 bean 的 id 注入，可以独立使用。
  * 属性：name，用于指定 bean 的 id。
 
 > 以上三个注入都只能注入其他 bean 类型的数据，而基本类型和 String 类型无法使用上述注解实现。
