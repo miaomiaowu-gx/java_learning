@@ -480,7 +480,12 @@ public class Account implements Serializable {
 </beans>
 ```
 
-#### 3.2.3
+#### 3.2.3 测试基于 XML 的 IOC 案例
+
+在 test->java 下创建 `com.itheima.test.AccountServiceTest` 测试类
+
+
+
 
   
 ### 3.3 Spring 的新注解
