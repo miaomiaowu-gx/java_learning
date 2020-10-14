@@ -281,6 +281,168 @@ insert into account(name,money) values('ccc',1000);
 
 <img src="./img2/05-file-structure.png" width=100>
 
+```java
+
+//1) 账户的持久层接口
+public interface IAccountDao {
+    //查询所有
+    List<Account> findAllAccount();
+
+    //查询一个
+    Account findAccountById(Integer accountId);
+
+    //保存
+    void saveAccount(Account account);
+
+    //更新
+    void updateAccount(Account account);
+
+    //删除
+    void deleteAccount(Integer acccountId);
+}
+
+//2) 账户的持久层实现类
+public class AccountDaoImpl implements IAccountDao {
+
+    private QueryRunner runner;
+
+    public void setRunner(QueryRunner runner) {
+        this.runner = runner;
+    }
+
+    public List<Account> findAllAccount() {
+        try{
+            return runner.query("select * from account",new BeanListHandler<Account>(Account.class));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Account findAccountById(Integer accountId) {
+        try{
+            return runner.query("select * from account where id = ? ",new BeanHandler<Account>(Account.class),accountId);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void saveAccount(Account account) {
+        try{
+            runner.update("insert into account(name,money) values(?,?)",account.getName(),account.getMoney());
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateAccount(Account account) {
+        try{
+            runner.update("update account set name=?,money=? where id=?",account.getName(),account.getMoney(),account.getId());
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteAccount(Integer accountId) {
+        try{
+            runner.update("delete from account where id=?",accountId);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+//3) 账户的业务层接口
+public interface IAccountService {
+    //查询所有
+    List<Account> findAllAccount();
+
+    //查询一个
+    Account findAccountById(Integer accountId);
+
+    //保存
+    void saveAccount(Account account);
+
+    //更新
+    void updateAccount(Account account);
+
+    //删除
+    void deleteAccount(Integer acccountId);
+}
+
+//4) 账户的业务层实现类
+public class AccountServiceImpl implements IAccountService{
+
+    //业务层是要调用持久层的
+    private IAccountDao accountDao;
+
+    public void setAccountDao(IAccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+
+    public List<Account> findAllAccount() {
+        return accountDao.findAllAccount();
+    }
+
+    public Account findAccountById(Integer accountId) {
+        return accountDao.findAccountById(accountId);
+    }
+
+    public void saveAccount(Account account) {
+        accountDao.saveAccount(account);
+    }
+
+    public void updateAccount(Account account) {
+        accountDao.updateAccount(account);
+    }
+
+    public void deleteAccount(Integer acccountId) {
+        accountDao.deleteAccount(acccountId);
+    }
+}
+
+//5) 数据库中账户对应的实体类
+public class Account implements Serializable {
+
+    private Integer id;
+    private String name;
+    private Float money;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Float getMoney() {
+        return money;
+    }
+
+    public void setMoney(Float money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                '}';
+    }
+}
+```
+
+
 
 
 #### 3.2.2 
