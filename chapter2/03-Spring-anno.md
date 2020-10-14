@@ -132,7 +132,7 @@ public class Client {
  * 作用：自动按照类型注入。
    * 只要容器中有唯一的一个 bean 对象类型和要注入的变量类型匹配，就可以注入成功。
    * 如果 ioc 容器中没有任何 bean 的类型和要注入的变量类型匹配，则报错。
-   * 如果Ioc容器中有多个类型匹配时：匹配关系如下图。
+   * 如果 Ioc 容器中有多个类型匹配时：匹配关系如下图。
  * 出现位置：可以是变量上，也可以是方法上
  * 细节：在使用注解注入时，set 方法不是必须的。
 ```java
@@ -150,7 +150,7 @@ public class AccountServiceImpl implements IAccountService {
 }
 ```
  
- 
+ <img src="./img2/04-auto.png" width=700>
  
  
 * Qualifier:
