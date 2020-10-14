@@ -179,8 +179,6 @@ public class AccountServiceImpl implements IAccountService {
  </dependency>
  ```
 
-
-
 > 以上三个注入都只能注入其他 bean 类型的数据，而基本类型和 String 类型无法使用上述注解实现。
 > 另外，集合类型的注入只能通过 XML 来实现。
 
