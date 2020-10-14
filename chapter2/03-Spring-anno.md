@@ -4,9 +4,7 @@
 
 基于注解的 IoC 配置与 xml 配置要实现的功能是一样的，都是要降低程序间的耦合。只是配置的形式不一样。 
 
-
-
-1 准备
+#### 3.1.1 准备
 
 ```xml
 //为 pom.xml 添加坐标
@@ -34,4 +32,28 @@
     <context:component-scan base-package="com.itheima"></context:component-scan>
 </beans>
 ```
+
+#### 3.1.2 文件内容
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
