@@ -280,7 +280,7 @@ insert into account(name,money) values('bbb',1000);
 insert into account(name,money) values('ccc',1000);
 ```
 
-3. 
+3. 在 main->java 文件夹下创建 `com.itheima.service.IAccountService` 接口
 
 ### 3.3 Spring 的新注解
 
