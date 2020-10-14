@@ -117,7 +117,7 @@ public class Client {
         //2.根据id获取Bean对象
         IAccountService as  = (IAccountService)ac.getBean("accountServiceImpl"); //类名首字母小写！
         System.out.println(as);
-        as.saveAccount();
+        //as.saveAccount();
 
         IAccountDao aDAO  = (IAccountDao)ac.getBean("accountDao");
         System.out.println(aDAO);
