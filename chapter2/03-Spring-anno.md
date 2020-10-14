@@ -86,4 +86,41 @@ public class AccountServiceImpl implements IAccountService {
 * Repository：一般用在持久层
 * 以上三个注解他们的作用和属性与 Component 是一模一样的（可以互相通用）。他们三个是 Spring 框架为使用者提供明确的三层使用的注解。
 
+1 为程序添加注解
+```java
+// AccountServiceImpl 类
+@Component
+public class AccountServiceImpl implements IAccountService {
+    private IAccountDao accountDao;
+    public AccountServiceImpl(){
+        System.out.println("对象创建了！");
+    }
+    public void  saveAccount(){
+        accountDao.saveAccount();
+    }
+}
+// AccountDaoImpl 类
+@Repository("accountDao")
+public class AccountDaoImpl implements IAccountDao {
+    public void saveAccount(){
+        System.out.println("保存了账户");
+    }
+}
+```
 
+2 调用（bean.xml已经配置过）
+```java
+public class Client {
+    public static void main(String[] args) {
+        //1.获取核心容器对象
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //2.根据id获取Bean对象
+        IAccountService as  = (IAccountService)ac.getBean("accountServiceImpl");
+        System.out.println(as);
+        as.saveAccount();
+
+        IAccountDao aDAO  = (IAccountDao)ac.getBean("accountDao");
+        System.out.println(aDAO);
+    }
+}
+```
