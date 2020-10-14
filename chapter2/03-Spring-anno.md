@@ -154,21 +154,21 @@ public class AccountServiceImpl implements IAccountService {
 
  
 * Qualifier:
- *          作用：在按照类中注入的基础之上再按照名称注入。它在给类成员注入时不能单独使用。但是在给方法参数注入时可以（稍后我们讲）
- *          属性：
- *              value：用于指定注入bean的id。
+ * 作用：在按照类中注入的基础之上再按照名称注入。它**在给类成员注入时不能单独使用**。但是在**给方法参数注入时可以**。
+ * 属性：value，用于指定注入 bean 的 id。
+ 
+ 
 * Resource
- *          作用：直接按照bean的id注入。它可以独立使用
- *          属性：
- *              name：用于指定bean的id。
- *      以上三个注入都只能注入其他bean类型的数据，而基本类型和String类型无法使用上述注解实现。
- *      另外，集合类型的注入只能通过XML来实现。
- *
- *      Value
- *          作用：用于注入基本类型和String类型的数据
- *          属性：
- *              value：用于指定数据的值。它可以使用spring中SpEL(也就是spring的el表达式）
- *                      SpEL的写法：${表达式}
+ * 作用：直接按照 bean 的 id 注入。它可以独立使用
+ * 属性：name，用于指定 bean 的 id。
+
+> 以上三个注入都只能注入其他 bean 类型的数据，而基本类型和 String 类型无法使用上述注解实现。
+> 另外，集合类型的注入只能通过 XML 来实现。
+
+* Value
+ * 作用：用于注入基本类型和String类型的数据
+ * 属性：value，用于指定数据的值。它可以使用 Spring 中 SpEL (也就是 Spring 的 el 表达式）
+ * SpEL 的写法：${表达式}
 
 
 
