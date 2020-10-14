@@ -36,6 +36,7 @@
 #### 3.1.2 文件内容
 
 ```md
+文件结构
 java.com.itheima
 |____dao
 | |_____impl
@@ -48,9 +49,20 @@ java.com.itheima
 | |_____IAccountService.java 
 |
 |____ui
-| |_____Client
-
-
+  |_____Client
+```
+其中 AccountServiceImpl 实现如下：
+```java
+public class AccountServiceImpl implements IAccountService {
+    private IAccountDao accountDao;
+    public AccountServiceImpl(){
+        System.out.println("对象创建了！");
+    }
+    public void  saveAccount(){
+        accountDao.saveAccount();
+    }
+}
+```
 
 
 
