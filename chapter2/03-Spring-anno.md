@@ -556,7 +556,7 @@ public class AccountServiceTest {
 
 #### 3.2.5 注解IOC案例-把自己编写的类使用注解配置
 
-
+1 修改 `bean.xml` 文件
 
 
   
