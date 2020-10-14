@@ -551,9 +551,7 @@ public class AccountServiceTest {
 
 #### 3.2.4 要点注意
 
-
-
-
+<img src="./img2/06-bean-xml-config.png">
 
   
 ### 3.3 Spring 的新注解
