@@ -35,6 +35,12 @@
 
 #### 3.1.2 文件内容
 
+```md
+java.com.itheima
+|____dao
+  |_____impl
+  | |____AccountDaoIpml.java   
+  |_____IAccountDao.java 
 
 
 
