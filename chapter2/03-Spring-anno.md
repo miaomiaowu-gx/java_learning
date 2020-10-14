@@ -183,7 +183,7 @@ public class AccountServiceImpl implements IAccountService {
 > 另外，集合类型的注入只能通过 XML 来实现。
 
 * Value
- * 作用：用于注入基本类型和String类型的数据
+ * 作用：用于注入基本类型和 String 类型的数据
  * 属性：value，用于指定数据的值。它可以使用 Spring 中 SpEL (也就是 Spring 的 el 表达式）
  * SpEL 的写法：${表达式}
 
