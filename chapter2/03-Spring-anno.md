@@ -74,7 +74,7 @@ public class AccountServiceImpl implements IAccountService {
 </bean>
 ```
 
-##### 用于创建对象的 Component 注解
+##### 1）用于创建对象的 Component 注解
 
 作用：与 XML 配置文件中编写一个 `<bean>` 标签实现的功能是一样的。
 
@@ -124,3 +124,20 @@ public class Client {
     }
 }
 ```
+
+##### 2）用于注入数据的注解
+
+
+
+
+
+
+##### 3）
+
+
+
+
+##### 4）
+
+
+
