@@ -268,6 +268,7 @@ public void  destroy(){
 2. 创建数据库及表
 
 ```sql
+create database eesy;
 create table account(
 	id int primary key auto_increment,
 	name varchar(40),
