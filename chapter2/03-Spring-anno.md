@@ -84,6 +84,6 @@ public class AccountServiceImpl implements IAccountService {
 * Controller：一般用在表现层
 * Service：一般用在业务层
 * Repository：一般用在持久层
-* 以上三个注解他们的作用和属性与 Component 是一模一样的。他们三个是 Spring 框架为使用者提供明确的三层使用的注解。
+* 以上三个注解他们的作用和属性与 Component 是一模一样的（可以互相通用）。他们三个是 Spring 框架为使用者提供明确的三层使用的注解。
 
 
