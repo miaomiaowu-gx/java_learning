@@ -609,11 +609,7 @@ public class AccountDaoImpl implements IAccountDao {
 
 基于上述代码，修改为不需要 bean.xml 配置的纯注解工程。 
 
-1 在 main->java 文件夹下创建 `config.SpringConfiguration` 
-
-
-
-2 在 main->resources 文件夹下创建配置文件 `jdbcConfig.properties`
+1 在 main->resources 文件夹下创建配置文件 `jdbcConfig.properties`
 
 ```properties
 jdbc.driver=com.mysql.jdbc.Driver
@@ -621,4 +617,13 @@ jdbc.url=jdbc:mysql://localhost:3306/eesy
 jdbc.username=root
 jdbc.password=mysql
 ```
+2 在 main->java 文件夹下创建 `config.SpringConfiguration` 
+
+
+
+3 在 main->java 文件夹下创建 `config.JdbcConfig`
+
+
+
+
 
