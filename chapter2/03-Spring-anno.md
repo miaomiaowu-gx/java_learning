@@ -607,7 +607,7 @@ public class AccountDaoImpl implements IAccountDao {
 
 ### 3.3 Spring的纯注解配置
 
-基于上述代码，修改为不需要 bean.xml
+基于上述代码，修改为不需要 bean.xml 配置的纯注解工程。 
 
 
 
