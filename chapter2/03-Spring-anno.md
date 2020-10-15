@@ -149,10 +149,10 @@ public class AccountServiceImpl implements IAccountService {
     }
 }
 ```
- 
+
  <img src="./img2/04-auto.png" width=900>
 
- 
+
 * Qualifier:
  * 作用：在按照**类型注入**的基础之上再按照**名称注入**。它**在给类成员注入时不能单独使用**。但是在**给方法参数注入时可以**。
  * 属性：value，用于指定注入 bean 的 id。
@@ -161,7 +161,7 @@ public class AccountServiceImpl implements IAccountService {
  @Qualifier("accountDao1")
  private IAccountDao accountDao = null;
  ```
- 
+
 * Resource
  * 作用：直接按照 bean 的 id 注入，可以独立使用。
  * 属性：name，用于指定 bean 的 id。
@@ -603,11 +603,11 @@ public class AccountDaoImpl implements IAccountDao {
     private QueryRunner runner; //删除改变量的 setter 方法
     ...
 }
-``` 
+```
 
 ### 3.3 Spring的纯注解配置
 
 基于上述代码，修改为不需要 bean.xml 配置的纯注解工程。 
 
-
+1 在 main->java 文件夹下创建 `config.SpringConfiguration` 
 
