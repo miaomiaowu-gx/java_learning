@@ -613,4 +613,4 @@ public class AccountDaoImpl implements IAccountDao {
 
 
 
-2 在main
+2 在 main->resources 文件夹下创建配置文件 `jdbcConfig.properties`
