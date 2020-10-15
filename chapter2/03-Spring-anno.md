@@ -627,3 +627,11 @@ jdbc.password=mysql
 
 
 
+
+
+
+
+
+
+Qualifier 注解的另一种用法，作用与方法参数
+
