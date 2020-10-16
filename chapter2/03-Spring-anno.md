@@ -619,19 +619,76 @@ jdbc.password=mysql
 ```
 2 在 main->java 文件夹下创建 `config.SpringConfiguration` 
 
-
-
 3 在 main->java 文件夹下创建 `config.JdbcConfig`
 
+**SpringConfiguration 类是一个配置类**，它的作用和 bean.xml 是一样的。Spring中的新注解：
 
+* Configuration
+  * 作用：指定当前类是一个配置类。
+  * 细节：当配置类作为 AnnotationConfigApplicationContext 对象创建的参数时，该注解可以不写。
+* ComponentScan
+  * 作用：用于通过注解指定 Spring 在创建容器时要扫描的包。
+  * 属性：value、basePackages 两者作用是一样的，都是用于指定创建容器时要扫描的包。
+  * 使用此注解就等同于在 xml 中配置了: `<context:component-scan base-package="com.itheima"></context:component-scan>`
+* Bean
+  * 作用：用于把当前方法的返回值作为 bean 对象存入 Spring 的 ioc 容器中。
+  * 属性: name，用于指定 bean 的 id。当不写时，默认值是当前方法的名称。
+  * 细节：当使用 Bean 注解配置方法时，如果方法有参数，Spring 框架会去容器中查找有没有可用的 bean 对象。查找的方式和 Autowired 注解是一样的。
+* Import
+  * 作用：用于导入其他的配置类。
+  * 属性：value，用于指定其他配置类的字节码。
+  * 当使用 Import 注解之后，有 Import 注解的类就是父配置类，而导入的都是子配置类。
+* PropertySource
+  * 作用：用于指定 properties 文件的位置
+  * 属性：value，指定文件的名称和路径。
+  * 关键字：classpath，表示类路径下
 
+```java
+// 该类是一个配置类，它的作用和 bean.xml 是一样的
+//@Configuration
+@ComponentScan("com.itheima")
+@Import(JdbcConfig.class)
+@PropertySource("classpath:jdbcConfig.properties") //classpath表示后面的路径是类路径
+public class SpringConfiguration {
+}
+```
 
+```java
+public class JdbcConfig {
+    @Value("${jdbc.driver}")
+    private String driver;
 
+    @Value("${jdbc.url}")
+    private String url;
 
+    @Value("${jdbc.username}")
+    private String username;
 
+    @Value("${jdbc.password}")
+    private String password;
 
+    //创建一个 QueryRunner 对象
+    @Bean(name="runner")
+    @Scope("prototype")
+    public QueryRunner createQueryRunner(DataSource dataSource){
+        return new QueryRunner(dataSource);
+    }
 
+    //创建数据源对象
+    @Bean(name="dataSource")
+    public DataSource createDataSource(){
+        try {
+            ComboPooledDataSource ds = new ComboPooledDataSource();
+            ds.setDriverClass(driver);
+            ds.setJdbcUrl(url);
+            ds.setUser(username);
+            ds.setPassword(password);
+            return ds;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
 
-
-Qualifier 注解的另一种用法，作用与方法参数
-
+* Qualifier 注解的另一种用法，作用与方法参数（此时按照 Qualifier 提供的名字去查找 bean 对象）
