@@ -13,11 +13,11 @@
 
 <img src="./img2/09-transactionc-ontrol.png" >
 
-#### 3.1.3 编写 ConnectionUtils
+#### 3.1.3 编写连接的工具类 ConnectionUtils
 
 之前的例子，事务控制是在持久层，而实际上事务控制应该在业务层！
 
-在src->main->java->com->itheima 下创建 `utils.ConnectionUtils` 类
+在src->main->java->com->itheima 下创建 `utils.ConnectionUtils` 类，该类是一个连接的工具类，它用于从数据源中获取一个连接，并且实现和线程的绑定。
 
   
 
