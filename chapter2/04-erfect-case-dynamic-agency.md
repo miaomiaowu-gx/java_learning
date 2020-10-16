@@ -6,7 +6,7 @@
 
 基于 xml 案例代码
 
-
+<img src="./img2/08-transfer.png" >
 
 
 
