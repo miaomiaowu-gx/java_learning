@@ -2,14 +2,23 @@
 
 ### 3.1 完善 account 案例
 
-#### 3.1.1 案例中添加转账方法并演示事务问题
+#### 3.1.1 案例中添加转账方法
 
 基于 xml 案例代码，见本章第二节。
 
 <img src="./img2/08-transfer.png" >
 
 
-#### 3.1.2 分析事务的问题并编写 ConnectionUtils
+#### 3.1.2 分析事务的问题
+
+<img src="./img2/09-transactionc-ontrol.png" >
+
+
+
+
+
+
+编写 ConnectionUtils
 
 
 
