@@ -704,3 +704,20 @@ public class JdbcConfig {
 3、junit 不会判断是否采用 Spring 框架，在执行测试方法时，junit 根本不知道是不是使用了 Spring 框架，所以也不会读取配置文件/配置类创建 Spring 核心容器。
 4、由以上三点可知，当测试方法执行时，没有 Ioc 容器，就算写了 Autowired 注解，也无法实现注入。
 
+解决方案（Spring 整合 junit 配置）：
+1、导入 Spring 整合 junit 的 jar(坐标)
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>5.0.2.RELEASE</version>
+</dependency>
+```
+
+2、使用 Junit 提供的一个注解把原有的 main 方法替换成 Spring 提供的:`@Runwith`。
+
+3、告知 Spring 的运行器，Spring 的 ioc 创建是基于 xml 还是注解的，并且说明位置
+* @ContextConfiguration
+  * locations：指定 xml 文件的位置，加上 classpath 关键字，表示在类路径下。
+  * classes：指定注解类所在地位置。
+  * 当使用 Spring 5.x 版本的时候，要求 junit 的 jar 必须是 4.12 及以上。
