@@ -721,3 +721,52 @@ public class JdbcConfig {
   * locations：指定 xml 文件的位置，加上 classpath 关键字，表示在类路径下。
   * classes：指定注解类所在地位置。
   * 当使用 Spring 5.x 版本的时候，要求 junit 的 jar 必须是 4.12 及以上。
+
+```java
+//使用 Junit 单元测试：测试配置
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = SpringConfiguration.class)
+public class AccountServiceTest {
+    @Autowired
+    IAccountService as = null;
+
+    @Test
+    public void testFindAll() {
+        //3. 执行方法
+        List<Account> accounts = as.findAllAccount();
+        for(Account account : accounts){
+            System.out.println(account);
+        }
+    }
+
+    @Test
+    public void testFindOne() {
+        //3. 执行方法
+        Account account = as.findAccountById(2);
+        System.out.println(account);
+    }
+
+    @Test
+    public void testSave() {
+        //3. 执行方法
+        Account account = new Account();
+        account.setName("test");
+        account.setMoney(12345f);
+        as.saveAccount(account);
+    }
+
+    @Test
+    public void testUpdate() {
+        //3. 执行方法
+        Account account = as.findAccountById(5);
+        account.setMoney(23456f);
+        as.updateAccount(account);
+    }
+
+    @Test
+    public void testDelete() {
+        //3. 执行方法
+        as.deleteAccount(6);
+    }
+}
+```
