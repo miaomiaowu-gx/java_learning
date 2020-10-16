@@ -17,7 +17,7 @@
 
 之前的例子，事务控制是在持久层，而实际上事务控制应该在业务层！
 
-在src->main->java->com->itheima 下创建 `utils.ConnectionUtils` 类，该类是一个连接的工具类，它用于从数据源中获取一个连接，并且实现和线程的绑定。
+在 src->main->java->com->itheima 下创建 `utils.ConnectionUtils` 类，该类是一个连接的工具类，它用于从数据源中获取一个连接，并且实现和线程的绑定。
 
 ```java
 
@@ -65,6 +65,9 @@ public class ConnectionUtils {
 ```  
 
 #### 3.1.4 编写事务管理工具类并分析连接和线程解绑
+
+在 src->main->java->com->itheima->utils 下创建 TransactionManager 类
+
 
  
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
