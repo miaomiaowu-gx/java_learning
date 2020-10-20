@@ -478,6 +478,8 @@ public class AccountServiceTest {
 
 ### 3.2.1 基于接口的动态代理 
 
+0 添加依赖 `<packaging>jar</packaging>`
+
 1 在 main->java 文件夹下创建 com.itheima.proxy.IProducer 接口。
 
 ```java
