@@ -777,9 +777,161 @@ public class BeanFactory {
 }
 ```
 
-2 
+2 修改 AccountServiceImpl 类
 
+```java
+package com.itheima.service.impl;
 
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import com.itheima.service.IAccountService;
+
+import java.util.List;
+
+/**
+ * 账户的业务层实现类
+ *
+ * 事务控制应该都是在业务层
+ */
+public class AccountServiceImpl implements IAccountService{
+
+    private IAccountDao accountDao;
+
+    public void setAccountDao(IAccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+
+    public List<Account> findAllAccount() {
+        return accountDao.findAllAccount();
+    }
+
+    public Account findAccountById(Integer accountId) {
+        return accountDao.findAccountById(accountId);
+
+    }
+
+    public void saveAccount(Account account) {
+        accountDao.saveAccount(account);
+    }
+
+    public void updateAccount(Account account) {
+        accountDao.updateAccount(account);
+    }
+
+    public void deleteAccount(Integer acccountId) {
+        accountDao.deleteAccount(acccountId);
+    }
+
+    public void transfer(String sourceName, String targetName, Float money) {
+        System.out.println("transfer....");
+        //2.1根据名称查询转出账户
+        Account source = accountDao.findAccountByName(sourceName);
+        //2.2根据名称查询转入账户
+        Account target = accountDao.findAccountByName(targetName);
+        //2.3转出账户减钱
+        source.setMoney(source.getMoney()-money);
+        //2.4转入账户加钱
+        target.setMoney(target.getMoney()+money);
+        //2.5更新转出账户
+        accountDao.updateAccount(source);
+
+        //int i=1/0;
+
+        //2.6更新转入账户
+        accountDao.updateAccount(target);
+    }
+}
+```
+
+3 增加配置（bean.xml）
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置代理的service-->
+    <bean id="proxyAccountService" factory-bean="beanFactory" factory-method="getAccountService"></bean>
+
+    <!--配置beanfactory-->
+    <bean id="beanFactory" class="com.itheima.factory.BeanFactory">
+        <!-- 注入service -->
+        <property name="accountService" ref="accountService"></property>
+        <!-- 注入事务管理器 -->
+        <property name="txManager" ref="txManager"></property>
+    </bean>
+
+    <!-- 配置Service -->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+        <!-- 注入dao -->
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+
+    <!--配置Dao对象-->
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <!-- 注入QueryRunner -->
+        <property name="runner" ref="runner"></property>
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="mysql"></property>
+    </bean>
+
+    <!-- 配置Connection的工具类 ConnectionUtils -->
+    <bean id="connectionUtils" class="com.itheima.utils.ConnectionUtils">
+        <!-- 注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- 配置事务管理器-->
+    <bean id="txManager" class="com.itheima.utils.TransactionManager">
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+</beans>
+```
+
+4 测试
+
+```java
+package com.itheima.test;
+
+import com.itheima.service.IAccountService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+//使用 Junit 单元测试：测试我们的配置
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:bean.xml")
+public class AccountServiceTest {
+    @Autowired
+    @Qualifier("proxyAccountService")
+    private IAccountService as;
+
+    @Test
+    public void testTransfer(){
+        as.transfer("aaa","bbb",100f);
+    }
+
+}
+```
 
 
 
