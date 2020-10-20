@@ -77,7 +77,6 @@ package com.itheima.utils;
 public class TransactionManager {
 
     private ConnectionUtils connectionUtils;
-
     public void setConnectionUtils(ConnectionUtils connectionUtils) {
         this.connectionUtils = connectionUtils;
     }
@@ -114,7 +113,6 @@ public class TransactionManager {
             e.printStackTrace();
         }
     }
-
 
     /**
      * 释放连接
