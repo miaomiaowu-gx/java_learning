@@ -446,7 +446,7 @@ public class AccountDaoImpl implements IAccountDao {
 </beans>
 ``` 
  
-#### 3.1.6 测试转账并分析案例中的问题    
+#### 3.1.6 测试转账  
 
 ```java
 //使用 Junit 单元测试：测试我们的配置
@@ -462,6 +462,11 @@ public class AccountServiceTest {
     }
 }
 ```
+
+#### 3.1.7 分析案例中的问题  
+
+程序耦合，如当修改 TransactionManager 类中的 beginTransaction 方法时，业务层实现类 AccountServiceImpl 多处调用 beginTransaction 处都需要修改。 
+
 
 ### 3.2 动态代理
 
