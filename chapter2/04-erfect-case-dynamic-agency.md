@@ -596,6 +596,21 @@ public class Client {
 
 ### 3.2.2 基于子类的动态代理
 
+0 添加坐标
+
+```xml
+<packaging>jar</packaging>
+
+<dependencies>
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>2.1_3</version>
+    </dependency>
+</dependencies>
+```
+
+1 在 main->java->com->itheima 下创建
  
   
 ### 3.2.3 使用动态代理实现事务控制   
