@@ -610,7 +610,9 @@ public class Client {
 </dependencies>
 ```
 
-1 在 main->java->com->itheima 下创建
+1 在 main->java->com->itheima 下创建包 cglib。创建两个类文件 Producer 与 Client。
+
+
  
   
 ### 3.2.3 使用动态代理实现事务控制   
