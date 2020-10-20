@@ -472,6 +472,10 @@ public class AccountServiceTest {
 
 ### 3.2.1 基于接口的动态代理 
 
+1 在 main->java 文件夹下创建 com.itheima.proxy.Producer 类
+
+
+
 
 ### 3.2.2 基于子类的动态代理
 
