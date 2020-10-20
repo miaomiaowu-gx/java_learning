@@ -66,7 +66,7 @@ public class ConnectionUtils {
 
 #### 3.1.4 编写事务管理工具类并分析连接和线程解绑
 
-在 src->main->java->com->itheima->utils 下创建 TransactionManager 类
+在 src->main->java->com->itheima->utils 下创建 TransactionManager 类，是事务管理相关的工具类，它包含了：开启事务、提交事务、回滚事务和释放连接。
 
 
  
