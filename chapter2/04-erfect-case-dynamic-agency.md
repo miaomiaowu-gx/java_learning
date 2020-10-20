@@ -141,9 +141,13 @@ public class TransactionManager {
     <constructor-arg name="ds" ref="dataSource"></constructor-arg>
 </bean>
 ```
+
 修改为
       
-   
+```xml
+<!--配置QueryRunner-->
+<bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+```   
    
    
    
