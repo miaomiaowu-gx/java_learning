@@ -524,7 +524,7 @@ public class Producer implements IProducer{
 ```
 
 
-3 在 main->java 文件夹下创建 com.itheima.proxy.Producer 类
+3 在 main->java 文件夹下创建 com.itheima.proxy.Client 类
 
 
 
