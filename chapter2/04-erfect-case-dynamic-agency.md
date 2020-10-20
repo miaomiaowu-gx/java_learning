@@ -465,8 +465,7 @@ public class AccountServiceTest {
 
 #### 3.1.7 分析案例中的问题  
 
-程序耦合，如当修改 TransactionManager 类中的 beginTransaction 方法时，业务层实现类 AccountServiceImpl 多处调用 beginTransaction 处都需要修改。 
-
+程序耦合，如当修改 TransactionManager 类中的 beginTransaction 方法名字时，业务层实现类 AccountServiceImpl 多处调用 beginTransaction 处都需要修改。当项目很大，有几十条语句时，修改非常麻烦。 
 
 ### 3.2 动态代理
 
