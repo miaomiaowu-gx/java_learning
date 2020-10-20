@@ -311,12 +311,157 @@ public class AccountServiceImpl implements IAccountService{
 }
 ```
 
-3  
-  
-   
-     
-   
+3 账户的持久层实现类
+
+```java
+package com.itheima.dao.impl;
+
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import com.itheima.utils.ConnectionUtils;
+
+import java.util.List;
+
+public class AccountDaoImpl implements IAccountDao {
+
+    private QueryRunner runner;
+    private ConnectionUtils connectionUtils;
+
+    public void setRunner(QueryRunner runner) {
+        this.runner = runner;
+    }
+    public void setConnectionUtils(ConnectionUtils connectionUtils) {
+        this.connectionUtils = connectionUtils;
+    }
+
+    public List<Account> findAllAccount() {
+        try{
+            return runner.query(connectionUtils.getThreadConnection(),"select * from account",new BeanListHandler<Account>(Account.class));
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Account findAccountById(Integer accountId) {
+        try{
+            return runner.query(connectionUtils.getThreadConnection(),"select * from account where id = ? ",new BeanHandler<Account>(Account.class),accountId);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void saveAccount(Account account) {
+        try{
+            runner.update(connectionUtils.getThreadConnection(),"insert into account(name,money) values(?,?)",account.getName(),account.getMoney());
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateAccount(Account account) {
+        try{
+            runner.update(connectionUtils.getThreadConnection(),"update account set name=?,money=? where id=?",account.getName(),account.getMoney(),account.getId());
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteAccount(Integer accountId) {
+        try{
+            runner.update(connectionUtils.getThreadConnection(),"delete from account where id=?",accountId);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Account findAccountByName(String accountName) {
+        try{
+            List<Account> accounts = runner.query(connectionUtils.getThreadConnection(),"select * from account where name = ? ",new BeanListHandler<Account>(Account.class),accountName);
+            if(accounts == null || accounts.size() == 0){
+                return null;
+            }
+            if(accounts.size() > 1){
+                throw new RuntimeException("结果集不唯一，数据有问题");
+            }
+            return accounts.get(0);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+4 为新建的依赖注入，在 bean.xml 中添加：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 配置Service -->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+        <!-- 注入dao -->
+        <property name="accountDao" ref="accountDao"></property>
+        <!-- 注入事务管理器 -->
+        <property name="txManager" ref="txManager"></property>
+    </bean>
+
+    <!--配置Dao对象-->
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <!-- 注入QueryRunner -->
+        <property name="runner" ref="runner"></property>
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="mysql"></property>
+    </bean>
+
+    <!-- 配置Connection的工具类 ConnectionUtils -->
+    <bean id="connectionUtils" class="com.itheima.utils.ConnectionUtils">
+        <!-- 注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- 配置事务管理器-->
+    <bean id="txManager" class="com.itheima.utils.TransactionManager">
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+</beans>
+``` 
+ 
 #### 3.1.6 测试转账并分析案例中的问题    
+
+```java
+//使用 Junit 单元测试：测试我们的配置
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:bean.xml")
+public class AccountServiceTest {
+    @Autowired
+    private IAccountService as;
+
+    @Test
+    public void testTransfer(){
+        as.transfer("aaa","bbb",100f);
+    }
+}
+```
 
 
 
