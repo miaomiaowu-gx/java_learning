@@ -131,7 +131,7 @@ public class TransactionManager {
  
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
 
- 1. Dao 中在执行方法的同时，在 bean.xml 中给 QueryRunner 注入connection 后，就会从连接中取一个。不希望从连接中取，不再注入 connection。
+1 Dao 中在执行方法的同时，在 bean.xml 中给 QueryRunner 注入connection 后，就会从连接中取一个。不希望从连接中取，不再注入 connection。
 
 即将下列代码
 
@@ -150,7 +150,12 @@ public class TransactionManager {
 <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
 ```   
    
+2 账户的业务层实现类  
+
+ 
+  
    
+     
    
 #### 3.1.6 测试转账并分析案例中的问题    
 
