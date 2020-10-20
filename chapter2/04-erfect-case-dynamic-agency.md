@@ -128,8 +128,6 @@ public class TransactionManager {
 }
 ```
 
-
-
  
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
 
