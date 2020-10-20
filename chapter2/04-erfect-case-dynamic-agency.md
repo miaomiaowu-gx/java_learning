@@ -132,6 +132,10 @@ public class TransactionManager {
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
 
    
+   
+   
+   
+   
 #### 3.1.6 测试转账并分析案例中的问题    
 
 
