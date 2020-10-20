@@ -132,6 +132,16 @@ public class TransactionManager {
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
 
  1. Dao 中在执行方法的同时，在 bean.xml 中给 QueryRunner 注入connection 后，就会从连接中取一个。不希望从连接中取，不再注入 connection。
+
+即将
+```xml
+<!--配置QueryRunner-->
+<bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+    <!--注入数据源-->
+    <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+</bean>
+```
+修改为
       
    
    
