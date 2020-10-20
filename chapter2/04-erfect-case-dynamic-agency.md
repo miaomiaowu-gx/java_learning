@@ -134,6 +134,7 @@ public class TransactionManager {
  1. Dao 中在执行方法的同时，在 bean.xml 中给 QueryRunner 注入connection 后，就会从连接中取一个。不希望从连接中取，不再注入 connection。
 
 即将下列代码
+
 ```xml
 <!--配置QueryRunner-->
 <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
