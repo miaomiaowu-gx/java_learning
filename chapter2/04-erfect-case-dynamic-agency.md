@@ -472,7 +472,61 @@ public class AccountServiceTest {
 
 ### 3.2.1 基于接口的动态代理 
 
-1 在 main->java 文件夹下创建 com.itheima.proxy.Producer 类
+1 在 main->java 文件夹下创建 com.itheima.proxy.IProducer 接口。
+
+```java
+package com.itheima.proxy;
+
+/**
+ * 对生产厂家要求的接口
+ */
+public interface IProducer {
+    /**
+     * 销售
+     * @param money
+     */
+    public void saleProduct(float money);
+
+    /**
+     * 售后
+     * @param money
+     */
+    public void afterService(float money);
+}
+```
+
+2 在 main->java 文件夹下创建 com.itheima.proxy.Producer 类
+
+```java
+package com.itheima.proxy;
+
+/**
+ * 一个生产者
+ */
+public class Producer implements IProducer{
+
+    /**
+     * 销售
+     * @param money
+     */
+    public void saleProduct(float money){
+        System.out.println("销售产品，并拿到钱："+money);
+    }
+
+    /**
+     * 售后
+     * @param money
+     */
+    public void afterService(float money){
+        System.out.println("提供售后服务，并拿到钱："+money);
+    }
+}
+```
+
+
+3 在 main->java 文件夹下创建 com.itheima.proxy.Producer 类
+
+
 
 
 
