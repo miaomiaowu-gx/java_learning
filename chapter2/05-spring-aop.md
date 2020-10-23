@@ -506,7 +506,48 @@ public class Logger {
 }
 ```
 
+**问题：**输出结果中，最终通知与后置通知并不能保证顺序，因此不建议注解时使用上述四个注解，程序输出如下：
 
+```markdown
+前置通知Logger类中的beforePrintLog方法开始记录日志了。。。
+执行了保存
+最终通知Logger类中的afterPrintLog方法开始记录日志了。。。
+后置通知Logger类中的afterReturningPrintLog方法开始记录日志了。。。
+```
+
+**解决：使用环绕通知**
+
+```java
+@Around("pt1()")
+public Object aroundPringLog(ProceedingJoinPoint pjp){
+    Object rtValue = null;
+    try{
+        Object[] args = pjp.getArgs(); //得到方法执行所需的参数
+
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。前置");
+
+        rtValue = pjp.proceed(args); //明确调用业务层方法（切入点方法）
+
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。后置");
+
+        return rtValue;
+    }catch (Throwable t){
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。异常");
+        throw new RuntimeException(t);
+    }finally {
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。最终");
+    }
+}
+```
+
+输出如下：
+
+```markdown
+Logger类中的aroundPringLog方法开始记录日志了。。。前置
+执行了保存
+Logger类中的aroundPringLog方法开始记录日志了。。。后置
+Logger类中的aroundPringLog方法开始记录日志了。。。最终
+```
 
 
 
