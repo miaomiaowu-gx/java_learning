@@ -260,8 +260,7 @@ public class AOPTest {
 * 全通配写法：`* *..*.*(..)`，实际开发中不建议使用。
 
 * 实际开发中切入点表达式的通常写法：
-	切到业务层实现类下的所有方法
-		* com.itheima.service.impl.*.*(..)
+  * 切到业务层实现类下的所有方法：`* com.itheima.service.impl.*.*(..)`
 
 
 
