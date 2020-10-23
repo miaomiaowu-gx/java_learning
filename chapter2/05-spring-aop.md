@@ -177,7 +177,7 @@ public class Logger {
 * method 属性：用于指定 Logger 类中哪个方法是前置通知。
 * pointcut 属性：用于指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强。
 
-在 src->main->resources 下创建 bean.xml 文件：
+1 在 src->main->resources 下创建 bean.xml 文件：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -205,6 +205,9 @@ public class Logger {
     </aop:config>
 </beans>
 ```
+
+2 测试：在 src->test->java 下创建 `com.itheima.test.AOPTest` 测试类
+
 
 
 ### 5.4 切入点表达式的写法
