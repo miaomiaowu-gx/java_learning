@@ -67,8 +67,97 @@ Aspect(切面):
 
 #### 5.3.1 编写必要的代码
 
+1 添加坐标
+
+```xml
+<packaging>jar</packaging>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.0.2.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.8.7</version>
+    </dependency>
+</dependencies>
+```
+
+2 在 src->main->java 下创建 `com.itheima.service.IAccountService` 接口
+
+```java
+package com.itheima.service;
+
+/**
+ * 账户的业务层接口
+ */
+public interface IAccountService {
+    /**
+     * 模拟保存账户
+     */
+    void saveAccount();
+
+    /**
+     * 模拟更新账户
+     * @param i
+     */
+    void updateAccount(int i);
+
+    /**
+     * 删除账户
+     * @return
+     */
+    int  deleteAccount();
+}
+```
+
+3 在 src->main->java->com->itheima->service 下创建 `impl.AccountServiceImpl` 类
+
+```java
+package com.itheima.service.impl;
+
+import com.itheima.service.IAccountService;
+
+/**
+ * 账户的业务层实现类
+ */
+public class AccountServiceImpl implements IAccountService{
+
+    public void saveAccount() {
+        System.out.println("执行了保存");
+    }
+
+    public void updateAccount(int i) {
+        System.out.println("执行了更新"+i);
+
+    }
+
+    public int deleteAccount() {
+        System.out.println("执行了删除");
+        return 0;
+    }
+}
+```
+
+4 在 src->main->java->com->itheima 下创建 `utils.Logger` 类
+
+
+
+
+
+
 
 #### 5.3.2 配置步骤 
+
+
+
+
+
+
 
 
 ### 5.4 
