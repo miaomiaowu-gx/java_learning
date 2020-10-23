@@ -401,6 +401,111 @@ public Object aroundPringLog(ProceedingJoinPoint pjp){
 
 ### 5.6 Spring 基于注解的 AOP 配置
 
+1 添加 aop 与 context 约束
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置spring创建容器时要扫描的包-->
+    <context:component-scan base-package="com.itheima"></context:component-scan>
+
+    <!-- 配置spring开启注解AOP的支持 -->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>
+```
+
+2 为业务层实现类添加 Service 注解
+
+```java
+package com.itheima.service.impl;
+
+import com.itheima.service.IAccountService;
+import org.springframework.stereotype.Service;
+
+/**
+ * 账户的业务层实现类
+ */
+@Service("accountService")
+public class AccountServiceImpl implements IAccountService{
+
+    public void saveAccount() {
+        System.out.println("执行了保存");
+    }
+
+    public void updateAccount(int i) {
+        System.out.println("执行了更新"+i);
+
+    }
+
+    public int deleteAccount() {
+        System.out.println("执行了删除");
+        return 0;
+    }
+}
+```
+
+3 为 Logger 添加 Component、Aspect、Before、AfterReturning、AfterThrowing、After 注解
+
+```java
+package com.itheima.utils;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
+
+/**
+ * 用于记录日志的工具类，它里面提供了公共的代码
+ */
+@Component("logger")
+@Aspect //表示当前类是一个切面类
+public class Logger {
+
+    @Pointcut("execution(* com.itheima.service.impl.*.*(..))")
+    private void pt1(){}
+
+    /**
+     * 前置通知
+     */
+    @Before("pt1()")
+    public void beforePrintLog(){
+        System.out.println("前置通知Logger类中的beforePrintLog方法开始记录日志了。。。");
+    }
+
+    /**
+     * 后置通知
+     */
+    @AfterReturning("pt1()")
+    public void afterReturningPrintLog(){
+        System.out.println("后置通知Logger类中的afterReturningPrintLog方法开始记录日志了。。。");
+    }
+    /**
+     * 异常通知
+     */
+    @AfterThrowing("pt1()")
+    public void afterThrowingPrintLog(){
+        System.out.println("异常通知Logger类中的afterThrowingPrintLog方法开始记录日志了。。。");
+    }
+
+    /**
+     * 最终通知
+     */
+    @After("pt1()")
+    public void afterPrintLog(){
+        System.out.println("最终通知Logger类中的afterPrintLog方法开始记录日志了。。。");
+    }
+}
+```
+
 
 
 
