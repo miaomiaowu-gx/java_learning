@@ -355,9 +355,9 @@ public class Logger {
 
 3 配置环绕通知
 
-
-
-
+* 解决：Spring 框架提供了一个接口：`ProceedingJoinPoint`。该接口有一个方法  `proceed()`，此方法就相当于明确调用切入点方法。
+  * 该接口可以作为环绕通知的方法参数，在程序执行时，Spring 框架会提供该接口的实现类供使用者使用。
+* Spring 中的环绕通知：它是 Spring 框架提供的一种可以在代码中手动控制增强方法何时执行的方式。
 
 ```java
 /**
@@ -383,6 +383,23 @@ public Object aroundPringLog(ProceedingJoinPoint pjp){
     }
 }
 ```
+
+配置文件
+
+```xml
+    <!--配置AOP-->
+    <aop:config>
+        <aop:pointcut id="pt1" expression="execution(* com.itheima.service.impl.*.*(..))"></aop:pointcut>
+
+        <!--配置切面 -->
+        <aop:aspect id="logAdvice" ref="logger">
+            <!-- 配置环绕通知 详细的注释请看Logger类中-->
+            <aop:around method="aroundPringLog" pointcut-ref="pt1"></aop:around>
+        </aop:aspect>
+    </aop:config>
+```
+
+### 5.6 Spring 基于注解的 AOP 配置
 
 
 
