@@ -145,23 +145,76 @@ public class AccountServiceImpl implements IAccountService{
 
 4 在 src->main->java->com->itheima 下创建 `utils.Logger` 类
 
+```java
+package com.itheima.utils;
+
+/**
+ * 用于记录日志的工具类，它里面提供了公共的代码
+ */
+public class Logger {
+
+    /**
+     * 用于打印日志：计划让其在切入点方法执行之前执行（切入点方法就是业务层方法）
+     */
+    public  void printLog(){
+        System.out.println("Logger类中的pringLog方法开始记录日志了。。。");
+    }
+}
+```
+
+#### 5.3.2 Spring 中基于 XML 的 AOP 配置步骤
+
+1、把通知 Bean 也交给 Spring 来管理，即实例中配置 Logger 类。
+
+2、使用 aop:config 标签表明开始 AOP 的配置
+
+3、使用 aop:aspect 标签表明配置切面
+* id 属性：是给切面提供一个唯一标识。
+* ref 属性：是指定通知类 bean 的 Id。
+
+4、在 aop:aspect 标签的内部使用对应标签来配置通知的类型
+* 示例是让 printLog 方法在切入点方法执行之前执行，所以是前置通知 aop:before。
+* method 属性：用于指定 Logger 类中哪个方法是前置通知。
+* pointcut 属性：用于指定切入点表达式，该表达式的含义指的是对业务层中哪些方法增强。
+
+在 src->main->resources 下创建 bean.xml 文件：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 配置 srping 的 Ioc,把 service 对象配置进来-->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"></bean>
+
+    <!-- 配置Logger类 -->
+    <bean id="logger" class="com.itheima.utils.Logger"></bean>
+
+    <!--配置AOP-->
+    <aop:config>
+        <!--配置切面 -->
+        <aop:aspect id="logAdvice" ref="logger">
+            <!-- 配置通知的类型，并且建立通知方法和切入点方法的关联-->
+            <aop:before method="printLog" pointcut="execution(public void com.itheima.service.impl.AccountServiceImpl.saveAccount())"></aop:before>
+        </aop:aspect>
+    </aop:config>
+</beans>
+```
 
 
-
-
-
-
-#### 5.3.2 配置步骤 
-
-
-
-
-
-
-
-
-### 5.4 
+### 5.4 切入点表达式的写法
 
  
+
+
+
+
+
+
 
 ### 5.5     
