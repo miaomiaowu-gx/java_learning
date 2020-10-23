@@ -208,11 +208,60 @@ public class Logger {
 
 2 测试：在 src->test->java 下创建 `com.itheima.test.AOPTest` 测试类
 
+```java
+package com.itheima.test;
 
+import com.itheima.service.IAccountService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * 测试AOP的配置
+ */
+public class AOPTest {
+
+    public static void main(String[] args) {
+        //1.获取容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //2.获取对象
+        IAccountService as = (IAccountService)ac.getBean("accountService");
+        //3.执行方法
+        as.saveAccount();
+    }
+}
+
+```
 
 ### 5.4 切入点表达式的写法
 
- 
+* 关键字：`execution(表达式)`
+
+* 表达式：`访问修饰符  返回值  包名.包名.包名...类名.方法名(参数列表)`
+
+* 标准的表达式写法：`public void com.itheima.service.impl.AccountServiceImpl.saveAccount()`
+
+* 访问修饰符可以省略 `void com.itheima.service.impl.AccountServiceImpl.saveAccount()`
+
+* 返回值可以使用通配符，表示任意返回值 `* com.itheima.service.impl.AccountServiceImpl.saveAccount()`
+
+* 包名可以使用通配符，表示任意包。但是有几级包，就需要写几个 `*.`：`* *.*.*.*.AccountServiceImpl.saveAccount())`
+
+* 包名可以使用 `..` 表示当前包及其子包：`* *..AccountServiceImpl.saveAccount()`
+
+* 类名和方法名都可以使用 `*` 来实现通配：`* *..*.*()`
+
+* 参数列表：
+  * 可以直接写数据类型：
+    * 基本类型直接写名称         int
+    * 引用类型写包名.类名的方式   java.lang.String
+  * 可以使用通配符表示任意类型，但是必须有参数
+  * 可以使用 `..` 表示有无参数均可，有参数可以是任意类型
+
+* 全通配写法：`* *..*.*(..)`，实际开发中不建议使用。
+
+* 实际开发中切入点表达式的通常写法：
+	切到业务层实现类下的所有方法
+		* com.itheima.service.impl.*.*(..)
 
 
 
