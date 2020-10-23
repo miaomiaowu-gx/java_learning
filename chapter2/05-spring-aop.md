@@ -264,6 +264,126 @@ public class AOPTest {
 
 ### 5.5 四种常用通知类型
 
+1 修改 Logger 类
+
+```java
+package com.itheima.utils;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+
+/**
+ * 用于记录日志的工具类，它里面提供了公共的代码
+ */
+public class Logger {
+
+    /**
+     * 前置通知
+     */
+    public  void beforePrintLog(){
+        System.out.println("前置通知Logger类中的beforePrintLog方法开始记录日志了。。。");
+    }
+
+    /**
+     * 后置通知
+     */
+    public  void afterReturningPrintLog(){
+        System.out.println("后置通知Logger类中的afterReturningPrintLog方法开始记录日志了。。。");
+    }
+    /**
+     * 异常通知
+     */
+    public  void afterThrowingPrintLog(){
+        System.out.println("异常通知Logger类中的afterThrowingPrintLog方法开始记录日志了。。。");
+    }
+
+    /**
+     * 最终通知
+     */
+    public  void afterPrintLog(){
+        System.out.println("最终通知Logger类中的afterPrintLog方法开始记录日志了。。。");
+    }
+}
+
+```
+
+2 配置前置、后置、异常、最终通知
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 配置 srping 的 Ioc,把 service 对象配置进来-->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"></bean>
+
+    <!-- 配置Logger类 -->
+    <bean id="logger" class="com.itheima.utils.Logger"></bean>
+
+    <!--配置AOP-->
+    <aop:config>
+        <!-- 配置切入点表达式 id 属性用于指定表达式的唯一标识，expression 属性用于指定表达式内容。
+              此标签写在 aop:aspect 标签内部只能当前切面使用。
+              它还可以写在 aop:aspect 外面，此时就变成了所有切面可用。
+              ！当写在  aop:aspect 外面时，一定要写在切面的前面，否则会报错。有位置约束。
+          -->
+        <aop:pointcut id="pt1" expression="execution(* com.itheima.service.impl.*.*(..))"></aop:pointcut>
+
+        <!--配置切面 -->
+        <aop:aspect id="logAdvice" ref="logger">
+            <!-- 配置前置通知：在切入点方法执行之前执行-->
+            <aop:before method="beforePrintLog" pointcut-ref="pt1" ></aop:before>
+
+            <!-- 配置后置通知：在切入点方法正常执行之后值。它和异常通知永远只能执行一个-->
+            <aop:after-returning method="afterReturningPrintLog" pointcut-ref="pt1"></aop:after-returning>
+
+            <!-- 配置异常通知：在切入点方法执行产生异常之后执行。它和后置通知永远只能执行一个-->
+            <aop:after-throwing method="afterThrowingPrintLog" pointcut-ref="pt1"></aop:after-throwing>
+
+            <!-- 配置最终通知：无论切入点方法是否正常执行它都会在其后面执行-->
+            <aop:after method="afterPrintLog" pointcut-ref="pt1"></aop:after>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>
+```
+
+3 配置环绕通知
+
+
+
+
+
+```java
+/**
+  * 环绕通知
+  */
+public Object aroundPringLog(ProceedingJoinPoint pjp){
+    Object rtValue = null;
+    try{
+        Object[] args = pjp.getArgs(); //得到方法执行所需的参数
+
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。前置");
+
+        rtValue = pjp.proceed(args); //明确调用业务层方法（切入点方法）
+
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。后置");
+
+        return rtValue;
+    }catch (Throwable t){ //必须写Throwable，Exception拦不住。
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。异常");
+        throw new RuntimeException(t);
+    }finally {
+        System.out.println("Logger类中的aroundPringLog方法开始记录日志了。。。最终");
+    }
+}
+```
+
 
 
 
