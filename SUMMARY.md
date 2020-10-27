@@ -23,6 +23,7 @@
   * [第三节 Spring 基于注解的 IOC 以及 IoC 的案例](chapter2/03-Spring-anno.md)
   * [第四节 事务管理 + 动态代理](chapter2/04-erfect-case-dynamic-agency.md) 
   * [第五节 Spring 中的 AOP](chapter2/05-spring-aop.md) 
+  * [第六节 Spring 中的 JdbcTemplate](chapter2/06-spring-JdbcTemplate.md) 
 * [第三章 SpringMVC](chapter3.md)
 * [第四章 SpringBoot](chapter4.md)
 * [第五章 Java 基础知识点](chapter5.md)
