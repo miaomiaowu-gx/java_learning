@@ -67,10 +67,71 @@ public JdbcTemplate(DataSource dataSource, boolean lazyInit) {
 </dependencies>
 ```
 
-#### 6.3.2 
+#### 6.3.2 创建数据表及实体类
 
-在数据库中创建表：
+1 在数据库中创建表：
 
 <img src="./img2/10-account-table.png" width=300>
 
+```sql
+创建数据库：
+create database eesy;
+use eesy;
+创建表：
+create table account(
+id int primary key auto_increment,
+name varchar(40),
+money float
+)character set utf8 collate utf8_general_ci;
+```
+
+2 在 src->main->java 下创建 `com.itheima.domain.Account`
+
+```java
+package com.itheima.domain;
+
+import java.io.Serializable;
+/**
+ * 账户的实体类
+ */
+public class Account implements Serializable {
+
+    private Integer id;
+    private String name;
+    private Float money;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Float getMoney() {
+        return money;
+    }
+
+    public void setMoney(Float money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                '}';
+    }
+}
+```
 
