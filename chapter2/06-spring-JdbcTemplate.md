@@ -224,3 +224,50 @@ public class JdbcTemplateDemo2 {
 
 ### 6.4 JdbcTemplate 的 CRUD 操作
 
+在 src->main->java->com->itheima->jdbctemplate 下创建类 `JdbcTemplateDemo3`
+
+1 保存操作
+
+```java
+package com.itheima.jdbctemplate;
+
+import com.itheima.domain.Account;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ * JdbcTemplate的CRUD操作
+ */
+public class JdbcTemplateDemo3 {
+
+    public static void main(String[] args) {
+        //1.获取容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //2.获取对象
+        JdbcTemplate jt = ac.getBean("jdbcTemplate",JdbcTemplate.class);
+        //3.执行操作
+        //保存
+        jt.update("insert into account(name,money)values(?,?)","eee",3333f);
+    }
+}
+```
+
+2 更新操作
+
+```java
+jt.update("update account set name=?,money=? where id=?","test",4567,6);
+```
+
+3 删除操作
+
+```java
+jt.update("delete from account where id=?",6);
+```
+
+4 查询所有
+
