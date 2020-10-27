@@ -272,3 +272,23 @@ jt.update("delete from account where id=?",6);
 4 查询所有
 <img src="./img2/11-jquery-func.png" width=600>
 
+```java
+List<Account> accounts = jt.query("select * from account where money > ?",new BeanPropertyRowMapper<Account>(Account.class),1000f);
+```
+
+5 查询一个（利用查询所有实现）
+
+```java
+List<Account> accounts = jt.query("select * from account where id = ?",new BeanPropertyRowMapper<Account>(Account.class),1);
+System.out.println(accounts.isEmpty()?"没有内容":accounts.get(0));
+```
+
+6 查询返回一行一列（使用聚合函数，但不加 group by 子句）
+
+```java
+Long count = jt.queryForObject("select count(*) from account where money > ?",Long.class,1000f);
+System.out.println(count);
+```
+
+### 6.5 JdbcTemplate 在 Dao 中的使用
+
