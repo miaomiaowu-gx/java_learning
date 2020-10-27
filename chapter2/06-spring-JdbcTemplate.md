@@ -32,3 +32,45 @@ public JdbcTemplate(DataSource dataSource, boolean lazyInit) {
 ```
 
 除了默认构造函数之外，都需要提供一个数据源。既然有 set 方法，依据之前学过的依赖注入，可以在配置文件中配置这些对象。
+
+### 6.3 Spring 中配置数据源
+
+#### 6.3.1 环境搭建（导入对应坐标）
+
+```xml
+<packaging>jar</packaging>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.0.2.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>5.0.2.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>5.0.2.RELEASE</version>
+    </dependency>
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.6</version>
+    </dependency>
+</dependencies>
+```
+
+#### 6.3.2 
+
+在数据库中创建表：
+
+
+
+
