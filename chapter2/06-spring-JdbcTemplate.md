@@ -270,4 +270,5 @@ jt.update("delete from account where id=?",6);
 ```
 
 4 查询所有
-<img src="./img2/11-jquery-func.png" width=400>
+<img src="./img2/11-jquery-func.png" width=600>
+
