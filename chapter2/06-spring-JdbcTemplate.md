@@ -71,6 +71,6 @@ public JdbcTemplate(DataSource dataSource, boolean lazyInit) {
 
 在数据库中创建表：
 
-<img src="./img2/10-account-table.png" width=500>
+<img src="./img2/10-account-table.png" width=300>
 
 
