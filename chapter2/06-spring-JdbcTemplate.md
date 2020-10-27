@@ -12,3 +12,23 @@ Spring 框架提供了很多的操作模板类：
 相关 jar 包：
 * `spring-jdbc-5.0.2.RELEASE.jar` 
 *  `spring-tx-5.0.2.RELEASE.jar`（它是和事务相关的）。 
+
+### 6.2 JdbcTemplate 对象的创建
+
+参考它的源码，来一探究竟：
+
+```java
+public JdbcTemplate() {
+}
+public JdbcTemplate(DataSource dataSource) {
+	setDataSource(dataSource);
+	afterPropertiesSet();
+}
+public JdbcTemplate(DataSource dataSource, boolean lazyInit) {
+	setDataSource(dataSource);
+	setLazyInit(lazyInit);
+	afterPropertiesSet();
+}
+```
+
+除了默认构造函数之外，都需要提供一个数据源。既然有 set 方法，依据之前学过的依赖注入，可以在配置文件中配置这些对象。
