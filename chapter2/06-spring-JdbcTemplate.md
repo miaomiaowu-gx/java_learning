@@ -135,3 +135,37 @@ public class Account implements Serializable {
 }
 ```
 
+#### 6.3.3 JdbcTemplate 的最基本用法
+
+在 src->main->java 下创建 `com.itheima.jdbctemplate` 包，并创建 `JdbcTemplateDemo1` 类：
+
+```java
+package com.itheima.jdbctemplate;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+/**
+ * JdbcTemplate的最基本用法
+ */
+public class JdbcTemplateDemo1 {
+
+    public static void main(String[] args) {
+        //准备数据源：spring的内置数据源
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("com.mysql.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/eesy");
+        ds.setUsername("root");
+        ds.setPassword("mysql");
+
+        //1.创建JdbcTemplate对象
+        JdbcTemplate jt = new JdbcTemplate();
+        //给jt设置数据源
+        jt.setDataSource(ds);
+        //2.执行操作
+        jt.execute("insert into account(name,money)values('ccc',1000)");
+    }
+}
+```
+
+缺点：配置信息在代码中写死了。
