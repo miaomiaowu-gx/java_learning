@@ -45,7 +45,6 @@ ALTER TABLE stu DROP INDEX phone_number;
 4. 在表创建完后，添加唯一约束
 `ALTER TABLE stu MODIFY phone_number VARCHAR(20) UNIQUE;`
 
-
 ***
 
 ### **主键约束**：primary key。
@@ -121,13 +120,11 @@ ALTER TABLE stu DROP INDEX phone_number;
 
 <img src="./img6/06-data-redundancy.png" width=400>
 
-
 上表数据存在冗余，且修改不方便，如研发部由广州迁移到深圳，需要修改多条数据。
 
- <details>
-<summary>员工表</summary>
-<pre>
-<code>
+【员工表】
+
+```sql
 CREATE TABLE emp (
 id INT PRIMARY KEY AUTO_INCREMENT,
 NAME VARCHAR(30),
@@ -142,16 +139,13 @@ INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('王五', 20, '研�
 INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('老王', 20, '销售部', '深圳');
 INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('大王', 22, '销售部', '深圳');
 INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('小王', 18, '销售部', '深圳');
-</code>
-</pre>
-</details>
+```
 
 解决：拆分表，部门表与员工表
 
- <details>
-<summary>拆分表</summary>
-<pre>
-<code>
+【拆分表】
+
+```sql
 -- 解决方案：分成 2 张表
 
 -- 创建部门表(id,dep_name,dep_location)
@@ -183,9 +177,7 @@ INSERT INTO employee (NAME, age, dep_id) VALUES ('老王', 20, 2);
 INSERT INTO employee (NAME, age, dep_id) VALUES ('大王', 22, 2);
 INSERT INTO employee (NAME, age, dep_id) VALUES ('小王', 18, 2);
 select * from employee;
-</code>
-</pre>
-</details>
+```
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718122109759-1270732405.png" width=300>
 
