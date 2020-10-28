@@ -226,7 +226,7 @@ public void destroy(){
 #### 3.2.1 准备案例的必须代码
 
 1 导入坐标
-```java
+```xml
 <packaging>jar</packaging>
 
 <dependencies>
