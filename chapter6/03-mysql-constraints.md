@@ -116,11 +116,11 @@ ALTER TABLE stu DROP INDEX phone_number;
 
       * 自增长只能用在主键上。
 
-***
 
 ### **外键约束**：foreign key，让表于表产生关系，从而保证数据的正确性。
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718113503849-1132802013.png" width=400>
+<img src="./img6/06-data-redundancy.png" width=400>
+
 
 上表数据存在冗余，且修改不方便，如研发部由广州迁移到深圳，需要修改多条数据。
 
