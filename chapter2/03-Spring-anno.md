@@ -211,12 +211,12 @@ public class AccountServiceImpl implements IAccountService{...}
 
 ```java
 @PostConstruct
-public void  init(){
+public void init(){
     System.out.println("初始化方法执行了");
 }
 
 @PreDestroy
-public void  destroy(){
+public void destroy(){
     System.out.println("销毁方法执行了");
 }
 ```
