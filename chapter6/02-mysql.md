@@ -203,8 +203,6 @@ create table student(
 客户端图形化工具：SQLYog
 
 
-
-
 ### 四、DML：增删改表中数据
 
 #### 4.1 添加数据
@@ -213,11 +211,11 @@ create table student(
 
 * 注意：
 
-1. 列名和值要一一对应。
+   1. 列名和值要一一对应。
 
-2. 如果表名后，不定义列名，则默认给所有列添加值 `insert into 表名 values(值1,值2,...值n);`。
+   2. 如果表名后，不定义列名，则默认给所有列添加值 `insert into 表名 values(值1,值2,...值n);`。
 
-3. <font color=#ff8918>**除了数字类型，其他类型需要使用引号(单双都可以)引起来**</font>。
+   3. <font color=#ff8918>**除了数字类型，其他类型需要使用引号(单双都可以)引起来**</font>。
 
 #### 4.2 删除数据
 
@@ -225,13 +223,11 @@ create table student(
 
 * 注意：
 
-1. 如果不加条件，则删除表中所有记录。
+   1. 如果不加条件，则删除表中所有记录。
 
-2. <font color=#ff8918>**如果要删除所有记录**</font>
-
-1. `delete from 表名; -- **不推荐**使用。` <font color=#ff8918>**有多少条记录就会执行多少次删除操作。**</font>
-
-2. `TRUNCATE TABLE 表名; -- **推荐**使用。` 效率更高<font color=#ff8918>**先删除表，然后再创建一张一样的表。**</font>
+   2. <font color=#ff8918>**如果要删除所有记录**</font>
+      * `delete from 表名; -- **不推荐**使用。` <font color=#ff8918>**有多少条记录就会执行多少次删除操作。**</font>
+      * `TRUNCATE TABLE 表名; -- **推荐**使用。` 效率更高<font color=#ff8918>**先删除表，然后再创建一张一样的表。**</font>
 
 #### 4.3 修改数据
 
@@ -242,52 +238,53 @@ create table student(
 
 ### 五、DQL：查询表中的记录
 
-* select * from 表名;
+* `select * from 表名;`
 	
 * 语法
-~~~
-      select
-            字段列表
-      from
-            表名列表
-      where
-            条件列表
-      group by
-            分组字段
-      having
-            分组之后的条件
-      order by
-            排序
-      limit
-            分页限定
+  
+~~~sql
+  ​    select
+  ​          字段列表
+  ​    from
+  ​          表名列表
+  ​    where
+  ​          条件列表
+  ​    group by
+  ​          分组字段
+  ​    having
+  ​          分组之后的条件
+  ​    order by
+  ​          排序
+  ​    limit
+  ​          分页限定
 ~~~
 
 #### 5.1 基础查询
 
 1. 多个字段的查询 `select 字段名1，字段名2... from 表名；`  （此处字段指列名）
 
-      * 注意：如果查询所有字段，则可以使用*来替代字段列表。
+      * 注意：如果查询所有字段，则可以使用 `*` 来替代字段列表。
 
 2. 去除重复：`distinct`，作用于字段（列明）
 
-      * 当有多个字段时，如`select distinct name, age from stu`，只有当 name 与 age 两者同时一样时，才会去重复。
+      * 当有多个字段时，如 `select distinct name, age from stu`，只有当 name 与 age 两者同时一样时，才会去重复。
 
 3. 计算列
 
       * 一般可以使用四则运算计算一些列的值。（一般只会进行数值型的计算）`select name,math,english,math+english from stu;`
 
-      * ifnull(表达式1,表达式2)：null参与的运算，计算结果都为null
-	      * 表达式1：哪个字段需要判断是否为null
-	      * 如果该字段为null后的替换值。
+      * ifnull (表达式1,表达式2)：null 参与的运算，计算结果都为 null
+         * 表达式1：哪个字段需要判断是否为 null
+         * 表达式2：如果该字段为 null 后的替换值。
               `select name, math, english, math+ifnull(english,0) from stu;`
 
 4. 起别名：
-      * as：as也可以省略。如`select name, math, english, math+ifnull(english,0) as 总分 from stu;`
+      * as：as 也可以省略。如 `select name, math, english, math+ifnull(english,0) as 总分 from stu;`
 
 
 #### 5.2 条件查询
 
-1. where子句后跟条件
+1. where 子句后跟条件
 
 2. 运算符
       * \> 、< 、<= 、>= 、= 、<>
@@ -297,8 +294,8 @@ create table student(
       * IN( 集合) 
 
       * LIKE：模糊查询（占位符）
-            * _:单个任意字符
-            * %：多个任意字符
+         * `_`：单个任意字符
+         * `%`：多个任意字符
 
       * IS NULL  
 
