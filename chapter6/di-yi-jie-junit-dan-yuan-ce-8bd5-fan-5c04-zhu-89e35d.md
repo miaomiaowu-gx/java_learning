@@ -145,7 +145,9 @@ public class CalculatorTest {
 
 反射：将类的**各个组成部分**封装为其他对象(如Field[] fields, Method[] methods等)，这就是**反射机制**。
 
-<img src="./img6/02-java-code-three.bmp" width=900>
+<img src="./img6/02-java-code-three.png" width=900>
+
+
 
 反射好处：
 1. 可以在程序运行过程中，操作这些对象。
