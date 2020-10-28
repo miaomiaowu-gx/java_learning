@@ -157,15 +157,15 @@ public class CalculatorTest {
 ### 2.2 获取Class对象的三种方式
 
 1. `Class.forName("全类名")`：将**字节码文件加载进内存**，返回 Class 对象。
-  - 是静态方法。
-  - 参数"全类名"：包名+类名。
-  - 多用于配置文件，将类名定义在配置文件中。读取文件，加载类。
+   - 是静态方法。
+   - 参数"全类名"：包名+类名。
+   - 多用于配置文件，将类名定义在配置文件中。读取文件，加载类。
 
-2. 类名.class：通过类名的属性class获取
-  - 多用于参数的传递
+2. `类名.class`：通过类名的属性 class 获取
+   - 多用于参数的传递
 
-3. 对象.getClass()：getClass()方法在Object类中定义，所有对象都有该方法。
-  - 多用于对象的获取字节码的方式
+3. `对象.getClass()`：getClass() 方法在 Object 类中定义，所有对象都有该方法。
+   - 多用于对象的获取字节码的方式
 
 ~~~java
 import cn.itcast.domain.Person;
@@ -196,7 +196,7 @@ public class ReflectDemo1 {
         System.out.println(cls1 == cls3);//true
 
         Class c = Student.class;
-	//不同字节码文件，不相等
+        //不同字节码文件，不相等
         System.out.println(c == cls1); //false
     }
 }
@@ -211,8 +211,8 @@ public class ReflectDemo1 {
 
 ~~~
 获取成员变量 4 个方法:
-* Field[] getFields() ：获取所有public修饰的成员变量
-* Field getField(String name)   获取指定名称的 public修饰的成员变量
+* Field[] getFields() ：获取所有 public 修饰的成员变量
+* Field getField(String name)   获取指定名称的 public 修饰的成员变量
 	
 * Field[] getDeclaredFields()  获取所有的成员变量，不考虑修饰符
 * Field getDeclaredField(String name)  
@@ -224,7 +224,7 @@ Field：成员变量（操作）
 ~~~
 
 使用示例
-~~~
+~~~java
 import cn.itcast.domain.Person;
 import java.lang.reflect.Field;
 
@@ -287,7 +287,7 @@ Constructor:构造方法
 
 使用示例
 
-~~~
+~~~java
 import cn.itcast.domain.Person;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -342,7 +342,7 @@ Method：方法对象
 
 使用示例
 
-~~~
+~~~java
 import cn.itcast.domain.Person;
 
 import java.lang.reflect.Constructor;
@@ -415,13 +415,13 @@ System.out.println(className);//cn.itcast.domain.Person
 
 5. 执行方法
 
-~~~
+~~~properties
 //配置文件 pro.properties
 className=cn.itcast.domain.Student
 methodName=sleep
 ~~~
 
-~~~
+~~~java
 package cn.itcast.reflect;
 
 import cn.itcast.domain.Person;
@@ -473,7 +473,7 @@ public class ReflectTest {
 通过修改配置文件，不改动任意程序，即可执行不同的方法。
 
 使用反射调用对象需要很多行，实际调用可能很少语句即可达到，如
-~~~
+~~~java
 Person p = new Person();
 p.eat();
 
@@ -513,7 +513,7 @@ stu.sleep();
 * @Deprecated：该注解标注的内容，表示已过时
 * @SuppressWarnings：压制警告，一般传递参数all  @SuppressWarnings("all")，可以放在函数或者类前，一般放在类前。
 
-~~~
+~~~java
 import java.util.Date;
 
 @SuppressWarnings("all")
@@ -544,7 +544,7 @@ public class AnnoDemo2 {
 
 🔶**格式**：
 
-~~~
+~~~java
 元注解
 public @interface 注解名称{
       属性列表;
@@ -554,7 +554,7 @@ public @interface 注解名称{
 通过反编译，观察代码`public @interface 注解名称{}`。
 
 1. 定义`MyAnno.java`文件
-~~~
+~~~java
 public @interface MyAnno {
 }
 ~~~
@@ -562,7 +562,7 @@ public @interface MyAnno {
 2. 编译 `javac MyAnno.java`，生成 MyAnno.class 文件。
 
 3. 反编译 `javap MyAnno.class`，命令行输出：
-~~~
+~~~java
 Compiled from "MyAnno.java"
 public interface MyAnno extends java.lang.annotation.Annotation{
 }
@@ -588,7 +588,7 @@ public interface MyAnno extends java.lang.annotation.Annotation{
 
 * 以上类型的数组
 	
-~~~
+~~~java
 public @interface MyAnno {
 
     int value();
@@ -611,7 +611,7 @@ public @interface MyAnno2 {
 
 🐹 2. 定义了属性，在使用时需要**给属性赋值**
 
-~~~
+~~~java
 1）定义
 public @interface MyAnno {
     int value();
@@ -627,13 +627,13 @@ public class Worker {
 
 
 🐹 2.1 如果定义属性时，使用**default关键字给属性默认初始化值**，则使用注解时，可以不进行属性的赋值。
-  ~~~
+  ~~~java
   public @interface MyAnno {
     String name() default "张三";
   }
   ~~~
 🐹 2.2 如果只有一个属性需要赋值，并且**属性的名称是value**，则value可以省略，直接定义值即可。
-  ~~~
+  ~~~java
   1）定义
   public @interface MyAnno {
     int value();
@@ -657,7 +657,7 @@ public class Worker {
   * METHOD：只能作用于方法上
   * FIELD：只能作用于成员变量上
 
-~~~
+~~~java
 @Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})  //value可省略
     public @interface MyAnno3 {
 }
@@ -673,7 +673,7 @@ public class Worker {
 
 🐹 @Inherited：描述注解是否被子类继承，即子类会继承父类的注解。
 
-~~~
+~~~java
 @Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -687,7 +687,7 @@ public @interface MyAnno3 {
 1. 获取注解定义的位置的对象  （Class, Method, Field）
 
 2. 获取指定的注解 `getAnnotation(Class类型)`
-~~~
+~~~java
 //其实就是在内存中生成了一个该注解接口的子类实现对象	
 public class ProImpl implements Pro{
       public String className(){
@@ -703,7 +703,7 @@ public class ProImpl implements Pro{
 
 
 1) Pro.java文件
-~~~
+~~~java
 package cn.itcast.annotation;
 
 import java.lang.annotation.ElementType;
@@ -723,7 +723,7 @@ public @interface Pro {
 }
 ~~~
 2）Demo1.java文件
-~~~
+~~~java
 package cn.itcast.annotation;
 
 public class Demo1 {
@@ -733,7 +733,7 @@ public class Demo1 {
 }
 ~~~
 3）ReflectTest.java文件
-~~~
+~~~java
 package cn.itcast.annotation;
 
 import java.io.InputStream;
@@ -795,7 +795,7 @@ public class ReflectTest {
 
 1）定义注解
 
-~~~
+~~~java
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -808,7 +808,7 @@ public @interface Check {
 ~~~
 
 2）在类的方法上使用注解
-~~~
+~~~java
 public class Calculator {
 
     //加法
@@ -843,7 +843,7 @@ public class Calculator {
 
 3）实现功能：当主方法执行后，会自动自行被检测的所有方法(加了Check注解的方法)，判断方法是否有异常，记录到文件中
 
-~~~
+~~~java
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
