@@ -331,6 +331,119 @@ public interface IAccountDao {
 2  在 src->main->java->com->itheima->dao 下创建 `impl.AccountDaoImpl`
 
 ```java
+package com.itheima.dao.impl;
 
+
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+
+public class AccountDaoImpl implements IAccountDao{
+
+    private JdbcTemplate jdbcTemplate;
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public Account findAccountById(Integer accountId) {
+        List<Account> accounts= jdbcTemplate.query("select * from account where id = ?",new BeanPropertyRowMapper<Account>(Account.class),accountId);
+        return accounts.isEmpty()? null: accounts.get(0);
+    }
+
+    public Account findAccountByName(String accountName) {
+        List<Account> accounts = jdbcTemplate.query("select * from account where name = ?",new BeanPropertyRowMapper<Account>(Account.class),accountName);
+        if(accounts.isEmpty()){
+            return null;
+        }
+        if(accounts.size()>1){
+            throw new RuntimeException("结果集不唯一");
+        }
+        return accounts.get(0);
+    }
+
+    public void updateAccount(Account account) {
+        jdbcTemplate.update("update account set name=?,money=? where id=?",account.getName(),account.getMoney(),account.getId());
+    }
+}
 ```
 
+3 在 `bean.xml` 中配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置账户的持久层-->
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+
+    <!--配置JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- 配置数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="mysql"></property>
+    </bean>
+
+</beans>
+```
+
+4 测试并使用
+
+```java
+package com.itheima.jdbctemplate;
+
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+/**
+ * JdbcTemplate的 Dao 使用
+ */
+public class JdbcTemplateDemo4 {
+
+    public static void main(String[] args) {
+        //1.获取容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //2.获取对象
+        IAccountDao accountDao = ac.getBean("accountDao",IAccountDao.class);
+        //3.执行操作
+        Account account = accountDao.findAccountById(1);
+        System.out.println(account);
+
+        account.setMoney(30000f);
+        accountDao.updateAccount(account);
+    }
+}
+```
+
+### 6.6 JdbcDaoSupport 的使用
+
+
+
+
+
+
+
+
+
+
+
+
+
+JdbcDaoSupport的使用以及Dao的两种编写方式
