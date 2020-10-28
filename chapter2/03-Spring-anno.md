@@ -166,12 +166,15 @@ public class AccountServiceImpl implements IAccountService {
 * Resource
  * 作用：直接按照 bean 的 id 注入，可以独立使用。
  * 属性：name，用于指定 bean 的 id。
+ 
  ```java
  @Resource(name="accountDao2")
  private IAccountDao accountDao = null;
  ```
+ 
  上述代码会报空指针异常：`javax.annotation.Resource` 是 JDK1.6 才支持的，jdk1.8 以上没有 javax.annotation。
  导入依赖
+ 
  ```xml
  <dependency>
     <groupId>javax.annotation</groupId>
