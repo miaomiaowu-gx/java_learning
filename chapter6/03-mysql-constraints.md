@@ -102,9 +102,9 @@ ALTER TABLE stu DROP INDEX phone_number;
 
       * DELETE 和 TRUNCATE 对自增长的影响
       DELETE： 删除所有的记录之后，自增长没有影响。
-      <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718114456915-601081908.png" width=200>
+      <img src="./img6/04-DELETE.png" width=200>
       TRUNCATE：删除以后，自增长又重新开始。
-      <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718114608499-1294098109.png" width=200>
+      <img src="./img6/05-TRUNCATE.png" width=200>
 
 6. 哪个字段应该作为表的主键？
 
