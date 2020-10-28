@@ -305,13 +305,10 @@ create table student(
 
       * not  或 !
 
+使用示例
 
- <details>
-<summary>使用示例</summary>
-<pre>
-<code>
+```sql
 -- 查询年龄大于20岁
-
 SELECT * FROM student WHERE age > 20;
 				
 SELECT * FROM student WHERE age >= 20;
@@ -340,15 +337,11 @@ SELECT * FROM student WHERE english IS NULL;
 				
 -- 查询英语成绩不为null
 SELECT * FROM student WHERE english  IS NOT NULL;
-</code>
-</pre>
-</details>
+```
 
- <details>
-<summary>模糊查询示例</summary>
-<pre>
-<code>
+模糊查询示例
 
+```sql
 -- 查询姓马的有哪些？ like
 SELECT * FROM student WHERE NAME LIKE '马%';
 
@@ -360,11 +353,9 @@ SELECT * FROM student WHERE NAME LIKE '___';
 
 -- 查询姓名中包含德的人
 SELECT * FROM student WHERE NAME LIKE '%德%';
-</code>
-</pre>
-</details>
+```
 
-**排序查询**
+#### 5.3 排序查询
 
 * 语法：order by 子句
 `order by 排序字段 1 排序方式 1 ，  排序字段 2 排序方式 2...`
@@ -376,7 +367,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 * 注意：<font color=#ff8918>**如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件。**</font>
 
 
-#### 5.3 聚合函数
+#### 5.4 聚合函数
 
 将<font color=#ff8918>**一列数据**</font>作为一个整体，进行<font color=#ff8918>**纵向**</font>的计算。计算结果是单行单列的值。
 1. count：计算个数
@@ -388,13 +379,13 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 5. avg：计算平均值
 
 
-注意：<font color=#ff8918>**聚合函数的计算，排除null值**</font>。如使用 count 统计个数时，含有 null 值会被忽略，返回的个数不包含null值的行。
+注意：<font color=#ff8918>**聚合函数的计算，排除 null 值**</font>。如使用 count 统计个数时，含有 null 值会被忽略，返回的个数不包含 null 值的行。
 
 解决方案：
 1. 选择不包含非空的列进行计算，即一般选择非空的列(主键等)
 2. IFNULL 函数  `select count(ifnull(english,0)) from stu;`
 
-#### 5.4 分组查询
+#### 5.5 分组查询
 
 1. 语法：group by 分组字段；
       `select sex,AVG(math) from stu group by sex;`
@@ -402,10 +393,10 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 2. 注意：
       * 分组之后查询的字段：分组字段(即 group by 后面选择的字段，如上例的 sex)、聚合函数（如 count、avg、min 等）
       * where 和 having 的区别？
-            - where 在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果，则不会被查询出来
-            - where 后不可以跟聚合函数，having可以进行聚合函数的判断。
+          - where 在分组之前进行限定，如果不满足条件，则不参与分组。having 在分组之后进行限定，如果不满足结果，则不会被查询出来
+          - where 后不可以跟聚合函数，having 可以进行聚合函数的判断。
 
-~~~     
+~~~sql     
 -- 按照性别分组。分别查询男、女同学的平均分
 SELECT sex, AVG(math) FROM student GROUP BY sex;
 
@@ -413,23 +404,23 @@ SELECT sex, AVG(math) FROM student GROUP BY sex;
 SELECT sex, AVG(math), COUNT(id) FROM student GROUP BY sex;
 
 --  按照性别分组。分别查询男、女同学的平均分、人数 要求：分数低于70分的人，不参与分组
-SELECT sex , AVG(math),COUNT(id) FROM student WHERE math > 70 GROUP BY sex;
+SELECT sex, AVG(math), COUNT(id) FROM student WHERE math > 70 GROUP BY sex;
 
 --  按照性别分组。分别查询男、女同学的平均分、人数 要求：分数低于70分的人，不参与分组。分组之后，人数要大于2个人。
-SELECT sex , AVG(math),COUNT(id) FROM student WHERE math > 70 GROUP BY sex HAVING COUNT(id) > 2; 
--- where 后不可以跟聚合函数，having可以进行聚合函数的判断。
+SELECT sex, AVG(math), COUNT(id) FROM student WHERE math > 70 GROUP BY sex HAVING COUNT(id) > 2; 
+-- where 后不可以跟聚合函数，having 可以进行聚合函数的判断。
 
 --使用别名
-SELECT sex , AVG(math),COUNT(id) 人数 FROM student WHERE math > 70 GROUP BY sex HAVING 人数 > 2;
+SELECT sex, AVG(math), COUNT(id) 人数 FROM student WHERE math > 70 GROUP BY sex HAVING 人数 > 2;
 ~~~
 
 
-#### 5.5 分页查询
+#### 5.6 分页查询
 
 1. 语法：`limit 开始的索引, 每页查询的条数;`
 2. 公式：开始的索引 = （当前的页码 - 1） * 每页显示的条数
 
-~~~
+~~~sql
 -- 每页显示3条记录
 SELECT * FROM student LIMIT 0,3; -- 第1页
 SELECT * FROM student LIMIT 3,3; -- 第2页
