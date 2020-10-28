@@ -440,8 +440,138 @@ public class JdbcTemplateDemo4 {
 
 解决：
 
+**方式一：直接创建 JdbcTemplate** 
+
+1 在 src->main->java->com->itheima->dao->impl 下创建 `JdbcDaoSupport`类
+
+```java
+package com.itheima.dao.impl;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+/**
+ * 此类用于抽取dao中的重复代码
+ */
+public class JdbcDaoSupport {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+}
+```
+
+2 修改 `AccountDaoImpl` 类
+
+```java
+package com.itheima.dao.impl;
 
 
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+
+import java.util.List;
+
+public class AccountDaoImpl extends JdbcDaoSupport implements IAccountDao{
+
+    public Account findAccountById(Integer accountId) {
+        List<Account> accounts= super.getJdbcTemplate().query("select * from account where id = ?",new BeanPropertyRowMapper<Account>(Account.class),accountId);
+        return accounts.isEmpty()? null: accounts.get(0);
+    }
+
+    public Account findAccountByName(String accountName) {
+        List<Account> accounts = super.getJdbcTemplate().query("select * from account where name = ?",new BeanPropertyRowMapper<Account>(Account.class),accountName);
+        if(accounts.isEmpty()){
+            return null;
+        }
+        if(accounts.size()>1){
+            throw new RuntimeException("结果集不唯一");
+        }
+        return accounts.get(0);
+    }
+
+    public void updateAccount(Account account) {
+        super.getJdbcTemplate().update("update account set name=?,money=? where id=?",account.getName(),account.getMoney(),account.getId());
+    }
+}
+```
+
+**方式二：通过 DataSource 创建  JdbcTemplate**
+
+1  `JdbcDaoSupport` 类
+
+```java
+package com.itheima.dao.impl;
+
+/**
+ * 此类用于抽取dao中的重复代码
+*/
+public class JdbcDaoSupport {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+
+    public void setDataSource(DataSource dataSource) {
+        if(jdbcTemplate == null){
+            jdbcTemplate = createJdbcTemplate(dataSource);
+        }
+    }
+
+    private JdbcTemplate createJdbcTemplate(DataSource dataSource){
+        return new JdbcTemplate(dataSource);
+    }
+} 
+```
+
+2  `AccountDaoImpl` 类同方式一
+
+3 修改配置文件 `bean.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置账户的持久层--> 
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置JdbcTemplate
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>-->
+
+    <!-- 配置数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="1234"></property>
+    </bean>
+</beans>
+```
+
+
+
+🍓🍎🍅在也可以不创建 `JdbcDaoSupport` 类，直接继承，Spring 框架有提供该类 `import org.springframework.jdbc.core.support.JdbcDaoSupport; ` 。两者的区别：自己创建的类可以使用注解，而 Spring 提供的类不能使用注解（不能在其提供的 jar 包中添加注解）。
 
 
 
