@@ -111,7 +111,7 @@ public interface IAccountService {
      * 删除账户
      * @return
      */
-    int  deleteAccount();
+    int deleteAccount();
 }
 ```
 
