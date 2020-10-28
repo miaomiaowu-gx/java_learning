@@ -128,7 +128,7 @@ public class Client {
 ##### 2）用于注入数据的注解
 
 用于注入数据的注解作用：与 xml 配置文件中的 bean 标签中写一个 `<property>` 标签的作用是一样的。
-* Autowired:
+* Autowired
  * 作用：自动按照类型注入。
    * 只要容器中有唯一的一个 bean 对象类型和要注入的变量类型匹配，就可以注入成功。
    * 如果 ioc 容器中没有任何 bean 的类型和要注入的变量类型匹配，则报错。
@@ -154,7 +154,7 @@ public class AccountServiceImpl implements IAccountService {
  <img src="./img2/04-auto.png" width=900>
 
 
-* Qualifier:
+* Qualifier
  * 作用：在按照**类型注入**的基础之上再按照**名称注入**。它**在给类成员注入时不能单独使用**。但是在**给方法参数注入时可以**。
  * 属性：value，用于指定注入 bean 的 id。
  ```java
