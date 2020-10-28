@@ -373,6 +373,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 1. count：计算个数
       * 一般选择非空的列：主键。
       * `count(*)` 其中 `*` 代表所有列，只要改行数据有一个列的值不为 null，就可以算作一条数据。但是并不推荐使用！
+      
 2. max：计算最大值
 3. min：计算最小值
 4. sum：计算和
@@ -417,8 +418,8 @@ SELECT sex, AVG(math), COUNT(id) 人数 FROM student WHERE math > 70 GROUP BY se
 
 #### 5.6 分页查询
 
-1. 语法：`limit 开始的索引, 每页查询的条数;`
-2. 公式：开始的索引 = （当前的页码 - 1） * 每页显示的条数
+1 语法：`limit 开始的索引, 每页查询的条数;`
+2 公式：开始的索引 = （当前的页码 - 1） * 每页显示的条数
 
 ~~~sql
 -- 每页显示3条记录
@@ -427,4 +428,4 @@ SELECT * FROM student LIMIT 3,3; -- 第2页
 SELECT * FROM student LIMIT 6,3; -- 第3页
 ~~~
 
-3. limit 是一个 MySQL "方言"，即 limit 只能在 MySQL 中使用。
+3 limit 是一个 MySQL "方言"，即 limit 只能在 MySQL 中使用。
