@@ -41,7 +41,8 @@
          - 配置文件 my.ini
 
       2. MySQL 数据目录（默认在C盘）：datadir="C:/ProgramData/MySQL/MySQL Server 5.5/Data/"
-      <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200703002216759-1973715416.bmp" width=600>
+     <img src="./img6/03-mysql-database-structure.png" width=600>
+     
    * 数据库：文件夹
      
    * 表：文件
