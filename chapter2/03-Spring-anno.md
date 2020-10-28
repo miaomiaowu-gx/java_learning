@@ -625,7 +625,7 @@ jdbc.password=mysql
 
 3 在 main->java 文件夹下创建 `config.JdbcConfig`
 
-**SpringConfiguration 类是一个配置类**，它的作用和 bean.xml 是一样的。Spring中的新注解：
+**SpringConfiguration 类是一个配置类**，它的作用和 bean.xml 是一样的。Spring 中的新注解：
 
 * Configuration
   * 作用：指定当前类是一个配置类。
