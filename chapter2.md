@@ -25,7 +25,7 @@ Spring 是分层的 Java SE/EE 应用 **full-stack 轻量级**开源框架，以
 * Spring 对 JavaEE API（如 JDBC、 JavaMail、远程调用等）进行了薄薄的封装层，使这些 API 的使用难度大为降低。
 
 **Java 源码是经典学习范例**
-* Spring 的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。
+* Spring 的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。它的源代码无疑是 Java 技术的最佳实践的范例。
 
 
 ### Spring 的体系结构

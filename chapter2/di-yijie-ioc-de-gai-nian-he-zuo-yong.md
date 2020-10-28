@@ -63,7 +63,7 @@ public class JdbcDemo1 {
 1. 使用 `DriverManager.registerDriver` 注册驱动时，当对应的 mysql jar包不存在，会在编译器报错。应该尽量避免编译器报错。
 2. 用 `Class.forName("com.mysql.jdbc.Driver")` 替换 `new com.mysql.jdbc.Driver()`，此时，`"com.mysql.jdbc.Driver"`只是一个字符串，当 jar 包不存在时，会抛出异常（编译可以通过）。
   * 好处：类中不再依赖具体的驱动类，此时就算删除 mysql 的驱动 jar 包，依然可以编译（运行就不要想了，没有驱动不可能运行成功的） 。
-  * mysql 驱动的全限定类名字符串是在 java 类中写死的，一旦要改还是要修改源码。（解决：使用配置文件配置。）
+  * 缺点：mysql 驱动的全限定类名字符串是在 java 类中写死的，一旦要改还是要修改源码。（解决：使用配置文件配置。）
 
 
 ### 1.2 工厂模式解耦
@@ -71,13 +71,15 @@ public class JdbcDemo1 {
 
 【问题如下】
 
+持久层接口及实现类用于操作数据库存储数据，业务层接口及实现类用于给用户使用操作数据库（通过调用持久层实现），用户使用时(main方法中)通过创建业务层对象实现保存数据操作。
+
 <img src="./img2/01-wrong-code-analysis.png" width=1100>
 
 当持久层具体实现类 `AccountDaoImpl.java` 不存在，由于 `new AccountDaoImpl()`，程序报错。表现层的 `new AccountServiceImpl()`也会由于 AccountServiceImpl 类不存在，而编译不通过。
 
 【工厂模式 + 配置文件】
 
-使用一个创建 Bean 对象的工厂，用于创建 service 和 dao 对象的。
+使用一个创建 Bean 对象的工厂，用于创建 service 和 dao 对象。
  * Bean：在计算机英语中，有可重用组件的含义。
  * JavaBean：用 java 语言编写的可重用组件。javabean >  实体类
 
@@ -108,7 +110,7 @@ public class BeanFactory {
     //定义一个Properties对象
     private static Properties props;
 
-    //定义一个Map,用于存放我们要创建的对象。我们把它称之为容器
+    //定义一个Map,用于存放要创建的对象。把它称之为容器
     private static Map<String,Object> beans;
 
     //使用静态代码块为Properties对象赋值
