@@ -182,7 +182,7 @@ select * from employee;
 <img src="./img6/07-two-table.png" width=300>
 
 
-问题：当我们在 employee 的 dep_id 里面输入不存在的部门，数据依然可以添加，但是并没有对应的部门，实际应用中不能出现这种情况。employee 的 dep_id 中的数据只能是 department 表中存在的 id。
+问题：当在 employee 的 dep_id 里面输入不存在的部门，数据依然可以添加，但是并没有对应的部门，实际应用中不能出现这种情况。employee 的 dep_id 中的数据只能是 department 表中存在的 id。
 
 解决方式: 使用外键约束。
 
@@ -221,14 +221,14 @@ select * from employee;
       设置外键约束后，若想修改主表关联的列（如上例中的id值），会报错，因为从表引用了该值。
 
       解决方法：
-            * 将从表引用的值，设置为 NULL，然后修改主表对应的值，最后重新将从表 NULL值设置为主表修改后的值。
-            * 使用级联
+         * 将从表引用的值，设置为 NULL，然后修改主表对应的值，最后重新将从表 NULL值设置为主表修改后的值。
+         * 使用级联
 
       1）添加级联操作
       同时设置级联更新与级联删除：
       `ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名称) REFERENCES 主表名称(主表列名称) ON UPDATE CASCADE ON DELETE CASCADE;`
 
       2）分类：
-            * 级联更新：`ON UPDATE CASCADE`。更新主表关联值时，从表对应的引用会更新。
-            * 级联删除：ON DELETE CASCADE。删除主表关联值时，从表对应的引用【行】会被删除。整条数据被删除，而不是只删除对应的值。
+         * 级联更新：`ON UPDATE CASCADE`。更新主表关联值时，从表对应的引用会更新。
+         * 🍒 **级联删除：ON DELETE CASCADE。删除主表关联值时，从表对应的引用【行】会被删除。整条数据被删除，而不是只删除对应的值。**
 
