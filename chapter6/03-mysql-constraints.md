@@ -179,6 +179,8 @@ INSERT INTO employee (NAME, age, dep_id) VALUES ('小王', 18, 2);
 select * from employee;
 ```
 
+
+
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718122109759-1270732405.png" width=300>
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718122159103-893479506.png" width=300>
