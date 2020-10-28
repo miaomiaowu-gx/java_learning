@@ -546,24 +546,24 @@ public @interface 注解名称{
 }
 ~~~
 
-通过反编译，观察代码`public @interface 注解名称{}`。
+通过反编译，观察代码 `public @interface 注解名称{}`。
 
-1. 定义`MyAnno.java`文件
+1. 定义 `MyAnno.java` 文件
 ~~~java
 public @interface MyAnno {
 }
 ~~~
 
-2. 编译 `javac MyAnno.java`，生成 MyAnno.class 文件。
+2. 编译 `javac MyAnno.java`，生成  MyAnno.class  文件。
 
 3. 反编译 `javap MyAnno.class`，命令行输出：
 ~~~java
 Compiled from "MyAnno.java"
-public interface MyAnno extends java.lang.annotation.Annotation{
+    public interface MyAnno extends java.lang.annotation.Annotation{
 }
 ~~~
 
-🔶**本质**：注解本质上就是一个接口，该接口默认继承Annotation接口
+🔶**本质**：注解本质上就是一个接口，该接口默认继承 Annotation 接口
 
 `public interface MyAnno extends java.lang.annotation.Annotation {}`
 	
@@ -621,13 +621,13 @@ public class Worker {
 ~~~
 
 
-🐹 2.1 如果定义属性时，使用**default关键字给属性默认初始化值**，则使用注解时，可以不进行属性的赋值。
+🐹 2.1 如果定义属性时，使用 **default 关键字给属性默认初始化值**，则使用注解时，可以不进行属性的赋值。
   ~~~java
   public @interface MyAnno {
     String name() default "张三";
   }
   ~~~
-🐹 2.2 如果只有一个属性需要赋值，并且**属性的名称是value**，则value可以省略，直接定义值即可。
+🐹 2.2 如果只有一个属性需要赋值，并且**属性的名称是 value**，则 value 可以省略，直接定义值即可。
   ~~~java
   1）定义
   public @interface MyAnno {
@@ -635,36 +635,36 @@ public class Worker {
   }
   2）使用
   @MyAnno(value=12)  //可以省略写成 @MyAnno(12)
-    public class Worker {
+  public class Worker {
   }
   ~~~
-🐹 2.3 数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}可以省略。
+🐹 2.3 数组赋值时，值使用 `{}` 包裹。如果数组中只有一个值，则 `{}` 可以省略。
 		
 
 🔶**元注解**：用于描述注解的注解
 
 🐹 @Target：描述注解能够作用的位置。
 
-- 其参数为 ElementType 枚举类型，即只有一个抽象方法`ElementType[] value();`
+- 其参数为 ElementType 枚举类型，即只有一个抽象方法 `ElementType[] value();`
 
-- ElementType可取值：
+- ElementType 可取值：
   * TYPE：该注解只能作用于类上
   * METHOD：只能作用于方法上
   * FIELD：只能作用于成员变量上
 
 ~~~java
 @Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})  //value可省略
-    public @interface MyAnno3 {
+public @interface MyAnno3 {
 }
 ~~~
 
 🐹 @Retention：描述注解被保留的阶段，参数为 RetentionPolicy 枚举类型，抽象函数为 `RetentionPolicy value();`。
 
-- @Retention(RetentionPolicy.RUNTIME)：(常用)当前被描述的注解，会保留到class字节码文件中，并被JVM读取到。
-- @Retention(RetentionPolicy.CLASS)
-- @Retention(RetentionPolicy.SOURCE)
+- `@Retention(RetentionPolicy.RUNTIME)`：(常用)当前被描述的注解，会保留到 class 字节码文件中，并被 JVM 读取到。
+- `@Retention(RetentionPolicy.CLASS)`
+- `@Retention(RetentionPolicy.SOURCE)`
 
-🐹 @Documented：描述注解是否被抽取到api文档中。
+🐹 @Documented：描述注解是否被抽取到 api 文档中。
 
 🐹 @Inherited：描述注解是否被子类继承，即子类会继承父类的注解。
 
@@ -696,8 +696,8 @@ public class ProImpl implements Pro{
 
 3. 调用注解中的抽象方法获取配置的属性值
 
+1) Pro.java 文件
 
-1) Pro.java文件
 ~~~java
 package cn.itcast.annotation;
 
@@ -717,7 +717,8 @@ public @interface Pro {
     String methodName();
 }
 ~~~
-2）Demo1.java文件
+2）Demo1.java 文件
+
 ~~~java
 package cn.itcast.annotation;
 
@@ -727,7 +728,8 @@ public class Demo1 {
     }
 }
 ~~~
-3）ReflectTest.java文件
+3）ReflectTest.java 文件
+
 ~~~java
 package cn.itcast.annotation;
 
@@ -786,7 +788,7 @@ public class ReflectTest {
 
 ### 3.5 案例：简单的测试框架
 
-目标：当主方法执行后，会自动自行被检测的所有方法(加了Check注解的方法)，判断方法是否有异常，记录到文件中。
+目标：当主方法执行后，会自动自行被检测的所有方法(加了 Check 注解的方法)，判断方法是否有异常，记录到文件中。
 
 1）定义注解
 
@@ -835,8 +837,7 @@ public class Calculator {
 }
 ~~~
 
-
-3）实现功能：当主方法执行后，会自动自行被检测的所有方法(加了Check注解的方法)，判断方法是否有异常，记录到文件中
+3）实现功能：当主方法执行后，会自动自行被检测的所有方法(加了 Check 注解的方法)，判断方法是否有异常，记录到文件中
 
 ~~~java
 import java.io.BufferedWriter;
@@ -851,7 +852,6 @@ import java.lang.reflect.Method;
  * 当主方法执行后，会自动自行被检测的所有方法(加了Check注解的方法)，判断方法是否有异常，记录到文件中
  */
 public class TestCheck {
-
 
     public static void main(String[] args) throws IOException {
         //1.创建计算器对象
