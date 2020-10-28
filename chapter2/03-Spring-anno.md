@@ -703,12 +703,16 @@ public class JdbcConfig {
 
 分析：
 
-1、应用程序的入口 main 方法
+1、应用程序的入口 main 方法。
+
 2、junit 单元测试中，没有 main 方法也能执行，因为 junit 集成了一个 main 方法，该方法会判断当前测试类中哪些方法有 @Test 注解，junit 会让有 Test 注解的方法执行。
+
 3、junit 不会判断是否采用 Spring 框架，在执行测试方法时，junit 根本不知道是不是使用了 Spring 框架，所以也不会读取配置文件/配置类创建 Spring 核心容器。
+
 4、由以上三点可知，当测试方法执行时，没有 Ioc 容器，就算写了 Autowired 注解，也无法实现注入。
 
 解决方案（Spring 整合 junit 配置）：
+
 1、导入 Spring 整合 junit 的 jar(坐标)
 ```xml
 <dependency>
