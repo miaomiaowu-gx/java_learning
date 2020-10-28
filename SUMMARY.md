@@ -21,7 +21,7 @@
   * [第一节 程序耦合](chapter2/di-yijie-ioc-de-gai-nian-he-zuo-yong.md)
   * [第二节 使用 spring 的 IOC 解决程序耦合](chapter2/di-er-jie-ioc-de-gai-nian-he-zuo-yong.md)
   * [第三节 Spring 基于注解的 IOC 以及 IoC 的案例](chapter2/03-Spring-anno.md)
-  * [第四节 事务管理 + 动态代理](chapter2/04-erfect-case-dynamic-agency.md) 
+  * [第四节 事务管理（Ioc）+ 动态代理](chapter2/04-erfect-case-dynamic-agency.md) 
   * [第五节 Spring 中的 AOP](chapter2/05-spring-aop.md) 
   * [第六节 Spring 中的 JdbcTemplate](chapter2/06-spring-JdbcTemplate.md) 
   * [第七节 基于 XML 的 AOP 实现事务控制](chapter2/07-spring-aop-xml-transaction.md) 
