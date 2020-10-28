@@ -11,16 +11,16 @@
 ### 1.2 Junit使用（白盒测试）
 
 **使用步骤：**
-			
+
 1. 定义一个测试类(测试用例)
 
-   - 测试类名：被测试的类名Test，如 CalculatorTest
+   - 测试类名：被测试的类名 Test，如 CalculatorTest
 
    - 包名：xxx.xxx.xx.test，如 cn.itcast.test
 	
 2. 定义测试方法：可以独立运行
 
-   - 方法名：test测试的方法名，如 testAdd()  
+   - 方法名：test 测试的方法名，如 testAdd()  
 
    - 返回值：void
 
@@ -28,7 +28,7 @@
 	
 3. 为了让方法独立运行，在方法上面加 `@Test`
 
-4. 导入junit依赖环境 `import org.junit.Test;`
+4. 导入 junit 依赖环境 `import org.junit.Test;`
 
 5. `@Before`: 修饰的方法会在测试方法之前被自动执行；`@After`: 修饰的方法会在测试方法执行之后自动被执行。
 
@@ -130,7 +130,7 @@ public class CalculatorTest {
 
 ~~~
 
- 	
+
 **评判结果：**
 
   - 软件输出窗口红色：失败
@@ -156,16 +156,18 @@ public class CalculatorTest {
 
 ### 2.2 获取Class对象的三种方式
 
-1. Class.forName("全类名")：将**字节码文件加载进内存**，返回Class对象。
-- 是静态方法。
-- 参数"全类名"：包名+类名。
-- 多用于配置文件，将类名定义在配置文件中。读取文件，加载类。
-2. 类名.class：通过类名的属性class获取
-- 多用于参数的传递
-3. 对象.getClass()：getClass()方法在Object类中定义，所有对象都有该方法。
-- 多用于对象的获取字节码的方式
+1. `Class.forName("全类名")`：将**字节码文件加载进内存**，返回 Class 对象。
+  - 是静态方法。
+  - 参数"全类名"：包名+类名。
+  - 多用于配置文件，将类名定义在配置文件中。读取文件，加载类。
 
-~~~
+2. 类名.class：通过类名的属性class获取
+  - 多用于参数的传递
+
+3. 对象.getClass()：getClass()方法在Object类中定义，所有对象都有该方法。
+  - 多用于对象的获取字节码的方式
+
+~~~java
 import cn.itcast.domain.Person;
 import cn.itcast.domain.Student;
 
@@ -199,7 +201,7 @@ public class ReflectDemo1 {
     }
 }
 ~~~
-	
+
 <font color=#ff8918>**结论：同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪一种方式获取的Class对象都是同一个。**</font>
 
 
@@ -379,7 +381,7 @@ public class ReflectDemo4 {
 ~~~
 
 
-	
+​	
 **4. 获取全类名**
 
 ~~~
@@ -489,10 +491,11 @@ stu.sleep();
 ## 三、注解
 
 ### 3.1 介绍
-	
+
 * 注解：说明程序的，给【计算机】看的。
 * 注释：用文字描述程序的，给程序员看的。
 	
+
 **定义**：注解（Annotation），也叫元数据。一种代码级别的说明。它是【JDK1.5及以后版本】引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。
 - JDK1.5之后的新特性
 - 说明程序的
@@ -536,7 +539,7 @@ public class AnnoDemo2 {
     }
 }
 ~~~
-	
+
 ### 3.3 自定义注解
 
 🔶**格式**：
@@ -667,7 +670,7 @@ public class Worker {
 - @Retention(RetentionPolicy.SOURCE)
 
 🐹 @Documented：描述注解是否被抽取到api文档中。
- 
+
 🐹 @Inherited：描述注解是否被子类继承，即子类会继承父类的注解。
 
 ~~~
