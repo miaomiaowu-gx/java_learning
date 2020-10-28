@@ -34,5 +34,8 @@
   * [第二节 MySQL 基础](chapter6/02-mysql.md)
   * [第三节 MySQL 约束](chapter6/03-mysql-constraints.md)
   * [第四节 MySQL 多表 & 事务](chapter6/04-mysql-multiple-tables-transactions.md)
+  * [第五节 JDBC-Java 语言操作数据库](chapter6/05-JDBC.md)
+  * [第六节 HTML & CSS](chapter6/06-HTML-CSS.md)
+
 
 
