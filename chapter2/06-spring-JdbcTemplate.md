@@ -434,7 +434,11 @@ public class JdbcTemplateDemo4 {
 
 ### 6.6 JdbcDaoSupport 的使用
 
-<img src="./img2/12-mutil-dao.png" width=400>
+问题描述：
+
+<img src="./img2/12-mutil-dao.png" width=600>
+
+解决：
 
 
 
