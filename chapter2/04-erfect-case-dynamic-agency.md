@@ -64,7 +64,7 @@ public class ConnectionUtils {
         tl.remove();
     }
 }
-```  
+```
 
 #### 3.1.4 编写事务管理工具类
 
@@ -97,7 +97,7 @@ public class TransactionManager {
     /**
      * 提交事务
      */
-    public  void commit(){
+    public void commit(){
         try {
             connectionUtils.getThreadConnection().commit();
         }catch (Exception e){
@@ -108,7 +108,7 @@ public class TransactionManager {
     /**
      * 回滚事务
      */
-    public  void rollback(){
+    public void rollback(){
         try {
             connectionUtils.getThreadConnection().rollback();
         }catch (Exception e){
@@ -119,7 +119,7 @@ public class TransactionManager {
     /**
      * 释放连接
      */
-    public  void release(){
+    public void release(){
         try {
             connectionUtils.getThreadConnection().close();//还回连接池中
             connectionUtils.removeConnection();
@@ -130,7 +130,7 @@ public class TransactionManager {
 }
 ```
 
- 
+
 #### 3.1.5 编写业务层和持久层事务控制代码并配置 Spring 的 ioc 
 
 1 Dao 中在执行方法的同时，在 bean.xml 中给 QueryRunner 注入connection 后，就会从连接中取一个。不希望从连接中取，不再注入 connection。
@@ -150,8 +150,8 @@ public class TransactionManager {
 ```xml
 <!--配置QueryRunner-->
 <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
-```   
-   
+```
+
 2 账户的业务层实现类  
 
 ```java
@@ -446,8 +446,8 @@ public class AccountDaoImpl implements IAccountDao {
     </bean>
 
 </beans>
-``` 
- 
+```
+
 #### 3.1.6 测试转账  
 
 ```java
@@ -695,9 +695,9 @@ public class Client {
         cglibProducer.saleProduct(12000f);
     }
 }
-```  
-  
-   
+```
+
+
 ### 3.2.3 使用动态代理实现事务控制   
 
 修改本章节 3.1 部分代码
