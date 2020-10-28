@@ -292,3 +292,44 @@ System.out.println(count);
 
 ### 6.5 JdbcTemplate 在 Dao 中的使用
 
+实际开发不会使用 6.4节 方式，是基于 Dao 开发
+
+1 在 src->main->java->com->itheima 创建 `dao.IAccountDao` 接口
+
+```java
+package com.itheima.dao;
+
+import com.itheima.domain.Account;
+
+/**
+ * 账户的持久层接口
+ */
+public interface IAccountDao {
+
+    /**
+     * 根据Id查询账户
+     * @param accountId
+     * @return
+     */
+    Account findAccountById(Integer accountId);
+
+    /**
+     * 根据名称查询账户
+     * @param accountName
+     * @return
+     */
+    Account findAccountByName(String accountName);
+
+    /**
+     * 更新账户
+     * @param account
+     */
+    void updateAccount(Account account);
+}
+```
+
+2  在 src->main->java->com->itheima->dao 下创建 `impl.AccountDaoImpl`
+
+```java
+ddd
+```
