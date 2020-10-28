@@ -195,7 +195,7 @@ public class AccountServiceImpl implements IAccountService {
 
 * Scope
  * 作用：用于指定 bean 的作用范围，与 bean 标签中使用 scope 属性实现的功能是一样的。
- * 属性：value，指定范围的取值。常用取值：singleton prototype
+ * 属性：value，指定范围的取值。常用取值：singleton（单例） prototype（多例）
 
 ```java
 @Component("accountService")
