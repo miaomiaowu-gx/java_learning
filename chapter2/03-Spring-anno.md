@@ -58,7 +58,7 @@ public class AccountServiceImpl implements IAccountService {
     public AccountServiceImpl(){
         System.out.println("对象创建了！");
     }
-    public void  saveAccount(){
+    public void saveAccount(){
         accountDao.saveAccount();
     }
 }
@@ -135,8 +135,9 @@ public class Client {
    * 如果 Ioc 容器中有多个类型匹配时：匹配关系如下图。
  * 出现位置：可以是变量上，也可以是方法上
  * 细节：在使用注解注入时，set 方法不是必须的。
+ 
 ```java
- @Component
+@Component
 public class AccountServiceImpl implements IAccountService {
     @Autowired //作用于变量
     private IAccountDao accountDao;
