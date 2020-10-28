@@ -331,5 +331,6 @@ public interface IAccountDao {
 2  在 src->main->java->com->itheima->dao 下创建 `impl.AccountDaoImpl`
 
 ```java
-ddd
+
 ```
+
