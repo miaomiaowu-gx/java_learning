@@ -32,4 +32,5 @@
 * [第六章 JavaWeb](chapter6.md)
   * [第一节 Junit单元测试-反射-注解](chapter6/di-yi-jie-junit-dan-yuan-ce-8bd5-fan-5c04-zhu-89e35d.md)
   * [第二节 MySQL 基础](chapter6/02-mysql.md)
+  * [第三节 MySQL 约束](chapter6/03-mysql-constraints.md)
 
