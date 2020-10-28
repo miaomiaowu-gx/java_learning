@@ -1,6 +1,6 @@
-# Junit单元测试-反射-注解
+# Junit 单元测试-反射-注解
 
-## 一、Junit单元测试
+## 一、Junit 单元测试
 
 ### 1.1 测试分类：
 
@@ -8,7 +8,7 @@
 
 2. 白盒测试：需要写代码的。关注程序具体的执行流程。
 	
-### 1.2 Junit使用（白盒测试）
+### 1.2 Junit 使用（白盒测试）
 
 **使用步骤：**
 
@@ -154,7 +154,7 @@ public class CalculatorTest {
 2. 可以解耦，提高程序的可扩展性。
 
 
-### 2.2 获取Class对象的三种方式
+### 2.2 获取 Class 对象的三种方式
 
 1. `Class.forName("全类名")`：将**字节码文件加载进内存**，返回 Class 对象。
    - 是静态方法。
@@ -205,7 +205,7 @@ public class ReflectDemo1 {
 <font color=#ff8918>**结论：同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪一种方式获取的Class对象都是同一个。**</font>
 
 
-### 2.3 Class对象功能（获取功能）
+### 2.3 Class 对象功能（获取功能）
 
 **1. 获取成员变量们**
 
@@ -262,7 +262,7 @@ public class ReflectDemo2 {
         //4. Field getDeclaredField(String name)
         Field d = personClass.getDeclaredField("d");
         //忽略访问权限修饰符的安全检查
-	//如果不忽略，访问private成员变量时，会报错IllegalAccessException。
+        //如果不忽略，访问private成员变量时，会报错IllegalAccessException。
         d.setAccessible(true);//暴力反射
         Object value2 = d.get(p);
         System.out.println(value2);
@@ -308,14 +308,14 @@ public class ReflectDemo3 {
 
         System.out.println("----------");
 
-	//2. 无参构造方法
+        //2. 无参构造方法
         Constructor constructor1 = personClass.getConstructor();
         System.out.println(constructor1);
         //创建对象
         Object person1 = constructor1.newInstance();
         System.out.println(person1);
 
-	//3. 无参构造方法的另一个实现
+        //3. 无参构造方法的另一个实现
         Object o = personClass.newInstance();
         System.out.println(o);
 
@@ -361,7 +361,7 @@ public class ReflectDemo4 {
         //2. 执行方法
         eat_method.invoke(p);
 
-	//有参方法
+        //有参方法
         Method eat_method2 = personClass.getMethod("eat", String.class);
         //执行方法
         eat_method2.invoke(p,"饭");
@@ -392,8 +392,6 @@ Class personClass = Person.class;
 String className = personClass.getName();
 System.out.println(className);//cn.itcast.domain.Person
 ~~~
-
-
 
 ### 2.4 案例
 需求：写一个"框架"，不能改变该类的任何代码的前提下，可以创建任意类的对象，并且执行其中任意方法。
@@ -439,10 +437,7 @@ public class ReflectTest {
     public static void main(String[] args) throws Exception {
         //可以创建任意类的对象，可以执行任意方法
 
-        /*
-            前提：不能改变该类的任何代码。可以创建任意类的对象，可以执行任意方法
-         */
-
+        //前提：不能改变该类的任何代码。可以创建任意类的对象，可以执行任意方法
 
         //1.加载配置文件
         //1.1创建Properties对象
@@ -496,19 +491,19 @@ stu.sleep();
 * 注释：用文字描述程序的，给程序员看的。
 	
 
-**定义**：注解（Annotation），也叫元数据。一种代码级别的说明。它是【JDK1.5及以后版本】引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。
-- JDK1.5之后的新特性
+**定义**：注解（Annotation），也叫元数据。一种代码级别的说明。它是【JDK1.5 及以后版本】引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。
+
+- JDK1.5 之后的新特性
 - 说明程序的
 - 使用注解：@注解名称
 
-
 **​作用分类**：
- ①编写文档：通过代码里标识的注解生成文档【生成文档doc文档】
+ ①编写文档：通过代码里标识的注解生成文档【生成文档 doc 文档】
  ②代码分析：通过代码里标识的注解对代码进行分析【使用反射】
  ③编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查【Override】
-注：①与③是JDK定义好的，主要关注第②部分。
+注：① 与 ③ 是 JDK 定义好的，主要关注第 ② 部分。
 
-### 3.2 JDK中预定义的一些注解
+### 3.2 JDK 中预定义的一些注解
 * @Override：**检测**被该注解标注的方法是否是继承自父类(接口)的
 * @Deprecated：该注解标注的内容，表示已过时
 * @SuppressWarnings：压制警告，一般传递参数all  @SuppressWarnings("all")，可以放在函数或者类前，一般放在类前。
