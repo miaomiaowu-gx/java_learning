@@ -182,16 +182,11 @@ select * from employee;
 <img src="./img6/07-two-table.png" width=300>
 
 
-
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718122109759-1270732405.png" width=300>
-
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718122159103-893479506.png" width=300>
-
 问题：当我们在 employee 的 dep_id 里面输入不存在的部门，数据依然可以添加，但是并没有对应的部门，实际应用中不能出现这种情况。employee 的 dep_id 中的数据只能是 department 表中存在的 id。
 
 解决方式: 使用外键约束。
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718132832285-1476986966.png" width=500>
+<img src="./img6/08-foreign-key.png" width=500>
 
 
 1. 在创建表时，可以添加外键
