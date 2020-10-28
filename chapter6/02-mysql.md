@@ -49,7 +49,38 @@
      
    * 数据：数据
 
-### 二、
+### 二、SQL
+
+#### 2.1 什么是SQL？
+
+Structured Query Language：结构化查询语言
+
+定义了操作所有<font color=#ff8918>**关系型数据库**</font>的规则。每一种数据库操作的方式存在不一样的地方，称为“方言”。
+#### 2.2 SQL 通用语法
+
+1) SQL 语句可以**单行或多行**书写，以<font color=#ff8918>**分号结尾**</font>。
+
+2) 可使用**空格和缩进**来增强语句的可读性。
+
+3) MySQL 数据库的 SQL 语句<font color=#ff8918>**不区分大小写**</font>（windows系统下），关键字**建议**使用大写。
+
+4) 3 种注释
+      单行注释: `--【空格】注释内容`（--后一定要有空格） 或 `# 注释内容` (mysql 特有，#号之后可以没有空格) 
+      多行注释: `/* 注释 */`		
+
+#### 2.3 SQL分类
+
+1) DDL (Data Definition Language) 数据定义语言
+    用来定义数据库对象：**数据库，表，列**等。关键字：create, drop, alter 等
+
+2) DML (Data Manipulation Language) 数据操作语言
+    用来对数据库中**表**的数据进行增删改。关键字：insert, delete, update 等
+
+3) DQL (Data Query Language) 数据查询语言
+    用来查询数据库中**表**的记录(数据)。关键字：select, where 等
+
+4) DCL (Data Control Language) 数据控制语言(了解)
+    用来定义数据库的访问权限和安全级别，及创建用户。关键字：GRANT， REVOKE 等
 
 
 ### 三、
