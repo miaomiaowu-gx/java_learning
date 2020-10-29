@@ -631,12 +631,114 @@ public class TransactionConfig {
 
 很少用到，了解即可，本节代码在 8.2 小节的代码进行配置。
 
+#### 8.6.1 在 bean.xml 中配置事务管理器与事务模板对象
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- 配置业务层-->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"></property>
+        <property name="transactionTemplate" ref="transactionTemplate"></property>
+    </bean>
 
+    <!-- 配置账户的持久层-->
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
 
+    <!-- 配置数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="1234"></property>
+    </bean>
 
+    <!-- 配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
 
+    <!--配置事务模板对象-->
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"></property>
+    </bean>
+</beans>
+```
 
+#### 8.6.2 在账户实现类中添加 TransactionTemplate 对象
+
+```java
+package com.itheima.service.impl;
+
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import com.itheima.service.IAccountService;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
+
+/**
+ * 账户的业务层实现类
+ * 事务控制应该都是在业务层
+ */
+public class AccountServiceImpl implements IAccountService{
+
+    private IAccountDao accountDao;
+
+    private TransactionTemplate transactionTemplate;
+
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    public void setAccountDao(IAccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+
+    @Override
+    public Account findAccountById(Integer accountId) {
+      return transactionTemplate.execute(new TransactionCallback<Account>() {
+            @Override
+            public Account doInTransaction(TransactionStatus status) {
+                return accountDao.findAccountById(accountId);
+            }
+        });
+    }
+
+    @Override
+    public void transfer(String sourceName, String targetName, Float money) {
+        transactionTemplate.execute(new TransactionCallback<Object>() {
+            @Override
+            public Object doInTransaction(TransactionStatus status) {
+                System.out.println("transfer....");
+                //2.1根据名称查询转出账户
+                Account source = accountDao.findAccountByName(sourceName);
+                //2.2根据名称查询转入账户
+                Account target = accountDao.findAccountByName(targetName);
+                //2.3转出账户减钱
+                source.setMoney(source.getMoney()-money);
+                //2.4转入账户加钱
+                target.setMoney(target.getMoney()+money);
+                //2.5更新转出账户
+                accountDao.updateAccount(source);
+
+//                int i=1/0;
+
+                //2.6更新转入账户
+                accountDao.updateAccount(target);
+                return null;
+            }
+        });
+    }
+}
+```
+
+该方法的缺点：每个方法都需要编写 execute 方法，业务层代码重复量变高，违反了 AOP 抽取重复代码的原则，一般不这么使用。
 
 ### 8.7 Spring5 新特性的介绍
