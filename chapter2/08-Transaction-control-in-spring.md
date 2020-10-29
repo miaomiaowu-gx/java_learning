@@ -385,7 +385,7 @@ public class AccountServiceTest {
 
 基于上述代码修改
 
-#### 8.4.1 配置
+#### 8.4.1 配置 bean.xml
 
 1、 在配置文件中添加 context 名称空间及对应约束
 
@@ -501,6 +501,14 @@ public class AccountDaoImpl implements IAccountDao {
 <img src="./img2/17-account-dao.png" width=500>
 
 ### 8.5 Spring 基于纯注解的声明式事务控制
+
+
+
+
+
+
+
+
 
 
 
