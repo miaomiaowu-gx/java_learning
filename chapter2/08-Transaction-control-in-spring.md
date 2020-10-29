@@ -65,9 +65,14 @@ Spring 事务控制要明确
 
 #### 8.1.3 TransactionStatus
 
-此接口提供的是事务具体的运行状态，方法如下：
+此接口提供的是事务具体的运行状态，描述某个时间点上事务对象的状态信息，方法如下：
 
-
+* 刷新事务：`void flush()`
+* 获取是否存在存储点：`boolean hasSavepoint()`
+* 获取事务是否完成：`boolean isCompleted()`
+* 获取事务是否为新的事务：`boolean isNewTransaction()`
+* 获取事务是否回滚：`boolean isRollbackOnly()` 
+* 设置事务回滚：`void setRollbackOnly()`
 
 ### 8.2 Spring 事务控制的代码准备
 
