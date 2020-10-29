@@ -438,7 +438,9 @@ public class AccountServiceTest {
 
 ### 7.3 基于注解的 AOP 实现事务控制
 
+基于上述 XML 代码修改
 
+1 在 bean.xml 中导入 context 名称空间及对应约束，
 
 
 
