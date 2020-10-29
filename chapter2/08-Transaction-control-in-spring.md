@@ -846,12 +846,55 @@ Spring Framework 5.0 带来了 Commons Logging 桥接模块的封装, 它被叫�
 * 这个对于处于大型 Spring 项目的开发者所意味着的，是应用程序的启动时间将被大大缩减。虽然 20或者 30 秒钟看似没什么，但如果每天要这样登上好几百次，加起来就够你受的了。使用了组件索引的话，就能帮助你每天过的更加高效。
 * 可以在 [Spring 的 Jira](https://jira.spring.io/browse/SPR-11890) 上了解更多关于组件索引的相关信息。 
 
-#### 8.7.3 
+#### 8.7.3 JetBrains Kotlin 语言支持 
+
+Kolin 概述：是一种支持函数式编程编程风格的面向对象语言。 Kotlin 运行在 JVM 之上，但运行环境并不限于 JVM。 
+
+#### 8.7.4 响应式编程风格 
+
+* 此次 Spring 发行版本的一个激动人心的特性就是**新的响应式堆栈 WEB 框架**。这个堆栈完全的响应式且非阻塞，适合于事件循环风格的处理，可以进行少量线程的扩展。
+* Reactive Streams 是来自于 Netflix, Pivotal, Typesafe, Red Hat, Oracle, Twitter 以及 Spray.io 的工程师特地开发的一个 API。它为响应式编程实现的实现提供一个公共 的 API，好实现 Hibernate 的 JPA。这里 JPA 就是这个 API, 而 Hibernate 就是实现。
+* Reactive Streams API 是 Java 9 的官方版本的一部分。在 Java 8 中, 你会需要专门引入依赖来使
+用 Reactive Streams API。
+* Spring Framework 5.0 对于流式处理的支持依赖于 Project Reactor 来构建, 其专门实现 Reactive Streams API。
+* Spring Framework 5.0 拥有一个新的 spring-webflux 模块，支持响应式 HTTP 和 WebSocket 客
+户端。 Spring Framework 5.0 还提供了对于运行于服务器之上，包含了 REST, HTML, 以及 WebSocket 风格交互的响应式网页应用程序的支持。
+* 在 spring-webflux 中包含了两种独立的服务端编程模型：
+* 基于注解：使用到了 @Controller 以及 Spring MVC 的其它一些注解；
+* 使用 Java 8 lambda 表达式的函数式风格的路由和处理。
+* 有 了 Spring Webflux, 可以创建出 WebClient, 它是响应式且非阻塞的，可以作为 RestTemplate  的一个替代方案。 
+
+#### 8.7.5 Junit5 支持 
+
+* 完全支持 JUnit 5 Jupiter，所以可以使用 JUnit 5 来编写测试以及扩展。此外还提供了一个编程以及扩展模型， Jupiter 子项目提供了一个测试引擎来在 Spring 上运行基于 Jupiter 的测试。
+* 另外， Spring Framework 5 还提供了在 Spring TestContext Framework 中进行并行测试的扩展。
+* 针对响应式编程模型， spring-test 现在还引入了支持 Spring WebFlux 的 WebTestClient 集成测
+试的支持，类似于 MockMvc，并不需要一个运行着的服务端。使用一个模拟的请求或者响应， WebTestClient就可以直接绑定到 WebFlux 服务端设施。
+* 当然， Spring Framework 5.0 仍然支持 JUnit! 对于 JUnit4， Spring Framework 在未来还是要支持一段时间的。 
 
 
+#### 8.7.6 依赖类库的更新 
 
-#### 8.7.4 
+终止支持的类库 
 
+```md
+Portlet.
+Velocity.
+JasperReports.
+XMLBeans.
+JDO.
+Guava.
+```
 
+支持的类库 
 
-#### 8.7.5 
+```md
+Jackson 2.6+
+EhCache 2.10+ / 3.0 GA
+Hibernate 5.0+
+JDBC 4.0+
+XmlUnit 2.x+
+OkHttp 3.x+
+Netty 4.1+
+```
+
