@@ -656,7 +656,7 @@ public class TransactionConfig {
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="url" value="jdbc:mysql://localhost:3306/eesy"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="1234"></property>
+        <property name="password" value="mysql"></property>
     </bean>
 
     <!-- 配置事务管理器-->
@@ -742,3 +742,101 @@ public class AccountServiceImpl implements IAccountService{
 该方法的缺点：每个方法都需要编写 execute 方法，业务层代码重复量变高，违反了 AOP 抽取重复代码的原则，一般不这么使用。
 
 ### 8.7 Spring5 新特性的介绍
+
+#### 8.7.1 与 JDK 相关的升级 
+
+##### 8.7.1.1 jdk 版本要求 
+
+Spring5.0 在 2017 年 9 月发布了它的 GA（通用）版本。该版本是基于 jdk8 编写的， 所以 jdk8 以下版本将无法使用。 同时，可以兼容 jdk9 版本。tomcat 版本要求 8.5 及以上。
+注：使用 jdk8 构建工程，可以降版编译。但是不能使用 jdk8 以下版本构建工程。
+
+##### 8.7.1.2 利用 jdk8 版本更新的内容
+
+**第一： 基于 JDK8 的反射增强** 
+
+```java
+package com.itheima.test;
+
+import java.lang.reflect.Method;
+
+public class Test {
+	
+	//循环次数定义：10亿次
+	private static final int loopCnt = 1000 * 1000 * 1000;
+
+	public static void main(String[] args) throws Exception {
+		//输出jdk的版本
+		System.out.println("java.version=" + System.getProperty("java.version"));
+		t1();
+		t2();
+		t3();
+	}
+
+	// 每次重新生成对象
+	public static void t1() {
+		long s = System.currentTimeMillis();
+		for (int i = 0; i < loopCnt; i++) {
+			Person p = new Person();
+			p.setAge(31);
+		}
+		long e = System.currentTimeMillis();
+		System.out.println("循环10亿次创建对象的时间：" + (e - s));
+	}
+
+	// 同一个对象
+	public static void t2() {
+		long s = System.currentTimeMillis();
+		Person p = new Person();
+		for (int i = 0; i < loopCnt; i++) {
+			p.setAge(32);
+		}
+		long e = System.currentTimeMillis();
+		System.out.println("循环10亿次给同一对象赋值的时间： " + (e - s));
+	}
+	
+	//使用反射创建对象
+	public static void t3() throws Exception {
+		long s = System.currentTimeMillis();
+		Class<Person> c = Person.class;
+		Person p = c.newInstance();
+		Method m = c.getMethod("setAge", Integer.class);
+		for (int i = 0; i < loopCnt; i++) {
+			m.invoke(p, 33);
+		}
+		long e = System.currentTimeMillis();
+		System.out.println("循环10亿次反射创建对象的时间：" + (e - s));
+	}
+
+	static class Person {
+		private int age = 20;
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(Integer age) {
+			this.age = age;
+		}
+	}
+}
+```
+
+
+
+
+
+
+
+**第二： @NonNull 注解和 @Nullable 注解的使用**
+用 @Nullable 和 @NotNull 注解来显示表明可为空的参数和以及返回值。这样就够在编译的时候处
+理空值而不是在运行时抛出 NullPointerExceptions。
+
+**第三： 日志记录方面**
+Spring Framework 5.0 带来了 Commons Logging 桥接模块的封装, 它被叫做 spring-jcl 而
+不是标准的 Commons Logging。当然，无需任何额外的桥接，新版本也会对 Log4j 2.x, SLF4J, JUL
+( java.util.logging) 进行自动检测。 
+
+
+
+#### 8.7.2 
+
