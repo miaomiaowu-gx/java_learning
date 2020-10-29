@@ -267,23 +267,42 @@ public class AccountServiceImpl implements IAccountService{
 #### 8.2.4 测试
 
 ```java
+package com.itheima.test;
 
+import com.itheima.service.IAccountService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+/**
+ * 使用Junit单元测试：测试我们的配置
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:bean.xml")
+public class AccountServiceTest {
+
+    @Autowired
+    private IAccountService as;
+
+    @Test
+    public void testTransfer(){
+        as.transfer("aaa","bbb",100f);
+    }
+}
 ```
 
-
-
-
-
-
-
-
-
-
-
-
+发生 `java.lang.ArithmeticException: / by zero` 异常，付款方已付款，但收款方没有收到钱，钱消失了。
 
 
 ### 8.3 Spring 基于 XML 的声明式事务控制
+
+
+
+
+
+
 
 
 
