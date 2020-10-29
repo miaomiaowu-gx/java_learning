@@ -296,9 +296,9 @@ public class AccountServiceTest {
 发生 `java.lang.ArithmeticException: / by zero` 异常，付款方已付款，但收款方没有收到钱，钱消失了。
 
 
-### 8.3 Spring 基于 XML 的声明式事务控制在🍓
+### 8.3 Spring 基于 XML 的声明式事务控制🍓
 
-#### 8.3.1 Spring 中基于 XML 的声明式事务控制配置步骤：
+#### 8.3.1 Spring 中基于 XML 的声明式事务控制配置步骤
 1、配置事务管理器。
 
 2、配置事务的通知（tx:advice 标签）
