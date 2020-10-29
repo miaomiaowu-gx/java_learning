@@ -447,7 +447,7 @@ public class AccountServiceTest {
 #### 8.4.2 
 
 
-
+<img src="./img2/16-anno-aop-ioc-transaction.png" width=500>
 
 
 ### 8.5 Spring 基于纯注解的声明式事务控制
