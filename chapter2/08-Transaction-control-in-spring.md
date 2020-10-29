@@ -446,8 +446,58 @@ public class AccountServiceTest {
 
 #### 8.4.2 账户的业务层实现类
 
-
 <img src="./img2/16-anno-aop-ioc-transaction.png" width=500>
+
+**问题**：当业务层有多个查询操作、多个修改操作时，要为每个操作（方法）配置不同的 `@Transactional` 注解。因此，一般大工程中使用 XML 方法配置。
+
+#### 8.4.3 账户的持久层实现类
+
+```java
+package com.itheima.dao.impl;
+
+import com.itheima.dao.IAccountDao;
+import com.itheima.domain.Account;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+/**
+ * 账户的持久层实现类
+ */
+@Repository("accountDao")
+public class AccountDaoImpl implements IAccountDao {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public Account findAccountById(Integer accountId) {
+        List<Account> accounts = jdbcTemplate.query("select * from account where id = ?",new BeanPropertyRowMapper<Account>(Account.class),accountId);
+        return accounts.isEmpty()?null:accounts.get(0);
+    }
+
+    @Override
+    public Account findAccountByName(String accountName) {
+        List<Account> accounts = jdbcTemplate.query("select * from account where name = ?",new BeanPropertyRowMapper<Account>(Account.class),accountName);
+        if(accounts.isEmpty()){
+            return null;
+        }
+        if(accounts.size()>1){
+            throw new RuntimeException("结果集不唯一");
+        }
+        return accounts.get(0);
+    }
+
+    @Override
+    public void updateAccount(Account account) {
+        jdbcTemplate.update("update account set name=?,money=? where id=?",account.getName(),account.getMoney(),account.getId());
+    }
+}
+```
+
 
 
 ### 8.5 Spring 基于纯注解的声明式事务控制
