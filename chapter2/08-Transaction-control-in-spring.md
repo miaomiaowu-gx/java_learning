@@ -506,6 +506,8 @@ public class AccountDaoImpl implements IAccountDao {
 
 #### 8.5.1 删除 bean.xml 并添加配置文件
 
+在 src->main->resources 下创建 jdbcConfig.properties 文件。
+
 ```properties
 jdbc.driver=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://localhost:3306/eesy
@@ -519,7 +521,111 @@ jdbc.password=mysql
 
 在 src->main->java->com->itheima 文件夹下创建包 `config` ，在该包下创建三个类文件：`SpringConfiguration` ，`TransactionConfig` ，`JdbcConfig` 。
 
+##### 8.5.2.1 Spring 的配置类
 
+```java
+package config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+/**
+ * spring的配置类，相当于bean.xml
+ */
+@Configuration
+@ComponentScan("com.itheima")
+@Import({JdbcConfig.class,TransactionConfig.class})
+@PropertySource("jdbcConfig.properties")
+@EnableTransactionManagement
+public class SpringConfiguration {
+}
+```
+
+##### 8.5.2.2 和连接数据库相关的配置类
+
+```java
+package config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import javax.sql.DataSource;
+
+/**
+ * 和连接数据库相关的配置类
+ */
+public class JdbcConfig {
+
+    @Value("${jdbc.driver}")
+    private String driver;
+
+    @Value("${jdbc.url}")
+    private String url;
+
+    @Value("${jdbc.username}")
+    private String username;
+
+    @Value("${jdbc.password}")
+    private String password;
+
+    /**
+     * 创建JdbcTemplate
+     * @param dataSource
+     * @return
+     */
+    @Bean(name="jdbcTemplate")
+    public JdbcTemplate createJdbcTemplate(DataSource dataSource){
+        return new JdbcTemplate(dataSource);
+    }
+
+    /**
+     * 创建数据源对象
+     * @return
+     */
+    @Bean(name="dataSource")
+    public DataSource createDataSource(){
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(driver);
+        ds.setUrl(url);
+        ds.setUsername(username);
+        ds.setPassword(password);
+        return ds;
+    }
+}
+```
+
+##### 5.3.2.3 和事务相关的配置类
+
+```java
+package config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+
+import javax.sql.DataSource;
+
+/**
+ * 和事务相关的配置类
+ */
+public class TransactionConfig {
+
+    /**
+     * 用于创建事务管理器对象
+     * @param dataSource
+     * @return
+     */
+    @Bean(name="transactionManager")
+    public PlatformTransactionManager createTransactionManager(DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
+    }
+}
+```
 
 
 
