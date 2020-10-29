@@ -2,7 +2,7 @@
 
 ### 7.1 工程代码
 
-1 添加坐标
+#### 7.1.1 添加坐标
 
 ```xml
 <packaging>jar</packaging>
@@ -54,11 +54,11 @@
 </dependencies>
 ```
 
-2 其他相关代码
+#### 7.1.2 其他相关代码
 
 <img src="./img2/13-file-structure.png" width=600>
 
-【ConnectionUtils】
+##### 【ConnectionUtils】
 
 ```java
 package com.itheima.utils;
@@ -108,7 +108,7 @@ public class ConnectionUtils {
     }
 }
 ```
-【TransactionManager】
+##### 【TransactionManager】
 
 ```java
 package com.itheima.utils;
@@ -172,7 +172,7 @@ public class TransactionManager {
 }
 ```
 
-【AccountDaoImpl】
+##### 【AccountDaoImpl】
 
 ```java
 package com.itheima.dao.impl;
@@ -265,7 +265,7 @@ public class AccountDaoImpl implements IAccountDao {
 }
 ```
 
-【AccountServiceImpl】
+##### 【AccountServiceImpl】
 
 ```java
 package com.itheima.service.impl;
@@ -339,7 +339,104 @@ public class AccountServiceImpl implements IAccountService{
 
 ### 7.2 基于 XML 的 AOP 实现事务控制
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+     <!-- 配置Service -->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+        <!-- 注入dao -->
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+
+    <!--配置Dao对象-->
+    <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+        <!-- 注入QueryRunner -->
+        <property name="runner" ref="runner"></property>
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+    <!--配置QueryRunner-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--连接数据库的必备信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eesy"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="mysql"></property>
+    </bean>
+
+    <!-- 配置Connection的工具类 ConnectionUtils -->
+    <bean id="connectionUtils" class="com.itheima.utils.ConnectionUtils">
+        <!-- 注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- 配置事务管理器(即要使用的“通知”)-->
+    <bean id="txManager" class="com.itheima.utils.TransactionManager">
+        <!-- 注入ConnectionUtils -->
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+
+    <!--配置aop-->
+    <aop:config>
+        <!--配置通用切入点表达式-->
+        <aop:pointcut id="pt1" expression="execution(* com.itheima.service.impl.*.*(..))"></aop:pointcut>
+        <aop:aspect id="txAdvice" ref="txManager">
+            <!--配置前置通知：开启事务-->
+            <aop:before method="beginTransaction" pointcut-ref="pt1"></aop:before>
+            <!--配置后置通知：提交事务-->
+            <aop:after-returning method="commit" pointcut-ref="pt1"></aop:after-returning>
+            <!--配置异常通知：回滚事务-->
+            <aop:after-throwing method="rollback" pointcut-ref="pt1"></aop:after-throwing>
+            <!--配置最终通知：释放连接-->
+            <aop:after method="release" pointcut-ref="pt1"></aop:after>
+        </aop:aspect>
+    </aop:config>
+</beans>
+```
+
+主要区别：`<aop:config>` 部分代码。
+
+测试：
+
+```java
+package com.itheima.test;
+
+import com.itheima.service.IAccountService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+/**
+ * 使用Junit单元测试：测试我们的配置
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:bean.xml")
+public class AccountServiceTest {
+
+    @Autowired
+    private  IAccountService as;
+
+    @Test
+    public  void testTransfer(){
+        as.transfer("aaa","bbb",100f);
+    }
+}
+```
+
+### 7.3 基于注解的 AOP 实现事务控制
 
 
 
