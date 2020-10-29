@@ -8,7 +8,15 @@ Spring 事务控制要明确
 
 ### 8.1 Spring 中事务控制的 API 介绍
 
+#### 8.1.1 PlatformTransactionManager
 
+此接口是 Spring 的事务管理器，它里面提供了常用的操作事务的方法：
+
+*  获取事务状态信息：`TransactionStatus getTransaction(TransactionDefinition definition)` 
+* 提交事务：`void commit(TransactionStatus status)`	
+* 回滚事务：`void rollback(TransactionStatus status)`
+
+在开发中都是使用它的实现类 ：
 
 
 
