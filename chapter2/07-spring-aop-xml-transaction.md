@@ -478,9 +478,11 @@ public class AccountServiceTest {
 
 2 其他相关代码添加注解
 
-<img src="./img2/14-anno-code.png" width=500>
+<img src="./img2/14-anno-code.png" width=400>
 
 3 基于注解的 AOP 开发，需要**使用环绕通知**。因为基于注解的开发会先执行**前置通知**，然后是**最终通知**，最后是**后置与异常**通知。执行最终通知时，连接被释放，因此当执行后置通知时，原连接已经消失，会生成新的连接，不符合需求。
+
+<img src="./img2/15-four-notify.png" width=300>
 
 
 
