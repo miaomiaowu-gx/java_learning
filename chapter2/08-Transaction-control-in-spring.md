@@ -504,7 +504,20 @@ public class AccountDaoImpl implements IAccountDao {
 
 基于上述代码修改。
 
-#### 8.5.1 
+#### 8.5.1 删除 bean.xml 并添加配置文件
+
+```properties
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/eesy
+jdbc.username=root
+jdbc.password=mysql
+```
+
+类 IAccountDao、AccountDaoImpl、IAccountService、AccountServiceImpl、Account 内容不变。
+
+#### 8.5.2 添加配置类 SpringConfiguration
+
+在 src->main->java->com->itheima 文件夹下创建包 `config` ，在该包下创建三个类文件：`SpringConfiguration` ，`TransactionConfig` ，`JdbcConfig` 。
 
 
 
