@@ -821,7 +821,7 @@ public class Test {
 }
 ```
 
-
+<img src="./img2/18-jdk8-Jdk7-diff.png" width=400>
 
 
 
