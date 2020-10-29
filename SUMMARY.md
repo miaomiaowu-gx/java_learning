@@ -25,6 +25,7 @@
   * [第五节 Spring 中的 AOP](chapter2/05-spring-aop.md) 
   * [第六节 Spring 中的 JdbcTemplate](chapter2/06-spring-JdbcTemplate.md) 
   * [第七节 基于 XML/注解 的 AOP 实现事务控制](chapter2/07-spring-aop-xml-transaction.md) 
+  * [第八节 Spring 中的事务控制](chapter2/08-Transaction-control-in-spring.md)
 * [第三章 SpringMVC](chapter3.md)
 * [第四章 SpringBoot](chapter4.md)
 * [第五章 Java 基础知识点](chapter5.md)
