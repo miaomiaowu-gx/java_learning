@@ -298,7 +298,7 @@ public class AccountServiceTest {
 
 ### 8.3 Spring 基于 XML 的声明式事务控制在🍓
 
-Spring 中基于 XML 的声明式事务控制配置步骤：
+#### 8.3.1 Spring 中基于 XML 的声明式事务控制配置步骤：
 1、配置事务管理器。
 
 2、配置事务的通知（tx:advice 标签）
@@ -312,6 +312,18 @@ Spring 中基于 XML 的声明式事务控制配置步骤：
 4、建立事务通知和切入点表达式的对应关系。
 
 5、配置事务的属性：在事务的通知 tx:advice 标签的内部配置。
+
+#### 8.3.2 配置事务的属性
+
+* `isolation`：用于指定**事务的隔离级别**。默认值是 DEFAULT，表示使用数据库的默认隔离级别。
+* `propagation`：用于指定事务的传播行为。默认值是 REQUIRED，表示一定会有事务，增删改的选择。查询方法可以选择 SUPPORTS。
+* `read-only`：用于指定事务是否只读。只有查询方法才能设置为 true。默认值是 false，表示读写。
+* `timeout`：用于指定事务的超时时间，默认值是-1，表示永不超时。如果指定了数值，以秒为单位。
+* `rollback-for`：用于指定一个异常，**当产生该异常时，事务回滚**，产生其他异常时，事务**不回滚**。没有默认值。不设置表示任何异常都回滚。
+* `no-rollback-for`：用于指定一个异常，**当产生该异常时，事务不回滚**，产生其他异常时事务**回滚**。没有默认值。不设置表示任何异常都回滚。
+
+#### 8.3.3 配置
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -337,7 +349,6 @@ Spring 中基于 XML 的声明式事务控制配置步骤：
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-
     <!-- 配置数据源-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -353,14 +364,7 @@ Spring 中基于 XML 的声明式事务控制配置步骤：
 
     <!-- 配置事务的通知-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <!-- 配置事务的属性
-                isolation：用于指定事务的隔离级别。默认值是DEFAULT，表示使用数据库的默认隔离级别。
-                propagation：用于指定事务的传播行为。默认值是REQUIRED，表示一定会有事务，增删改的选择。查询方法可以选择SUPPORTS。
-                read-only：用于指定事务是否只读。只有查询方法才能设置为true。默认值是false，表示读写。
-                timeout：用于指定事务的超时时间，默认值是-1，表示永不超时。如果指定了数值，以秒为单位。
-                rollback-for：用于指定一个异常，当产生该异常时，事务回滚，产生其他异常时，事务不回滚。没有默认值。表示任何异常都回滚。
-                no-rollback-for：用于指定一个异常，当产生该异常时，事务不回滚，产生其他异常时事务回滚。没有默认值。表示任何异常都回滚。
-        -->
+        <!-- 配置事务的属性 -->
         <tx:attributes>
             <tx:method name="*" propagation="REQUIRED" read-only="false"/>
             <tx:method name="find*" propagation="SUPPORTS" read-only="true"></tx:method>
@@ -377,15 +381,17 @@ Spring 中基于 XML 的声明式事务控制配置步骤：
 </beans>
 ```
 
-
-
-
-
-
-
-
-
 ### 8.4 Spring 基于注解的声明式事务控制 
+
+基于上述代码修改
+
+
+
+
+
+
+
+
 
 
 
