@@ -16,11 +16,15 @@ Spring 事务控制要明确
 * 提交事务：`void commit(TransactionStatus status)`	
 * 回滚事务：`void rollback(TransactionStatus status)`
 
-在开发中都是使用它的实现类 ：
+在开发中都是使用它的实现类 ，**真正管理事务的对象**：
+
+* `org.springframework.jdbc.datasource.DataSourceTransactionManager` 使用 Spring JDBC 或 iBatis 进行持久化数据时使用。
+* `org.springframework.orm.hibernate5.HibernateTransactionManager` 使用 Hibernate 版本进行持久化数据使用。
+
+#### 8.1.2 TransactionDefinition
 
 
-
-
+#### 8.1.3 
 
 ### 8.2 Spring 事务控制的代码准备
 
