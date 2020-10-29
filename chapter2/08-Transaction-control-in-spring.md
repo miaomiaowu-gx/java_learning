@@ -23,6 +23,29 @@ Spring 事务控制要明确
 
 #### 8.1.2 TransactionDefinition
 
+是事务的定义信息对象：
+
+* 获取事务对象名称：`String getName()`
+* 获取事务隔离级：`int getIsolationLevel()`
+* 获取事务传播行为：`int getPropagationBehavior()`
+*  获取事务超时时间：`int getTimeout()`
+* 获取事务是否只读：`boolean isReadOnly()`
+
+读写型事务：增加、删除、修改开启事务。
+
+只读型事务：执行查询时，也会开启事务。
+
+##### 8.1.2.1 事务的隔离级别
+
+事务的隔离级别反映事务提交并发访问时的处理态度：
+
+* `ISOLATION_DEFAULT` 默认级别，归属下列某一种。
+* `ISOLATION_READ_UNCOMMITTED` 可以读取未提交数据。
+* `ISOLATION_READ_COMMITTED` 只能读取已经提交的数据，解决脏读问题（Oracle默认级别）
+* 
+
+
+
 
 #### 8.1.3 
 
