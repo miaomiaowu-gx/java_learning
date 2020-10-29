@@ -298,7 +298,7 @@ public class AccountServiceTest {
 
 ### 8.3 Spring 基于 XML 的声明式事务控制🍓
 
-#### 8.3.1 Spring 中基于 XML 的声明式事务控制配置步骤
+#### 8.3.1 Spring 中基于 XML 的[声明式]事务控制配置步骤
 1、配置事务管理器。
 
 2、配置事务的通知（tx:advice 标签）
@@ -381,7 +381,7 @@ public class AccountServiceTest {
 </beans>
 ```
 
-### 8.4 Spring 基于注解的声明式事务控制 
+### 8.4 Spring 基于注解的[声明式]事务控制 
 
 基于上述代码修改
 
@@ -500,7 +500,7 @@ public class AccountDaoImpl implements IAccountDao {
 
 <img src="./img2/17-account-dao.png" width=500>
 
-### 8.5 Spring 基于纯注解的声明式事务控制
+### 8.5 Spring 基于纯注解的[声明式]事务控制
 
 基于上述代码修改。
 
@@ -627,9 +627,9 @@ public class TransactionConfig {
 }
 ```
 
-### 8.6 Spring 编程式事务控制
+### 8.6 Spring [编程式]事务控制
 
-
+很少用到，了解即可，本节代码在 8.2 小节的代码进行配置。
 
 
 
