@@ -498,7 +498,7 @@ public class AccountDaoImpl implements IAccountDao {
 }
 ```
 
-
+<img src="./img2/17-account-dao.png" width=500>
 
 ### 8.5 Spring 基于纯注解的声明式事务控制
 
