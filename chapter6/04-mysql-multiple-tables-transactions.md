@@ -103,17 +103,14 @@ CREATE TABLE tab_favorite (
 
 <img src="./img6/10-1nf-1.png" width=350>
 
-      不符合第一范式，将列“系”拆分。
+   不符合第一范式，将列“系”拆分。
 
 <img src="./img6/11-1nf-2.png" width=350>
 
-      上表存在问题：
-
-            存在非常多的数据冗余（重复）：姓名、系、系主任。  
-          
-            数据添加存在问题：如添加不合法的系、系主任并不会报错。
-            
-            删除数据时存在问题：如张无忌同学毕业了，删除数据时，会将系的数据一起删掉。该系只有一个同学时，表中再无此系数据。
+   上表存在问题：
+   * 存在非常多的数据冗余（重复）：姓名、系、系主任。  
+   * 数据添加存在问题：如添加不合法的系、系主任并不会报错。
+   * 删除数据时存在问题：如张无忌同学毕业了，删除数据时，会将系的数据一起删掉。该系只有一个同学时，表中再无此系数据。
 
 2. 第二范式（2NF）：在1NF的基础上，非码属性必须完全依赖于码（在1NF基础上消除非主属性对主码的<font color=#ff8918>**部分**</font>函数依赖）。简而言之，消除部分依赖。
 
@@ -255,45 +252,50 @@ SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
 
 * 概念：查询中嵌套查询，称嵌套查询为子查询。
 
-      -- 查询工资最高的员工信息
-        
-      -- 1 查询最高的工资是多少 9000
-      SELECT MAX(salary) FROM emp;
-        
-      -- 2 查询员工信息，并且工资等于9000的
-      SELECT * FROM emp WHERE emp.`salary` = 9000;
-        
-      -- 一条sql就完成这个操作。子查询
-      SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(salary) FROM emp);
+  ```sql
+  -- 查询工资最高的员工信息
+    
+  -- 1 查询最高的工资是多少 9000
+  SELECT MAX(salary) FROM emp;
+    
+  -- 2 查询员工信息，并且工资等于9000的
+  SELECT * FROM emp WHERE emp.`salary` = 9000;
+    
+  -- 一条sql就完成这个操作。子查询
+  SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(salary) FROM emp);
+  ```
 
 
 * 子查询不同情况
 
-      1. 子查询的结果是单行单列的：子查询可以作为条件，使用运算符去判断。 【运算符： > >= < <= =】
-        
-      -- 查询员工工资小于平均工资的人
-      SELECT * FROM emp WHERE emp.salary < (SELECT AVG(salary) FROM emp);
+  1. 子查询的结果是单行单列的：子查询可以作为条件，使用运算符去判断。 【运算符： > >= < <= =】
+  ```sql
+  -- 查询员工工资小于平均工资的人
+  SELECT * FROM emp WHERE emp.salary < (SELECT AVG(salary) FROM emp);
+  ```
   
+  2. 子查询的结果是多行单列的：子查询可以作为条件，使用【运算符in】来判断
 
-      2. 子查询的结果是多行单列的：子查询可以作为条件，使用【运算符in】来判断
-      
-      -- 查询'财务部'和'市场部'所有的员工信息
-      SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部'; -- id 返回 2 与 3
-      SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;
-      -- 子查询
-      SELECT * FROM emp WHERE dept_id IN (SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部');
-  
+  ```sql
+  -- 查询'财务部'和'市场部'所有的员工信息
+  SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部'; -- id 返回 2 与 3
+  SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;
+-- 子查询
+  SELECT * FROM emp WHERE dept_id IN (SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部');
+  ```
 
-      3. 子查询的结果是多行多列的：子查询可以作为一张虚拟表参与查询
-      
-      -- 查询员工入职日期是2011-11-11日之后的员工信息和部门信息
-      -- 子查询
-      SELECT * FROM dept t1 ,(SELECT * FROM emp WHERE emp.`join_date` > '2011-11-11') t2
-      WHERE t1.id = t2.dept_id;
-      
-      -- 普通内连接也可以实现
-      SELECT * FROM emp t1,dept t2 WHERE t1.`dept_id` = t2.`id` AND t1.`join_date` >  '2011-11-11';
+  3. 子查询的结果是多行多列的：子查询可以作为一张虚拟表参与查询
+
+  ```sql
+  -- 查询员工入职日期是2011-11-11日之后的员工信息和部门信息
+  -- 子查询
+  SELECT * FROM dept t1 ,(SELECT * FROM emp WHERE emp.`join_date` > '2011-11-11') t2
+  WHERE t1.id = t2.dept_id;
   
+  -- 普通内连接也可以实现
+  SELECT * FROM emp t1,dept t2 WHERE t1.`dept_id` = t2.`id` AND t1.`join_date` >  '2011-11-11';
+  ```
+
 
 #### 4.4.4 多表查询练习
 
