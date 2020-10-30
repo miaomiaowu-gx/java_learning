@@ -1,6 +1,6 @@
 ## 第五节 JDBC-Java 语言操作数据库
 
-## 一、介绍
+### 5.1 介绍
 
 **概念**：Java DataBase Connectivity (JDBC，Java数据库连接，即使用Java语言操作数据库)
 
@@ -39,9 +39,9 @@ public class JdbcQuickStart {
 }
 ~~~
 
-## 二、JDBC各个类详解
+### 5.2 JDBC各个类详解
 
-### 2.1 DriverManager 驱动管理对象
+#### 5.2.1 DriverManager 驱动管理对象
 
 1）**注册驱动**：告诉程序该使用哪一个数据库驱动 jar 包
 
@@ -80,7 +80,7 @@ public class Driver implements java.sql.Driver {
 * String password：密码
 
 
-### 2.2 Connection 数据库连接对象
+#### 5.2.2 Connection 数据库连接对象
 
 1）获取执行 sql 的对象
 
@@ -102,7 +102,7 @@ public class Driver implements java.sql.Driver {
 
 `void rollback()` 取消在当前事务中进行的所有更改，并释放此 Connection 对象当前持有的所有数据库锁。
 
-### 2.3 Statement 执行静态 SQL 语句
+#### 5.2.3 Statement 执行静态 SQL 语句
 
 **用于执行【静态 SQL 语句】并返回它所生成结果的对象。**
 
@@ -367,7 +367,7 @@ public class JDBCDemo5 {
 
 
 
-### 2.4 ResultSet 结果集对象，封装查询的结果
+#### 5.2.4 ResultSet 结果集对象，封装查询的结果
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720153858881-472372691.png" width=300>
 
@@ -706,7 +706,7 @@ public class JDBCDemo8 {
 </pre>
 </details>
 
-### 2.5 抽取 JDBC 工具类：JDBCUtils
+#### 5.2.5 抽取 JDBC 工具类：JDBCUtils
 
 **目的**：代码重复度太高（注册驱动、释放资源等），通过抽取工作类简化书写。
 
@@ -1006,7 +1006,7 @@ public class JDBCDemo9 {
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720214333807-1677627910.png" width=550>
 
 
-### 2.6 PreparedStatement 执行 sql 的对象（功能更强大）
+#### 5.2.6 PreparedStatement 执行 sql 的对象（功能更强大）
 
 **SQL注入问题**：在拼接 sql 时，有一些 sql 的特殊关键字参与字符串的拼接，会造成安全性问题。
 
@@ -1107,7 +1107,7 @@ public class JDBCDemo9 {
 * 可以放置 SQL 注入
 * 效率更高
 
-## 三、JDBC 管理事务
+### 5.3 JDBC 管理事务
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200721205134525-979800277.png" width=700>
 
@@ -1179,9 +1179,9 @@ public class JDBCDemo10 {
 </pre>
 </details>
 
-## 四、数据库连接池
+### 5.4 数据库连接池
 
-### 4.1 基本介绍
+#### 5.4.1 基本介绍
 
 **概念**：其实就是一个容器(集合)，存放数据库连接的容器。当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。
 	
@@ -1207,7 +1207,7 @@ public class JDBCDemo10 {
 * **Druid**：数据库连接池实现技术，由阿里巴巴提供的
 
 
-### 4.2 C3P0：数据库连接池技术
+#### 5.4.2 C3P0：数据库连接池技术
 
 **步骤**：
 
@@ -1267,7 +1267,7 @@ DataSource ds  = new ComboPooledDataSource("otherc3p0");
 
 
 
-### 4.3 Druid：数据库连接池实现技术，由阿里巴巴提供的
+#### 5.4.3 Druid：数据库连接池实现技术，由阿里巴巴提供的
 
 **步骤**：
 
@@ -1358,15 +1358,15 @@ public class JDBCUtils {
 
 
 ​    
-    // 获取连接
-    public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
-    }
-    
-    // 释放资源
-    public static void close(Statement stmt,Connection conn){
-       close(null,stmt,conn);
-    }
+​    // 获取连接
+​    public static Connection getConnection() throws SQLException {
+​        return ds.getConnection();
+​    }
+​    
+​    // 释放资源
+​    public static void close(Statement stmt,Connection conn){
+​       close(null,stmt,conn);
+​    }
 
 
     public static void close(ResultSet rs , Statement stmt, Connection conn){
@@ -1453,7 +1453,7 @@ public class DruidDemo2 {
 
 
 
-## 五、Spring JDBC: JDBC Template
+### 5.5 Spring JDBC: JDBC Template
 
 Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发。
 
