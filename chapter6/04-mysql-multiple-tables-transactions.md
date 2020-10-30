@@ -369,7 +369,7 @@ INSERT INTO salarygrade(grade,losalary,hisalary) VALUES
 (5,30010,99990);
 ```
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200719151127575-1523188577.png" width=300>
+<img src="./img6/14-multi-table-query.png" width=300>
 
 
 几个需求
