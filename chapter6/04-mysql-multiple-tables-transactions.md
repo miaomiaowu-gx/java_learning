@@ -1,9 +1,6 @@
 ## 第四节 MySQL 多表 & 事务
 
-
-# 数据库的设计
-
-## 一、多表之间的关系
+###  4.1 多表之间的关系
 
 1. 一对一(了解)：
       * 如：人和身份证，一个人只有一个身份证，一个身份证只能对应一个人。
@@ -18,18 +15,13 @@
       * 如：学生和课程，一个学生可以选择很多门课程，一个课程也可以被很多学生选择。
       * 实现方式：多对多关系实现需要借助第三张中间表。中间表至少包含两个字段，这两个字段作为第三张表的外键，分别指向两张表的主键。
 
-
 4. 多对多关系案例
 
-需求：旅游网，一个用户收藏多个线路，一个线路被多个用户收藏。
+需求：旅游网，一个用户收藏多个线路，一个线路被多个用户收藏。案例代码如下：
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718145216231-2082175820.png" width=600>
 
- <details>
-<summary>案例代码</summary>
-<pre>
-<code>
-
+```sql
 -- 创建旅游线路分类表 tab_category
 -- cid 旅游线路分类主键，自动增长
 -- cname 旅游线路分类名称非空，唯一，字符串 100
@@ -37,7 +29,6 @@ CREATE TABLE tab_category (
       cid INT PRIMARY KEY AUTO_INCREMENT,
       cname VARCHAR(100) NOT NULL UNIQUE
 );
-
 
 -- 创建旅游线路表 tab_route
     /*
@@ -55,7 +46,6 @@ CREATE TABLE tab_route(
       cid INT,
       FOREIGN KEY (cid) REFERENCES tab_category(cid)
 );
-
 
 -- 创建用户表 tab_user
     /*
@@ -79,7 +69,6 @@ CREATE TABLE tab_user (
       email VARCHAR(100)
 );
 
-
 -- 创建收藏表 tab_favorite
     /*
           rid 旅游线路 id，外键
@@ -96,21 +85,16 @@ CREATE TABLE tab_favorite (
       FOREIGN KEY (rid) REFERENCES tab_route(rid),
       FOREIGN KEY(uid) REFERENCES tab_user(uid)
 );
+```
 
-</code>
-</pre>
-</details>
-
-
-​
-## 二、数据库设计的范式
+### 4.2 数据库设计的范式
 
 * **概念**：设计数据库时，需要遵循的一些规范。**要遵循后边的范式要求，必须先遵循前边的所有范式要求**。
 
       设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，**各种范式呈递次规范**，越高的范式数据库冗余越小。
-
+        
       目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。
-
+        
       一般遵守前三种范式，数据库的设计就没有什么问题了。
 
 * **分类**
@@ -126,9 +110,9 @@ CREATE TABLE tab_favorite (
       上表存在问题：
 
             存在非常多的数据冗余（重复）：姓名、系、系主任。  
- 
+          
             数据添加存在问题：如添加不合法的系、系主任并不会报错。
-
+            
             删除数据时存在问题：如张无忌同学毕业了，删除数据时，会将系的数据一起删掉。该系只有一个同学时，表中再无此系数据。
 
 2. 第二范式（2NF）：在1NF的基础上，非码属性必须完全依赖于码（在1NF基础上消除非主属性对主码的<font color=#ff8918>**部分**</font>函数依赖）。简而言之，消除部分依赖。
@@ -164,27 +148,25 @@ CREATE TABLE tab_favorite (
 7. 非主属性：除 码属性组的属性
 
 
-## 三、数据库的备份和还原
+### 4.3 数据库的备份和还原
 
 * 备份： `mysqldump -u用户名 -p密码 数据库名称 > 保存的路径`
 
 * 还原：
 
       1. 登录数据库 `mysql -uroot -p密码`
-
+        
       2. 创建数据库 `create database db1;`
-
+        
       3. 使用数据库 `use db1;`
-
+        
       4. 执行文件。`source 文件路径` 如`source d://a.sql`
 
-## 四、多表查询
+### 4.4 多表查询
 
+【创建表】
 
- <details>
-<summary>创建表</summary>
-<pre>
-<code>
+```sql
 -- 创建部门表
 CREATE TABLE dept(
       id INT PRIMARY KEY AUTO_INCREMENT,
@@ -206,9 +188,7 @@ INSERT INTO emp(NAME,gender,salary,join_date,dept_id) VALUES('猪八戒','男',3
 INSERT INTO emp(NAME,gender,salary,join_date,dept_id) VALUES('唐僧','男',9000,'2008-08-08',2);
 INSERT INTO emp(NAME,gender,salary,join_date,dept_id) VALUES('白骨精','女',5000,'2015-10-07',3);
 INSERT INTO emp(NAME,gender,salary,join_date,dept_id) VALUES('蜘蛛精','女',4500,'2011-03-14',1);
-</code>
-</pre>
-</details>
+```
 
 
 **笛卡尔积**：有两个集合A、B，取这两个集合的所有组成情况。
@@ -216,11 +196,11 @@ INSERT INTO emp(NAME,gender,salary,join_date,dept_id) VALUES('蜘蛛精','女',4
 * 如上述两个例子中，`select * from dept, emp;` 会返回 3*5=15 种情况，很多是错误的组合。<font color=#ff8918>**要完成多表查询，需要消除无用的数据。**</font>
 
 
-### 4.1 内连接查询
+#### 4.4.1 内连接查询
 
-**隐式内连接**：使用where条件消除无用数据
+**隐式内连接**：使用 where 条件消除无用数据
 
-~~~
+~~~sql
 -- 查询所有员工信息和对应的部门信息
 SELECT * FROM emp,dept WHERE emp.`dept_id` = dept.`id`;
 
@@ -239,7 +219,7 @@ WHERE
       t1.`dept_id` = t2.`id`;
 ~~~
 
-​
+
 **显式内连接**：`select 字段列表 from 表名1 [inner] join 表名2 on 条件`
 
 ~~~
@@ -251,13 +231,13 @@ SELECT * FROM emp JOIN dept ON emp.`dept_id` = dept.`id`;
 
 > 内连接查询考虑：从哪些表中查询数据、条件是什么、查询哪些字段。
 
-### 4.2 外链接查询
+#### 4.4.2 外链接查询
 
 **左外连接**：查询的是左表**所有数据**以及其**交集**部分。
 
 `select 字段列表 from 表1 left [outer] join 表2 on 条件；`
 
-~~~
+~~~sql
 -- 查询所有员工信息，如果员工有部门，则查询部门名称，没有部门，则不显示部门名称
 SELECT 	t1.*,t2.`name` FROM emp t1 LEFT JOIN dept t2 ON t1.`dept_id` = t2.`id`;
 ~~~
@@ -266,23 +246,23 @@ SELECT 	t1.*,t2.`name` FROM emp t1 LEFT JOIN dept t2 ON t1.`dept_id` = t2.`id`;
 
 `select 字段列表 from 表1 right [outer] join 表2 on 条件；`
 
-~~~
+~~~sql
 SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
 ~~~
 
 
-### 4.3 子查询
+#### 4.4.3 子查询
 
 * 概念：查询中嵌套查询，称嵌套查询为子查询。
 
       -- 查询工资最高的员工信息
-
+        
       -- 1 查询最高的工资是多少 9000
       SELECT MAX(salary) FROM emp;
-
+        
       -- 2 查询员工信息，并且工资等于9000的
       SELECT * FROM emp WHERE emp.`salary` = 9000;
-
+        
       -- 一条sql就完成这个操作。子查询
       SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(salary) FROM emp);
 
@@ -290,10 +270,10 @@ SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
 * 子查询不同情况
 
       1. 子查询的结果是单行单列的：子查询可以作为条件，使用运算符去判断。 【运算符： > >= < <= =】
-    
+        
       -- 查询员工工资小于平均工资的人
       SELECT * FROM emp WHERE emp.salary < (SELECT AVG(salary) FROM emp);
-     
+  
 
       2. 子查询的结果是多行单列的：子查询可以作为条件，使用【运算符in】来判断
       
@@ -302,7 +282,7 @@ SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
       SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;
       -- 子查询
       SELECT * FROM emp WHERE dept_id IN (SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部');
-      
+  
 
       3. 子查询的结果是多行多列的：子查询可以作为一张虚拟表参与查询
       
@@ -313,14 +293,13 @@ SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
       
       -- 普通内连接也可以实现
       SELECT * FROM emp t1,dept t2 WHERE t1.`dept_id` = t2.`id` AND t1.`join_date` >  '2011-11-11';
-      
+  
 
-### 4.4 多表查询练习
+#### 4.4.4 多表查询练习
 
- <details>
-<summary>展示代码</summary>
-<pre>
-<code>
+【展示代码】
+
+```sql
 -- 部门表
 CREATE TABLE dept (
       id INT PRIMARY KEY PRIMARY KEY, -- 部门id
@@ -390,9 +369,7 @@ INSERT INTO salarygrade(grade,losalary,hisalary) VALUES
 (3,14010,20000),
 (4,20010,30000),
 (5,30010,99990);
-</code>
-</pre>
-</details>
+```
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200719151127575-1523188577.png" width=300>
 
@@ -401,13 +378,12 @@ INSERT INTO salarygrade(grade,losalary,hisalary) VALUES
 
 1. 查询所有员工信息。查询员工编号，员工姓名，工资，职务名称，职务描述
 
-~~~
+~~~sql
 /*
   分析：
       1）员工编号，员工姓名，工资，需要查询emp表  职务名称，职务描述 需要查询job表
       2）查询条件 emp.job_id = job.id
 */
-
 SELECT
       t1.`id`, -- 员工编号
       t1.`ename`, -- 员工姓名
@@ -420,16 +396,14 @@ WHERE
       t1.`job_id` = t2.`id`;
 ~~~
 
-​
 2. 查询员工编号，员工姓名，工资，职务名称，职务描述，部门名称，部门位置
 
-~~~
+~~~sql
 /*
   分析：
       1. 员工编号，员工姓名，工资 emp  职务名称，职务描述 job  部门名称，部门位置 dept
       2. 条件： emp.job_id = job.id and emp.dept_id = dept.id
 */
-
 SELECT
       t1.`id`, -- 员工编号
       t1.`ename`, -- 员工姓名
@@ -446,7 +420,7 @@ WHERE
 
 3. 查询员工姓名，工资，工资等级
 
-~~~
+~~~sql
 /*
   分析：
       1.员工姓名，工资 emp  工资等级 salarygrade
@@ -464,10 +438,10 @@ WHERE
       t1.`salary` BETWEEN t2.`losalary` AND t2.`hisalary`;
 ~~~
 
-​
+
 4. 查询员工姓名，工资，职务名称，职务描述，部门名称，部门位置，工资等级
 
-~~~
+~~~sql
 /*
   分析：
       1. 员工姓名，工资 emp ， 职务名称，职务描述 job 部门名称，部门位置，dept  工资等级 salarygrade
@@ -492,11 +466,11 @@ AND
       t1.`salary` BETWEEN t4.`losalary` AND t4.`hisalary`;
 ~~~
 
-​
-​
+
+
 5. 查询出部门编号、部门名称、部门位置、部门人数🍓
 
-~~~
+~~~sql
 /*
   分析：
       1.部门编号、部门名称、部门位置 dept 表。 部门人数 emp表
@@ -517,10 +491,10 @@ WHERE
       t1.`id` = t2.dept_id;
 ~~~
 
-​
+
 6. 查询所有员工的姓名及其直接上级的姓名，没有领导的员工也需要查询
 
-~~~
+~~~sql
 /*
   分析：
       1.姓名 emp，直接上级的姓名 emp
@@ -555,9 +529,9 @@ ON
       t1.`mgr` = t2.`id`;
 ~~~
 
-## 五、事务
+### 4.5 事务
 
-### 5.1 基本介绍
+#### 4.5.1 基本介绍
 
 1. 概念：如果一个包含<font color=#ff8918>**多个步骤**</font>的业务操作，**被事务管理**，那么<font color=#ff8918>**这些操作要么同时成功，要么同时失败。**</font>
 
@@ -572,7 +546,7 @@ ON
 
 3. 例子：
 
-~~~
+~~~sql
 CREATE TABLE account (
       id INT PRIMARY KEY AUTO_INCREMENT,
       NAME VARCHAR(10),
@@ -621,14 +595,14 @@ ROLLBACK;
       - 修改事务的默认提交方式：`set @@autocommit = 0;`
 
 
-### 5.2 事务的四大特征（常见面试题）
+#### 4.5.2 事务的四大特征（常见面试题）
 
 1. 原子性：是不可分割的最小操作单位，要么同时成功，要么同时失败。
 2. 持久性：当事务提交或回滚后，数据库会持久化的保存数据。
 3. 隔离性：多个事务之间，相互独立。
 4. 一致性：事务操作前后，数据总量不变。如转账问题，无论怎么转账，最终的钱的总额是一样的。
 
-### 5.3 事务的隔离级别（了解）
+#### 4.5.3 事务的隔离级别（了解）
 
 **概念**：多个事务之间隔离的，相互独立的。但是如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别就可以解决这些问题。
 
@@ -661,7 +635,7 @@ ROLLBACK;
 数据库设置隔离级别：`set global transaction isolation level  级别字符串;`
 
 演示：
-~~~
+~~~sql
 set global transaction isolation level read uncommitted;
 start transaction;
 -- 转账操作
@@ -670,7 +644,7 @@ update account set balance = balance + 500 where id = 2;
 ~~~
 
 
-## 六、DCL
+### 4.6 DCL
 
 **6.1 SQL分类**
 1. DDL：操作数据库和表
@@ -681,13 +655,13 @@ update account set balance = balance + 500 where id = 2;
 6.2 **DBA**：数据库管理员
 
 6.3 **DCL**：管理用户，授权
- 
+
 1. 添加用户：`CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';`
 
 2. 删除用户：`DROP USER '用户名'@'主机名';`
 
 3. 修改用户密码
-~~~
+~~~sql
 -- 使用 PASSWORD 函数对密码进行加密
 -- 方法一
 UPDATE USER SET PASSWORD = PASSWORD('新密码') WHERE USER = '用户名';
@@ -710,7 +684,7 @@ mysql中忘记了root用户的密码？
 ~~~
 
 4. 查询用户
-~~~
+~~~sql
 -- 1. 切换到 mysql 数据库(MySQL自带默认表)
 USE myql;
 -- 2. 查询 user 表
@@ -720,7 +694,7 @@ SELECT * FROM USER;
 * 查询结果 Host 中的通配符 % 表示可以在任意主机使用用户登录数据库。
 
 5. 权限管理
-~~~
+~~~sql
 -- 1. 查询权限
 SHOW GRANTS FOR '用户名'@'主机名';
 SHOW GRANTS FOR 'lisi'@'%';
@@ -729,20 +703,18 @@ SHOW GRANTS FOR 'lisi'@'%';
 > USAGE 具有登录权限
 > SELECT UPDATE INSERT DELETE CREATE DROP RELOAD SHUTDOWN FILE... ...
 
-~~~
+~~~sql
 -- 2. 授予权限
 grant 权限列表 on 数据库名.表名 to '用户名'@'主机名';
 -- 给张三用户授予所有权限，在任意数据库任意表上
 GRANT ALL ON *.* TO 'zhangsan'@'localhost';
 ~~~
 
-
-
-~~~
+~~~sql
 -- 3. 撤销权限：
 revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名';
 REVOKE UPDATE ON db3.`account` FROM 'lisi'@'%';
 ~~~
-   ​
+
 
 
