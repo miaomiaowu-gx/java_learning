@@ -37,13 +37,39 @@ MVC 中每个部分各司其职：
 &emsp;&emsp;SpringMVC 是一种基于 Java 的实现 MVC 设计模型的请求驱动类型的轻量级 Web 框架，属于 Spring FrameWork 的后续产品，已经融合在 Spring Web Flow 里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用 Spring 进行 WEB 开发时，可以选择使用 Spring 的 Spring MVC 框架或集成其他 MVC 开发框架，如 Struts1(现在一般不用)， Struts2 等。
 &emsp;&emsp;SpringMVC 已经成为目前最主流的 MVC 框架之一， 并且随着 Spring3.0 的发布，全面超越 Struts2，成为最优秀的 MVC 框架。它通过一套注解，让一个简单的 Java 类成为处理请求的控制器，而无须实现任何接口。同时它还支持 RESTful 编程风格的请求。
 
+#### 3.2 SpringMVC 的优势 
 
+1、清晰的角色划分：
+* 前端控制器（DispatcherServlet）
+* 请求到处理器映射（HandlerMapping）
+* 处理器适配器（HandlerAdapter）
+* 视图解析器（ViewResolver）
+* 处理器或页面控制器（Controller）
+* 验证器（ Validator）
+* 命令对象（Command 请求参数绑定到的对象就叫命令对象）
+* 表单对象（Form Object 提供给表单展示和提交到的对象就叫表单对象）。
 
+2、分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要。
 
+3、由于命令对象就是一个 POJO，无需继承框架特定 API，可以使用命令对象直接作为业务对象。
 
+4、和 Spring 其他框架无缝集成，是其它 Web 框架所不具备的。
 
+5、可适配，通过 HandlerAdapter 可以支持任意的类作为处理器。
 
+6、可定制性， HandlerMapping、 ViewResolver 等能够非常简单的定制。
 
+7、功能强大的数据验证、格式化、绑定机制。
+
+8、利用 Spring 提供的 Mock 对象能够非常简单的进行 Web 层单元测试。
+
+9、本地化、主题的解析的支持，使我们更容易进行国际化和主题的切换。
+
+10、强大的 JSP 标签库，使 JSP 编写更容易。
+
+11、还有比如 RESTful 风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等。
+
+#### 3.3 
 
 
 
