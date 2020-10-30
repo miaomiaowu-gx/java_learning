@@ -1,6 +1,6 @@
 ## SpringMVC 框架
 
-【插入图片】
+<img src="./chapter3/img3/01-three-tier-architecture.png" width=500>
 
 ### 三层架构介绍
 
