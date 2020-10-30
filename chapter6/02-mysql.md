@@ -83,11 +83,11 @@ Structured Query Language：结构化查询语言
     用来定义数据库的访问权限和安全级别，及创建用户。关键字：GRANT， REVOKE 等
 
 
-### 3.1 DDL：操作数据库、表
+### 2.3 DDL：操作数据库、表
 
-#### 3.1.1 操作数据库：CRUD
+#### 2.3.1 操作数据库：CRUD
 
-##### 3.1.1.1 C(Create)：创建
+##### 2.3.1.1 C(Create)：创建
 
 * 创建数据库：`create database 数据库名称;`
 
@@ -97,7 +97,7 @@ Structured Query Language：结构化查询语言
 	
 * 练习： 创建 db4 数据库，判断是否存在，并制定字符集为 gbk `create database if not exists db4 character set gbk;`
 
-##### 3.1.1.2 R(Retrieve)：查询
+##### 2.3.1.2 R(Retrieve)：查询
 
 * 查询**所有**数据库的名称：`show databases;`
 
@@ -114,26 +114,26 @@ mysql> show create database mysql;
 ~~~
 
 
-##### 3.1.1.3 U(Update)：修改
+##### 2.3.1.3 U(Update)：修改
 
 * 修改数据库的字符集 `alter database 数据库名称 character set 字符集名称;`
 
-##### 3.1.1.4 D(Delete)：删除
+##### 2.3.1.4 D(Delete)：删除
 
 * 删除数据库 `drop database 数据库名称;`
 
 * 判断数据库存在，存在再删除 `drop database if exists 数据库名称;`
 
-##### 3.1.1.5 使用数据库
+##### 2.3.1.5 使用数据库
 
 * 查询当前**正在使用**的数据库名称 `select database();`
 
 * 使用数据库 `use 数据库名称;`
 
 
-#### 3.2 操作表
+#### 2.3.2 操作表
 
-##### 3.2.1 C(Create)：创建
+##### 2.3.2.1 C(Create)：创建
 
 * 语法
 ~~~sql
@@ -174,13 +174,13 @@ create table student(
 * **复制表**：`create table 表名 like 被复制的表名;` 	
 
 
-##### 3.2.2 R(Retrieve)：查询
+##### 2.3.2.2 R(Retrieve)：查询
 
 * 查询某个数据库中**所有**的表名称 `show tables;`
 
 * 查询**表结构** `desc 表名;`
 
-##### 3.2.3 U(Update)：修改
+##### 2.3.2.3 U(Update)：修改
 
 * 修改表名 `alter table 表名 rename to 新的表名;`
 
@@ -194,7 +194,7 @@ create table student(
 
 * 删除列 `alter table 表名 drop 列名;`
 
-##### 3.2.3 D(Delete)：删除
+##### 2.3.2.4 D(Delete)：删除
 
 * `drop table 表名;`
 
@@ -203,9 +203,9 @@ create table student(
 客户端图形化工具：SQLYog
 
 
-### 四、DML：增删改表中数据
+### 2.4 DML：增删改表中数据
 
-#### 4.1 添加数据
+#### 2.4.1 添加数据
 
 * 语法：`insert into 表名(列名1,列名2,...列名n) values(值1,值2,...值n);`
 
@@ -217,7 +217,7 @@ create table student(
 
    3. <font color=#ff8918>**除了数字类型，其他类型需要使用引号(单双都可以)引起来**</font>。
 
-#### 4.2 删除数据
+#### 2.4.2 删除数据
 
 * 语法：`delete from 表名 [where 条件]`
 
@@ -229,14 +229,14 @@ create table student(
       * `delete from 表名; -- **不推荐**使用。` <font color=#ff8918>**有多少条记录就会执行多少次删除操作。**</font>
       * `TRUNCATE TABLE 表名; -- **推荐**使用。` 效率更高<font color=#ff8918>**先删除表，然后再创建一张一样的表。**</font>
 
-#### 4.3 修改数据
+#### 2.4.3 修改数据
 
 * 语法：`update 表名 set 列名1 = 值1, 列名2 = 值2,... [where 条件];`
 	
 * 注意：如果不加任何条件，则会将表中所有记录全部修改。
 
 
-### 五、DQL：查询表中的记录
+### 2.5 DQL：查询表中的记录
 
 * `select * from 表名;`
 	
@@ -259,7 +259,7 @@ create table student(
   ​          分页限定
 ~~~
 
-#### 5.1 基础查询
+#### 2.5.1 基础查询
 
 1. 多个字段的查询 `select 字段名1，字段名2... from 表名；`  （此处字段指列名）
 
@@ -282,7 +282,7 @@ create table student(
       * as：as 也可以省略。如 `select name, math, english, math+ifnull(english,0) as 总分 from stu;`
 
 
-#### 5.2 条件查询
+#### 2.5.2 条件查询
 
 1. where 子句后跟条件
 
@@ -355,7 +355,7 @@ SELECT * FROM student WHERE NAME LIKE '___';
 SELECT * FROM student WHERE NAME LIKE '%德%';
 ```
 
-#### 5.3 排序查询
+#### 2.5.3 排序查询
 
 * 语法：order by 子句
 `order by 排序字段 1 排序方式 1 ，  排序字段 2 排序方式 2...`
@@ -367,13 +367,14 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 * 注意：<font color=#ff8918>**如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件。**</font>
 
 
-#### 5.4 聚合函数
+#### 2.5.4 聚合函数
 
 将<font color=#ff8918>**一列数据**</font>作为一个整体，进行<font color=#ff8918>**纵向**</font>的计算。计算结果是单行单列的值。
 1 count：计算个数
    * 一般选择非空的列：主键。
    * `count(*)` 其中 `*` 代表所有列，只要改行数据有一个列的值不为 null，就可以算作一条数据。但是并不推荐使用！
-      
+     
+
 2 max：计算最大值
 
 3 min：计算最小值
@@ -389,7 +390,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 1. 选择不包含非空的列进行计算，即一般选择非空的列(主键等)
 2. IFNULL 函数  `select count(ifnull(english,0)) from stu;`
 
-#### 5.5 分组查询
+#### 2.5.5 分组查询
 
 1. 语法：group by 分组字段；
       `select sex,AVG(math) from stu group by sex;`
@@ -419,7 +420,7 @@ SELECT sex, AVG(math), COUNT(id) 人数 FROM student WHERE math > 70 GROUP BY se
 ~~~
 
 
-#### 5.6 分页查询
+#### 2.5.6 分页查询
 
 1 语法：`limit 开始的索引, 每页查询的条数;`
 2 公式：开始的索引 = （当前的页码 - 1） * 每页显示的条数
