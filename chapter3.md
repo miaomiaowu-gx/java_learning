@@ -69,9 +69,18 @@ MVC 中每个部分各司其职：
 
 11、还有比如 RESTful 风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等。
 
-#### 3.3 
+#### 3.3 SpringMVC 和 Struts2 的优略分析
 
+**共同点：**
+* 它们都是表现层框架，都是基于 MVC 模型编写的。
+* 它们的底层都离不开原始 ServletAPI。
+* 它们处理请求的机制都是一个核心控制器。
 
+**区别：**
+* Spring MVC 的入口是 Servlet，而 Struts2 是 Filter。
+* Spring MVC 是基于方法设计的，而 Struts2 是基于类，Struts2 每次执行都会创建一个动作类。所以 Spring MVC 会稍微比 Struts2 快些。
+* Spring MVC 使用更加简洁，同时还支持 JSR303，处理 ajax 的请求更方便(JSR303 是一套 JavaBean 参数校验的标准，它定义了很多常用的校验注解，可以直接将这些注解加在 JavaBean 的属性上面，就可以在需要校验的时候进行校验了。)
+* Struts2 的 OGNL 表达式使页面的开发效率相比 Spring MVC 更高些，但执行效率并没有比 JSTL 提升，尤其是 struts2 的表单标签，远没有 html 执行效率高。
 
 
 
