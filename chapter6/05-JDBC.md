@@ -2,15 +2,15 @@
 
 ### 5.1 介绍
 
-**概念**：Java DataBase Connectivity (JDBC，Java数据库连接，即使用Java语言操作数据库)
+**概念**：Java DataBase Connectivity (JDBC，Java 数据库连接，即使用 Java 语言操作数据库)
 
-**本质**：官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商实现这套接口，提供数据库驱动jar包。使用JDBC接口编程，真正执行的代码是驱动jar包中的实现类。
+**本质**：官方（sun 公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商实现这套接口，提供数据库驱动 jar 包。使用 JDBC 接口编程，真正执行的代码是驱动 jar 包中的实现类。
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200719202237796-1625288882.bmp" width=600>
 
-**快速入门步骤**
+#### 5.1.1 快速入门步骤
 
-~~~
+~~~java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -18,8 +18,8 @@ import java.sql.Statement;
 public class JdbcQuickStart {
     public static void main(String[] args) throws Exception {
         //1. 导入驱动jar包【mysql-connector-java-5.1.37-bin.jar】
-            // * 将jar包复制到项目的libs目录（自己创建的）
-            //* 在该目录上右键 --> Add As Library (将 jar 包加入到项目中)
+        // * 将jar包复制到项目的libs目录（自己创建的）
+        // * 在该目录上右键 --> Add As Library (将 jar 包加入到项目中)
         //2. 注册驱动
         Class.forName("com.mysql.jdbc.Driver");
         //3. 获取数据库连接对象 Connection
@@ -110,22 +110,21 @@ public class Driver implements java.sql.Driver {
 
 **执行 sql 的三种方法**：
 
-boolean execute(String sql) 可以执行任意的 sql，该语句可能返回多个结果。（了解，用的不多）
-* 如果第一个结果为 ResultSet 对象，则返回 true；如果其为更新计数或者不存在任何结果，则返回 false。 
+* `boolean execute(String sql)` 可以执行任意的 sql，该语句可能返回多个结果。（了解，用的不多）
+   * 如果第一个结果为 ResultSet 对象，则返回 true；如果其为更新计数或者不存在任何结果，则返回 false。 
 
-int executeUpdate(String sql) 执行 DML(INSERT、UPDATE、DELETE) 语句、DDL(CREATE、ALTER、DROP)语句
-* 返回值：影响的行数。可以通过影响的行数判断，增删改查的语句是否执行成功。返回值大于0，则执行成功。
-* DDL 语句一般不用此方法，直接使用 mysql 语句执行，因为使用该语句时，一般已经连接了某一数据库，对数据库/表的增删改查不方便用此语句。
-      
+* `int executeUpdate(String sql)` 执行 DML(INSERT、UPDATE、DELETE) 语句、DDL(CREATE、ALTER、DROP)语句
+   * 返回值：影响的行数。可以通过影响的行数判断，增删改查的语句是否执行成功。返回值大于0，则执行成功。
+   * DDL 语句一般不用此方法，直接使用 mysql 语句执行，因为使用该语句时，一般已经连接了某一数据库，对数据库/表的增删改查不方便用此语句。
+     
 
-ResultSet executeQuery(String sql) 执行给定的 DQL(SELECT) 语句，该语句返回单个 ResultSet 对象。 
+* `ResultSet executeQuery(String sql)` 执行给定的 DQL(SELECT) 语句，该语句返回单个 ResultSet 对象。 
 
 **练习**
 
- <details>
-<summary>练习一：account表 添加记录【insert 语句】</summary>
-<pre>
-<code>
+练习一：account表 添加记录【insert 语句】
+
+```java
 package cn.itcast.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -181,14 +180,11 @@ public class JDBCDemo2 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
- <details>
-<summary>练习二：account表 修改记录【update 语句】</summary>
-<pre>
-<code>
+练习二：account表 修改记录【update 语句】
+
+```java
 package cn.itcast.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -242,14 +238,12 @@ public class JDBCDemo3 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
- <details>
-<summary>练习三：account表 删除记录【delete 语句】</summary>
-<pre>
-<code>
+
+练习三：account 表 删除记录【delete 语句】
+
+```java
 package cn.itcast.jdbc;
 import cn.itcast.util.JDBCUtils;
 import java.sql.Connection;
@@ -305,14 +299,11 @@ public class JDBCDemo4 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
- <details>
-<summary>执行DDL语句 update创建表</summary>
-<pre>
-<code>
+执行DDL语句 update创建表
+
+```java
 package cn.itcast.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -361,9 +352,7 @@ public class JDBCDemo5 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
 
 
