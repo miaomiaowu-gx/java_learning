@@ -6,7 +6,7 @@
 
 **本质**：官方（sun 公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商实现这套接口，提供数据库驱动 jar 包。使用 JDBC 接口编程，真正执行的代码是驱动 jar 包中的实现类。
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200719202237796-1625288882.bmp" width=600>
+<img src="./img6/16-jdbc.png" width=600>
 
 #### 5.1.1 快速入门步骤
 
@@ -356,7 +356,7 @@ public class JDBCDemo5 {
 
 #### 5.2.4 ResultSet 结果集对象，封装查询的结果
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720153858881-472372691.png" width=300>
+<img src="./img6/17-resultset.png" width=300>
 
 光标初始指向第一行（无数据可获取），调用 next() 函数指向下一行，不断获取数据。每次只能读取一行的一列数据。
 
@@ -470,13 +470,13 @@ while(rs.next()){
 
 **使用实例**
 
-emp 表结构
+emp 表结构 
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720160437290-1084569422.png" width=700>
+<img src="./img6/18-emp-stru.png" width=700>
 
 emp 表数据
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720160518024-1277868196.png" width=550>
+<img src="./img6/19-emp-data.png" width=550>
 
 定义一个方法，查询 emp 表的数据，将其封装为对象，然后装载在集合中，返回，打印。
 
@@ -963,9 +963,9 @@ public class JDBCDemo9 {
 }
 ```
 
-上述【判断用户是否登录成功】代码存在问题，由 SQL 注入问题引起。
+上述【判断用户是否登录成功】代码存在问题，由 SQL 注入问题引起。  
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720214333807-1677627910.png" width=550>
+<img src="./img6/20-islog.png" width=550>
 
 
 #### 5.2.6 PreparedStatement 执行 sql 的对象（功能更强大）
@@ -1069,9 +1069,9 @@ public class JDBCDemo9 {
 
 ### 5.3 JDBC 管理事务
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200721205134525-979800277.png" width=700>
+<img src="./img6/21-jdbc-commit.png" width=700>
 
-银行转账案例
+银行转账案例 
 
 ```java
 package cn.itcast.jdbc;
@@ -1450,9 +1450,9 @@ public class JdbcTemplateDemo1 {
 上述代码，不需要自己在释放资源、释放连接，JdbcTemplate 会自己完成这些步骤。
 
 
-**操作 emp 表练习**
+**操作 emp 表练习** 
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200721225549717-1013203040.png" width=550>
+<img src="./img6/22-emp-prac.png" width=550>
 
 1. 修改1号数据的 salary 为 10000
 
