@@ -19,7 +19,7 @@
 
 **需求**：旅游网，一个用户收藏多个线路，一个线路被多个用户收藏。案例代码如下：
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718145216231-2082175820.png" width=600>
+<img src="./img6/09-tourism-website.png" width=600>
 
 ```sql
 -- 创建旅游线路分类表 tab_category
@@ -101,11 +101,11 @@ CREATE TABLE tab_favorite (
 
 1. 第一范式（1NF）：每一列都是不可分割的原子数据项，不能是集合、数组等非原子数据项。即表中的**某个列有多个值时**，**必须拆分**为不同的列。<font color=#ff8918>**简而言之，第一范式每一列不可再拆分，称为原子性。**</font>
 
-      <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718155616504-594915047.png" width=350>
+<img src="./img6/10-1nf-1.png" width=350>
 
       不符合第一范式，将列“系”拆分。
 
-      <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200718160111746-2060927149.png" width=350>
+<img src="./img6/11-1nf-2.png" width=350>
 
       上表存在问题：
 
