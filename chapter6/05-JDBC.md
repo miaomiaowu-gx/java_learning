@@ -49,7 +49,7 @@ public class JdbcQuickStart {
 写代码时使用：`Class.forName("com.mysql.jdbc.Driver");`。 
 
 通过查看源码发现，在 com.mysql.jdbc.Driver 类中存在静态代码块：
-~~~
+~~~java
 public class Driver implements java.sql.Driver {
 
       public Driver() throws SQLException {
@@ -354,38 +354,35 @@ public class JDBCDemo5 {
 }
 ```
 
-
-
 #### 5.2.4 ResultSet 结果集对象，封装查询的结果
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200720153858881-472372691.png" width=300>
 
-光标初始指向第一行（无数据可获取），调用next()函数指向下一行，不断获取数据。每次只能读取一行的一列数据。
+光标初始指向第一行（无数据可获取），调用 next() 函数指向下一行，不断获取数据。每次只能读取一行的一列数据。
 
 **基本使用**
 
-1）boolean next() 将光标从当前位置向下移一行，并判断当前行是否是最后一行之后（是否有数据）。如果是，返回false，说明没有数据了。如果不是，返回true，说明有数据。
+1）`boolean next()` 将光标从当前位置向下移一行，并判断当前行是否是最后一行之后（是否有数据）。如果是，返回 false，说明没有数据了。如果不是，返回 true，说明有数据。
 
-2）getXXX(参数) 获取数据，其中XXX为根据实际情况的数据类型。
+2）`getXXX(参数)` 获取数据，其中 XXX 为根据实际情况的数据类型。
 
-      // 以 Java 编程语言中 int 的形式获取此 ResultSet 对象的当前行中指定列的值。 
+    // 以 Java 编程语言中 int 的形式获取此 ResultSet 对象的当前行中指定列的值。 
     
-      int getInt(int columnIndex) // 参数代表列的编号，从 1 开始，如 getInt(1);
+    int getInt(int columnIndex) // 参数代表列的编号，从 1 开始，如 getInt(1);
     
-      int getInt(String columnLabel) // 参数为列名称，如 getInt("balance"); 
+    int getInt(String columnLabel) // 参数为列名称，如 getInt("balance"); 
     
-      // 以 Java 编程语言中 String 的形式获取此 ResultSet 对象的当前行中指定列的值。 
+    // 以 Java 编程语言中 String 的形式获取此 ResultSet 对象的当前行中指定列的值。 
     
-      String getNString(int columnIndex) 
+    String getNString(int columnIndex) 
     
-      String getNString(String columnLabel) 
+    String getNString(String columnLabel) 
 
 3）ResultSet 结果集也是资源，使用后需要释放。      
 
- <details>
-<summary>一个基本使用示例</summary>
-<pre>
-<code>
+一个基本使用示例
+
+```java
 package cn.itcast.jdbc;
 import java.sql.*;
 
@@ -451,18 +448,16 @@ public class JDBCDemo6 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
-存在问题：上述读取数据，是基于已知数据库该表中有两条 数据，但对于未知数据集，读取数据时要判断数据是否存在。
+存在问题：上述读取数据，是基于已知数据库该表中有两条数据，但对于未知数据集，读取数据时要判断数据是否存在。
 
 使用步骤：
 1. 游标向下移动一行
 2. 判断是否有数据
 3. 获取数据
 
-~~~
+~~~java
 while(rs.next()){
       int id = rs.getInt(1);
       String name = rs.getString("name");
@@ -489,10 +484,9 @@ emp 表数据
 2. 定义方法 public List<Emp> findAll(){}
 3. 实现方法
 
- <details>
-<summary>定义 Emp 类</summary>
-<pre>
-<code>
+【定义 Emp 类】
+
+```java
 package cn.itcast.domain;
 import java.util.Date;
 
@@ -507,7 +501,6 @@ public class Emp {
     private double salary;
     private double bonus;
     private int dept_id;
-
 
     public int getId() {
         return id;
@@ -557,7 +550,6 @@ public class Emp {
         this.salary = salary;
     }
 
-
     public int getDept_id() {
         return dept_id;
     }
@@ -565,7 +557,6 @@ public class Emp {
     public void setDept_id(int dept_id) {
         this.dept_id = dept_id;
     }
-
 
     public double getBonus() {
         return bonus;
@@ -589,15 +580,10 @@ public class Emp {
                 '}';
     }
 }
+```
+【使用实例】
 
-</code>
-</pre>
-</details>
-
- <details>
-<summary>使用实例</summary>
-<pre>
-<code>
+```java
 package cn.itcast.jdbc;
 import cn.itcast.domain.Emp;
 import cn.itcast.util.JDBCUtils;
@@ -690,10 +676,7 @@ public class JDBCDemo8 {
         return list;
     }
 }
-
-</code>
-</pre>
-</details>
+```
 
 #### 5.2.5 抽取 JDBC 工具类：JDBCUtils
 
@@ -705,7 +688,7 @@ public class JDBCDemo8 {
 2. 抽取一个方法获得连接对象
       需求：不想传递参数（太麻烦），不能写死（保证工具类的通用性）
       解决：配置文件
-      ~~~
+      ~~~properties
       // jdbc.properties
 
       url=jdbc:mysql:///db3
@@ -723,10 +706,9 @@ public class JDBCDemo8 {
       只有静态变量才能被静态方法访问，被静态代码块访问。 
       静态代码块只能处理异常，不能抛出异常。抛出异常需要方法。
 
- <details>
-<summary>JDBC工具类 JDBCUtils</summary>
-<pre>
-<code>
+【JDBC工具类 JDBCUtils】
+
+```java
 package cn.itcast.util;
 
 import java.io.FileReader;
@@ -753,7 +735,8 @@ public class JDBCUtils {
             ClassLoader classLoader = JDBCUtils.class.getClassLoader();
             URL res  = classLoader.getResource("jdbc.properties");
             String path = res.getPath();
-            // System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
+            // System.out.println(path);
+            //D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties
     	   
             //2. 加载文件
             pro.load(new FileReader(path));
@@ -825,15 +808,11 @@ public class JDBCUtils {
         }
     }
 }
+```
 
-</code>
-</pre>
-</details>
+【使用示例】
 
- <details>
-<summary>使用示例</summary>
-<pre>
-<code>
+```java
 package cn.itcast.jdbc;
 import cn.itcast.domain.Emp;
 import cn.itcast.util.JDBCUtils;
@@ -902,10 +881,7 @@ public class JDBCDemo8 {
         return list;
     }
 }
-
-</code>
-</pre>
-</details>
+```
 
 **练习**：
 
@@ -914,7 +890,7 @@ public class JDBCDemo8 {
 2. 判断用户是否登录成功(有一张表存放用户与密码)
       * `select * from User where username="输入的用户名" and password="输入的密码";` 如果这个 sql 查询有结果，则成功。
 
-~~~
+~~~sql
 -- 创建数据库 USER 表
 CREATE TABLE USER(
       id INT PRIMARY KEY AUTO_INCREMENT,
@@ -928,10 +904,9 @@ INSERT INTO USER VALUES(NULL, 'lisi', '234');
 select * from USER;
 ~~~
 
- <details>
-<summary>判断用户是否登录成功</summary>
-<pre>
-<code>
+【判断用户是否登录成功】
+
+```java
 package cn.itcast.jdbc;
 import cn.itcast.util.JDBCUtils;
 import java.sql.*;
@@ -986,9 +961,7 @@ public class JDBCDemo9 {
         return false;
     }
 }
-</code>
-</pre>
-</details>
+```
 
 上述【判断用户是否登录成功】代码存在问题，由 SQL 注入问题引起。
 
@@ -997,38 +970,37 @@ public class JDBCDemo9 {
 
 #### 5.2.6 PreparedStatement 执行 sql 的对象（功能更强大）
 
-**SQL注入问题**：在拼接 sql 时，有一些 sql 的特殊关键字参与字符串的拼接，会造成安全性问题。
+**SQL 注入问题**：在拼接 sql 时，有一些 sql 的特殊关键字参与字符串的拼接，会造成安全性问题。
 
 在【判断用户是否登录成功】的练习中，随便输入用户，输入密码：`a' or 'a' = 'a`，会生成 sql 语句 `select * from user where username ='fhdsjkf' and password = 'a' or 'a' = 'a'`  false and false or true -->  true，因此可以查询到所有数据。
 
-**解决SQL注入问题**：使用 PreparedStatement 对象。
+**解决 SQL 注入问题**：使用 PreparedStatement 对象。
 
 `public interface PreparedStatement extends Statement` 表示预编译的 SQL 语句的对象。 
 
-**预编译的 SQL**：参数使用<font color=#ff8918>**？**</font>作为占位符，执行 sql 时，给<font color=#ff8918>**？**</font>赋值。
+**预编译的 SQL**：参数使用 <font color=#ff8918>**？**</font>作为占位符，执行 sql 时，给 <font color=#ff8918>**？**</font>赋值。
 如：`PreparedStatement pstmt = con.prepareStatement("UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?");` 语句不会受传入字符串的关键字影响。
 
 **步骤**：
 
-1. 导入驱动jar包【mysql-connector-java-5.1.37-bin.jar】
+1. 导入驱动 jar 包【mysql-connector-java-5.1.37-bin.jar】
 2. 注册驱动
 3. 获取数据库连接对象 Connection
-4. 定义sql（sql语句后面不要加分号）
-      * sql的参数使用?作为占位符。如 `select * from user where username = ? and password = ?;`
-5. 获取执行sql语句的对象 PreparedStatement 
+4. 定义sql（sql 语句后面不要加分号）
+      * sql 的参数使用 ? 作为占位符。如 `select * from user where username = ? and password = ?;`
+5. 获取执行 sql 语句的对象 PreparedStatement 
       * `PreparedStatement prepareStatement(String sql) throws SQLException`
-      * `conn.prepareStatement(sql)` 需要传递sql参数，而 `conn.createStatement()`无需传参。
-6. 给?赋值 
-      * `setXxx(参数1, 参数2)` 其中，参数1表示?的位置，从1开始；参数2表示?的值。
-7. 执行sql，接受返回结果。
+      * `conn.prepareStatement(sql)` 需要传递 sql 参数，而 `conn.createStatement()`无需传参。
+6. 给 `?` 赋值 
+      * `setXxx(参数1, 参数2)` 其中，`参数1` 表示 `?` 的位置，从1开始；`参数2` 表示 `?` 的值。
+7. 执行 sql，接受返回结果。
       * 此时无序再传递 sql 语句，在 PreparedStatement 使用时已经传递。
 8. 处理结果
 9. 释放资源
 
- <details>
-<summary>PreparedStatement 判断用户是否登录成功</summary>
-<pre>
-<code>
+【PreparedStatement 判断用户是否登录成功】
+
+```java
 package cn.itcast.jdbc;
 
 import cn.itcast.util.JDBCUtils;
@@ -1088,11 +1060,10 @@ public class JDBCDemo9 {
         return false;
     }
 }
-</code>
-</pre>
-</details>
+```
 
-**注意**：后期都会使用PreparedStatement来完成增删改查的所有操作。
+**注意**：后期都会使用 PreparedStatement 来完成增删改查的所有操作。
+
 * 可以放置 SQL 注入
 * 效率更高
 
@@ -1102,10 +1073,7 @@ public class JDBCDemo9 {
 
 银行转账案例
 
- <details>
-<summary>展示代码</summary>
-<pre>
-<code>
+```java
 package cn.itcast.jdbc;
 import cn.itcast.util.JDBCUtils;
 import java.sql.Connection;
@@ -1164,9 +1132,7 @@ public class JDBCDemo10 {
         }
     }
 }
-</code>
-</pre>
-</details>
+```
 
 ### 5.4 数据库连接池
 
@@ -1181,15 +1147,15 @@ public class JDBCDemo10 {
 * 用户访问高效
 	
 
-**标准接口**：`DataSource`   （javax.sql包下的）
+**标准接口**：`DataSource`   （javax.sql 包下的）
 
 **方法**：
 
 * 获取连接：`Connection getConnection()`
 
-* 归还连接：`Connection对象.close()` 如果连接对象Connection是从连接池中获取的，那么调用Connection对象.close()方法，则不会再关闭连接了，而是归还连接。
+* 归还连接：`Connection对象.close()` 如果连接对象 Connection 是从连接池中获取的，那么调用`Connection对象.close()` 方法，则不会再关闭连接了，而是归还连接。
 
-对于连接池，一般我们不去实现它，由数据库厂商来实现：
+对于连接池，一般不去实现它，由数据库厂商来实现：
 
 * **C3P0**：数据库连接池技术
 
@@ -1201,28 +1167,28 @@ public class JDBCDemo10 {
 **步骤**：
 
 **1. 导入jar包 (两个)** 【c3p0-0.9.5.2.jar】【mchange-commons-java-0.2.12.jar】 ，
-* 不要忘记导入数据库驱动jar包【mysql-connector-java-5.1.37-bin.jar】
+* 不要忘记导入数据库驱动 jar 包【mysql-connector-java-5.1.37-bin.jar】
 
 **2. 定义配置文件**：
-* 名称： c3p0.properties 或者 c3p0-config.xml
-* 路径：直接将文件放在src目录下即可。
+* 名称： `c3p0.properties` 或者 `c3p0-config.xml`
+* 路径：直接将文件放在 src 目录下即可。
 
-**3. 创建核心对象** 数据库连接池对象 ComboPooledDataSource
+**3. 创建核心对象** 数据库连接池对象 `ComboPooledDataSource`
 
 **4. 获取连接**： getConnection
 
-~~~
-// 1.创建数据库连接池对象 🔶 当不传参数时，使用的是xml文件中的默认配置<default-config>；
+~~~sql
+// 1.创建数据库连接池对象 🔶 当不传参数时，使用的是 xml 文件中的默认配置<default-config>；
 DataSource ds  = new ComboPooledDataSource();
 
 // 2. 获取一个连接对象
 Connection conn = ds.getConnection();
 
-// 1.1 获取DataSource，使用指定名称配置
+// 1.1 获取 DataSource，使用指定名称配置
 DataSource ds  = new ComboPooledDataSource("otherc3p0");
 ~~~
 
-~~~
+~~~xml
 //c3p0-config.xml
 <c3p0-config>
   <!-- 使用默认的配置读取连接池对象 -->
@@ -1254,8 +1220,6 @@ DataSource ds  = new ComboPooledDataSource("otherc3p0");
 </c3p0-config>
 ~~~
 
-
-
 #### 5.4.3 Druid：数据库连接池实现技术，由阿里巴巴提供的
 
 **步骤**：
@@ -1263,16 +1227,16 @@ DataSource ds  = new ComboPooledDataSource("otherc3p0");
 **1. 导入jar包**【druid-1.0.9.jar】
 
 **2. 定义配置文件**：
-* 是properties形式的
+* 是 properties 形式的
 * 可以叫任意名称，可以放在任意目录下
 
-**3. 加载配置文件**，`Properties`。
+**3. 加载配置文件**：`Properties`。
 
-**4. 获取数据库连接池对象**：通过工厂类来获取  DruidDataSourceFactory
+**4. 获取数据库连接池对象**：通过工厂类来获取  `DruidDataSourceFactory`
 
-**5. 获取连接**：getConnection
+**5. 获取连接**：`getConnection`
 
-~~~
+~~~java
 //1.导入jar包
 //2.定义配置文件
 //3.加载配置文件
@@ -1285,7 +1249,7 @@ DataSource ds = DruidDataSourceFactory.createDataSource(pro);
 Connection conn = ds.getConnection();
 ~~~
 
-~~~
+~~~properties
 // 配置文件 druid.properties
 driverClassName=com.mysql.jdbc.Driver
 url=jdbc:mysql://127.0.0.1:3306/db3
@@ -1309,10 +1273,9 @@ maxWait=3000
       2）释放资源
       3）获取连接池的方法
 
- <details>
-<summary>JDBCUtils 工具类</summary>
-<pre>
-<code>
+【JDBCUtils 工具类】
+
+```java
 package cn.itcast.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
@@ -1329,7 +1292,7 @@ import java.util.Properties;
 public class JDBCUtils {
 
     //1.定义成员变量 DataSource
-    private static DataSource ds ;
+    private static DataSource ds;
     
     static{
         try {
@@ -1344,21 +1307,18 @@ public class JDBCUtils {
             e.printStackTrace();
         }
     }
+    
+     // 获取连接
+     public static Connection getConnection() throws SQLException {
+         return ds.getConnection();
+     }
+     
+     // 释放资源
+     public static void close(Statement stmt,Connection conn){
+        close(null,stmt,conn);
+     }
 
-
-​    
-​    // 获取连接
-​    public static Connection getConnection() throws SQLException {
-​        return ds.getConnection();
-​    }
-​    
-​    // 释放资源
-​    public static void close(Statement stmt,Connection conn){
-​       close(null,stmt,conn);
-​    }
-
-
-    public static void close(ResultSet rs , Statement stmt, Connection conn){
+    public static void close(ResultSet rs, Statement stmt, Connection conn){
     
         if(rs != null){
             try {
@@ -1389,19 +1349,14 @@ public class JDBCUtils {
     public static DataSource getDataSource(){
         return  ds;
     }
-
 }
+```
 
-</code>
-</pre>
-</details>
+使用工具类，完成添加操作：给 account 表添加一条记录。		
 
-使用工具类，完成添加操作：给account表添加一条记录。		
+【使用工具类】
 
- <details>
-<summary>使用工具类</summary>
-<pre>
-<code>
+```java
 import cn.itcast.utils.JDBCUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -1436,41 +1391,40 @@ public class DruidDemo2 {
         }
     }
 }
-</code>
-</pre>
-</details>
-
-
+```
 
 ### 5.5 Spring JDBC: JDBC Template
 
-Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发。
+Spring 框架对 JDBC 的简单封装。提供了一个 JDBCTemplate 对象简化 JDBC 的开发。
 
 
 **步骤**：
 
-**1. 导入jar包**（5个）
+**1. 导入 jar 包**（5个）
+
 * 【commons-logging-1.2.jar】【spring-beans-5.0.0.RELEASE.jar】【spring-core-5.0.0.RELEASE.jar】【spring-jdbc-5.0.0.RELEASE.jar】【spring-tx-5.0.0.RELEASE.jar】
 
-**2. 创建JdbcTemplate对象**，依赖于数据源DataSource。
+**2. 创建 JdbcTemplate 对象**，依赖于数据源 DataSource。
+
 * JdbcTemplate template = new JdbcTemplate(ds);
 	
 
-**3. 调用JdbcTemplate的方法来完成CRUD的操作**
-* update(): 执行DML语句。增、删、改语句
-* queryForMap(): 查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合
-      * 注意：这个方法<font color=#ff8918>**查询的结果集长度只能是1**</font>
-* queryForList(): 查询结果将结果集封装为list集合
-      * 注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中
-* query(): 查询结果，将结果封装为<font color=#ff8918>**JavaBean对象**</font>。
-      * query有两个参数：1）sql语句 2）RowMapper对象
-      * 一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装
+**3. 调用 JdbcTemplate 的方法来完成 CRUD 的操作**
+
+* `update()`: 执行DML语句。增、删、改语句
+* `queryForMap()`: 查询结果将结果集封装为 map 集合，将列名作为 key，将值作为 value 将这条记录封装为一个 map 集合
+   * 注意：这个方法<font color=#ff8918>**查询的结果集长度只能是 1**</font>
+* `queryForList()`: 查询结果将结果集封装为 list 集合
+   * 注意：将每一条记录封装为一个 Map 集合，再将 Map 集合装载到 List 集合中
+* `query()`: 查询结果，将结果封装为 <font color=#ff8918>**JavaBean 对象**</font>。
+   * query 有两个参数：1）sql 语句 2）RowMapper 对象
+      * 一般使用 BeanPropertyRowMapper 实现类。可以完成数据到 JavaBean 的自动封装
       * `new BeanPropertyRowMapper<类型>(类型.class)`
-* queryForObject：查询结果，将结果封装为对象
-      * 一般用于聚合函数的查询
+* `queryForObject`：查询结果，将结果封装为对象
+   * 一般用于聚合函数的查询
 
 
-~~~
+~~~java
 package cn.itcast.jdbctemplate;
 
 import cn.itcast.utils.JDBCUtils;
@@ -1493,9 +1447,7 @@ public class JdbcTemplateDemo1 {
 }
 ~~~
 
-上述代码，不需要自己在释放资源、释放连接，JdbcTemplate会自己完成这些步骤。
-
-
+上述代码，不需要自己在释放资源、释放连接，JdbcTemplate 会自己完成这些步骤。
 
 
 **操作 emp 表练习**
@@ -1508,19 +1460,18 @@ public class JdbcTemplateDemo1 {
 
 3. 删除刚才添加的记录
 
-4. 查询id为1的记录，将其封装为Map集合
+4. 查询 id 为 1 的记录，将其封装为 Map 集合
 
-5. 查询所有记录，将其封装为List
+5. 查询所有记录，将其封装为 List
 
-6. 查询所有记录，将其封装为Emp对象的List集合
+6. 查询所有记录，将其封装为 Emp 对象的 List 集合
 
 7. 查询总记录数
 	
 
- <details>
-<summary>封装 Emp 对象</summary>
-<pre>
-<code>
+【封装 Emp 对象】
+
+```java
 package cn.itcast.domain;
 import java.util.Date;
 
@@ -1613,16 +1564,11 @@ public class Emp {
                 '}';
     }
 }
+```
 
-</code>
-</pre>
-</details>
+【展示代码】
 
-
- <details>
-<summary>展示代码</summary>
-<pre>
-<code>
+```java
 package cn.itcast.jdbctemplate;
 import cn.itcast.domain.Emp;
 import cn.itcast.utils.JDBCUtils;
@@ -1748,7 +1694,5 @@ public class JdbcTemplateDemo2 {
     }
 
 }
+```
 
-</code>
-</pre>
-</details>
