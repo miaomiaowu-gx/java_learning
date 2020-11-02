@@ -19,3 +19,20 @@
 
 ### 11.2 web 服务器软件概述
 
+	* 服务器：安装了服务器软件的计算机
+	* 服务器软件：接收用户的请求，处理请求，做出响应
+	* web服务器软件：接收用户的请求，处理请求，做出响应。
+		* 在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目
+		* web容器
+
+
+	* 常见的java相关的web服务器软件：
+		* webLogic：oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
+		* webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
+		* JBOSS：JBOSS公司的，大型的JavaEE服务器，支持所有的JavaEE规范，收费的。
+		* Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源的，免费的。
+
+
+	* JavaEE：Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范
+	
+### 11.3 
