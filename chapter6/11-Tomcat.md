@@ -59,23 +59,31 @@
 
 **关闭**：
 	* 正常关闭：
-		* bin/shutdown.bat
-		* 再启动窗口输入：ctrl+c
+		* 点击：bin/shutdown.bat
+		* 在启动窗口输入：ctrl+c
 	* 强制关闭：点击启动窗口的 ×
 
 #### 11.3.3 部署项目的三种方式
-				1. 直接将项目放到webapps目录下即可。
+
+在 D 盘创建 hello 文件夹，并创建 `hello.html` 文件，文件内容如下：
+
+```html
+<font color='red'>Hello Tomcat</font>
+```
+
+1 直接将项目放到 webapps 目录下即可。
 					* /hello：项目的访问路径-->虚拟目录
 					* 简化部署：将项目打成一个war包，再将war包放置到webapps目录下。
 						* war包会自动解压缩
 	
-				2. 配置conf/server.xml文件
+2 配置conf/server.xml文件
 					在<Host>标签体中配置
 					<Context docBase="D:\hello" path="/hehe" />
 					* docBase:项目存放的路径
 					* path：虚拟目录
 	* 必须重启服务器才能生效
-				3. 在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写
+
+3 在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写
 					<Context docBase="D:\hello" />
 					* 虚拟目录：xml文件的名称(热部署)
 
