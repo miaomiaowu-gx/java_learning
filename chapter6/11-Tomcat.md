@@ -102,3 +102,18 @@
 
 创建 JavaEE 的项目，部署项目。
 
+<img src="./img6/72-creat-tomcat-pro.png" width=600>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
