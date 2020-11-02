@@ -82,7 +82,7 @@
     * 必须重启服务器才能生效
 
 3 在 conf\Catalina\localhost 创建任意名称的 xml 文件。在文件中编写
-    * <Context docBase="D:\hello" />
+    * `<Context docBase="D:\hello" />`，删除 path 属性。
     * 虚拟目录：xml 文件的名称(热部署)
 
 
