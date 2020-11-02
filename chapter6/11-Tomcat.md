@@ -85,7 +85,6 @@
     * `<Context docBase="D:\hello" />`，删除 path 属性。
     * 虚拟目录：xml 文件的名称(热部署)
 
-
 #### 11.3.4 java 动态项目的目录结构
 
 
