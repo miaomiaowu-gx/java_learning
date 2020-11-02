@@ -83,7 +83,7 @@
 
 3 在 conf\Catalina\localhost 创建任意名称的 xml 文件。在文件中编写
     * <Context docBase="D:\hello" />
-    * 虚拟目录：xml文件的名称(热部署)
+    * 虚拟目录：xml 文件的名称(热部署)
 
 
 #### 11.3.4 java 动态项目的目录结构
