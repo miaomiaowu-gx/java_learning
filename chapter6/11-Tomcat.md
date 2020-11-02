@@ -100,7 +100,7 @@
 将 Tomcat 集成到 IDEA 中
 <img src="./img6/71-tomcat.png" width=600>
 
-创建 JavaEE 的项目，部署项目。
+创建 JavaEE 的项目并部署
 
 <img src="./img6/72-creat-tomcat-pro.png" width=600>
 
