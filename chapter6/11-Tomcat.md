@@ -76,15 +76,14 @@
     * 简化部署：当项目很大时，直接传输文件很慢。将项目打成一个 war 包，再将 war 包放置到 webapps 目录下。war 包会自动解压缩。删除项目时，直接删除 war 包即可，解压缩文件会自动跟随删除。
 	
 2 配置 conf/server.xml 文件
-    * 在 `<Host>` 标签体中配置
-    * `<Context docBase="D:\hello" path="/hehe" />`
-    * docBase:项目存放的路径
-    * path：虚拟目录
+    * 在 `<Host>` 标签体中配置：`<Context docBase="D:\hello" path="/hehe" />`
+    * docBase：项目存放的路径
+    * path：虚拟目录（访问时用到的目录），如上述配置，访问 url 为：`http://localhost:8080/hehe/hello.html`
     * 必须重启服务器才能生效
 
-3 在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写
-					<Context docBase="D:\hello" />
-					* 虚拟目录：xml文件的名称(热部署)
+3 在 conf\Catalina\localhost 创建任意名称的 xml 文件。在文件中编写
+    * <Context docBase="D:\hello" />
+    * 虚拟目录：xml文件的名称(热部署)
 
 
 #### 11.3.4 java 动态项目的目录结构
