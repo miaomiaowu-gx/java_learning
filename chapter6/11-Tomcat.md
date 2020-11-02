@@ -97,5 +97,8 @@
 
 #### 11.3.5 tomcat 与 IDEA 集成&创建 web 项目 
 
-将 Tomcat 集成到 IDEA 中，并且创建 JavaEE 的项目，部署项目。
+将 Tomcat 集成到 IDEA 中
+<img src="./img6/71-tomcat.png" width=600>
+
+创建 JavaEE 的项目，部署项目。
 
