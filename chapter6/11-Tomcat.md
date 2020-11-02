@@ -95,9 +95,7 @@
       |___ lib 目录：放置依赖的 jar 包
 ```
 
-
-
 #### 11.3.5 tomcat 与 IDEA 集成&创建 web 项目 
 
-
+将 Tomcat 集成到 IDEA 中，并且创建 JavaEE 的项目，部署项目。
 
