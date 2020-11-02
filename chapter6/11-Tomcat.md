@@ -35,7 +35,32 @@
 	
 ### 11.3 Tomcat-web 服务器软件
 
+#### 11.3.1 准备工作
 
+1. 下载：http://tomcat.apache.org/
+2. 安装：直接解压压缩包即可，注意安装目录建议不要有中文和空格。
+3. 卸载：直接删除目录。
+
+#### 11.3.2 启动
+			* bin/startup.bat ,双击运行该文件即可
+			* 访问：浏览器输入：http://localhost:8080 回车访问自己
+							  http://别人的ip:8080 访问别人
+			
+			* 可能遇到的问题：
+				1. 黑窗口一闪而过：
+					* 原因： 没有正确配置JAVA_HOME环境变量
+					* 解决方案：正确配置JAVA_HOME环境变量
+	
+				2. 启动报错：
+					1. 暴力：找到占用的端口号，并且找到对应的进程，杀死该进程
+						* netstat -ano
+					2. 温柔：修改自身的端口号
+						* conf/server.xml
+						* <Connector port="8888" protocol="HTTP/1.1"
+			               connectionTimeout="20000"
+			               redirectPort="8445" />
+						* 一般会将tomcat的默认端口号修改为80。80端口号是http协议的默认端口号。
+							* 好处：在访问时，就不用输入端口号
 
 
 
