@@ -71,10 +71,9 @@
 <font color='red'>Hello Tomcat</font>
 ```
 
-1 直接将项目(D 盘的 hello 文件夹及内部所有文件)放到 tomcat 安装目录下的 webapps 目录下。
-	* /hello：项目的访问路径-->虚拟目录
-	* 简化部署：将项目打成一个war包，再将war包放置到webapps目录下。
-	* war包会自动解压缩
+1 直接将项目(D 盘的 hello 文件夹及内部所有文件)放到 tomcat 安装目录下的 webapps 目录下。访问 url：`http://localhost:8080/hello/hello.html`。
+    * `/hello`：项目的访问路径-->虚拟目录
+    * 简化部署：当项目很大时，直接传输文件很慢。将项目打成一个 war 包，再将 war 包放置到 webapps 目录下。war 包会自动解压缩。删除项目时，直接删除 war 包即可，解压缩文件会自动跟随删除。
 	
 2 配置conf/server.xml文件
 					在<Host>标签体中配置
