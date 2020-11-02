@@ -71,7 +71,7 @@
 <font color='red'>Hello Tomcat</font>
 ```
 
-1 直接将项目放到 webapps 目录下即可。
+1 直接将项目(D 盘的 hello 文件夹及内部所有文件)放到 tomcat 安装目录下的 webapps 目录下。
 					* /hello：项目的访问路径-->虚拟目录
 					* 简化部署：将项目打成一个war包，再将war包放置到webapps目录下。
 						* war包会自动解压缩
