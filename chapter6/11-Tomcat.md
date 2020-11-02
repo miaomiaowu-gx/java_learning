@@ -63,7 +63,7 @@
 		* 再启动窗口输入：ctrl+c
 	* 强制关闭：点击启动窗口的 ×
 
-#### 11.3.3 部署项目的方式
+#### 11.3.3 部署项目的三种方式
 				1. 直接将项目放到webapps目录下即可。
 					* /hello：项目的访问路径-->虚拟目录
 					* 简化部署：将项目打成一个war包，再将war包放置到webapps目录下。
@@ -74,12 +74,17 @@
 					<Context docBase="D:\hello" path="/hehe" />
 					* docBase:项目存放的路径
 					* path：虚拟目录
-	
+	* 必须重启服务器才能生效
 				3. 在conf\Catalina\localhost创建任意名称的xml文件。在文件中编写
 					<Context docBase="D:\hello" />
-					* 虚拟目录：xml文件的名称
+					* 虚拟目录：xml文件的名称(热部署)
 
 
+#### 11.3.4 java 动态项目的目录结构
+
+
+
+#### 11.3.5 tomcat 与 IDEA 集成&创建 web 项目 
 
 
 
