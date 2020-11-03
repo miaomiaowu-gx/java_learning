@@ -286,7 +286,14 @@ HttpServlet  -- 抽象类
 
 ### 12.8 Servlet urlpartten 配置    
 
+urlpartten：Servlet 访问路径
 
+1. 一个 Servlet 可以定义多个访问路径：`@WebServlet({"/d4","/dd4","/ddd4"})`
+
+2. 路径定义规则：
+   * `/xxx`：路径匹配
+   * `/xxx/xxx`:多层路径，目录结构
+   * `*.do`：扩展名匹配
 
 
 
