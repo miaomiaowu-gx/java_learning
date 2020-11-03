@@ -73,6 +73,9 @@ public class ServletDemo1 implements Servlet{
 </web-app>
 ```
 
+4 访问：在浏览器中每访问一次 url `http://localhost:8080/demo`，命令窗口会输出 `Hello, Servlet!`。
+
+
 
 
 
