@@ -222,9 +222,41 @@ public class ServletDemo2 implements Servlet {
 2. 定义一个类，实现 Servlet 接口
 3. 复写方法
 4. 在类上使用 `@WebServlet` 注解，进行配置
+   * `@WebServlet("资源路径")`
 
+```java
+package cn.itcast.web.servlet;
 
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import java.io.IOException;
 
+@WebServlet("/demo2")
+public class ServletDemo implements Servlet {
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        System.out.println("Servlet3.0来了.....");
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+    }
+}
+```
 
 ### 12.6 IDEA 与 tomcat 相关配置
 
