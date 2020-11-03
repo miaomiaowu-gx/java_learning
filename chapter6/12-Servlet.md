@@ -88,7 +88,27 @@ public class ServletDemo1 implements Servlet{
   
 ### 12.4 Servlet 生命周期方法
 
-      
+1. 被创建：执行init方法，只执行一次
+			* Servlet什么时候被创建？
+				* 默认情况下，第一次被访问时，Servlet被创建
+				* 可以配置执行Servlet的创建时机。
+					* 在<servlet>标签下配置
+						1. 第一次被访问时，创建
+	                		* <load-on-startup>的值为负数
+			            2. 在服务器启动时，创建
+			                * <load-on-startup>的值为0或正整数
+
+
+			* Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的
+				* 多个用户同时访问时，可能存在线程安全问题。
+				* 解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值
+	
+		2. 提供服务：执行service方法，执行多次
+			* 每次访问Servlet时，Service方法都会被调用一次。
+		3. 被销毁：执行destroy方法，只执行一次
+			* Servlet被销毁时执行。服务器关闭时，Servlet被销毁
+			* 只有服务器正常关闭时，才会执行destroy方法。
+			* destroy方法在Servlet被销毁之前执行，一般用于释放资源      
       
       
       
