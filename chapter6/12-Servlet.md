@@ -271,6 +271,11 @@ public class ServletDemo implements Servlet {
 
 ### 12.7 Servlet 体系结构
 
+Servlet -- 接口
+     |
+GenericServlet -- 抽象类（实际开发中并不使用该方法）
+     |
+HttpServlet  -- 抽象类
 
 
 
