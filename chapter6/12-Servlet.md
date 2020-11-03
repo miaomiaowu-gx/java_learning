@@ -6,7 +6,6 @@
    * Servlet 就是一个接口，定义了 Java 类被浏览器访问到(tomcat 识别)的规则。
    * 将来自定义一个类，实现 Servlet 接口，复写方法。
 
-
 ### 12.2 Servlet 快速入门
 
 
