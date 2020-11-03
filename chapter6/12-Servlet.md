@@ -78,7 +78,6 @@ public class ServletDemo1 implements Servlet{
 <img src="./img6/74-quick-start.png" width=200>
 
 
-
 ### 12.3 Servlet 执行原理
 
  
