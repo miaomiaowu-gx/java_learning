@@ -84,7 +84,7 @@ public class ServletDemo1 implements Servlet{
 2. 查找 web.xml 文件，是否有对应的 `<url-pattern>` 标签体内容。
 3. 如果有，则在找到对应的 `<servlet-class>` 全类名。
 4. tomcat 会将该类（第 3 步找到的全类名）字节码文件加载进内存，并且创建其对象。
-5. 调用其方法。
+5. 调用其方法。（该类必须实现 Servlet 接口，）
   
   
   
