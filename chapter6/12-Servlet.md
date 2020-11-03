@@ -8,7 +8,11 @@
 
 ### 12.2 Servlet 快速入门
 
-再 src 文件夹下创建 `cn.itcast.web.servlet` 
+1. 创建 JavaEE 项目
+
+2. 定义一个类，实现 Servlet 接口
+   * 在 src 文件夹下创建包 `cn.itcast.web.servlet`，创建 `ServletDemo1` 类。
+   * 实现 Servlet 接口，并实现接口中的方法。 
 
 
 
