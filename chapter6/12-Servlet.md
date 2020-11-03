@@ -269,9 +269,13 @@ public class ServletDemo implements Servlet {
 
 3. 断点调试：使用"小虫子"启动 dubug 启动
 
-### 12.7
+### 12.7 Servlet 体系结构
 
-### 12.8     
+
+
+
+
+### 12.8 Servlet urlpartten 配置    
 
 
                            
