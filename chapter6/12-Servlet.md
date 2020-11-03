@@ -215,6 +215,13 @@ public class ServletDemo2 implements Servlet {
                   
 ### 12.5 Servlet 3.0 注解配置 
 
+优势：支持注解配置，可以不需要 web.xml。
+	
+步骤：
+1. 创建 JavaEE 项目，选择 Servlet 的版本 3.0 以上，可以不创建 web.xml
+2. 定义一个类，实现 Servlet 接口
+3. 复写方法
+4. 在类上使用 `@WebServlet` 注解，进行配置
 
 
 
