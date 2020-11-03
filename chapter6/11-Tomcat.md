@@ -107,7 +107,7 @@
 
 文件结构如下：
 
-<img src="./img6/73-javaee-file-struc.png" width=400>
+<img src="./img6/73-javaee-file-struc.png" width=200>
 
 
 
