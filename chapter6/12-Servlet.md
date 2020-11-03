@@ -211,12 +211,13 @@ public class ServletDemo2 implements Servlet {
     </servlet-mapping>
 </web-app>
 ```			
-      
-      
-      
-            
+              
                   
 ### 12.5 Servlet 3.0 注解配置 
+
+
+
+
 
 ### 12.6 IDEA 与 tomcat 相关配置
 
