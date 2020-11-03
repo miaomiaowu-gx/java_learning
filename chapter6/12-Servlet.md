@@ -8,7 +8,7 @@
 
 ### 12.2 Servlet 快速入门
 
-
+再 src 文件夹下创建 `cn.itcast.web.servlet` 
 
 
 
