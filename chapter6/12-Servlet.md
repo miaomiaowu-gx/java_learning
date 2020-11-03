@@ -8,9 +8,9 @@
 
 ### 12.2 Servlet 快速入门
 
-1. 创建 JavaEE 项目
+1 创建 JavaEE 项目
 
-2. 定义一个类，实现 Servlet 接口，并实现接口中所有的抽象方法。
+2 定义一个类，实现 Servlet 接口，并实现接口中所有的抽象方法。
    * 在 src 文件夹下创建包 `cn.itcast.web.servlet`，创建 `ServletDemo1` 类。
    * 实现 Servlet 接口，并实现接口中的方法。 
 
@@ -51,7 +51,7 @@ public class ServletDemo1 implements Servlet{
 }
 ```
 
-3. 配置 Servlet，修改 web->WEB-INF 下的 web.xml 文件
+3 配置 Servlet，修改 web->WEB-INF 下的 web.xml 文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
