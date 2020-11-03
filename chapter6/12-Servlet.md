@@ -260,6 +260,15 @@ public class ServletDemo implements Servlet {
 
 ### 12.6 IDEA 与 tomcat 相关配置
 
+1. IDEA 会为每一个 tomcat 部署的项目单独建立一份配置文件
+   * 查看控制台的log：Using CATALINA_BASE:   "C:\Users\fqy\.IntelliJIdea2018.1\system\tomcat\_itcast"
+	
+2. [工作空间项目]和[tomcat 部署的 web 项目]
+   * tomcat 真正访问的是“tomcat 部署的 web 项目”，"tomcat 部署的 web 项目"对应着"工作空间项目"的 web 目录下的所有资源。
+   * WEB-INF 目录下的资源不能被浏览器直接访问。
+
+3. 断点调试：使用"小虫子"启动 dubug 启动
+
 ### 12.7
 
 ### 12.8     
