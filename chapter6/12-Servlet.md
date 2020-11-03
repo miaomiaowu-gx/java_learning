@@ -80,7 +80,13 @@ public class ServletDemo1 implements Servlet{
 
 ### 12.3 Servlet 执行原理
 
- 
+1. 当服务器接受到客户端浏览器的请求后，会解析请求 URL 路径，获取访问的 Servlet 的资源路径。
+2. 查找 web.xml 文件，是否有对应的 `<url-pattern>` 标签体内容。
+3. 如果有，则在找到对应的 `<servlet-class>` 全类名。
+4. tomcat 会将字节码文件加载进内存，并且创建其对象。
+5. 调用其方法。
+  
+  
   
    
 ### 12.4 Servlet 生命周期
