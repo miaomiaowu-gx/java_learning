@@ -272,9 +272,9 @@ public class ServletDemo implements Servlet {
 ### 12.7 Servlet 体系结构
 
 Servlet -- 接口
-     |
+   |
 GenericServlet -- 抽象类（实际开发中并不使用该方法）
-     |
+   |
 HttpServlet  -- 抽象类
 
 **GenericServlet**：将 Servlet 接口中其他的方法做了默认空实现，只将 service() 方法作为抽象。将来定义 Servlet 类时，可以继承 GenericServlet，实现 service() 方法即可。
