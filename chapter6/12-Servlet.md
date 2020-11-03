@@ -103,9 +103,9 @@ public class ServletDemo1 implements Servlet{
 	2. 在服务器启动时，创建。设置 `<load-on-startup>` 的值为 0 或正整数。
 
 
-			* Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的
-				* 多个用户同时访问时，可能存在线程安全问题。
-				* 解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值
+**Servlet的 init 方法，只执行一次，说明一个 Servlet 在内存中只存在一个对象，Servlet 是单例的。**
+* 多个用户同时访问时，可能存在线程安全问题。
+* 解决：尽量不要在 Servlet 中定义成员变量。即使定义了成员变量，也不要对修改值。
 	
 		
 
