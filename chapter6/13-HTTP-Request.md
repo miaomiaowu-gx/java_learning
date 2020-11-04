@@ -94,12 +94,61 @@ org.apache.catalina.connector.RequestFacade  -- 类(tomcat)
 
 #### 13.2.3 Request 获取请求消息数据 
 
-**1）获取请求消息数据**
+**1）获取请求行数据**
 
+* GET /day14/demo1?name=zhangsan HTTP/1.1
 
+方法：
 
+1. 获取请求方式 ：GET
+	* String getMethod()  
+	
+2. (*)获取虚拟目录：/day14
+	* String getContextPath()
+	
+3. 获取 Servlet 路径: /demo1
+	* String getServletPath()
+	
+4. 获取 get 方式请求参数：name=zhangsan
+	* String getQueryString()
+	
+5. (*)获取请求 URI：/day14/demo1
+	* String getRequestURI():	/day14/demo1
+	* StringBuffer getRequestURL(): http://localhost/day14/demo1
+	* URL:统一资源定位符 ： http://localhost/day14/demo1	中华人民共和国
+	* URI：统一资源标识符 : /day14/demo1					共和国
 
+6. 获取协议及版本：HTTP/1.1
+	* String getProtocol()
 
+7. 获取客户机的 IP 地址：
+	* String getRemoteAddr()
+
+```java
+@WebServlet("/requestDemo1")
+public class RequestDemo1 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1. 获取请求方式 ：GET
+        String method = request.getMethod();
+        //2.(*)获取虚拟目录：/day14
+        String contextPath = request.getContextPath();
+        //3. 获取Servlet路径: /demo1
+        String servletPath = request.getServletPath();
+        //4. 获取get方式请求参数：name=zhangsan
+        String queryString = request.getQueryString();
+        //5.(*)获取请求URI：/day14/demo1
+        String requestURI = request.getRequestURI();
+        StringBuffer requestURL = request.getRequestURL();
+        //6. 获取协议及版本：HTTP/1.1
+        String protocol = request.getProtocol();
+        //7. 获取客户机的IP地址：
+        String remoteAddr = request.getRemoteAddr();
+    }
+}
+```
 
 **2）获取请求头数据**
 
