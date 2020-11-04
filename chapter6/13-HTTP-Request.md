@@ -395,6 +395,26 @@ public class RequestDemo9 extends HttpServlet {
 * `ServletContext getServletContext()`
 
 
+### 13.3 用户登录案例
+
+
+#### 13.3.1 用户登录案例需求
+
+1. 编写 login.html 登录页面，含有 username & password 两个输入框。
+	
+2. 使用 Druid 数据库连接池技术，操作 mysql，day14 数据库中 user 表。
+
+3. 使用 JdbcTemplate 技术封装 JDBC。
+
+4. 登录成功跳转到 SuccessServlet 展示：登录成功！用户名，欢迎您！
+
+5. 登录失败跳转到 FailServlet 展示：登录失败，用户名或密码错误。
+
+
+
+
+
+
 
 
 
