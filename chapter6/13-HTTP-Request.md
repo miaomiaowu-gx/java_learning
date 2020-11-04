@@ -390,14 +390,9 @@ public class RequestDemo9 extends HttpServlet {
 
 3. void removeAttribute(String name)：通过键移除键值对
 
-
-
-
-
-
 #### 13.2.7 获取 ServletContext 对象 
 
-
+* `ServletContext getServletContext()`
 
 
 
