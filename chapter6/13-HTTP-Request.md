@@ -236,7 +236,7 @@ public class RequestDemo5 extends HttpServlet {
 
 #### 13.2.4 Request 获取请求参数通用方式 
 
-获取请求参数通用方式：不论 get 还是 post 请求方式都可以使用下列方法来获取请求参数：
+获取请求参数通用方式，不论 get 还是 post 请求方式都可以使用下列方法来获取请求参数：
 
 1. `String getParameter(String name)`:根据参数名称获取参数值    username=zs&password=123
 
@@ -246,6 +246,13 @@ public class RequestDemo5 extends HttpServlet {
 
 4. `Map<String,String[]> getParameterMap()`:获取所有参数的 map 集合
 
+中文乱码问题：
+* get 方式：tomcat 8 已经将 get 方式乱码问题解决了
+* post 方式：会乱码
+						* 解决：在获取参数前，设置request的编码request.setCharacterEncoding("utf-8");
+
+
+【一个示例】
 ```html
 <!DOCTYPE html>
 <html lang="en">
