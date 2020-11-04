@@ -378,6 +378,19 @@ public class RequestDemo9 extends HttpServlet {
   
 #### 13.2.6 Request 共享数据(域对象)
 
+**域对象**：一个有作用范围的对象，可以在范围内共享数据。
+
+**request 域**：代表一次请求的范围，一般用于请求转发的多个资源中共享数据。
+
+**方法**：
+
+1. void setAttribute(String name, Object obj)：存储数据
+
+2. Object getAttitude(String name)：通过键获取值
+
+3. void removeAttribute(String name)：通过键移除键值对
+
+
 
 
 
