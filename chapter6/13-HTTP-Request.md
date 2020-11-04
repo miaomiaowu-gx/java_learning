@@ -84,7 +84,13 @@ username=zhangsan
 
 #### 13.2.2 Request 继承体系
 
-
+```
+ServletRequest		-- 接口
+    |	继承
+HttpServletRequest	-- 接口
+    |	实现
+org.apache.catalina.connector.RequestFacade  -- 类(tomcat)
+```
 
 
 
