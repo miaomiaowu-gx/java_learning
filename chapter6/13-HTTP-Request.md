@@ -410,7 +410,9 @@ public class RequestDemo9 extends HttpServlet {
 
 5. 登录失败跳转到 FailServlet 展示：登录失败，用户名或密码错误。
 
+需求分析：
 
+<img src="./img6/76-login-ans.png" width=500>
 
 
 
