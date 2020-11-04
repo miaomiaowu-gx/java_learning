@@ -345,7 +345,9 @@ public class RequestDemo6 extends HttpServlet {
 
 3. 转发是一次请求（尽管访问了不同的 Servlet）  
   
-#### 13.2.6 共享数据
+#### 13.2.6 Request 共享数据(域对象)
+
+
 
 
 
