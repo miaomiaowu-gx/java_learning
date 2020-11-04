@@ -54,6 +54,23 @@ GET /login.html	HTTP/1.1
 
 **4）请求体(正文)**：用于封装 POST 请求消息的请求参数，GET 请求的请求体为空。
 
+
+【一个请求消息】
+
+```
+POST /login.html	HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Referer: http://localhost/login.html
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+username=zhangsan	
+```
+
 ### 13.2 Request
 
 
