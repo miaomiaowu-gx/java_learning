@@ -418,6 +418,7 @@ public class RequestDemo9 extends HttpServlet {
 #### 13.3.2 案例代码
 
 1）准备工作
+   * 创建 JavaEE 项目。
    * 在 web 目录下创建 login.html 登录页面。
    * 在 web 下创建 WEB-INF 文件夹，在 WEB-INF 内创建 lib 文件夹，并导入相关的 jar 包。
    * 在 src 文件夹下创建 druid.properties 文件。
@@ -449,6 +450,23 @@ initialSize=5
 maxActive=10
 maxWait=3000
 ```
+
+2）创建数据库环境
+
+```mysql
+CREATE DATABASE day14;
+USE day14;
+CREATE TABLE USER(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(32) UNIQUE NOT NULL,
+	PASSWORD VARCHAR(32) NOT NULL
+);
+
+INSERT INTO USER (username, PASSWORD) VALUES("superbaby", 123);
+```
+
+
+
 
 #### 13.3.3 BeanUtils 工具类
 
