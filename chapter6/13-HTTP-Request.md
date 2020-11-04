@@ -94,7 +94,20 @@ org.apache.catalina.connector.RequestFacade  -- 类(tomcat)
 
 #### 13.2.3 Request 获取请求消息数据 
 
+**1）获取请求消息数据**
 
+
+
+
+
+
+**2）获取请求头数据**
+
+
+
+
+
+**3）获取请求体数据**
 
 
 
