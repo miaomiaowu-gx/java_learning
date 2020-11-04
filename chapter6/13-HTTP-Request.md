@@ -337,7 +337,7 @@ public class RequestDemo6 extends HttpServlet {
 
 2. 使用 RequestDispatcher 对象来进行转发：`forward(ServletRequest request, ServletResponse response)` 
 	
-2）特点：
+2）特点（面试题）：
 
 1. 浏览器地址栏路径不发生变化
 
