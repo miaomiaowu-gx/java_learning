@@ -183,7 +183,56 @@ public class RequestDemo2 extends HttpServlet {
 
 **3）获取请求体数据**
 
+请求体：只有 POST 请求方式才有请求体，在请求体中封装了 POST 请求的请求参数。
 
+步骤：
+
+1）获取流对象
+	* `BufferedReader getReader()`：获取字符输入流，只能操作字符数据。
+	* `ServletInputStream getInputStream()`：获取字节输入流，可以操作所有类型数据。经常用于文件上传。
+						
+2）再从流对象中拿数据
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+
+    <form action="/day14/requestDemo5" method="post">
+        <input type="text" placeholder="请输入用户名" name="username"><br>
+        <input type="text" placeholder="请输入密码" name="password"><br>
+        <input type="submit" value="注册">
+    </form>
+
+</body>
+</html>
+```
+
+```java
+package cn.itcast.web.request;
+
+@WebServlet("/requestDemo5")
+public class RequestDemo5 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取请求消息体--请求参数
+
+        //1.获取字符流
+        BufferedReader br = request.getReader();
+        //2.读取数据
+        String line = null;
+        while((line = br.readLine()) != null){
+            System.out.println(line);
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
+}
+```
 
 #### 13.2.4 Request 获取请求参数
 
