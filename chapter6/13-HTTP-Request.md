@@ -75,7 +75,9 @@ username=zhangsan
 
 #### 13.2.1 Request 原理
 
-
+**request 对象和 response 对象的原理**
+1. request 和response对象是由服务器创建的，程序员来使用它们。
+2. request 对象是来获取请求消息，response 对象是来设置响应消息。
 
 
 
