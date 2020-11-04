@@ -417,6 +417,11 @@ public class RequestDemo9 extends HttpServlet {
 
 #### 13.3.2 案例代码
 
+1）准备工作
+   * 在 web 目录下创建 login.html 登录页面。
+   * 在 web 下创建 WEB-INF 文件夹，在 WEB-INF 内创建 lib 文件夹，并导入相关的 jar 包。
+   * 在 src 文件夹下创建 druid.properties 文件。
+
 
 
 
