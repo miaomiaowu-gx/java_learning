@@ -530,6 +530,20 @@ public class User {
 ```java
 
 
+5）创建包cn.itcast.dao,创建类UserDao,提供login方法
+
+
+6）编写cn.itcast.web.servlet.LoginServlet类
+
+
+7）编写FailServlet和SuccessServlet类
+
+8）login.html中form表单的action路径的写法
+
+
+9）BeanUtils工具类，简化数据封装
+
+
 #### 13.3.3 BeanUtils 工具类
 
 
