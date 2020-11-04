@@ -247,9 +247,8 @@ public class RequestDemo5 extends HttpServlet {
 4. `Map<String,String[]> getParameterMap()`:获取所有参数的 map 集合
 
 中文乱码问题：
-* get 方式：tomcat 8 已经将 get 方式乱码问题解决了
-* post 方式：会乱码
-						* 解决：在获取参数前，设置request的编码request.setCharacterEncoding("utf-8");
+* get 方式：tomcat 8 已经将 get 方式乱码问题解决。
+* post 方式：会乱码。解决：在获取参数前，设置 request 的编码 `request.setCharacterEncoding("utf-8");`。
 
 
 【一个示例】
