@@ -339,15 +339,12 @@ public class RequestDemo6 extends HttpServlet {
 	
 2）特点（面试题）：
 
-1. 浏览器地址栏路径不发生变化
+1. 浏览器地址栏路径不发生变化（尽管由一个 Servlet 调转到另一个 Servlet）。
 
 2. 只能转发到当前服务器内部资源中。
 
-3. 转发是一次请求  
+3. 转发是一次请求（尽管访问了不同的 Servlet）  
   
-  
-  
-
 #### 13.2.6 共享数据
 
 
