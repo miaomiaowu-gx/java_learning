@@ -465,7 +465,69 @@ CREATE TABLE USER(
 INSERT INTO USER (username, PASSWORD) VALUES("superbaby", 123);
 ```
 
+3）创建包 cn.itcast.domain，创建类 User。
 
+```java
+package cn.itcast.domain;
+
+/**
+ * 用户的实体类
+ */
+public class User {
+
+    private int id;
+    private String username;
+    private String password;
+
+    private String gender;
+
+    public void setHehe(String gender){
+        this.gender = gender;
+    }
+
+    public String getHehe(){
+        return gender;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+}
+```
+
+4）创建包 cn.itcast.util，编写工具类 JDBCUtils
+
+```java
 
 
 #### 13.3.3 BeanUtils 工具类
