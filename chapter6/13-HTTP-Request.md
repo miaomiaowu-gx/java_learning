@@ -152,7 +152,10 @@ public class RequestDemo1 extends HttpServlet {
 
 **2）获取请求头数据**
 
+方法
 
+* (*) `String getHeader(String name)`：通过请求头的名称获取请求头的值。
+* `Enumeration<String> getHeaderNames()`：获取所有的请求头名称。
 
 
 
