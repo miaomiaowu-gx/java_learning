@@ -422,8 +422,33 @@ public class RequestDemo9 extends HttpServlet {
    * 在 web 下创建 WEB-INF 文件夹，在 WEB-INF 内创建 lib 文件夹，并导入相关的 jar 包。
    * 在 src 文件夹下创建 druid.properties 文件。
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/day14_test/loginServlet" method="post">
+        用户名:<input type="text" name="username"> <br><br>
+        密码:<input type="password" name="password"><br><br>
 
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>
+```
 
+```properties
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql:///day14
+username=root
+password=mysql
+initialSize=5
+maxActive=10
+maxWait=3000
+```
 
 #### 13.3.3 BeanUtils 工具类
 
