@@ -181,12 +181,11 @@ public class RequestDemo2 extends HttpServlet {
 }
 ```
 
-
 **3）获取请求体数据**
 
 
 
-
+#### 13.2.4 Request 获取请求参数
 
 
 
