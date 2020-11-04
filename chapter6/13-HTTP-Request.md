@@ -246,6 +246,77 @@ public class RequestDemo5 extends HttpServlet {
 
 4. `Map<String,String[]> getParameterMap()`:获取所有参数的 map 集合
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+
+    <form action="/day14/requestDemo7" method="post">
+        <input type="text" placeholder="请输入用户名" name="username"><br>
+        <input type="text" placeholder="请输入密码" name="password"><br>
+
+        <input type="checkbox" name="hobby" value="game">游戏
+        <input type="checkbox" name="hobby" value="study">学习
+        <br>
+
+        <input type="submit" value="注册">
+    </form>
+
+</body>
+</html>
+```
+
+```java
+@WebServlet("/requestDemo6")
+public class RequestDemo6 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //post 获取请求参数
+
+        //根据参数名称获取参数值
+        String username = request.getParameter("username");
+        System.out.println(username);
+
+       //根据参数名称获取参数值的数组
+        String[] hobbies = request.getParameterValues("hobby");
+        for (String hobby : hobbies) {
+            System.out.println(hobby);
+        }
+
+        //获取所有请求的参数名称
+        Enumeration<String> parameterNames = request.getParameterNames();
+        while(parameterNames.hasMoreElements()){
+            String name = parameterNames.nextElement();
+            String value = request.getParameter(name);
+            System.out.println(name + ": " + value);
+            System.out.println("----------------");
+        }
+
+        // 获取所有参数的map集合
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        //遍历
+        Set<String> keyset = parameterMap.keySet();
+        for (String name : keyset) {
+            //获取键获取值
+            String[] values = parameterMap.get(name);
+            System.out.println(name);
+            for (String value : values) {
+                System.out.println(value);
+            }
+            System.out.println("-----------------");
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //get 获取请求参数
+        this.doPost(request,response);
+    }
+}
+```
+
 
 #### 13.2.5 请求转发
 
