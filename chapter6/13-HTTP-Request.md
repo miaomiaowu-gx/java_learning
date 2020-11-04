@@ -92,7 +92,7 @@ HttpServletRequest	-- 接口
 org.apache.catalina.connector.RequestFacade  -- 类(tomcat)
 ```
 
-
+#### 13.2.3 Request 获取请求消息数据 
 
 
 
