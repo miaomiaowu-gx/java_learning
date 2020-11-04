@@ -329,6 +329,23 @@ public class RequestDemo6 extends HttpServlet {
 
 #### 13.2.5 请求转发
 
+请求转发：一种在服务器内部的资源跳转方式
+
+1）步骤：
+
+1. 通过 request 对象获取请求转发器对象：`RequestDispatcher getRequestDispatcher(String path)`
+
+2. 使用 RequestDispatcher 对象来进行转发：`forward(ServletRequest request, ServletResponse response)` 
+	
+2）特点：
+
+1. 浏览器地址栏路径不发生变化
+
+2. 只能转发到当前服务器内部资源中。
+
+3. 转发是一次请求  
+  
+  
   
 
 #### 13.2.6 共享数据
