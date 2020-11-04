@@ -82,7 +82,7 @@ username=zhangsan
 <img src="./img6/75-request-principle.png" width=500>
 
 
-
+#### 13.2.2 Request 继承体系
 
 
 
