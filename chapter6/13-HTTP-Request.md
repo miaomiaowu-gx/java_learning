@@ -79,7 +79,7 @@ username=zhangsan
 1. request 和response对象是由服务器创建的，程序员来使用它们。
 2. request 对象是来获取请求消息，response 对象是来设置响应消息。
 
-
+<img src="./img6/75-request-principle.png" width=500>
 
 
 
