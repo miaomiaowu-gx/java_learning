@@ -280,7 +280,10 @@ public class RequestDemo5 extends HttpServlet {
 @WebServlet("/requestDemo6")
 public class RequestDemo6 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //post 获取请求参数
+        //1.设置流的编码
+        request.setCharacterEncoding("utf-8");
+
+        //2. post 获取请求参数
 
         //根据参数名称获取参数值
         String username = request.getParameter("username");
