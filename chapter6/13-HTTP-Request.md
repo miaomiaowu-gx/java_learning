@@ -344,6 +344,37 @@ public class RequestDemo6 extends HttpServlet {
 2. 只能转发到当前服务器内部资源中。
 
 3. 转发是一次请求（尽管访问了不同的 Servlet）  
+
+```java
+@WebServlet("/requestDemo8")
+public class RequestDemo8 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("demo8888被访问了。。。");
+        
+        //转发到 demo9 资源
+        request.getRequestDispatcher("/requestDemo9").forward(request,response);
+        //不能转发 非当前服务器内部资源
+        //request.getRequestDispatcher("http://www.itcast.cn").forward(request,response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
+```java
+@WebServlet("/requestDemo9")
+public class RequestDemo9 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("demo9999被访问了。。。");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
   
 #### 13.2.6 Request 共享数据(域对象)
 
