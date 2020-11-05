@@ -417,7 +417,7 @@ public class RequestDemo9 extends HttpServlet {
 
 #### 13.3.2 案例代码
 
-1）准备工作
+1）准备工作。
    * 创建 JavaEE 项目。
    * 在 web 目录下创建 login.html 登录页面。
    * 在 web 下创建 WEB-INF 文件夹，在 WEB-INF 内创建 lib 文件夹，并导入相关的 jar 包。
@@ -451,7 +451,7 @@ maxActive=10
 maxWait=3000
 ```
 
-2）创建数据库环境
+2）创建数据库环境。
 
 ```mysql
 CREATE DATABASE day14;
@@ -525,7 +525,7 @@ public class User {
 }
 ```
 
-4）创建包 cn.itcast.util，编写工具类 JDBCUtils
+4）创建包 cn.itcast.util，编写工具类 JDBCUtils。
 
 ```java
 package cn.itcast.util;
@@ -582,7 +582,7 @@ public class JDBCUtils {
 }
 ```
 
-5）创建包 cn.itcast.dao，创建类 UserDao，提供 login 方法
+5）创建包 cn.itcast.dao，创建类 UserDao，提供 login 方法。
 
 ```java
 package cn.itcast.dao;
@@ -624,15 +624,43 @@ public class UserDao {
 }
 ```
 
-6）编写cn.itcast.web.servlet.LoginServlet类
+5-test）先测试一下 login 方法是否正确，编写 cn.itcast.test.UserDaoTest 类
+
+```java
+package cn.itcast.test;
+
+import cn.itcast.dao.UserDao;
+import cn.itcast.domain.User;
+import org.junit.Test;
+
+public class UserDaoTest {
+
+    @Test
+    public void testLogin(){
+        User loginuser = new User();
+        loginuser.setUsername("superbaby");
+        loginuser.setPassword("123111");
+        
+        UserDao dao = new UserDao();  
+        User user = dao.login(loginuser);
+
+        System.out.println(user);
+    }
+}
+```
+
+6）编写 cn.itcast.web.servlet.LoginServlet 类
 
 
-7）编写FailServlet和SuccessServlet类
-
-8）login.html中form表单的action路径的写法
 
 
-9）BeanUtils工具类，简化数据封装
+
+7）编写 FailServlet 和 SuccessServlet 类
+
+8）login.html 中 form 表单的 action 路径的写法
+
+
+9）BeanUtils 工具类，简化数据封装
 
 
 #### 13.3.3 BeanUtils 工具类
