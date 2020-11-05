@@ -93,10 +93,11 @@ public class ResponseDemo1 extends HttpServlet {
     }
 }
 ```
-
-
-
-
+|特点|重定向 redirect|转发 forward|
+|:--:|:--:|:--:|
+|地址栏|发生变化|地址栏路径不变|
+|访问|可以访问其他站点(服务器)的资源|只能访问当前服务器下的资源|
+|请求|两次请求。不能使用 request 对象来共享数据。|一次请求，可以使用 request 对象来共享数据。|
 
 
 
