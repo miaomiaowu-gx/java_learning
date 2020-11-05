@@ -48,5 +48,61 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 
 ### 14.2 Response 对象
 
+功能：设置响应消息
+1. 设置响应行
+    * 格式：HTTP/1.1 200 ok
+    * 设置状态码：`setStatus(int sc)` 
+2. 设置响应头：`setHeader(String name, String value)` 
+
+3. 设置响应体：
+    * 3.1 获取输出流
+        * 字符输出流：`PrintWriter getWriter()`
+        * 字节输出流：`ServletOutputStream getOutputStream()`
+    * 3.2 使用输出流，将数据输出到客户端浏览器
+
+### 14.3 案例1 重定向
 
 
+
+
+
+
+
+### 14.4 案例2 输出字符数据
+
+
+
+
+
+
+
+### 14.5 案例3 输出字节数据
+
+
+
+
+
+
+
+
+
+### 14.6 案例4 验证码
+
+
+
+
+
+
+
+### 14.7 ServletContext
+
+
+
+
+
+
+
+
+
+
+### 14.8 案例 文件下载
