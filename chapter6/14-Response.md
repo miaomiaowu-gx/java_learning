@@ -64,6 +64,35 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 ### 14.3 案例
 #### 14.3.1 案例1 重定向
 
+重定向：资源跳转的方式
+
+代码实现：
+
+```java
+/**
+ * 重定向，项目发布在 /day15 下
+ */
+@WebServlet("/responseDemo1")
+public class ResponseDemo1 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //访问 [/responseDemo1]，会自动跳转到 [/responseDemo2] 资源
+        
+        //方法一:设置状态码与响应头
+        //1. 设置状态码为302
+        response.setStatus(302);
+        //2.设置响应头location
+        response.setHeader("location","/day15/responseDemo2");
+
+        //方法二：简单的重定向方法
+        response.sendRedirect("/day15/responseDemo2");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
 
 
 
