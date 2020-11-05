@@ -827,21 +827,77 @@ public class LoginServlet extends HttpServlet {
 #### 13.3.3 BeanUtils 工具类
 
 用于封装 JavaBean。
-
-JavaBean：标准的 Java 类
+**
+JavaBean**：标准的 Java 类
 
 * 要求：
-    1. 类必须被public修饰
+    1. 类必须被 public 修饰
     2. 必须提供空参的构造器
-    3. 成员变量必须使用private修饰
-    4. 提供公共setter和getter方法
+    3. 成员变量必须使用 private 修饰
+    4. 提供公共 setter 和 getter 方法
 
 * 功能：封装数据
 
+**成员变量与属性**大多数时候是相同的，但在某些情况下是不同的。
 
+属性：setter 和 getter 方法截取后的产物
 
+例如：getUsername() --> Username （去除 get）--> username（大写字母变小写）
 
+【成员变量与属性不同】
 
+```java
+private String gender;
 
+public void setHehe(String gender){
+    this.gender = gender;
+}
+
+public String getHehe(){
+    return gender;
+}
+```
+
+上述代码中，成员变量为 gender，而属性是 hehe。
+
+方法：
+
+1. setProperty()
+
+2. getProperty()
+
+3. populate(Object obj , Map map)：将 map 集合的键值对信息，封装到对应的 
+JavaBean 对象中
+
+```java
+package cn.itcast.test;
+
+import cn.itcast.domain.User;
+import org.apache.commons.beanutils.BeanUtils;
+import org.junit.Test;
+
+import java.lang.reflect.InvocationTargetException;
+
+public class BeanUtilsTest {
+
+    @Test
+    public void test(){
+        User user = new User();
+        try {
+            BeanUtils.setProperty(user,"hehe","male");
+            System.out.println(user);
+
+            String gender = BeanUtils.getProperty(user, "hehe");
+            System.out.println(gender);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
  
