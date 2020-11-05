@@ -60,6 +60,8 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
         * 字节输出流：`ServletOutputStream getOutputStream()`
     * 3.2 使用输出流，将数据输出到客户端浏览器
 
+
+
 ### 14.3 案例1 重定向
 
 
