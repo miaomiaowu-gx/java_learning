@@ -479,16 +479,6 @@ public class User {
     private String username;
     private String password;
 
-    private String gender;
-
-    public void setHehe(String gender){
-        this.gender = gender;
-    }
-
-    public String getHehe(){
-        return gender;
-    }
-
     public int getId() {
         return id;
     }
@@ -519,7 +509,6 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
                 '}';
     }
 }
@@ -837,9 +826,17 @@ public class LoginServlet extends HttpServlet {
 
 #### 13.3.3 BeanUtils 工具类
 
+用于封装 JavaBean。
 
+JavaBean：标准的 Java 类
 
+* 要求：
+    1. 类必须被public修饰
+    2. 必须提供空参的构造器
+    3. 成员变量必须使用private修饰
+    4. 提供公共setter和getter方法
 
+* 功能：封装数据
 
 
 
