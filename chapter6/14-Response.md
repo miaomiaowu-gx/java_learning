@@ -376,7 +376,9 @@ public class ServletContextDemo4 extends HttpServlet {
 
 ③ 获取文件的真实(服务器)路径
 
+方法：`String getRealPath(String path)` 
 
+配置文件可以放在 src、web 或 web->WEB-INF 下。 
 
 
 
