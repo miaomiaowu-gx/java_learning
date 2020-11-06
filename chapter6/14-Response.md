@@ -109,8 +109,23 @@ public class ResponseDemo1 extends HttpServlet {
 
 <img src="./img6/77-xiangdui-path.png" width=600>
 
-2）
+2）绝对路径：通过绝对路径可以确定唯一资源，以 `/` 开头的路径。
 
+* 如：http://localhost/day15/responseDemo2		/day15/responseDemo2
+
+* 规则：判断定义的路径是给谁用的？判断请求将来从哪儿发出
+   * 给客户端浏览器使用：需要加虚拟目录 (项目的访问路径)
+     * 建议虚拟目录动态获取：`request.getContextPath()`
+     * **重定向**是客户端使用。客户端从服务器 A 获取到服务器 B 的路径，然后**客户端**再次向服务器 B 请求。
+     * 超链接 `<a>`、表单 `<form>` 等。
+   * 给服务器使用：不需要加虚拟目录。如转发路径。
+
+```java
+//动态获取虚拟目录
+String contextPath = request.getContextPath();
+//简单的重定向方法
+response.sendRedirect(contextPath+"/responseDemo2");
+```
 
 
 #### 14.3.2 案例2 输出字符数据
