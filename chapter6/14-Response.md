@@ -378,12 +378,50 @@ public class ServletContextDemo4 extends HttpServlet {
 
 方法：`String getRealPath(String path)` 
 
-配置文件可以放在 src、web 或 web->WEB-INF 下。 
+配置文件可以放在 src、web 或 web->WEB-INF 下。src 下的内容会被放到  web->WEB-INF->classes 下。   
 
+```java
+package cn.itcast.web.servletcontext;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 
+@WebServlet("/servletContextDemo5")
+public class ServletContextDemo5 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* 3. 获取文件的真实(服务器)路径 */
+        
+        // 通过 HttpServlet 获取
+        ServletContext context = this.getServletContext();
 
+        // 获取文件的服务器路径
+        String b = context.getRealPath("/b.txt");//web目录下资源访问
+        System.out.println(b);
 
+        String c = context.getRealPath("/WEB-INF/c.txt");//WEB-INF目录下的资源访问
+        System.out.println(c);
 
+        String a = context.getRealPath("/WEB-INF/classes/a.txt");//src目录下的资源访问
+        System.out.println(a);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
 
 ### 14.5 案例 文件下载
+
+
+
+
+
+
+
