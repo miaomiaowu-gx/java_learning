@@ -101,6 +101,12 @@ public class ResponseDemo1 extends HttpServlet {
 
 
 
+
+
+
+
+
+
 #### 14.3.2 案例2 输出字符数据
 
 
