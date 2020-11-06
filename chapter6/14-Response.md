@@ -276,6 +276,109 @@ public class CheckCodeServlet extends HttpServlet {
 
 ### 14.4 ServletContext
 
+**1）概念**：代表整个 web 应用，可以和程序的容器(服务器)来通信。
+
+**2）获取**
+
+1. 通过 request 对象获取：`request.getServletContext();`
+2. 通过 HttpServlet 获取：`this.getServletContext();`
+
+```java
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //1. 通过request对象获取
+    ServletContext context1 = request.getServletContext();
+    //2. 通过HttpServlet获取
+    ServletContext context2 = this.getServletContext();
+
+    System.out.println(context1);
+    System.out.println(context2);
+    System.out.println(context1 == context2);//true
+}
+```
+
+**3）功能**
+
+1️⃣ 在获取 MIME 类型：
+
+* MIME类型：在互联网通信过程中定义的一种文件数据类型
+* 格式： 大类型/小类型   `text/html`，`image/jpeg`。
+* 获取：`String getMimeType(String file)`  
+
+```java
+@WebServlet("/servletContextDemo2")
+public class ServletContextDemo2 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* ServletContext功能：获取 MIME 类型 */
+        
+        //2. 通过 HttpServlet 获取
+        ServletContext context = this.getServletContext();
+
+        //3. 定义文件名称
+        String filename = "a.jpg"; 
+        
+        //4.获取MIME类型
+        String mimeType = context.getMimeType(filename);
+        System.out.println(mimeType); // image/jpeg
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
+2️⃣ 在域对象：共享数据
+
+1. `setAttribute(String name,Object value)`
+2. `getAttribute(String name)`
+3. `removeAttribute(String name)`
+
+* `ServletContext` 对象范围：所有用户所有请求的数据
+
+```java
+@WebServlet("/servletContextDemo3")
+public class ServletContextDemo3 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* 2. 域对象：共享数据 */
+        
+        //2. 通过HttpServlet获取
+        ServletContext context = this.getServletContext();
+
+        //设置数据
+        context.setAttribute("msg","haha");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
+```java
+@WebServlet("/servletContextDemo4")
+public class ServletContextDemo4 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /*  2. 域对象：共享数据 */
+        
+        //2. 通过HttpServlet获取
+        ServletContext context = this.getServletContext();
+
+        //获取数据
+        Object msg = context.getAttribute("msg");
+        System.out.println(msg);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
+3️⃣ 在获取文件的真实(服务器)路径
+
+
+
+
 
 
 
