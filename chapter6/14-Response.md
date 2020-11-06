@@ -298,7 +298,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 **3）功能**
 
-1️⃣ 在获取 MIME 类型：
+① 获取 MIME 类型：
 
 * MIME类型：在互联网通信过程中定义的一种文件数据类型
 * 格式： 大类型/小类型   `text/html`，`image/jpeg`。
@@ -327,7 +327,7 @@ public class ServletContextDemo2 extends HttpServlet {
 }
 ```
 
-2️⃣ 在域对象：共享数据
+② 域对象：共享数据
 
 1. `setAttribute(String name,Object value)`
 2. `getAttribute(String name)`
@@ -374,7 +374,7 @@ public class ServletContextDemo4 extends HttpServlet {
 }
 ```
 
-3️⃣ 在获取文件的真实(服务器)路径
+③ 获取文件的真实(服务器)路径
 
 
 
