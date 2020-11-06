@@ -176,7 +176,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 #### 14.3.4 案例4 验证码
 
-
+1. 本质：图片
+2. 目的：防止恶意表单注册
 
 
 
