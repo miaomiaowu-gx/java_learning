@@ -130,11 +130,36 @@ response.sendRedirect(contextPath+"/responseDemo2");
 
 #### 14.3.2 案例2 输出字符数据
 
+步骤：
+
+1. 获取字符输出流
+
+2. 输出数据
 
 
+乱码问题：
+1. `PrintWriter pw = response.getWriter();`  获取的流的默认编码是 ISO-8859-1
+2. 解决：设置该流的默认编码，告诉浏览器响应体使用的编码
 
+```java
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    //获取流对象之前，设置流的默认编码：将默认的 ISO-8859-1 编码设置为 utf-8 编码。
+   // response.setCharacterEncoding("utf-8");
 
+    //告诉浏览器，服务器发送的消息体数据的编码。建议浏览器使用该编码解码
+    //不区分大小写 content-type，且 setHeader 方法包含 setCharacterEncoding 功能！
+    //response.setHeader("content-type","text/html;charset=utf-8");
+
+    //简单的形式，设置编码
+    response.setContentType("text/html;charset=utf-8");
+
+    //1.获取字符输出流
+    PrintWriter pw = response.getWriter();
+    //2.输出数据
+    pw.write("你好啊啊啊 response");
+}
+```
 
 #### 14.3.3 案例3 输出字节数据
 
