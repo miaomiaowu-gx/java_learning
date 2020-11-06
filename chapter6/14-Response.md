@@ -107,9 +107,9 @@ public class ResponseDemo1 extends HttpServlet {
    * ` ./`：当前目录
    * `../`：后退一级目录
 
+<img src="./img6/77-xiangdui-path.png" width=600>
 
-
-
+2）
 
 
 
