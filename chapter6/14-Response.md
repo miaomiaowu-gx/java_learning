@@ -163,13 +163,16 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
 #### 14.3.3 案例3 输出字节数据
 
+```java
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.setContentType("text/html;charset=utf-8");
 
-
-
-
-
-
-
+    //1.获取字节输出流
+    ServletOutputStream sos = response.getOutputStream();
+    //2.输出数据
+    sos.write("你好".getBytes("utf-8"));
+}
+```
 
 #### 14.3.4 案例4 验证码
 
