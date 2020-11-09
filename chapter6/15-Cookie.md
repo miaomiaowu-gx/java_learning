@@ -13,7 +13,7 @@
 
 概念：客户端会话技术，将数据保存到客户端
 
-### 15.2.1 Coolie 快速入门
+#### 15.2.1 Coolie 快速入门
 
 步骤：
 
@@ -72,13 +72,13 @@ public class CookieDemo2 extends HttpServlet {
 
 
 
-### 15.2.2 Coolie 原理
+#### 15.2.2 Coolie 原理
 
 基于响应头 Set-Cookie 和请求头 Cookie 实现
 
 <img src="./img6/78-Cookie-priciple.png" width=400>
 
-### 15.2.3 Cookie 细节
+#### 15.2.3 Cookie 细节
 
 **1）一次可不可以发送多个 cookie?**
 
@@ -115,7 +115,7 @@ response.addCookie(c1);
 
 **3）cookie 能不能存中文？**
 
-* 在 tomcat 8 之前 cookie 中不能直接存储中文数据。需要将中文数据转码，一般采用 URL 编码(%+两个十六进制，如 %E3)。
+* 在 tomcat 8 之前 cookie 中不能直接存储中文数据。需要将中文数据转码，一般采用 URL 编码(%+十六进制数，如 %E3)。
 
 * 在 tomcat 8 之后，cookie 支持中文数据。特殊字符还是不支持，建议使用 URL 编码存储，URL 解码解析。
 
@@ -144,7 +144,7 @@ response.addCookie(c1);
 2. 在不登录的情况下，完成服务器对客户端的身份识别。（登录，偏好存储在服务器数据库中）
 
 
-### 15.2.4 Cookie 案例
+#### 15.2.4 Cookie 案例
 
 【需求】
 
@@ -167,13 +167,101 @@ response.addCookie(c1);
 
 【代码】
 
+```java
+package cn.itcast.cookie;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@WebServlet("/cookieTest")
+public class CookieTest extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //设置响应的消息体的数据格式以及编码
+        response.setContentType("text/html;charset=utf-8");
+
+        //1.获取所有Cookie
+        Cookie[] cookies = request.getCookies();
+        boolean flag = false;//没有cookie为lastTime
+        //2.遍历cookie数组
+        if(cookies != null && cookies.length > 0){
+            for (Cookie cookie : cookies) {
+                //3.获取cookie的名称
+                String name = cookie.getName();
+                //4.判断名称是否是：lastTime
+                if("lastTime".equals(name)){
+                    //有该Cookie，不是第一次访问
+
+                    flag = true;//有lastTime的cookie
+                    //设置Cookie的value
+                    //获取当前时间的字符串，重新设置Cookie的值，重新发送cookie
+                    Date date  = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+                    String str_date = sdf.format(date);
+                    System.out.println("编码前："+str_date);
+                    //URL编码
+                    str_date = URLEncoder.encode(str_date,"utf-8");
+                    System.out.println("编码后："+str_date);
+                    cookie.setValue(str_date);
+                    //设置cookie的存活时间
+                    cookie.setMaxAge(60 * 60 * 24 * 30);//一个月
+                    response.addCookie(cookie);
+                    
+                    //响应数据
+                    //获取Cookie的value，时间
+                    String value = cookie.getValue();
+                    System.out.println("解码前："+value);
+                    //URL解码：
+                    value = URLDecoder.decode(value,"utf-8");
+                    System.out.println("解码后："+value);
+                    response.getWriter().write("<h1>欢迎回来，您上次访问时间为:"+value+"</h1>");
+                    break;
+                }
+            }
+        }
+
+        if(cookies == null || cookies.length == 0 || flag == false){
+            //没有，第一次访问
+
+            //设置Cookie的value
+            //获取当前时间的字符串，重新设置Cookie的值，重新发送cookie
+            Date date  = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+            String str_date = sdf.format(date);
+            System.out.println("编码前："+str_date);
+            //URL编码
+            str_date = URLEncoder.encode(str_date,"utf-8");
+            System.out.println("编码后："+str_date);
+
+            Cookie cookie = new Cookie("lastTime",str_date);
+            //设置cookie的存活时间
+            cookie.setMaxAge(60 * 60 * 24 * 30); //一个月
+            response.addCookie(cookie);
+
+            response.getWriter().write("<h1>您好，欢迎您首次访问</h1>");
+        }
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
+    }
+}
+```
 
 ### 15.3 JSP 
 
 
 
-
+#### 15.3.1 
 
 
 
