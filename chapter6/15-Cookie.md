@@ -274,8 +274,15 @@ public class CookieTest extends HttpServlet {
 
 3. `<%= 代码 %>`：定义的 java 代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。
 
+JSP 的内置对象：在 jsp 页面中不需要获取和创建，可以直接使用的对象，一共有 9 个内置对象。
+* request
+* response
+* out：字符输出流对象。可以将数据输出到页面上。和 `response.getWriter()`类似。
 
-#### 15.3.1 
+`response.getWriter()` 和 `out.write()` 的区别：
+* 在 tomcat 服务器真正给客户端做出响应之前，会先找 response 缓冲区数据，再找 out 缓冲区数据。因此，`response.getWriter()` 数据输出永远在 `out.write()` 之前。
+					
+### 15.4 JSP 改造 Cookie 案例
 
 
 
