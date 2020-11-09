@@ -72,7 +72,10 @@ public class CookieDemo2 extends HttpServlet {
 
 
 
-### 15.2.2 Coolie
+### 15.2.2 Coolie 原理
+
+基于响应头 Set-Cookie 和请求头 Cookie 实现
+
 
 
 
