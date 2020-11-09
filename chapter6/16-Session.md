@@ -274,7 +274,7 @@ public class LoginServlet extends HttpServlet {
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Success</title>
+    <title>Success.jsp</title>
 </head>
 <body>
 
