@@ -43,13 +43,30 @@ response.addCookie(c);
 
 1. 服务器关闭
 
-2. session 对象调用 `invalidate()`。
+2. session 对象调用方法 `void invalidate()`。
 
-3. session 默认失效时间 30 分钟。
-选择性配置修改	
+3. session 默认失效时间 30 分钟。在 tomcat 的 web.xml 配置文件中可以修改此时间：
+
+```html
 <session-config>
         <session-timeout>30</session-timeout>
 </session-config>
+```
+
+**4）session 的特点**
+
+1. session 用于存储一次会话的多次请求的数据，存在服务器端
+
+2. session 可以存储任意类型，任意大小的数据。Cookie 只能存字符串。
+
+
+5）session 与 Cookie 的区别
+
+1. session 存储数据在服务器端，Cookie 在客户端。
+
+2. session 没有数据大小限制，Cookie有。
+
+3. session 数据安全，Cookie 相对于不安全。
 
 
 ### 16.2 案例 验证码
