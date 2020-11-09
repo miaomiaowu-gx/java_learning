@@ -259,14 +259,20 @@ public class CookieTest extends HttpServlet {
 
 ### 15.3 JSP 
 
-Java Server Pages：java 服务器端页面，一个特殊的页面，其中既可以指定定义 html 标签，又可以定义 java 代码。用于简化书写！
+**Java Server Pages**：java 服务器端页面，一个特殊的页面，其中既可以指定定义 html 标签，又可以定义 java 代码。用于简化书写！
 
-原理：JSP 本质上就是一个 Servlet。
+**原理**：JSP 本质上就是一个 Servlet。
 
 <img src="./img6/79-JSP-priciple.png" width=400>
 
 
+**JSP 的脚本**：JSP 定义 Java 代码的方式
 
+1. `<%  代码 %>`：定义的 java 代码，在 service 方法中。service 方法中可以定义什么，该脚本中就可以定义什么。
+
+2. `<%! 代码 %>`：定义的 java 代码，在 jsp 转换后的 java 类的成员位置。
+
+3. `<%= 代码 %>`：定义的 java 代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。
 
 
 #### 15.3.1 
