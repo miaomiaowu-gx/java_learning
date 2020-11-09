@@ -114,6 +114,9 @@ response.addCookie(c1);
 
 3）cookie 能不能存中文？
 
+* 在 tomcat 8 之前 cookie 中不能直接存储中文数据。需要将中文数据转码，一般采用URL编码(%+两个十六进制，如 %E3)。
+
+* 在 tomcat 8 之后，cookie 支持中文数据。特殊字符还是不支持，建议使用URL编码存储，URL解码解析
 
 4）cookie 共享问题？
 
