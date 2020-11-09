@@ -259,6 +259,10 @@ public class CookieTest extends HttpServlet {
 
 ### 15.3 JSP 
 
+Java Server Pages：java 服务器端页面，一个特殊的页面，其中既可以指定定义 html 标签，又可以定义 java 代码。用于简化书写！
+
+原理：JSP 本质上就是一个 Servlet。
+
 
 
 #### 15.3.1 
