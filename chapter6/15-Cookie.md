@@ -76,9 +76,12 @@ public class CookieDemo2 extends HttpServlet {
 
 基于响应头 Set-Cookie 和请求头 Cookie 实现
 
+<img src="./img6/78-Cookie-priciple.png" width=400>
+
+### 15.2.3 Cookie 细节
 
 
 
-
+### 15.2.4 Cookie 
 
 ### 15.3 JSP 
