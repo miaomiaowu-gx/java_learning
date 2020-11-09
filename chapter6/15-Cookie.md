@@ -80,6 +80,10 @@ public class CookieDemo2 extends HttpServlet {
 
 ### 15.2.3 Cookie 细节
 
+1）一次可不可以发送多个cookie?
+可以，可以创建多个 Cookie 对象，使用 response 调用多次 addCookie 方法发送 cookie 即可。
+
+2）
 
 
 ### 15.2.4 Cookie 
