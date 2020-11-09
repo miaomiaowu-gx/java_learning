@@ -82,6 +82,8 @@ response.addCookie(c);
 
 分析
 
+<img src="./img6/81-versity-code.png" width=600>
+
 
 
 
