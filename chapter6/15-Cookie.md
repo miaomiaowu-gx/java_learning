@@ -120,6 +120,16 @@ response.addCookie(c1);
 
 4）cookie 共享问题？
 
+1. 假设在一个 tomcat 服务器中，部署了多个 web 项目，那么在这些 web 项目中 cookie 能不能共享？
+   * 默认情况下 cookie 不能共享
+   * `setPath(String path)`:设置 cookie 的获取范围。默认情况下，设置当前的虚拟目录。
+   * 如果要共享，则可以将path设置为"/"
+
+2. 不同的 tomcat 服务器间 cookie 共享问题？
+
+   * `setDomain(String path)`:如果设置一级域名相同，那么多个服务器之间 cookie 可以共享。
+   
+​   * `setDomain(".baidu.com")`，那么 tieba.baidu.com 和 news.baidu.com 中 cookie 可以共享。
 
 
 
