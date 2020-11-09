@@ -14,6 +14,8 @@
 	
 3）原理：Session 的实现是依赖于 Cookie 的。
 
+<img src="./img6/80-Session-principle.png" width=700>
+
 
 
 
