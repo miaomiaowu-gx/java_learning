@@ -270,7 +270,7 @@ public class CookieTest extends HttpServlet {
 
 1. `<%  代码 %>`：定义的 java 代码，在 service 方法中。service 方法中可以定义什么，该脚本中就可以定义什么。
 
-2. `<%! 代码 %>`：定义的 java 代码，在 jsp 转换后的 java 类的成员位置。
+2. `<%! 代码 %>`：定义的 java 代码，在 jsp 转换后的 java 类的成员位置。使用比较少，不建议在 Servlet 中定义成员变量，容易引发线程安全问题。
 
 3. `<%= 代码 %>`：定义的 java 代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。
 
