@@ -74,4 +74,8 @@ public class CookieDemo2 extends HttpServlet {
 
 ### 15.2.2 Coolie
 
+
+
+
+
 ### 15.3 JSP 
