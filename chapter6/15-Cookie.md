@@ -127,12 +127,15 @@ response.addCookie(c1);
 
 2. 不同的 tomcat 服务器间 cookie 共享问题？
 
-   * `setDomain(String path)`:如果设置一级域名相同，那么多个服务器之间 cookie 可以共享。
-   
-​   * `setDomain(".baidu.com")`，那么 tieba.baidu.com 和 news.baidu.com 中 cookie 可以共享。
+   * `setDomain(String path)`: 如果设置一级域名相同，那么多个服务器之间 cookie 可以共享。
+   * `setDomain(".baidu.com")`，那么 tieba.baidu.com 和 news.baidu.com 中 cookie 可以共享。
+
+5）Cookie 的特点和作用
 
 
 
-### 15.2.4 Cookie 
+
+
+### 15.2.4 Cookie 案例
 
 ### 15.3 JSP 
