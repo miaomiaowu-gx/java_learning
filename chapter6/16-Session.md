@@ -138,7 +138,151 @@ response.addCookie(c);
 </html>
 ```
 
+```java
+package cn.itcast.servlet;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Random;
+
+@WebServlet("/checkCodeServlet")
+public class CheckCodeServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int width = 100;
+        int height = 50;
+
+        //1.创建一对象，在内存中图片(验证码图片对象)
+        BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
+        
+        //2.美化图片
+        //2.1 填充背景色
+        Graphics g = image.getGraphics();//画笔对象
+        g.setColor(Color.PINK);//设置画笔颜色
+        g.fillRect(0,0,width,height);
+
+        //2.2画边框
+        g.setColor(Color.BLUE);
+        g.drawRect(0,0,width - 1,height - 1);
+
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789";
+        //生成随机角标
+        Random ran = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= 4; i++) {
+            int index = ran.nextInt(str.length());
+            //获取字符
+            char ch = str.charAt(index);//随机字符
+            sb.append(ch);
+
+            //2.3写验证码
+            g.drawString(ch+"",width/5*i,height/2);
+        }
+        String checkCode_session = sb.toString();
+        //将验证码存入session
+        request.getSession().setAttribute("checkCode_session",checkCode_session);
+
+        //2.4画干扰线
+        g.setColor(Color.GREEN);
+
+        //随机生成坐标点
+        for (int i = 0; i < 10; i++) {
+            int x1 = ran.nextInt(width);
+            int x2 = ran.nextInt(width);
+
+            int y1 = ran.nextInt(height);
+            int y2 = ran.nextInt(height);
+            g.drawLine(x1,y1,x2,y2);
+        }
+        
+        //3.将图片输出到页面展示
+        ImageIO.write(image,"jpg",response.getOutputStream());
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
+```
+
+```java
+package cn.itcast.servlet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
+@WebServlet("/loginServlet")
+public class LoginServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.设置request编码
+        request.setCharacterEncoding("utf-8");
+        //2.获取参数
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String checkCode = request.getParameter("checkCode");
+        //3.先获取生成的验证码
+        HttpSession session = request.getSession();
+        String checkCode_session = (String) session.getAttribute("checkCode_session");
+        //删除session中存储的验证码（保证验证码是一次性，不会被多次重复用）
+        //如无此步骤，登陆后，点击浏览器后退键，验证码不会更新。
+        session.removeAttribute("checkCode_session");
+        //3.先判断验证码是否正确
+        if(checkCode_session!= null && checkCode_session.equalsIgnoreCase(checkCode)){
+            //忽略大小写比较
+            //验证码正确
+            //判断用户名和密码是否一致（正常是要到数据库中查询）
+            if("zhangsan".equals(username) && "123".equals(password)){//需要调用UserDao查询数据库
+                //登录成功
+                //存储信息，用户信息
+                session.setAttribute("user",username);
+                //重定向到success.jsp
+                response.sendRedirect(request.getContextPath()+"/success.jsp");
+            }else{
+                //登录失败
+                //存储提示信息到request
+                request.setAttribute("login_error","用户名或密码错误");
+                //转发到登录页面
+                request.getRequestDispatcher("/login.jsp").forward(request,response);
+            }
+        }else{
+            //验证码不一致
+            //存储提示信息到request
+            request.setAttribute("cc_error","验证码错误");
+            //转发到登录页面
+            request.getRequestDispatcher("/login.jsp").forward(request,response);
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
+    }
+}
+```
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+    <h1><%=request.getSession().getAttribute("user")%>,欢迎您</h1>
+
+</body>
+</html>
+```
 
 
 
