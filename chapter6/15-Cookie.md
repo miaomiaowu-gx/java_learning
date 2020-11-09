@@ -80,10 +80,44 @@ public class CookieDemo2 extends HttpServlet {
 
 ### 15.2.3 Cookie 细节
 
-1）一次可不可以发送多个cookie?
+1）一次可不可以发送多个 cookie?
 可以，可以创建多个 Cookie 对象，使用 response 调用多次 addCookie 方法发送 cookie 即可。
 
-2）
+```java
+//1.创建Cookie对象
+Cookie c1 = new Cookie("msg","hello");
+Cookie c2 = new Cookie("name","zhangsan");
+//2.发送Cookie
+response.addCookie(c1);
+response.addCookie(c2);
+```
+
+2）cookie 在浏览器中保存多长时间？
+
+1. 默认情况下，当浏览器关闭后，Cookie 数据被销毁。（即 Cookie 数据保存在浏览器内存中）
+
+2. 持久化存储：`setMaxAge(int seconds)`
+   * 正数：将 Cookie 数据写到硬盘的文件中。持久化存储。并指定 cookie 存活时间，时间到后，cookie 文件自动失效。
+   * 负数：默认值，浏览器关闭后，Cookie 数据被销毁。
+   * 零：删除 cookie 信息。
+   
+```java
+//1.创建Cookie对象
+Cookie c1 = new Cookie("msg","setMaxAge");
+//2.设置cookie的存活时间
+//将cookie持久化到硬盘，30秒后会自动删除cookie文件
+c1.setMaxAge(30); 
+//c1.setMaxAge(0); //删除Cookie
+//3.发送Cookie
+response.addCookie(c1);
+```
+
+3）cookie 能不能存中文？
+
+
+4）cookie 共享问题？
+
+
 
 
 ### 15.2.4 Cookie 
