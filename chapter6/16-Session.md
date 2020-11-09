@@ -39,7 +39,7 @@ response.addCookie(c);
 
 * session的活化：在服务器启动后，将 session 文件转化为内存中的 session 对象并删除对应的 session 文件。
 
-3）session 什么时候被销毁？
+**3）session 什么时候被销毁？**
 
 1. 服务器关闭
 
