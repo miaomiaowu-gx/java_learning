@@ -33,10 +33,11 @@ response.addCookie(c);
 
 **2）客户端不关闭，服务器关闭后，两次获取的 session 是同一个吗？**
 
-不是同一个，但是要确保数据不丢失。tomcat 自动完成以下工作
+不是同一个，但是要确保数据不丢失。tomcat 自动完成以下工作：
 
 * session 的钝化：在服务器正常关闭之前，将 session 对象系列化到硬盘上。
-* session的活化：在服务器启动后，将 session 文件转化为内存中的 session 对象即可。
+
+* session的活化：在服务器启动后，将 session 文件转化为内存中的 session 对象并删除对应的 session 文件。
 
 
 ### 16.2 案例 验证码
