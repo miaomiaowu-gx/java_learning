@@ -16,6 +16,7 @@
 ### 15.2.1 Coolie 快速入门
 
 步骤：
+
 1. 创建 Cookie 对象，绑定数据： `new Cookie(String name, String value)` 
 
 2. 发送 Cookie 对象：`response.addCookie(Cookie cookie)` 
