@@ -80,7 +80,8 @@ public class CookieDemo2 extends HttpServlet {
 
 ### 15.2.3 Cookie 细节
 
-1）一次可不可以发送多个 cookie?
+**1）一次可不可以发送多个 cookie?**
+
 可以，可以创建多个 Cookie 对象，使用 response 调用多次 addCookie 方法发送 cookie 即可。
 
 ```java
@@ -92,7 +93,7 @@ response.addCookie(c1);
 response.addCookie(c2);
 ```
 
-2）cookie 在浏览器中保存多长时间？
+**2）cookie 在浏览器中保存多长时间？**
 
 1. 默认情况下，当浏览器关闭后，Cookie 数据被销毁。（即 Cookie 数据保存在浏览器内存中）
 
@@ -112,13 +113,13 @@ c1.setMaxAge(30);
 response.addCookie(c1);
 ```
 
-3）cookie 能不能存中文？
+**3）cookie 能不能存中文？**
 
 * 在 tomcat 8 之前 cookie 中不能直接存储中文数据。需要将中文数据转码，一般采用 URL 编码(%+两个十六进制，如 %E3)。
 
 * 在 tomcat 8 之后，cookie 支持中文数据。特殊字符还是不支持，建议使用 URL 编码存储，URL 解码解析。
 
-4）cookie 共享问题？
+**4）cookie 共享问题？**
 
 1. 假设在一个 tomcat 服务器中，部署了多个 web 项目，那么在这些 web 项目中 cookie 能不能共享？
    * 默认情况下 cookie 不能共享
@@ -130,20 +131,42 @@ response.addCookie(c1);
    * `setDomain(String path)`: 如果设置一级域名相同，那么多个服务器之间 cookie 可以共享。
    * `setDomain(".baidu.com")`，那么 tieba.baidu.com 和 news.baidu.com 中 cookie 可以共享。
 
-5）Cookie 的特点和作用
+**5）Cookie 的特点和作用**
 
 1. cookie 存储数据在客户端浏览器
 
-2. 浏览器对于单个 cookie 的大小有限制(4kb) 以及 对同一个域名下的总 cookie 数量也有限制(20个)。
+2. 浏览器对于单个 cookie 的大小有限制(4kb) 以及对同一个域名下的总 cookie 数量也有限制(20个)。
 	
 作用：
 
 1. cookie 一般用于存出少量的不太敏感的数据。
 
-2. 在不登录的情况下，完成服务器对客户端的身份识别。
-
+2. 在不登录的情况下，完成服务器对客户端的身份识别。（登录，偏好存储在服务器数据库中）
 
 
 ### 15.2.4 Cookie 案例
+
+【需求】
+
+1. 访问一个 Servlet，如果是第一次访问，则提示：您好，欢迎您首次访问。
+
+2. 如果不是第一次访问，则提示：欢迎回来，您上次访问时间为:显示时间字符串。
+
+【分析】
+
+可以采用 Cookie 来完成，在服务器中的 Servlet 判断是否有一个名为 lastTime 的 cookie。
+
+* 有：不是第一次访问
+	1. 响应数据：欢迎回来，您上次访问时间为:[从 cookie 中获取上一次访问时间]
+	2. 写回 Cookie：lastTime=[当前时间]
+
+* 没有：是第一次访问
+	1. 响应数据：您好，欢迎您首次访问
+	2. 写回 Cookie：lastTime=[当前时间，如：2018年6月10日11:50:01]
+
+
+【代码】
+
+
 
 ### 15.3 JSP 
