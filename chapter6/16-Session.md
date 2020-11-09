@@ -39,6 +39,18 @@ response.addCookie(c);
 
 * session的活化：在服务器启动后，将 session 文件转化为内存中的 session 对象并删除对应的 session 文件。
 
+3）session 什么时候被销毁？
+
+1. 服务器关闭
+
+2. session 对象调用 `invalidate()`。
+
+3. session 默认失效时间 30 分钟。
+选择性配置修改	
+<session-config>
+        <session-timeout>30</session-timeout>
+</session-config>
+
 
 ### 16.2 案例 验证码
 
