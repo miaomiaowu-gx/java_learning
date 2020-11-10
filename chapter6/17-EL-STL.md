@@ -513,10 +513,9 @@ pageContext：获取 jsp 其他八个内置对象。
 
 1) 需求：用户信息的增删改查操作
 
-
-2. 设计：
-4. 技术选型：Servlet+JSP+MySQL+JDBCTempleat+Duird+BeanUtilS+tomcat
-5. 数据库设计：
+2) 设计：
+技术选型：Servlet+JSP+MySQL+JDBCTempleat+Duird+BeanUtilS+tomcat
+数据库设计：
 
 ```sql
 create database day17; -- 创建数据库
@@ -532,12 +531,12 @@ create table user(   -- 创建表
 );
 ```
 
-3. 开发：
+3) 开发：
 1. 环境搭建
 1. 创建数据库环境
 2. 创建项目，导入需要的jar包
 
 2. 编码
 
-4. 测试
-5. 部署运维
+4) 测试
+5) 部署运维
