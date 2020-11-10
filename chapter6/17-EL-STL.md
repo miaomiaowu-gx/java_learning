@@ -545,6 +545,8 @@ create table user(     -- 创建表
 
 2. 编写程序
 
+<img src="./img6/86-analysis.png" width=550>
+
 
 
 
