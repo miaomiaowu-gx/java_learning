@@ -311,18 +311,35 @@ public class User {
    * `${域名称.Map对象名.key名称}`
    * `${域名称.Map对象名["key名称"]}`
 
-4) empty运算符
+4) 隐式对象 pageContext
 
+el 表达式中有 11 个隐式对象。
 
+pageContext：获取 jsp 其他八个内置对象。
 
+`${pageContext.request.contextPath}`：动态获取虚拟目录。
 
-5) 隐式对象 pageContext
 
 ### 17.4 JSTL 标签
 
+**1) 概念**：JavaServer Pages Tag Library，JSP 标准标签库，是由 Apache 组织提供的开源的免费的 jsp 标签。	`<标签>`
+	
+**2) 作用**：用于简化和替换 jsp 页面上的 java 代码。		
+	
+**3) 使用步骤**：
+
+1. 导入 jstl 相关 jar 包
+
+2. 引入标签库：taglib 指令：  `<%@ taglib %>`
+
+3. 使用标签
+
+**4) 常用的 JSTL 标签**
 
 
 
+
+**5) 练习**：在 request 域中有一个存有 User 对象的 List 集合。需要使用 jstl+el 将 list 集合数据展示到 jsp 页面的表格 table 中。
 
 
 ### 17.5 三层架构
