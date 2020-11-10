@@ -547,9 +547,123 @@ create table user(     -- 创建表
 
 <img src="./img6/86-analysis.png" width=550>
 
+🍒 1 在 src 下创建 `cn.itcast` 包，创建 `domain.User` 类（对应于数据库 user表的实体类）。
 
+```java
+package cn.itcast.domain;
 
+public class User {
+    private int id;
+    private String name;
+    private String gender;
+    private int age;
+    private String address;
+    private String qq;
+    private String email;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", qq='" + qq + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+}
+```
+
+🍒 2 将提供的 index.html 页面内容粘贴到 index.jsp 中，并修改 `<a>` 链接，将原 `<a href="list.html" </a>` 中的固定路径替换为虚拟路径。
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>首页</title>
+
+  <!-- 1. 导入CSS的全局样式 -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <!-- 3. 导入bootstrap的js文件 -->
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  </script>
+</head>
+<body>
+<div align="center">
+  <a
+          href="${pageContext.request.contextPath}/userListServlet" style="text-decoration:none;font-size:33px">查询所有用户信息
+  </a>
+</div>
+</body>
+</html>
+```
+
+🍒 3 创建 Servlet
 
 
 
