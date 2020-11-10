@@ -85,7 +85,7 @@
 |pageContext|PageContext|当前页面共享数据，还可以获取其他八个内置对象|
 |request|HttpServletRequest|一次请求访问的多个资源(转发)|
 |session|HttpSession|一次会话的多个请求间|
-|application|ServletContext|所有用户间共享数据|
+|application|ServletContext|所有用户间共享数据(范围最大)，唯一，服务器开启其被创建，服务器关闭，其被销毁|
 |response|HttpServletResponse|响应对象|
 |page|Object|当前页面(Servlet)的对象  this|
 |out|JspWriter|输出对象，数据输出到页面上|
