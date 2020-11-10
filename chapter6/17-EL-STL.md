@@ -513,14 +513,18 @@ pageContext：获取 jsp 其他八个内置对象。
 
 1) 需求：用户信息的增删改查操作
 
+<img src="./img6/84-exm-crud.png" width=900>
+
 2) 设计：
+
 * 技术选型：Servlet+JSP+MySQL+JDBCTempleat+Duird+BeanUtilS+tomcat
-数据库设计：
+
+* 数据库设计：
 
 ```sql
 create database day17; -- 创建数据库
 use day17; 			   -- 使用数据库
-create table user(   -- 创建表
+create table user(     -- 创建表
     id int primary key auto_increment,
     name varchar(20) not null,
     gender varchar(5),
@@ -532,11 +536,12 @@ create table user(   -- 创建表
 ```
 
 3) 开发：
-1. 环境搭建
-1. 创建数据库环境
-2. 创建项目，导入需要的jar包
 
-2. 编码
+1. 环境搭建
+    1. 创建数据库环境
+    2. 创建项目，导入需要的 jar 包
+
+2. 编写程序
 
 4) 测试
 5) 部署运维
