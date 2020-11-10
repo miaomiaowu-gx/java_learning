@@ -344,8 +344,27 @@ pageContext：获取 jsp 其他八个内置对象。
 
 2. 注意：`c:if` 标签没有 else 情况，想要 else 情况，则可以再定义一个 `c:if` 标签
 
-```java
+```html
+<%
+    //判断request域中的一个list集合是否为空，如果不为null则显示遍历集合
+    List list = new ArrayList();
+    list.add("aaaa");
+    request.setAttribute("list",list);
+    request.setAttribute("number",4);
+%>
 
+<c:if test="${not empty list}">
+    遍历集合...
+
+</c:if>
+<br>
+
+<c:if test="${number % 2 != 0}">
+
+        ${number}为奇数
+
+</c:if>
+```
 
 
 🍒choose：相当于 java 代码的 switch 语句
