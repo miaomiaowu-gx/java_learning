@@ -126,7 +126,6 @@ pageContext.setAttribute("msg","hello");
 <img src="./img6/82-MVC-mode.png" width=600>
 
 
-
 **3）优缺点**
 
 优点：耦合性低，方便维护，可以利于分工协作；重用性高。
