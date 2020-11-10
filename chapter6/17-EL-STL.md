@@ -137,7 +137,15 @@ pageContext.setAttribute("msg","hello");
 
 #### 17.3.1 介绍
 
+1. 概念：Expression Language 表达式语言
 
+2. 作用：替换和简化 jsp 页面中 java 代码的编写。
+
+3. 语法：`${表达式}`
+
+4. jsp 默认支持 el 表达式的。如果要忽略 el 表达式
+   * 设置 jsp 中 page 指令中：`isELIgnored="true"` 忽略当前 jsp 页面中所有的 el 表达式。
+   * `\${表达式}` ：忽略当前这个 el 表达式。
 
 
 #### 17.3.2 运算与获取值    
