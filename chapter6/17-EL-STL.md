@@ -78,16 +78,28 @@
 
 #### 17.1.3 内置对象
 
-在 jsp 页面中不需要创建，直接使用的对象，一共有9个：
+在 jsp 页面中不需要创建，直接使用的对象，一共有 9 个：
 
 |变量名|真实类型|作用|
-|:--:|:--:|:--:|
+|:--:|:--:|----|
 |pageContext|PageContext|当前页面共享数据，还可以获取其他八个内置对象|
+|request|HttpServletRequest|一次请求访问的多个资源(转发)|
+|session|HttpSession|一次会话的多个请求间|
+|application|ServletContext|所有用户间共享数据|
+|response|HttpServletResponse|响应对象|
+|page|Object|当前页面(Servlet)的对象  this|
+|out|JspWriter|输出对象，数据输出到页面上|
+|config|ServletConfig|Servlet 的配置对象|
+|exception|Throwable|异常对象|
 
-|  表头   | 表头  |
-|  ----  | ----  |
-| 单元格  | 单元格 |
-| 单元格  | 单元格 |
+```html
+<%
+pageContext.setAttribute("msg","hello");
+%>
+
+<%=pageContext.getAttribute("msg")%>
+```
+
 
 
 ### 17.2 MVC开发模式
