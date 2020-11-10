@@ -205,8 +205,106 @@ el 表达式只能从域对象中获取值
 
 3) 获取对象、List 集合、Map 集合的值
 
-1. 对象：`${域名称.对象名.属性名}`，本质上会去调用对象的 getter 方法。
-	
+1. 对象：`${域名称.对象名.属性名}`，本质上会去调用对象的 getter 方法。因此，当有数据需要逻辑处理时，如将转换日期格式，可以在该类中定义一个 getter 方法，然后用 el 表达式获取值。
+
+```java
+package cn.itcast.domain;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class User {
+
+    private String name;
+    private int age;
+    private Date birthday;
+
+    public User(String name, int age, Date birthday) {
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+    }
+
+    public User() {
+    }
+
+    /**
+     * 逻辑视图
+     * @return
+     */
+    public String getBirStr(){
+
+        if(birthday != null){
+            //1.格式化日期对象
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            //2.返回字符串即可
+            return sdf.format(birthday);
+        }else{
+            return "";
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+}
+```
+
+在 jsp 页面使用
+
+```java
+<%@ page import="cn.itcast.domain.User" %>
+<%@ page import="java.util.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>el获取数据</title>
+</head>
+<body>
+
+    <%
+        User user = new User();
+        user.setName("张三");
+        user.setAge(23);
+        user.setBirthday(new Date());
+        request.setAttribute("u",user);
+    %>
+
+<%--
+    * 通过的是对象的属性来获取
+        * setter或getter方法，去掉set或get，在将剩余部分，首字母变为小写。
+        * setName --> Name --> name
+--%>
+    ${requestScope.u.name}<br>
+    ${u.age}<br>
+    ${u.birthday}<br>
+    ${u.birthday.month}<br>
+
+    ${u.birStr}<br>
+</body>
+</html>
+```		
+			
 2. List 集合：`${域名称.键名[索引]}`
 	
 3. Map 集合：
