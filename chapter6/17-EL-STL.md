@@ -442,7 +442,7 @@ pageContext：获取 jsp 其他八个内置对象。
 </c:forEach>
 ```
 
-**5) 练习**：在 request 域中有一个存有 User 对象的 List 集合。需要使用 jstl+el 将 list 集合数据展示到 jsp 页面的表格 table 中。
+**5) 练习**：在 request 域中有一个存有 User 对象的 List 集合。需要使用 jstl + el 将 list 集合数据展示到 jsp 页面的表格 table 中。
 
 
 
