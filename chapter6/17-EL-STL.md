@@ -123,6 +123,9 @@ pageContext.setAttribute("msg","hello");
 	* 调用模型
 	* 将数据交给视图进行展示
 
+<img src="./img6/82-MVC-mode.png" width=600>
+
+
 
 **3）优缺点**
 
