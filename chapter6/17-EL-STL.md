@@ -342,7 +342,11 @@ pageContext：获取 jsp 其他八个内置对象。
    * 如果表达式为 true，则显示 if 标签体内容，如果为 false，则不显示标签体内容。
    * 一般情况下，test 属性值会结合 el 表达式一起使用。
 
-2. 注意：`c:if` 标签没有 else 情况，想要 else 情况，则可以在定义一个 `c:if` 标签
+2. 注意：`c:if` 标签没有 else 情况，想要 else 情况，则可以再定义一个 `c:if` 标签
+
+```java
+
+
 
 🍒choose：相当于 java 代码的 switch 语句
 
