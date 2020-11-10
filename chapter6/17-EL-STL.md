@@ -336,6 +336,23 @@ pageContext：获取 jsp 其他八个内置对象。
 
 **4) 常用的 JSTL 标签**
 
+🍒if：相当于 java 代码的 if 语句
+
+1. 属性：test 必须属性，接受 boolean 表达式
+   * 如果表达式为 true，则显示 if 标签体内容，如果为 false，则不显示标签体内容。
+   * 一般情况下，test 属性值会结合 el 表达式一起使用。
+
+2. 注意：`c:if` 标签没有 else 情况，想要 else 情况，则可以在定义一个 `c:if` 标签
+
+🍒choose：相当于 java 代码的 switch 语句
+
+1. 使用 choose 标签声明，相当于 switch 声明。
+
+2. 使用 when 标签做判断，相当于 case。
+
+3. 使用 otherwise 标签做其他情况的声明，相当于 default。
+
+🍒foreach：相当于 java 代码的 for 语句
 
 
 
