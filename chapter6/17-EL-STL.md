@@ -541,7 +541,7 @@ create table user(     -- 创建表
    * 创建数据库环境
    * 创建项目 day17_case，设置端口为 80，部署虚拟目录 `day17`。
    * 在 web 文件夹下创建 WEB-INF 目录，在 WEB-INF 目录下创建 lib目录。导入需要的 jar 包，并 Add as Library。
-   <img src="./img6/85-jar-packages.png" width=300>
+   <img src="./img6/85-jar-packages.png" width=250>
 
 2. 编写程序
 
