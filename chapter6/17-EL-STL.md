@@ -162,6 +162,11 @@ pageContext.setAttribute("msg","hello");
    * `${empty list}`:判断字符串、集合、数组对象是否为 null 或者长度为 0。
    * `${not empty str}`:表示判断字符串、集合、数组对象是否不为 null 并且长度 >0。
 
+**获取值**
+
+
+
+
 
 
 ### 17.4 JSTL 标签
