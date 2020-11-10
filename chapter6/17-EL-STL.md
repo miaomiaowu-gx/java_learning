@@ -207,8 +207,7 @@ el 表达式只能从域对象中获取值
 
 1. 对象：`${域名称.对象名.属性名}`，本质上会去调用对象的 getter 方法。因此，当有数据需要逻辑处理时，如将转换日期格式，可以在该类中定义一个 getter 方法，然后用 el 表达式获取值。
 
-```java
-package cn.itcast.domain;
+```java 
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -305,13 +304,19 @@ public class User {
 </html>
 ```		
 			
-2. List 集合：`${域名称.键名[索引]}`
+2. List 集合：`${域名称.List对象名[索引]}`
+  * 如果角标越界，并不会报错，只是什么都不显示。
 	
 3. Map 集合：
-   * `${域名称.键名.key名称}`
-   * `${域名称.键名["key名称"]}`
+   * `${域名称.Map对象名.key名称}`
+   * `${域名称.Map对象名["key名称"]}`
+
+4) empty运算符
 
 
+
+
+5) 隐式对象 pageContext
 
 ### 17.4 JSTL 标签
 
