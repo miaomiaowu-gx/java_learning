@@ -392,12 +392,55 @@ pageContext：获取 jsp 其他八个内置对象。
 
 🍒foreach：相当于 java 代码的 for 语句
 
+```markdown
+1. 完成重复的操作
+    for(int i = 0; i < 10; i ++){
 
+    }
+    * 属性：
+        begin：开始值
+        end：结束值
+        var：临时变量
+        step：步长
+        varStatus:循环状态对象
+            index:容器中元素的索引，从0开始
+            count:循环次数，从1开始
+```
 
+```html
+<c:forEach begin="1" end="10" var="i" step="2" varStatus="s">
+    ${i}  ${s.index}  ${s.count}  <br>
+</c:forEach>
+```
 
+```markdown
+2. 遍历容器
+    List<User> list;
+    for(User user : list){
 
+    }
 
+    * 属性：
+        items:容器对象
+        var:容器中元素的临时变量
+        varStatus:循环状态对象
+            index:容器中元素的索引，从0开始
+            count:循环次数，从1开始
+```
 
+```html
+<%
+    List list = new ArrayList();
+    list.add("aaa");
+    list.add("bbb");
+    list.add("ccc");
+    request.setAttribute("list",list);
+%>
+
+<c:forEach items="${list}" var="str" varStatus="s">
+        ${s.index} ${s.count} ${str}<br>
+</c:forEach>
+```
 
 **5) 练习**：在 request 域中有一个存有 User 对象的 List 集合。需要使用 jstl+el 将 list 集合数据展示到 jsp 页面的表格 table 中。
 
