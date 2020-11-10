@@ -355,14 +355,11 @@ pageContext：获取 jsp 其他八个内置对象。
 
 <c:if test="${not empty list}">
     遍历集合...
-
 </c:if>
 <br>
 
 <c:if test="${number % 2 != 0}">
-
         ${number}为奇数
-
 </c:if>
 ```
 
