@@ -514,7 +514,7 @@ pageContext：获取 jsp 其他八个内置对象。
 1) 需求：用户信息的增删改查操作
 
 2) 设计：
-技术选型：Servlet+JSP+MySQL+JDBCTempleat+Duird+BeanUtilS+tomcat
+* 技术选型：Servlet+JSP+MySQL+JDBCTempleat+Duird+BeanUtilS+tomcat
 数据库设计：
 
 ```sql
