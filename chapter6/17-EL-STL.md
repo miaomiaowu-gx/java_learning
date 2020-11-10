@@ -108,7 +108,7 @@ pageContext.setAttribute("msg","hello");
 
 1. 早期只有 servlet，只能使用 response 输出标签数据，非常麻烦
 
-2. 后来又 jsp，简化了 Servlet 的开发，如果过度使用 jsp，在 jsp 中即写大量的 java 代码，有写 html 表，造成难于维护，难于分工协作。 
+2. 后来有 jsp，简化了 Servlet 的开发，如果过度使用 jsp，在 jsp 中既写大量的 java 代码，又写 html 标签，造成难于维护，难于分工协作。 
 
 3. 再后来，java 的 web 开发，借鉴 mvc 开发模式，使得程序的设计更加合理性。
 	
