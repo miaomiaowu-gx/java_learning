@@ -330,7 +330,7 @@ pageContext：获取 jsp 其他八个内置对象。
 
 1. 导入 jstl 相关 jar 包
 
-2. 引入标签库：taglib 指令：  `<%@ taglib %>`
+2. 引入标签库：taglib 指令：  `<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>`
 
 3. 使用标签
 
