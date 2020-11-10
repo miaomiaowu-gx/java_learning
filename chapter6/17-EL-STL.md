@@ -102,20 +102,20 @@ pageContext.setAttribute("msg","hello");
 
 记住内置对象的名字，题目：请写出 JSP 的 9 个内置对象？
 
-### 17.2 MVC开发模式
+### 17.2 MVC 开发模式
 
 
 
 
 
-### 17.3 EL表达式
+### 17.3 EL 表达式
 
 
 
 
 
 
-### 17.4 JSTL标签
+### 17.4 JSTL 标签
 
 
 
