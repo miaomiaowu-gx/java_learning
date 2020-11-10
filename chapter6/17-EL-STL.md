@@ -135,6 +135,12 @@ pageContext.setAttribute("msg","hello");
 
 ### 17.3 EL 表达式
 
+#### 17.3.1 介绍
+
+
+
+
+#### 17.3.2 运算与获取值    
 
 
 
