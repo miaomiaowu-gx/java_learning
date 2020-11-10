@@ -104,7 +104,7 @@ pageContext.setAttribute("msg","hello");
 
 ### 17.2 MVC 开发模式
 
-**1）jsp演变历史**
+**1）jsp 演变历史**
 
 1. 早期只有 servlet，只能使用 response 输出标签数据，非常麻烦
 
