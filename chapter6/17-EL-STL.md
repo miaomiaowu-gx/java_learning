@@ -200,11 +200,7 @@ el 表达式只能从域对象中获取值
 举例：在 request 域中存储了 `name=张三`
 获取：`${requestScope.name}`
 
-
-
-
-
-2) `${键名}`：表示依次从最小的域中查找是否有该键对应的值，直到找到为止。
+2) `${键名}`：表示依次从最小的域中查找是否有该键对应的值，直到找到为止。查找域顺序：pageScope->requestScope->sessionScope->applicationScope。     
 
 
 3) 获取对象、List 集合、Map 集合的值
