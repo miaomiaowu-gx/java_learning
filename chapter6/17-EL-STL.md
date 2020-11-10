@@ -162,6 +162,28 @@ pageContext.setAttribute("msg","hello");
    * `${empty list}`:判断字符串、集合、数组对象是否为 null 或者长度为 0。
    * `${not empty str}`:表示判断字符串、集合、数组对象是否不为 null 并且长度 >0。
 
+```html
+<h3>算数运算符</h3>
+${3 + 4}<br>
+${3 div 4}<br>
+<h3>比较运算符</h3>
+${3 == 4}<br>
+<h3>逻辑运算符</h3>
+${3 > 4  && 3 < 4}<br>
+<h4>empty运算符</h4>
+
+<%
+String str = "";
+request.setAttribute("str",str);
+List list = new ArrayList();
+request.setAttribute("list",list);
+%>
+
+${not empty str}
+${not empty list}
+```
+
+
 **获取值**
 
 el 表达式只能从域对象中获取值
@@ -170,26 +192,26 @@ el 表达式只能从域对象中获取值
 
 域名称：
 
-1. pageScope		--> pageContext
-2. requestScope 	--> request
-3. sessionScope 	--> session
+1. pageScope        --> pageContext
+2. requestScope     --> request
+3. sessionScope     --> session
 4. applicationScope --> application（ServletContext）
 
-* 举例：在request域中存储了name=张三
-* 获取：${requestScope.name}
+举例：在 request 域中存储了 `name=张三`
+获取：`${requestScope.name}`
 
 2) `${键名}`：表示依次从最小的域中查找是否有该键对应的值，直到找到为止。
 
 
 3) 获取对象、List 集合、Map 集合的值
 
-1. 对象：`${域名称.键名.属性名}`，本质上会去调用对象的 getter 方法
+1. 对象：`${域名称.键名.属性名}`，本质上会去调用对象的 getter 方法。
 	
 2. List 集合：`${域名称.键名[索引]}`
 	
 3. Map 集合：
-* `${域名称.键名.key名称}`
-* `${域名称.键名["key名称"]}`
+   * `${域名称.键名.key名称}`
+   * `${域名称.键名["key名称"]}`
 
 
 
