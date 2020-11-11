@@ -136,6 +136,7 @@ web.xml 配置：设置在 `<filter-mapping>` 内部配置 `<dispatcher></dispat
 4. 过滤器 2
 5. 过滤器 1 
 	
+
 **过滤器先后顺序问题**：
 
 1. 注解配置：按照类名的字符串比较规则比较，值小的先执行。如： AFilter 和 BFilter，AFilter 就先执行了。
@@ -154,22 +155,70 @@ web.xml 配置：设置在 `<filter-mapping>` 内部配置 `<dispatcher></dispat
 				
 
 > 登录相关的资源：login.jsp 页面；显示 jsp 的所有东西都是相关的，如验证码；CSS、JS 样式；以及点击登录按钮后访问的 LoginServlet 是登录相关的资源。**对于这些资源，不能进行登录拦截，否则会形成死循环**（当前没有登录，需要的登录，然而登录页面需要已经登录才能访问...）
-				
+
 分析：
 
 1. 判断是否是登录相关的资源
   * 是：直接放行
   * 不是：判断是否登录
-  
+
 2. 判断当前用户是否登录，判断 Session 中是否有 User
   * 有：已经登录，放行
-  * 没有：没有登录，则跳转到登录界面  
+  * 没有：没有登录，则跳转到登录界面 
 
-																																																
 【代码】
 
-								
-				
+```java
+package cn.itcast.web.filter;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+
+/**
+ * 登录验证的过滤器
+ */
+@WebFilter("/*")
+public class LoginFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        System.out.println(req);
+        //0.强制转换
+        HttpServletRequest request = (HttpServletRequest) req;
+        //1.获取资源请求路径
+        String uri = request.getRequestURI();
+        //2.判断是否包含登录相关资源路径,要注意排除掉 css/js/图片/验证码等资源
+        if(uri.contains("/login.jsp") || uri.contains("/loginServlet") || uri.contains("/css/") || uri.contains("/js/") || uri.contains("/fonts/") || uri.contains("/checkCodeServlet")  ){
+            //包含，用户就是想登录。放行
+            chain.doFilter(req, resp);
+        }else{
+            //不包含，需要验证用户是否登录
+            //3.从获取session中获取user
+            Object user = request.getSession().getAttribute("user");
+            if(user != null){
+                //登录了。放行
+                chain.doFilter(req, resp);
+            }else{
+                //没有登录。跳转登录页面
+                request.setAttribute("login_msg","您尚未登录，请登录");
+                request.getRequestDispatcher("/login.jsp").forward(request,resp);
+            }
+        }
+        // chain.doFilter(req, resp);
+    }
+
+    @Override
+    public void init(FilterConfig config) throws ServletException {
+    }
+
+    @Override
+    public void destroy() {
+    }
+}
+```
+
 #### 18.1.5 案例 2 敏感词汇过滤
 
 需求：
