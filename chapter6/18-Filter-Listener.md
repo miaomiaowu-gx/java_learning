@@ -248,7 +248,7 @@ public class LoginFilter implements Filter {
     1. 静态代理：有一个类文件描述代理模式
     2. 动态代理：在内存中形成代理类（更常用）
 
-* 实现步骤：
+* 动态代理实现步骤：
     1. 代理对象和真实对象实现相同的接口
     2. 代理对象 = Proxy.newProxyInstance();
     3. 使用代理对象调用方法。
