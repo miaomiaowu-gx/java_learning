@@ -112,7 +112,7 @@ public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain
 
 🍒 **拦截方式配置**：资源被访问的方式
 
-注解配置：设置 dispatcherTypes 属性
+注解配置：设置 dispatcherTypes 属性（是一个数组，可以配置多个值）
 
 1. REQUEST：默认值。浏览器直接请求资源
 2. FORWARD：转发访问资源
