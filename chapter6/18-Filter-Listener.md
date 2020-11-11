@@ -83,14 +83,23 @@ public class FilterDemo1 implements Filter {
 2. 执行放行后的资源
 3. 回来执行过滤器放行代码下边的代码
 
-
+```java
+public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+    //对request对象请求消息增强(1. 执行过滤器)
+    System.out.println("filterDemo2执行了....");
+    //放行(2. 执行放行后的资源)
+    chain.doFilter(req, resp);
+    //对response对象的响应消息增强(3. 回来执行过滤器放行代码下边的代码)
+    System.out.println("filterDemo2回来了...");
+}
+```
 
 
 **3) 过滤器生命周期方法**
 
 1. init：在服务器启动后，会创建 Filter 对象，然后调用 init 方法。只执行一次。用于加载资源。
-2. doFilter：每一次请求被拦截资源时，会执行。执行多次。
-3. destroy：在服务器关闭后，Filter 对象被销毁。如果服务器是正常关闭，则会执行 destroy 方法。只执行一次。用于释放资源
+2. doFilter：每一次请求被拦截资源时，会执行。可执行多次。
+3. destroy：在服务器关闭后，Filter 对象被销毁。如果服务器是正常关闭，则会执行 destroy 方法。只执行一次。用于释放资源。
 
 **4) 过滤器拦截路径配置详解**
 
