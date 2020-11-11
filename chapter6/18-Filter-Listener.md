@@ -223,7 +223,7 @@ public class LoginFilter implements Filter {
 
 **需求**：
 
-1. 对 day17_case 案例录入的数据进行敏感词汇过滤
+1. 对案例录入的数据进行敏感词汇过滤
 
 2. 敏感词汇参考《敏感词汇.txt》
 
@@ -231,9 +231,9 @@ public class LoginFilter implements Filter {
 
 **分析**：
 
-1. 对 request 对象进行增强。增强获取参数相关方法
+1. 对 request 对象的 getParameter 方法进行增强，产生一个新的 request对象。**增强获取参数相关方法**。
 
-2. 放行。传递代理对象。
+2. 放行，传入新的 request对象。**传递代理对象**。
 
 **增强对象的功能**，可以使用设计模式（一些通用的解决固定问题的方式）
 
