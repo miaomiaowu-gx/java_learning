@@ -663,34 +663,266 @@ public class User {
 </html>
 ```
 
-🍒 3 创建 Servlet
+🍒 3 在 src 下创建 druid.properties
 
+```properties
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql:///day17
+username=root
+password=mysql
+# 初始化连接数量
+initialSize=5
+# 最大连接数
+maxActive=10
+# 最大等待时间
+maxWait=3000
+```
 
+🍒 4 在 src->cn->itcast->util 下创建 JDBCUtils.java 文件
 
+```java
+package cn.itcast.util;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
 
+/**
+ * JDBC工具类 使用Durid连接池
+ */
+public class JDBCUtils {
 
+    private static DataSource ds ;
 
+    static {
+        try {
+            //1.加载配置文件
+            Properties pro = new Properties();
+            //使用ClassLoader加载配置文件，获取字节输入流
+            InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+            pro.load(is);
+            //2.初始化连接池对象
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     * 获取连接池对象
+     */
+    public static DataSource getDataSource(){
+        return ds;
+    }
+    /**
+     * 获取连接Connection对象
+     */
+    public static Connection getConnection() throws SQLException {
+        return  ds.getConnection();
+    }
+}
+```
 
+🍒 5 在 itcast 包下创建 UserDao 接口，以及 impl.UserDaoImpl 类
 
+```java
+package cn.itcast.dao;
 
+import cn.itcast.domain.User;
+import java.util.List;
 
+/**
+ * 用户操作的DAO
+ */
+public interface UserDao {
+    public List<User> findAll();
+}
+```
 
+```java
+package cn.itcast.dao.impl;
 
+import cn.itcast.dao.UserDao;
+import cn.itcast.domain.User;
+import cn.itcast.util.JDBCUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
 
+public class UserDaoImpl implements UserDao {
 
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
 
+    @Override
+    public List<User> findAll() {
+        //使用JDBC操作数据库...
+        //1.定义sql
+        String sql = "select * from user";
+        List<User> users = template.query(sql, new BeanPropertyRowMapper<User>(User.class));
+        return users;
+    }
+}
+```
 
+🍒 6 在 itcast 包下创建 UserService 接口，以及 impl.UserServiceImpl 类
 
+```java
+package cn.itcast.service;
+import cn.itcast.domain.User;
+import java.util.List;
 
+/**
+ * 用户管理的业务接口
+ */
+public interface UserService {
+    /**
+     * 查询所有用户信息
+     * @return
+     */
+    public List<User> findAll();
+}
+```
 
+```java
+package cn.itcast.service.impl;
 
+import cn.itcast.dao.UserDao;
+import cn.itcast.dao.impl.UserDaoImpl;
+import cn.itcast.domain.User;
+import cn.itcast.service.UserService;
 
+import java.util.List;
 
+public class UserServiceImpl implements UserService {
+    private UserDao dao = new UserDaoImpl();
 
+    @Override
+    public List<User> findAll() {
+        //调用Dao完成查询
+        return dao.findAll();
+    }
+}
+```
+
+🍒 7  在 src->cn->itcast 下创建 web.servlet 包，并创建 UserListServlet
+
+```java
+package cn.itcast.web.servlet;
+
+import cn.itcast.domain.User;
+import cn.itcast.service.UserService;
+import cn.itcast.service.impl.UserServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/userListServlet")
+public class UserListServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.调用UserService完成查询
+        UserService service = new UserServiceImpl();
+        List<User> users = service.findAll();
+        //2.将list存入request域
+        request.setAttribute("users",users);
+        //3.转发到list.jsp
+        request.getRequestDispatcher("/list.jsp").forward(request,response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
+    }
+}
+```
+
+🍒 8 将提供的 list.html 文件修改问 list.jsp 文件
+
+在头部添加配置 
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+```
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<!-- 网页使用的语言 -->
+<html lang="zh-CN">
+<head>
+    <!-- 指定字符集 -->
+    <meta charset="utf-8">
+    <!-- 使用Edge最新的浏览器的渲染方式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- viewport视口：网页可以根据设置的宽度自动进行适配，在浏览器的内部虚拟一个容器，容器的宽度与设备的宽度相同。
+    width: 默认宽度与设备的宽度相同
+    initial-scale: 初始的缩放比，为1:1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户信息管理系统</title>
+
+    <!-- 1. 导入CSS的全局样式 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <!-- 3. 导入bootstrap的js文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align: center">用户信息列表</h3>
+    <table border="1" class="table table-bordered table-hover">
+        <tr class="success">
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>籍贯</th>
+            <th>QQ</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+
+        <c:forEach items="${users}" var="user" varStatus="s">
+            <tr>
+                <td>${s.count}</td>
+                <td>${user.name}</td>
+                <td>${user.gender}</td>
+                <td>${user.age}</td>
+                <td>${user.address}</td>
+                <td>${user.qq}</td>
+                <td>${user.email}</td>
+                <td><a class="btn btn-default btn-sm" href="update.html">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="">删除</a></td>
+            </tr>
+        </c:forEach>
+        
+        <tr>
+            <td colspan="8" align="center"><a class="btn btn-primary" href="add.html">添加联系人</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+```
 
 4) 测试
 5) 部署运维
