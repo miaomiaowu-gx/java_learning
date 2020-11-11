@@ -120,7 +120,7 @@ public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain
 4. ERROR：错误跳转资源
 5. ASYNC：异步访问资源
 
-web.xml 配置：设置`<dispatcher></dispatcher>`标签即可
+web.xml 配置：设置在 `<filter-mapping>` 内部配置 `<dispatcher></dispatcher>` 标签即可。
 
 **5) 过滤器链(配置多个过滤器)**
 
