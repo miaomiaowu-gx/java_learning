@@ -57,7 +57,18 @@ public class FilterDemo1 implements Filter {
 
 **1) web.xml 配置**	
 
+```xml
+<filter>
+    <filter-name>demo1</filter-name>
+    <filter-class>cn.itcast.web.filter.FilterDemo1</filter-class>
+</filter>
 
+<filter-mapping>
+    <filter-name>demo1</filter-name>
+    <!-- 拦截路径 -->
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
 
 
 **2) 过滤器执行流程**
