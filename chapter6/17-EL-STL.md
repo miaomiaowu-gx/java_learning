@@ -507,7 +507,7 @@ pageContext：获取 jsp 其他八个内置对象。
 2. 业务逻辑层：处理业务逻辑的。
 3. 数据访问层：操作数据存储文件。
 
-<img src="./img6/83-three-tier-architecture.png" width=900>
+<img src="./img6/83-three-tier-architecture.png" width=1200>
 
 ### 17.6 案例 
 
