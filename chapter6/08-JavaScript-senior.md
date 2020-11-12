@@ -474,7 +474,7 @@
 
 #### 8.4.3 案例 4 ：动态表格 
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817195324639-1804204332.png" width=500>
+<img src="./img6/32-dynamic-table.png" width=500>
 
 
 ```html
@@ -789,7 +789,8 @@ document.getElementById("form").onsubmit = function(){
 
 #### 8.5.2 案例 5 表格全选 
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817222739081-791800764.png" width=500>
+<img src="./img6/33-table-all-select.png" width=500>
+
 
 ```html
 <!DOCTYPE html>
@@ -949,7 +950,8 @@ document.getElementById("form").onsubmit = function(){
 
 #### 8.5.3 案例 6 表单验证 
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200818144950693-1557554473.png" width=800>
+<img src="./img6/34-form-check.png" width=800>
+
 
 ```html
 <!DOCTYPE html>
