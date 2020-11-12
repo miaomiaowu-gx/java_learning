@@ -27,7 +27,7 @@
 
 [注意事项](https://snailclimb.gitee.io/javaguide/#/docs/essential-content-for-interview/PreparingForInterview/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AE%80%E5%8E%86%E4%B9%8B%E9%81%93)
 
-
+java 需要的知识 https://blog.csdn.net/xvhongliang/article/details/98470003
 
 
 
