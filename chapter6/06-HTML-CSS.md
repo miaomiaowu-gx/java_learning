@@ -499,7 +499,7 @@ div{
 * 语法：`.class属性值{}`
 * 注意：类选择器选择器优先级高于元素选择器
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -549,8 +549,7 @@ div p{
 <p>黑马程序员</p>
 ```
 
-<img src="./img6/26-extand-select.png.png" width=80>
-		
+<img src="./img6/26-extand-select.png" width=80>		
 
 4. 父选择器：筛选选择器2的**父元素**选择器1。`选择器1 > 选择器2{}`
 
@@ -567,7 +566,7 @@ div > p {
 <div>aaa</div>    <!-- 没有被选中，因为该div没有p标签 -->
 ```
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200728152722055-309246599.png" width=400>
+<img src="./img6/27-father-select.png" width=400>
 	
 
 5. 属性选择器：选择元素名称，属性名=属性值的元素。`元素名称[属性名="属性值"]{}`
@@ -581,7 +580,7 @@ input[type='text']{
 <input type="password" >
 ```
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200728153316104-427462080.png" width=200>
+<img src="./img6/28-type-select.png" width=200>
 
 
 6. 伪类选择器：选择一些元素具有的状态。`元素:状态{}`
@@ -612,7 +611,7 @@ a:visited{
 <a href="#">黑马程序员</a>
 ```
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200728154303120-1087168310.png" width=250>
+<img src="./img6/29-false-class.png" width=250>
 
 
 ### 属性
