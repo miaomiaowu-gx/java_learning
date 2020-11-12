@@ -42,11 +42,60 @@ alert(div1.html()); //调用 html() 方法，相当于 js 中的 innerHTML 属�
 
 1. JQuery 对象在操作时，更加方便。
 
-2. JQuery 对象和 js 对象方法不通用的。
+2. JQuery 对象和 js 对象方法是不通用的。
 
 3. 两者相互转换
-   * jq -- > js : `jq 对象[索引]` 或者 `jq 对象.get(索引)`
+   * jq -- > js : `jq对象[索引]` 或者 `jq对象.get(索引)`
    * js -- > jq : `$(js对象)`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuer对象和js对象的转换</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+    <div id="div1">div1....</div>
+    <div id="div2">div2....</div>
+    
+<script>
+    //1. 通过js方式来获取名称叫div的所有html元素对象
+    var divs = document.getElementsByTagName("div");
+    alert(divs.length);//可以将其当做数组来使用
+    //对divs中所有的div 让其标签体内容变为"aaa"
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].innerHTML = "aaa";
+    }
+
+    //2. 通过jq方式来获取名称叫div的所有html元素对象
+    var $divs = $("div");
+    alert($divs.length);//也可以当做数组使用
+    //对divs中所有的div 让其标签体内容变为"bbb"  使用jq方式
+    $divs.html("bbb");
+
+    /*
+        3. 两者相互转换
+            * jq -- > js : jq对象[索引] 或者 jq对象.get(索引)
+            * js -- > jq : $(js对象)
+     */
+
+    for (var i = 0; i < divs.length; i++) {
+        // js -- > jq
+        $(divs[i]).html("ccc");
+    }
+
+    // jq -- > js
+    $divs[0].innerHTML = "ddd";
+    $divs.get(1).innerHTML = "eee";
+    
+</script>
+
+</body>
+</html>
+```
 
 
 ### 19.4 选择器
