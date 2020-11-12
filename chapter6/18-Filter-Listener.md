@@ -229,14 +229,6 @@ public class LoginFilter implements Filter {
 
 3. 如果是敏感词汇，替换为 *** 
 
-**分析**：
-
-1. 对 request 对象的 getParameter 方法进行增强，产生一个新的 request对象。**增强获取参数相关方法**。
-
-2. 放行，传入新的 request对象。**传递代理对象**。
-
-**增强对象的功能**，可以使用设计模式（一些通用的解决固定问题的方式），**装饰模式与代理模式**均可以完成该功能。
-
 🍓 **代理模式**
 
 * 概念：
@@ -259,6 +251,176 @@ public class LoginFilter implements Filter {
     2. 增强返回值类型
     3. 增强方法体执行逻辑	
 
+🍓 **一个代理模式代码示例**
+
+```java
+package cn.itcast.proxy;
+
+public interface SaleComputer {
+    public String sale(double money);
+    public void show();
+}
+```
+
+```java
+package cn.itcast.proxy;
+
+/**
+ * 真实类
+ */
+public class Lenovo implements SaleComputer {
+    @Override
+    public String sale(double money) {
+        System.out.println("花了"+money+"元买了一台联想电脑...");
+        return "联想电脑";
+    }
+    @Override
+    public void show() {
+        System.out.println("展示电脑....");
+    }
+}
+```
+
+```java
+package cn.itcast.proxy;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+public class ProxyTest {
+
+    public static void main(String[] args) {
+        //1.创建真实对象
+        Lenovo lenovo = new Lenovo();     
+        //2.动态代理增强lenovo对象
+        /*
+            三个参数：
+                1. 类加载器：真实对象.getClass().getClassLoader()
+                2. 接口数组：真实对象.getClass().getInterfaces()
+                3. 处理器：new InvocationHandler()
+         */
+        SaleComputer proxy_lenovo = (SaleComputer) Proxy.newProxyInstance(lenovo.getClass().getClassLoader(), lenovo.getClass().getInterfaces(), new InvocationHandler() {
+            /*
+                代理逻辑编写的方法：代理对象调用的所有方法都会触发该方法执行
+                    参数：
+                        1. proxy:代理对象
+                        2. method：代理对象调用的方法，被封装为的对象
+                        3. args:代理对象调用的方法时，传递的实际参数
+             */
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                //判断是否是sale方法
+                if(method.getName().equals("sale")){
+                    //1.增强参数
+                    double money = (double) args[0];
+                    money = money * 0.85;
+                    System.out.println("专车接你....");
+                    //使用真实对象调用该方法
+                    String obj = (String) method.invoke(lenovo, money);
+                    System.out.println("免费送货...");
+                    //2.增强返回值
+                    return obj+"_鼠标垫";
+                }else{
+                    Object obj = method.invoke(lenovo, args);
+                    return obj;
+                }
+            }
+        });
+        //3.调用方法
+        String computer = proxy_lenovo.sale(8000);
+        System.out.println(computer);
+
+        proxy_lenovo.show();
+    }
+}
+```
+
+🍓 **案例 2**
+
+**分析**：
+
+1. 对 request 对象的 getParameter 方法进行增强，产生一个新的 request对象。**增强获取参数相关方法**。
+2. 放行，传入新的 request对象。**传递代理对象**。
+
+**增强对象的功能**，可以使用设计模式（一些通用的解决固定问题的方式），**装饰模式与代理模式**均可以完成该功能。
+
+```java
+package cn.itcast.web.filter;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 敏感词汇过滤器
+ */
+@WebFilter("/*")
+public class SensitiveWordsFilter implements Filter {
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        //1.创建代理对象，增强getParameter方法
+
+        ServletRequest proxy_req = (ServletRequest) Proxy.newProxyInstance(req.getClass().getClassLoader(), req.getClass().getInterfaces(), new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                //增强getParameter方法
+                //判断是否是getParameter方法
+                if(method.getName().equals("getParameter")){
+                    //增强返回值
+                    //获取返回值
+                    String value = (String) method.invoke(req,args);
+                    if(value != null){
+                        for (String str : list) {
+                            if(value.contains(str)){
+                                value = value.replaceAll(str,"***");
+                            }
+                        }
+                    }                   
+                    return  value;
+                }
+                //判断方法名是否是 getParameterMap
+
+                //判断方法名是否是 getParameterValue
+
+                return method.invoke(req,args);
+            }
+        });
+        //2.放行
+        chain.doFilter(proxy_req, resp);
+    }
+    private List<String> list = new ArrayList<String>();//敏感词汇集合
+    @Override
+    public void init(FilterConfig config) throws ServletException {
+        try{
+            //1.获取文件真实路径
+            ServletContext servletContext = config.getServletContext();
+            String realPath = servletContext.getRealPath("/WEB-INF/classes/敏感词汇.txt");
+            //2.读取文件
+            BufferedReader br = new BufferedReader(new FileReader(realPath));
+            //3.将文件的每一行数据添加到list中
+            String line = null;
+            while((line = br.readLine())!=null){
+                list.add(line);
+            }
+            br.close();
+            //System.out.println(list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void destroy() {
+    }
+}
+```
 
 ### 18.2 Listener 监听器 
 
