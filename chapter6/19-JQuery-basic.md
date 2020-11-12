@@ -105,23 +105,30 @@ alert(div1.html()); //调用 html() 方法，相当于 js 中的 innerHTML 属�
 
 1) 事件绑定
 
-```
+```js
 //1.获取b1按钮
 $("#b1").click(function(){
 	alert("abc");
 });
 ```
 
-2) 入口函数
+2) 入口函数：dom 文档加载完成之后执行该函数中的代码，与 window.onload 功能相似。
 
-```
+```js
 $(function () {
+});
+// 使用示例
+$(function () {
+    $("#b1").click(function(){
+    	alert("abc");
+    });  
 });
 ```
 
-window.onload  和 $(function) 区别
-* window.onload 只能定义一次，如果定义多次，后边的会将前边的覆盖掉。
-* $(function) 可以定义多次的。
+**window.onload  和 $(function) 区别**
+
+* `window.onload` 只能定义一次，如果定义多次，后边的会将前边的覆盖掉。
+* `$(function)` 可以定义多次的。
 
 3) 样式控制：css 方法
 
