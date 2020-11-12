@@ -349,13 +349,13 @@ $("#div2").css("backgroundColor","pink");
 
 ### 19.5 DOM 操作
 
-1) 内容操作
+**1) 内容操作**
 
-1. `html()`: 获取/设置元素的标签体内容  `<a><font>内容</font></a>`  --> `<font>内容</font>`
-2. `text()`: 获取/设置元素的标签体纯文本内容  ` <a><font>内容</font></a>` --> 内容
-3. `val()`： 获取/设置元素的 value 属性值
+1. `html()`：获取/设置元素的标签体内容  `<a><font>内容</font></a>`  --> `<font>内容</font>`：
+2. `text()`：获取/设置元素的标签体纯文本内容  ` <a><font>内容</font></a>` --> 内容
+3. `val()`：获取/设置元素的 value 属性值
 
-2) 属性操作
+**2) 属性操作**
 
 🍒 通用属性操作
 
@@ -376,7 +376,7 @@ $("#div2").css("backgroundColor","pink");
    * toggleClass("one")：判断如果元素对象上存在 class="one"，则将属性值 one 删除掉。如果元素对象上不存在 class="one"，则添加
 4. `css()`
 
-3) CRUD 操作:
+**3) CRUD 操作**
 
 1. `append()`：父元素将子元素追加到末尾
    * `对象1.append(对象2)`：将对象 2 添加到对象 1 元素内部，并且在末尾。
