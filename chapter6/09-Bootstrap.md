@@ -160,12 +160,12 @@
 	3. 插件：
 		* 轮播图
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200819001000118-326815601.png" width=900>
+<img src="./img6/40-boot-navig.png" width=900>
 
 
 <hr>
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200819001109924-1900457795.png" width=300>
+<img src="./img6/42-boot-page.png" width=300>
 
 
 ### 9.4 黑马旅游网案例
