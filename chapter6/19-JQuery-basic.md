@@ -294,56 +294,119 @@ $("#div2").css("backgroundColor","pink");
 4. 选中选择器 
    * 语法：`:selected` 获得下拉框选中的元素
 
+```html
+<!-- 文本输入框，disabled 属性的框不可输入-->
+<input type="text" value="不可用值1" disabled="disabled"> 
+<input type="text" value="可用值1" >
+<input type="text" value="不可用值2" disabled="disabled">
+<input type="text" value="可用值2" >
+
+<br><br>
+
+<!--复选框-->
+<input type="checkbox" name="items" value="美容" >美容
+<input type="checkbox" name="items" value="IT" >IT
+<input type="checkbox" name="items" value="金融" >金融
+<input type="checkbox" name="items" value="管理" >管理
+ 
+<br><br>
+ 
+<input type="radio" name="sex" value="男" >男
+<input type="radio" name="sex" value="女" >女
+  
+<br><br>
+
+<!--可多选的下拉框 multiple-->
+<select name="job" id="job" multiple="multiple" size=4>
+    <option>程序员</option>
+    <option>中级程序员</option>
+    <option>高级程序员</option>
+    <option>系统分析师</option>
+</select>
+
+<script type="text/javascript">
+	$(function () {
+		// <input type="button" value=" 利用 jQuery 对象的 val() 方法改变表单内可用 <input> 元素的值"  id="b1"/>
+		$("#b1").click(function () {
+			$("input[type='text']:enabled").val("aaa");
+		});
+		// <input type="button" value=" 利用 jQuery 对象的 val() 方法改变表单内不可用 <input> 元素的值"  id="b2"/>
+		$("#b2").click(function () {
+			$("input[type='text']:disabled").val("aaa");
+		});
+		// <input type="button" value=" 利用 jQuery 对象的 length 属性获取复选框选中的个数"  id="b3"/>
+		$("#b3").click(function () {
+			alert($("input[type='checkbox']:checked").length);
+		});
+		// <input type="button" value=" 利用 jQuery 对象的 length 属性获取下拉框选中的个数"  id="b4"/>
+		$("#b4").click(function () {
+			alert($("#job > option:selected").length); //统计下拉框 option 的个数！
+            //alert($("#job:selected").length); 永远值为1，因为下拉框只有一个
+		});
+	});
+</script>
+```
 
 ### 19.5 DOM 操作
 
 1) 内容操作
-			1. html(): 获取/设置元素的标签体内容   <a><font>内容</font></a>  --> <font>内容</font>
-			2. text(): 获取/设置元素的标签体纯文本内容   <a><font>内容</font></a> --> 内容
-			3. val()： 获取/设置元素的value属性值
+
+1. `html()`: 获取/设置元素的标签体内容  `<a><font>内容</font></a>`  --> `<font>内容</font>`
+2. `text()`: 获取/设置元素的标签体纯文本内容  ` <a><font>内容</font></a>` --> 内容
+3. `val()`： 获取/设置元素的 value 属性值
 
 2) 属性操作
-			1. 通用属性操作
-				1. attr(): 获取/设置元素的属性
-				2. removeAttr():删除属性
-				3. prop():获取/设置元素的属性
-				4. removeProp():删除属性
+
+🍒 通用属性操作
+
+1. `attr()`：获取/设置元素的属性
+2. `removeAttr()`：删除属性
+3. `prop()`：获取/设置元素的属性
+4. `removeProp()`：删除属性
 	
-				* attr和prop区别？
-					1. 如果操作的是元素的固有属性，则建议使用prop
-					2. 如果操作的是元素自定义的属性，则建议使用attr
-			2. 对class属性操作
-				1. addClass():添加class属性值
-				2. removeClass():删除class属性值
-				3. toggleClass():切换class属性
-					* toggleClass("one"): 
-						* 判断如果元素对象上存在class="one"，则将属性值one删除掉。  如果元素对象上不存在class="one"，则添加
-				4. css():
+* attr 和 prop 区别？
+   * 如果操作的是元素的固有属性，则建议使用 prop
+   * 如果操作的是元素自定义的属性，则建议使用 attr
+
+🍒 对 class 属性操作
+
+1. `addClass()`：添加 class 属性值
+2. `removeClass()`：删除 class 属性值
+3. `toggleClass()`：切换 class 属性
+   * toggleClass("one")：判断如果元素对象上存在 class="one"，则将属性值 one 删除掉。如果元素对象上不存在 class="one"，则添加
+4. `css()`
 
 3) CRUD 操作:
-			1. append():父元素将子元素追加到末尾
-				* 对象1.append(对象2): 将对象2添加到对象1元素内部，并且在末尾
-			2. prepend():父元素将子元素追加到开头
-				* 对象1.prepend(对象2):将对象2添加到对象1元素内部，并且在开头
-			3. appendTo():
-				* 对象1.appendTo(对象2):将对象1添加到对象2内部，并且在末尾
-			4. prependTo()：
-				* 对象1.prependTo(对象2):将对象1添加到对象2内部，并且在开头
 
+1. `append()`：父元素将子元素追加到末尾
+   * `对象1.append(对象2)`：将对象 2 添加到对象 1 元素内部，并且在末尾。
 
-			5. after():添加元素到元素后边
-				* 对象1.after(对象2)： 将对象2添加到对象1后边。对象1和对象2是兄弟关系
-			6. before():添加元素到元素前边
-				* 对象1.before(对象2)： 将对象2添加到对象1前边。对象1和对象2是兄弟关系
-			7. insertAfter()
-				* 对象1.insertAfter(对象2)：将对象2添加到对象1后边。对象1和对象2是兄弟关系
-			8. insertBefore()
-				* 对象1.insertBefore(对象2)： 将对象2添加到对象1前边。对象1和对象2是兄弟关系
-	
-			9. remove():移除元素
-				* 对象.remove():将对象删除掉
-			10. empty():清空元素的所有后代元素。
-				* 对象.empty():将对象的后代元素全部清空，但是保留当前对象以及其属性节点
+2. `prepend()`：父元素将子元素追加到开头
+   * `对象1.prepend(对象2)`：将对象 2 添加到对象 1 元素内部，并且在开头。
+
+3. `appendTo()`
+   * `对象1.appendTo(对象2)`:将对象 1 添加到对象 2 内部，并且在末尾。
+
+4. `prependTo()`
+   * `对象1.prependTo(对象2)`:将对象 1 添加到对象 2 内部，并且在开头。
+
+5. `after()`：添加元素到元素后边
+   * `对象1.after(对象2)`： 将对象 2 添加到对象 1 后边。对象 1 和对象 2 是兄弟关系。
+
+6. `before()`：添加元素到元素前边
+   * `对象1.before(对象2)`： 将对象 2 添加到对象 1 前边。对象 1 和对象 2 是兄弟关系。
+
+7. `insertAfter()`
+   * `对象1.insertAfter(对象2)`：将对象 2 添加到对象 1 后边。对象 1 和对象 2 是兄弟关系。
+
+8. `insertBefore()`
+   * `对象1.insertBefore(对象2)`： 将对象 2 添加到对象 1 前边。对象 1 和对象 2 是兄弟关系。
+
+9. `remove()`：移除元素
+   * `对象.remove()`：将对象删除掉。
+
+10. `empty()`：清空元素的所有后代元素。
+    * `对象.empty()`：将对象的后代元素全部清空，但是保留当前对象以及其属性节点。 
 
 
 
