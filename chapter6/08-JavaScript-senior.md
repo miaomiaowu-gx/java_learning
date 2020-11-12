@@ -132,7 +132,9 @@
 </html>
 ```
 
-### 8.3 BOM
+### 8.3 BOM 
+
+#### 8.3.1 介绍
 
 **1) 概念**：Browser Object Model 浏览器对象模型，将浏览器的各个组成部分封装成对象。
 	
@@ -148,21 +150,24 @@
 **3) Window**：窗口对象
 
 1. 创建
-2. 方法
+2. 方法 
+
 
     🍒 与弹出框有关的方法：
-
+    
     * `alert()` 显示带有一段消息和一个确认按钮的警告框。
     * `confirm()` 显示带有一段消息以及确认按钮和取消按钮的对话框。如果用户点击确定按钮，则方法返回 true，如果用户点击取消按钮，则方法返回 false。
     * `prompt()` 显示可提示用户输入的对话框。返回值：获取用户输入的值。
 
-    🍒 与打开关闭有关的方法：
 
+    🍒 与打开关闭有关的方法：
+    
     * `close()`	关闭浏览器窗口，谁调用关谁。调用：`要关闭的窗口对象.close()`。
     * `open(para)` 打开一个新的浏览器窗口，返回新的 Window 对象。para 可以为空，打开一个空页面。也可以是一个 http 网址，打开该指定页面。
 
-    🍒 与定时器有关的方式
 
+    🍒 与定时器有关的方式
+    
     * `setTimeout(para1, para2)` 在指定的毫秒数后调用函数或计算表达式。para1 为 js 代码或者方法对象，para2 为毫秒值。返回唯一标识，用于取消定时器。
     * `clearTimeout()` 取消由 setTimeout() 方法设置的 timeout。
     * `setInterval()` 按照指定的周期（以毫秒计）来调用函数或计算表达式。
@@ -200,8 +205,8 @@
 **5) History**：历史记录对象
 
 1. 创建(获取)：
-    1. window.history
-    2. history
+    * window.history
+    * history
 	
 2. 方法：
     * back()：加载 history 列表中的前一个 URL。
@@ -212,7 +217,7 @@
 
 	* length：返回当前窗口历史列表中的 URL 数量。
 
-#### 8.3.1 案例 2 ：轮播图 
+#### 8.3.2 案例 2 ：轮播图 
 
 ```html
 <!DOCTYPE html>
@@ -254,7 +259,7 @@
 ```
 
 
-#### 8.3.2 案例 3 ：自动跳转页面
+#### 8.3.3 案例 3 ：自动跳转页面
 
 ```html
 <!DOCTYPE html>
@@ -313,6 +318,7 @@
 
 ### 8.4 DOM
 
+#### 8.4.1 介绍
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817183814684-1416151803.bmp" width=600>
 
 
@@ -386,7 +392,7 @@
 
 
 
-### Node 对象演示
+#### 8.4.2 Node 对象演示 
 
 ```html
 <!DOCTYPE html>
@@ -451,12 +457,10 @@
         div1.appendChild(div3);
     }
 
-
     /*
         超链接功能：
             1.可以被点击：样式
             2.点击后跳转到href指定的url
-
         需求：保留1功能，去掉2功能
         实现：href="javascript:void(0);"
      */
@@ -470,7 +474,7 @@
 </html>
 ```
 
-### 案例 4 ：动态表格
+#### 8.4.3 案例 4 ：动态表格 
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817195324639-1804204332.png" width=500>
 
@@ -632,7 +636,7 @@
 </html>
 ```
 
-### HTMLDOM_控制样式
+#### 8.4.4 HTML DOM 控制样式 
 
 ```html
 <!DOCTYPE html>
@@ -687,87 +691,105 @@
 > 超链接功能 `<a>`：
 >
 >         1. 可以被点击：样式
->         2. 点击后跳转到href指定的url
+>         2. 点击后跳转到 href 指定的 url
 >    
->      需求：保留1功能，去掉2功能
+>      需求：保留 1 功能，去掉 2 功能
 >      实现：href="javascript:void(0);"
->
+
+### 8.5 事件监听机制 
+
+#### 8.5.1 介绍
+
+**概念**：某些组件被执行了某些操作后，触发某些代码的执行。	
+
+**事件**：某些操作。如： 单击，双击，键盘按下了，鼠标移动了
+
+**事件源**：组件。如： 按钮 文本输入框...
+
+**监听器**：代码。
+
+**注册监听**：将事件，事件源，监听器结合在一起。当事件源上发生了某个事件，则触发执行某个监听器代码。
 
 
 
+【常见的事件】
 
+**1) 点击事件**
 
-## 事件监听机制
+1. onclick：单击事件
+2. ondblclick：双击事件
 
-	* 概念：某些组件被执行了某些操作后，触发某些代码的执行。	
-		* 事件：某些操作。如： 单击，双击，键盘按下了，鼠标移动了
-		* 事件源：组件。如： 按钮 文本输入框...
-		* 监听器：代码。
-		* 注册监听：将事件，事件源，监听器结合在一起。 当事件源上发生了某个事件，则触发执行某个监听器代码。
+**2) 焦点事件**
 
-
-	* 常见的事件：
-		1. 点击事件：
-			1. onclick：单击事件
-			2. ondblclick：双击事件
-		2. 焦点事件
-			1. onblur：失去焦点
-				* 一般用于表单验证，如失去交点时，判断输入的用户名是否有效。
-			2. onfocus:元素获得焦点。
+1. onblur：失去焦点，一般用于表单验证，如失去交点时，判断输入的用户名是否有效。
+2. onfocus：元素获得焦点。
 	
-		3. 加载事件：
-			1. onload：一张页面或一幅图像完成加载。
-				window.onload = function(){页面加载完后，再执行代码}
+
+**3) 加载事件**
+
+1. onload：一张页面或一幅图像完成加载。
+   * `window.onload = function(){页面加载完后，再执行代码}`
 	
-		4. 鼠标事件：
-			1. onmousedown	鼠标按钮被按下。
-				* 定义方法时，定义一个形参，接受event对象。
-				* event对象的button属性可以获取鼠标按钮键被点击了。左键是0，中建是1，右键是2。
-			2. onmouseup	鼠标按键被松开。
-			3. onmousemove	鼠标被移动。
-			4. onmouseover	鼠标移到某元素之上。
-			5. onmouseout	鼠标从某元素移开。
+
+**4) 鼠标事件**
+
+1. onmousedown	鼠标按钮被按下。
+   * 定义方法时，定义一个形参，接受 event 对象。
+   * event 对象的 button 属性可以获取鼠标按钮键被点击了。左键是 0，中建是 1，右键是 2。
+
+2. onmouseup	鼠标按键被松开。
+
+3. onmousemove	鼠标被移动。
+
+4. onmouseover	鼠标移到某元素之上。
+
+5. onmouseout	鼠标从某元素移开。
 	
-		5. 键盘事件：
-			1. onkeydown	某个键盘按键被按下。	
-			2. onkeyup	某个键盘按键被松开。
-			3. onkeypress	某个键盘按键被按下并松开。
-			
-		6. 选择和改变
-			1. onchange	域的内容被改变。
-			2. onselect	文本被选中。
-	
-		7. 表单事件：
-			1. onsubmit	确认按钮被点击。
-				* 可以阻止表单的提交
-					* 方法返回false则表单被阻止提交。
-				共有两种方法：
-				<-- 方法一 -->
-				<form action="#" id="form" onclick="return checkForm();">  <--必须要加return，不能直接写函数名 -->
-				<input name="username" id="username">
-				<select id="city">
-					<option>--请选择--</option>
-					<option>北京</option>
-					<option>上海</option>
-					<option>西安</option>
-				</select>
-				<input type="submit" value="提交">
-				</form>
-	
-				function checkForm(){
-					return true;
-				}
-	
-				<-- 方法二 -->
-				document.getElementById("form").onsubmit = function(){
-				//校验用户名格式是否正确
-					var flag = false;
-					return flag;
-				}
-			2. onreset	重置按钮被点击。	
+
+**5) 键盘事件**
+
+1. onkeydown：某个键盘按键被按下。	
+2. onkeyup：某个键盘按键被松开。
+3. onkeypress：某个键盘按键被按下并松开。		
+
+**6) 选择和改变**
+
+1. onchange：域的内容被改变。
+2. onselect：文本被选中。
+
+**7) 表单事件**
+
+1. onsubmit：确认按钮被点击。可以阻止表单的提交，方法返回 false 则表单被阻止提交。共有两种方法：
+
+```html
+<-- 方法一 -->
+<form action="#" id="form" onclick="return checkForm();">  <--必须要加return，不能直接写函数名 -->
+	<input name="username" id="username">
+    <select id="city">
+        <option>--请选择--</option>
+        <option>北京</option>
+        <option>上海</option>
+        <option>西安</option>
+    </select>
+	<input type="submit" value="提交">
+</form>
+
+function checkForm(){
+	return true;
+}
+
+<-- 方法二 -->
+document.getElementById("form").onsubmit = function(){
+    //校验用户名格式是否正确
+    var flag = false;
+    return flag;
+}
+```
+
+2. onreset：重置按钮被点击。	
 
 
-### 案例 5 表格全选
+#### 8.5.2 案例 5 表格全选 
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817222739081-791800764.png" width=500>
 
@@ -927,7 +949,7 @@
 </html>
 ```
 
-### 案例 6 表单验证
+#### 8.5.3 案例 6 表单验证 
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200818144950693-1557554473.png" width=800>
 
