@@ -317,78 +317,98 @@
 ### 8.4 DOM
 
 #### 8.4.1 介绍
+
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817183814684-1416151803.bmp" width=600>
 
-
-	* 概念： Document Object Model 文档对象模型
-		* 将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行CRUD的动态操作
+**概念**： Document Object Model 文档对象模型 ，将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行 CRUD 的动态操作。
 	
-	* W3C DOM 标准被分为 3 个不同的部分：
-		* 核心 DOM - 针对【任何结构化文档】的标准模型
-			* Document：文档对象（重点）
-			* Element：元素对象（重点）
-			* Attribute：属性对象
-			* Text：文本对象
-			* Comment:注释对象
-			* Node：节点对象，其他5个的【父对象】（重点）
-		* XML DOM - 针对 XML 文档的标准模型
-		* HTML DOM - 针对 HTML 文档的标准模型
+**W3C DOM 标准被分为 3 个不同的部分**：
 
+ * 核心 DOM - 针对【任何结构化文档】的标准模型
 
-	* 核心DOM模型：
-		* Document：文档对象
-			1. 创建(获取)：在 html dom 模型中可以使用 window 对象来获取
-				1. window.document
-				2. document
-			2. 方法：
-				1. 获取 Element 对象：
-					1. getElementById()	： 根据id属性值获取元素对象。id属性值一般唯一
-					2. getElementsByTagName()：根据元素名称获取元素对象们。返回值是一个数组
-					3. getElementsByClassName():根据Class属性值获取元素对象们。返回值是一个数组
-					4. getElementsByName(): 根据name属性值获取元素对象们。返回值是一个数组
-				2. 创建其他 DOM 对象：
-					createAttribute(name)
-					createComment()
-					createElement()
-					createTextNode()
-			3. 属性
-		* Element：元素对象
-			1. 获取/创建：通过 document 来获取和创建
-			2. 方法：
-				1. removeAttribute()：删除属性
-				2. setAttribute()：设置属性
-		* Node：节点对象，其他 5 个的父对象
-			* 特点：所有 dom 对象都可以被认为是一个节点
-			* 方法：
-				* CRUD dom 树：
-					* appendChild()：向节点的子节点列表的结尾添加新的子节点。
-					* removeChild(para)	：删除（并返回）当前节点的指定子节点。
-					* replaceChild(para1, para2)：用新节点替换一个子节点。
-			* 属性：
-				* parentNode 返回节点的父节点。
+   * Document：文档对象（重点）
+   * Element：元素对象（重点）
+   * Attribute：属性对象
+   * Text：文本对象
+   * Comment：注释对象
+   * Node：节点对象，其他 5 个的【父对象】（重点）
+
+ * XML DOM - 针对 XML 文档的标准模型
+
+ * HTML DOM - 针对 HTML 文档的标准模型
+
+**核心 DOM 模型**
+
+**1) Document**：文档对象
+
+1. 创建(获取)：在 html dom 模型中可以使用 window 对象来获取
+   * window.document
+   * document
+
+2. 方法：
+   * 获取 Element 对象：
+      * `getElementById()`：根据 id 属性值获取元素对象。id 属性值一般唯一。
+      * `getElementsByTagName()`：根据元素名称获取元素对象们。返回值是一个数组。
+      * `getElementsByClassName()`：根据 Class 属性值获取元素对象们。返回值是一个数组。
+      * `getElementsByName()`：根据 name 属性值获取元素对象们。返回值是一个数组。
+
+   * 创建其他 DOM 对象：
+      * `createAttribute(name)`
+      * `createComment()`
+      * `createElement()`
+      * `createTextNode()`
 	
-	* HTML DOM
-		1. 标签体的设置和获取：innerHTML
-		2. 使用 html 元素对象的属性(遇到案例，查看API文档)
-		3. 控制元素样式
-			1. 使用元素的 style 属性来设置
-			    如：
-				//修改样式方式1
-			        div1.style.border = "1px solid red";
-			        div1.style.width = "200px";
-			        //font-size--> fontSize
-			        div1.style.fontSize = "20px";
-			2. 提前定义好类选择器的样式，通过元素的className属性来设置其class属性值。
-			        .d1{
-			                border: 1px solid red;
-			                width: 100px;
-			                height: 100px;
-			        }
+
+**2) Element**：元素对象
+
+1. 获取/创建：通过 document 来获取和创建
+
+2. 方法：
+
+   * removeAttribute()：删除属性
+   * setAttribute()：设置属性
 	
-			        div2.className = "d1";
 
+**3) Node**：节点对象，其他 5 个的父对象
 
+* 特点：所有 dom 对象都可以被认为是一个节点
 
+* 方法：
+   * CRUD dom 树：
+      * appendChild()：向节点的子节点列表的结尾添加新的子节点。
+      * removeChild(para)	：删除（并返回）当前节点的指定子节点。
+      * replaceChild(para1, para2)：用新节点替换一个子节点。
+
+* 属性：parentNode，返回节点的父节点。
+
+**HTML DOM**
+
+1. 标签体的设置和获取：innerHTML
+
+2. 使用 html 元素对象的属性(遇到案例，查看 API 文档)
+
+3. 控制元素样式
+
+   * 使用元素的 style 属性来设置
+   
+   ```html
+   //修改样式方式1
+   div1.style.border = "1px solid red";
+   div1.style.width = "200px";
+   //font-size--> fontSize
+   div1.style.fontSize = "20px";
+   ```
+
+   * 提前定义好类选择器的样式，通过元素的 className 属性来设置其 class 属性值。
+   
+   ```html
+   .d1{
+       border: 1px solid red;
+       width: 100px;
+       height: 100px;
+   }
+   div2.className = "d1";
+   ```
 
 #### 8.4.2 Node 对象演示 
 
