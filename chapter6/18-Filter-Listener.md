@@ -424,7 +424,7 @@ public class SensitiveWordsFilter implements Filter {
 
 ### 18.2 Listener 监听器 
 
-**概念**：web 的三大组件之一。
+**概念**：web 的三大组件之一。使用不多。
 
 **事件监听机制**
 
@@ -433,7 +433,7 @@ public class SensitiveWordsFilter implements Filter {
 * 监听器 ：一个对象
 * 注册监听：将事件、事件源、监听器绑定在一起。 当事件源上发生某个事件后，执行监听器代码
 
-ServletContextListener：监听 ServletContext 对象的创建和销毁
+**ServletContextListener**：监听 ServletContext 对象的**创建和销毁**
 
 * `void contextDestroyed(ServletContextEvent sce)` ：ServletContext 对象被销毁之前会调用该方法
 
@@ -450,6 +450,7 @@ ServletContextListener：监听 ServletContext 对象的创建和销毁
 🍒 web.xml
 
 ```xml
+<!-- 注册监听 -->
 <listener>
 	<listener-class>cn.itcast.web.listener.ContextLoaderListener</listener-class>
 </listener>
