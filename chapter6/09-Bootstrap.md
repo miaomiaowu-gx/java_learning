@@ -145,9 +145,9 @@
 		* 图片：
 			*  class="img-responsive"：图片在任意尺寸都占100%
 			*  图片形状
-				*  <img src="..." alt="..." class="img-rounded">：方形
-				*  <img src="..." alt="..." class="img-circle"> ： 圆形
-				*  <img src="..." alt="..." class="img-thumbnail"> ：相框
+				*  `<img src="..." alt="..." class="img-rounded">`：方形
+				*  `<img src="..." alt="..." class="img-circle">` ： 圆形
+				*  `<img src="..." alt="..." class="img-thumbnail">` ：相框
 		* 表格
 			* table
 			* table-bordered
@@ -161,6 +161,7 @@
 		* 轮播图
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200819001000118-326815601.png" width=900>
+
 
 <hr>
 
