@@ -106,8 +106,7 @@ width属性：
 
 案例：公司简介
 
-<img src="./img6/24-Company-profile.bmp" width=800>
-
+<img src="./img6/24-com.png" width=800>
 
 
 ~~~html
@@ -329,6 +328,7 @@ type 属性：
 **label标签**：指定输入项的文字描述信息。
 
 * 注意：label 的 for 属性一般会和 input 的 id 属性值对应。如果对应了，则点击 label 区域，会让 input 输入框获取焦点。
+
 ~~~html
 <!-- label标签将用户名文本与后面的输入框相连 -->
 <label for="username"> 用户名 </label>：<input type="text" name="username" placeholder="请输入用户名" id="username"><br>
@@ -425,7 +425,7 @@ type 属性：
 
 * 在h**ead标签内**，定义style标签，style标签的标签体内容就是css代码
 
-```
+```html
 <style>
 div{
       color:blue;
@@ -442,7 +442,7 @@ div{
 2. 在head标签内，定义**link标签**，引入外部的资源文件
 
 
-```
+```html
 <!-- a.css文件 -->					
 div{
       color:green;
@@ -555,7 +555,7 @@ div p{
 
 4. 父选择器：筛选选择器2的**父元素**选择器1。`选择器1 > 选择器2{}`
 
-```
+```html
 div > p {
       border: 1px solid;
 }
@@ -573,7 +573,7 @@ div > p {
 
 5. 属性选择器：选择元素名称，属性名=属性值的元素。`元素名称[属性名="属性值"]{}`
 
-```
+```html
 input[type='text']{
       border: 5px solid;
 }
@@ -593,7 +593,7 @@ input[type='text']{
 * `active`：正在访问状态
 * `hover`：鼠标悬浮状态
 
-```
+```html
 a:link{
 	color: pink;
 }
