@@ -164,13 +164,49 @@ $("#div2").css("backgroundColor","pink");
 **3) 属性选择器**
 
 1. 属性名称选择器 
-   * 语法： `$("A[属性名]")` 包含指定属性的选择器
+   * 语法： `$("A[属性名]")` 包含指定属性的选择器。
 
 2. 属性选择器
-   * 语法： `$("A[属性名='值']")` 包含指定属性等于指定值的选择器
+   * 语法： `$("A[属性名='值']")` 包含指定属性等于指定值的选择器。
 
 3. 复合属性选择器
-   * 语法： `$("A[属性名='值'][]...")` 包含多个属性条件的选择器
+   * 语法： `$("A[属性名='值'][]...")` 包含多个属性条件的选择器，两个条件同时选中才成立。
+
+```html
+ <script type="text/javascript">
+     //函数入口，加载后执行
+	$(function () { 
+		// <input type="button" value="【含有属性】title的div元素背景色为红色" id="b1"/>
+		$("#b1").click(function () {
+			$("div[title]").css("backgroundColor","pink");
+		});
+		// <input type="button" value="属性title值【等于】test的div元素背景色为红色" id="b2"/>
+		$("#b2").click(function () {
+			$("div[title='test']").css("backgroundColor","pink");
+		});
+		// <input type="button" value="属性title值【不等于】test的div元素(没有属性title的也将被选中)背景色为红色" id="b3"/>
+		$("#b3").click(function () {
+			$("div[title!='test']").css("backgroundColor","pink");
+		});
+		// <input type="button" value="属性title值【以te开始】的div元素背景色为红色"  id="b4"/>
+		$("#b4").click(function () {
+			$("div[title^='te']").css("backgroundColor","pink");
+		});
+		// <input type="button" value=" 属性title值【以est结束】的div元素背景色为红色" id="b5"/>
+		$("#b5").click(function () {
+			$("div[title$='est']").css("backgroundColor","pink");
+		});
+		// <input type="button" value="属性title值【含有es】的div元素背景色为红色" id="b6"/>
+		$("#b6").click(function () {
+			$("div[title*='es']").css("backgroundColor","pink");
+		});
+		// <input type="button" value="选取有属性id的div元素，然后在结果中选取属性title值含有“es”的 div 元素背景色为红色" id="b7"/>
+		$("#b7").click(function () {
+			$("div[id][title*='es']").css("backgroundColor","pink");
+		});
+	});
+</script>
+```
 
 **4) 过滤选择器**
 
