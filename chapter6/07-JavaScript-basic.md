@@ -195,7 +195,7 @@
 
 显示效果
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202007/2051825-20200729094256496-352584007.png" width=400>
+<img src="./img6/30-99-muilt.png" width=400>
 
 ```html
 <!DOCTYPE html>
