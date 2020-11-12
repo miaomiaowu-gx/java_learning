@@ -109,6 +109,7 @@ width属性：
 <img src="./img6/24-Company-profile.png" width=800>
 
 
+
 ~~~html
 <!DOCTYPE html>
 <html lang="ch">
