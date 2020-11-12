@@ -172,7 +172,7 @@
 
 #### 9.4.1 分析
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200819083459287-677876985.png" width=1000>
+<img src="./img6/43-boot-itheima.png" width=1000>
 
 #### 9.4.2 代码
 
