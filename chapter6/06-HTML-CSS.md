@@ -108,7 +108,6 @@ width属性：
 
 <img src="./img6/24-Company-profile.png" width=800>
 
-![](/chapter6/img6/24-Company-profile.png)
 
 ~~~html
 <!DOCTYPE html>
