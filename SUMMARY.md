@@ -52,11 +52,54 @@
   * [第十九节 JQuery 基础](chapter6/19-JQuery-basic.md)
   * [第二十节 JQuery 高级](chapter6/20-JQuery-senoir.md)
   * [第二十一节 Ajax & Json](chapter6/21-Ajax-Json.md)
-  * [第二十二节 redis](chapter6/22-redis.md)
-  * [第二十三节 maven 基础](chapter6/23-maven-basic.md)
   * [第二十四节 Linux](chapter6/24-Linux.md)
   * [第二十五节 Nginx](chapter6/25-Nginx.md)
 * [第七章 Maven 项目管理工具](chapter7.md)
+* [第八章 Redis](chapter8.md)
+* [第九章 Nginx](chapter9.md)
+* [第十章 Linux](chapter10.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
