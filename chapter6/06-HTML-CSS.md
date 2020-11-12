@@ -106,7 +106,7 @@ width属性：
 
 案例：公司简介
 
-<img src="./img6/24-Company-profile.png" width=800>
+<img src="./img6/24-Company-profile.bmp" width=800>
 
 
 
