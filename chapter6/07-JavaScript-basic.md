@@ -382,9 +382,9 @@ document.write(number);
 ```
 
 2. 方法	
-   * test(参数): 验证指定的字符串是否符合正则定义的规范。
+   * test (参数)：验证指定的字符串是否符合正则定义的规范。
 
-```
+```js
 var reg = new RegExp("^\\w{6,12}$");   // 在字符串中定义，使用转义字符。如 \ 需要写成 \\ 
 
 var reg2= /^\w{6,12}$/;
@@ -395,16 +395,16 @@ var username = "zhangsan";
 
 **9. Global**
 
-1）特点：全局对象，这个Global中封装的方法**不需要对象**就可以直接调用。`方法名();`
+1）特点：全局对象，这个 Global 中封装的方法**不需要对象**就可以直接调用。`方法名();`
 
 2）方法：
-* encodeURI(): url编码
-* decodeURI(): url解码
+* encodeURI()：url 编码
+* decodeURI()：url 解码
 	
-* encodeURIComponent(): url编码，编码的字符更多
-* decodeURIComponent(): url解码
+* encodeURIComponent()：url 编码，编码的字符更多
+* decodeURIComponent()：url 解码
 	
-```
+```js
 var str = "http://www.baidu.com?wd=传智播客";
 var encode = encodeURI(str);
 document.write(encode +"<br>");
@@ -426,21 +426,20 @@ http://www.baidu.com?wd=传智播客
 ```
 
 
-* parseInt(): 将字符串转为数字
+* parseInt()：将字符串转为数字
    * 逐一判断每一个字符是否是数字，直到不是数字为止，将前边数字部分转为 number。
 
-* isNaN(): 判断一个值是否是 NaN
+* isNaN()：判断一个值是否是 NaN
    * NaN 六亲不认，连自己都不认。NaN 参与的 == 比较全部问 false。
 
-* eval(): 讲 JavaScript 字符串，并把它作为脚本代码来执行。
+* eval()：参数为 JavaScript 字符串，并把它作为脚本代码来执行。
 
-```
+```js
 var jscode = "alert(123)";
 eval(jscode);
 ```
 
-3）URL编码
+3）URL 编码
 
-浏览器传输时，使用一些协议，如http协议，这些协议是不支持中文传输的。将中文转码的过程称为URL编码。
-传智播客 = %E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2  （一个百分号加两个16进制表示一个字节（8 bits））
+浏览器传输时，使用一些协议，如 http 协议，这些协议是不支持中文传输的。将中文转码的过程称为 URL 编码。传智播客 = %E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2  （一个百分号加两个16进制表示一个字节（8 bits））
 	
