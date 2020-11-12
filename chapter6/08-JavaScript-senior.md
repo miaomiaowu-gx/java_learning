@@ -318,7 +318,7 @@
 
 #### 8.4.1 介绍
 
-<img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817183814684-1416151803.bmp" width=600>
+<img src="./img6/31-dom.png" width=600>
 
 **概念**： Document Object Model 文档对象模型 ，将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行 CRUD 的动态操作。
 	
