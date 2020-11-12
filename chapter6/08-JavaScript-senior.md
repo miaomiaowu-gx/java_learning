@@ -149,48 +149,68 @@
 
 1. 创建
 2. 方法
-	         1. 与弹出框有关的方法：
-	            alert()	显示带有一段消息和一个确认按钮的警告框。
-	            confirm()	显示带有一段消息以及确认按钮和取消按钮的对话框。
-	                * 如果用户点击确定按钮，则方法返回true
-	                                * 如果用户点击取消按钮，则方法返回false
-	                        prompt()	显示可提示用户输入的对话框。
-	                                * 返回值：获取用户输入的值
-	         2. 与打开关闭有关的方法：
-	            close()	关闭浏览器窗口。
-	                * 谁调用我 ，我关谁
-	                    * 调用：要关闭的窗口对象.close()
-	            		open(para)	打开一个新的浏览器窗口
-	                    * 返回新的Window对象
-	                    * para 可以为空，打开一个空页面。也可以是一个 http 网址，打开该指定页面。
-	                  3. 与定时器有关的方式
-	            		setTimeout(para1, para2)	在指定的毫秒数后调用函数或计算表达式。
-	                    * 参数：
-	                    para1: js代码或者方法对象
-	                    para2: 毫秒值
-	                    * 返回值：唯一标识，用于取消定时器
-	            			clearTimeout()	取消由 setTimeout() 方法设置的 timeout。
-	
 
-	            setInterval()	按照指定的周期（以毫秒计）来调用函数或计算表达式。
-	            clearInterval()	取消由 setInterval() 设置的 timeout。
+    🍒 与弹出框有关的方法：
+
+    * `alert()` 显示带有一段消息和一个确认按钮的警告框。
+    * `confirm()` 显示带有一段消息以及确认按钮和取消按钮的对话框。如果用户点击确定按钮，则方法返回 true，如果用户点击取消按钮，则方法返回 false。
+    * `prompt()` 显示可提示用户输入的对话框。返回值：获取用户输入的值。
+
+    🍒 与打开关闭有关的方法：
+
+    * `close()`	关闭浏览器窗口，谁调用关谁。调用：`要关闭的窗口对象.close()`。
+    * `open(para)` 打开一个新的浏览器窗口，返回新的 Window 对象。para 可以为空，打开一个空页面。也可以是一个 http 网址，打开该指定页面。
+
+    🍒 与定时器有关的方式
+
+    * `setTimeout(para1, para2)` 在指定的毫秒数后调用函数或计算表达式。para1 为 js 代码或者方法对象，para2 为毫秒值。返回唯一标识，用于取消定时器。
+    * `clearTimeout()` 取消由 setTimeout() 方法设置的 timeout。
+    * `setInterval()` 按照指定的周期（以毫秒计）来调用函数或计算表达式。
+    * `clearInterval()` 取消由 setInterval() 设置的 timeout。
 
 3. 属性：
-	        1. 获取其他 BOM 对象：
-	            history 使用：var h1 = windows.history 或 var h2 = history
-	            location
-	            Navigator
-	            Screen
-	        2. 获取 DOM 对象
-	            document
+
+   * 获取其他 BOM 对象：
+      * history 使用：var h1 = windows.history 或 var h2 = history
+      * location
+      * Navigator
+      * Screen
+
+   * 获取 DOM 对象
+      * document
 4. 特点
 
    * 🍓 Window 对象不需要创建可以直接使用 window 使用。`window.方法名();`
-
    * 🍓 window 引用可以省略。`方法名();`
 
+**4) Location**：地址栏对象
 
+1. 创建(获取)：
+    * window.location
+    * location
 
+2. 方法：
+
+   * reload()：重新加载当前文档。刷新
+
+3. 属性
+
+   * href：设置或返回完整的 URL。
+
+**5) History**：历史记录对象
+
+1. 创建(获取)：
+    1. window.history
+    2. history
+	
+2. 方法：
+    * back()：加载 history 列表中的前一个 URL。
+    * forward()：加载 history 列表中的下一个 URL。
+    * go(参数)：加载 history 列表中的某个具体页面。参数是正数，前进几个历史记录。参数是负数，后退几个历史记录。
+
+3. 属性：
+
+	* length：返回当前窗口历史列表中的 URL 数量。
 
 #### 8.3.1 案例 2 ：轮播图 
 
@@ -233,22 +253,6 @@
 </html>
 ```
 
-
-<hr color=#987cb9 size=1>
-
-
-	4. Location：地址栏对象
-		1）创建(获取)：
-			1. window.location
-			2. location
-	
-		2）方法：
-			* reload()	重新加载当前文档。刷新
-		3）属性
-			* href	设置或返回完整的 URL。
-
-
-<hr color=#987cb9 size=1>
 
 #### 8.3.2 案例 3 ：自动跳转页面
 
@@ -306,28 +310,8 @@
 </html>
 ```
 
-<hr color=#987cb9 size=1>
 
-	5. History：历史记录对象
-	    1）创建(获取)：
-	        1. window.history
-	        2. history
-	
-	    2）方法：
-	        * back()	加载 history 列表中的前一个 URL。
-	        * forward()	加载 history 列表中的下一个 URL。
-	        * go(参数)	加载 history 列表中的某个具体页面。
-	            * 参数：
-	                * 正数：前进几个历史记录
-	                * 负数：后退几个历史记录
-	    3）属性：
-	        * length	返回当前窗口历史列表中的 URL 数量。
-
-
-
-
-
-## DOM
+### 8.4 DOM
 
 <img src="https://img2020.cnblogs.com/blog/2051825/202008/2051825-20200817183814684-1416151803.bmp" width=600>
 
