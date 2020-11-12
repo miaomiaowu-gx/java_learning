@@ -57,6 +57,7 @@
   * [第二十三节 maven 基础](chapter6/23-maven-basic.md)
   * [第二十四节 Linux](chapter6/24-Linux.md)
   * [第二十五节 Nginx](chapter6/25-Nginx.md)
+* [第七章 Maven 项目管理工具](chapter7.md)
 
 
 
