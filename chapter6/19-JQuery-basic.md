@@ -654,7 +654,7 @@ $("#city").empty();
 
 #### 19.6.4 下拉列表选中条目左右移动
 
-
+<img src="./img6/89-select.png" width=600>
 
 ```html
 <script>
