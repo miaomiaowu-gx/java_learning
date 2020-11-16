@@ -553,13 +553,103 @@ $("#city").empty();
 <img src="./img6/87-table-exm.png" width=600>
 
 ```html
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script  src="../../js/jquery-3.3.1.min.js"></script>
+		<script>
+			//分析：需要保证下边的选中状态和第一个复选框的选中状态一致即可
+            function selectAll(obj){
+                //获取下边的复选框
+				$(".itemSelect").prop("checked",obj.checked);
+            }
+		</script>
+	</head>
+	<body>
+		<table id="tab1" border="1" width="800" align="center" >
+			<tr>
+				<td colspan="5"><input type="button" value="删除"></td>
+			</tr>
+			<tr>
+				<th><input type="checkbox" onclick="selectAll(this)" ></th>
+				<th>分类ID</th>
+				<th>分类名称</th>
+				<th>分类描述</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="itemSelect"></td>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>手机数码类商品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="itemSelect"></td>
+				<td>2</td>
+				<td>电脑办公</td>
+				<td>电脑办公类商品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="itemSelect"></td>
+				<td>3</td>
+				<td>鞋靴箱包</td>
+				<td>鞋靴箱包类商品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="itemSelect"></td>
+				<td>4</td>
+				<td>家居饰品</td>
+				<td>家居饰品类商品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+		</table>
+	</body>
+</html>
 ```
 
 #### 19.6.3 qq 表情选择
 
 
 
+```html
+<script>
+    //需求：点击qq表情，将其追加到发言框中
+    $(function () {
+        //1.给img图片添加onclick事件
+        $("ul img").click(function(){
+            //2.追加到p标签中即可。
+            $(".word").append($(this).clone());
+        });
+    });
+</script>
 
+<!-- 分割线 -->
+
+<div class="emoji">
+    <ul>
+        <li><img src="img/01.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/02.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/03.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/04.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/05.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/06.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/07.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/08.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/09.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/10.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/11.gif" height="22" width="22" alt="" /></li>
+        <li><img src="img/12.gif" height="22" width="22" alt="" /></li>
+    </ul>
+    <p class="word">
+        <strong>请发言：</strong>
+        <img src="img/12.gif" height="22" width="22" alt="" />
+    </p>
+</div>
+```
 
 #### 19.6.4 下拉列表选中条目左右移动
