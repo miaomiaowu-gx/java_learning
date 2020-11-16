@@ -7,42 +7,42 @@
 
 1) 默认显示和隐藏方式
 
-1. `show([speed,[easing],[fn]])`
+1. `show([speed,[easing],[fn])`
    * speed：动画的速度。三个预定义的值("slow","normal", "fast")或表示动画时长的毫秒数值(如：1000)
    * easing：用来指定切换效果，默认是"swing"，可用参数"linear"
-      * swing：动画执行时效果是 先慢，中间快，最后又慢
+      * swing：动画执行时效果是先慢，中间快，最后又慢
       * linear：动画执行时速度是匀速的
-   * fn：在动画完成时执行的函数，每个元素执行一次。
+   * fn：在动画完成时执行的**函数**，每个元素执行一次。
 	
-2. `hide([speed,[easing],[fn]])`
+2. `hide([speed,[easing],[fn])`
 
 3. `toggle([speed],[easing],[fn])`
-			
-**2) 滑动显示和隐藏方式**
+
+**2) 滑动显示和隐藏方式**（由上到下收起放下）
 
 1. `slideDown([speed],[easing],[fn])`
 
-2. `slideUp([speed,[easing],[fn]])`
+2. `slideUp([speed,[easing],[fn])`
 
 3. `slideToggle([speed],[easing],[fn])`
-	
+
 **3) 淡入淡出显示和隐藏方式**
 
 1. `fadeIn([speed],[easing],[fn])`
 
 2. `fadeOut([speed],[easing],[fn])`
 
-3. `fadeToggle([speed,[easing],[fn]])`
+3. `fadeToggle([speed,[easing],[fn])`
 
 
 ### 20.2 遍历
 
 **1) js 的遍历方式**
 
-* for(初始化值;循环结束条件;步长)
+* for(初始化值; 循环结束条件; 步长)
 
 
-**2) jq 的遍历方式**
+**2) jq 的遍历方式**（三种）
 
 1. `jq对象.each(callback)`
 
