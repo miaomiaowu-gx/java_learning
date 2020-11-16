@@ -614,7 +614,7 @@ $("#city").empty();
 
 #### 19.6.3 qq 表情选择
 
-<img src="./img6/88-img.png" width=300>
+<img src="./img6/88-img.png" width=600>
 
 ```html
 <script>
@@ -653,3 +653,40 @@ $("#city").empty();
 ```
 
 #### 19.6.4 下拉列表选中条目左右移动
+
+
+
+```html
+<script>
+	//需求：实现下拉列表选中条目左右选择功能
+	$(function () {
+		//toRight
+		$("#toRight").click(function () {
+			//获取右边的下拉列表对象，append(左边下拉列表选中的option)
+			$("#rightName").append($("#leftName > option:selected"));
+		});
+		//toLeft
+		$("#toLeft").click(function () {
+			//appendTo   获取右边选中的option，将其移动到左边下拉列表中
+			$("#rightName > option:selected").appendTo($("#leftName"));
+		});
+	});
+</script>
+
+<div class="border">
+	<select id="leftName" multiple="multiple">
+		<option>张三</option>
+		<option>李四</option>
+		<option>王五</option>
+		<option>赵六</option>
+	</select>
+	<div id="btn">
+		<input type="button" id="toRight" value="-->"><br>
+		<input type="button" id="toLeft" value="<--">
+	</div>
+	<select id="rightName" multiple="multiple">
+		<option>钱七</option>
+	</select>
+</div>
+```
+
