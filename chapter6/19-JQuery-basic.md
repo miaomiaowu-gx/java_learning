@@ -490,10 +490,10 @@ $("#div2").css("backgroundColor","pink");
    * `对象1.prepend(对象2)`：将对象 2 添加到对象 1 元素内部，并且在开头。
 
 3. `appendTo()`
-   * `对象1.appendTo(对象2)`:将对象 1 添加到对象 2 内部，并且在末尾。
+   * `对象1.appendTo(对象2)`：将对象 1 添加到对象 2 内部，并且在末尾。
 
 4. `prependTo()`
-   * `对象1.prependTo(对象2)`:将对象 1 添加到对象 2 内部，并且在开头。
+   * `对象1.prependTo(对象2)`：将对象 1 添加到对象 2 内部，并且在开头。
 
 5. `after()`：添加元素到元素后边
    * `对象1.after(对象2)`： 将对象 2 添加到对象 1 后边。对象 1 和对象 2 是兄弟关系。
@@ -502,10 +502,10 @@ $("#div2").css("backgroundColor","pink");
    * `对象1.before(对象2)`： 将对象 2 添加到对象 1 前边。对象 1 和对象 2 是兄弟关系。
 
 7. `insertAfter()`
-   * `对象1.insertAfter(对象2)`：将对象 2 添加到对象 1 后边。对象 1 和对象 2 是兄弟关系。
+   * `对象1.insertAfter(对象2)`：将对象 1 添加到对象 2 后边。对象 1 和对象 2 是兄弟关系。
 
 8. `insertBefore()`
-   * `对象1.insertBefore(对象2)`： 将对象 2 添加到对象 1 前边。对象 1 和对象 2 是兄弟关系。
+   * `对象1.insertBefore(对象2)`： 将对象 1 添加到对象 2 前边。对象 1 和对象 2 是兄弟关系。
 
 9. `remove()`：移除元素
    * `对象.remove()`：将对象删除掉。
@@ -513,7 +513,51 @@ $("#div2").css("backgroundColor","pink");
 10. `empty()`：清空元素的所有后代元素。
     * `对象.empty()`：将对象的后代元素全部清空，但是保留当前对象以及其属性节点。 
 
-
+```html
+// <input type="button" value="将反恐放置到city的后面"  id="b1"/>
+$("#b1").click(function () {
+	 //append
+	 //$("#city").append($("#fk"));
+	 //appendTo
+	 $("#fk").appendTo($("#city"));
+ });
+// <input type="button" value="删除<li id='bj' name='beijing'>北京</li>"  id="b1"/>
+$("#b1").click(function () {
+$("#bj").remove();
+});
+// <input type="button" value="删除city所有的li节点   清空元素中的所有后代节点(不包含属性节点)"  id="b2"/>
+$("#b2").click(function () {
+$("#city").empty();
+});
+```
 
 ### 19.6 案例
 
+#### 19.6.1 隔行换色
+
+```html
+<script>
+	//需求：将数据行的奇数行背景色设置为 pink，偶数行背景色设置为 yellow
+	$(function () {
+		//1. 获取数据行的奇数行的tr，设置背景色为pink
+        //（标题行不算在内，从索引 1 开始，标题行对应索引 0）
+		$("tr:gt(1):odd").css("backgroundColor","pink");
+		//2. 获取数据行的偶数行的tr,设置背景色为yellow
+		$("tr:gt(1):even").css("backgroundColor","yellow");
+	});
+</script>
+```
+
+#### 19.6.2 全选全不选
+
+```html
+
+```
+
+#### 19.6.3 qq 表情选择
+
+
+
+
+
+#### 19.6.4 下拉列表选中条目左右移动
