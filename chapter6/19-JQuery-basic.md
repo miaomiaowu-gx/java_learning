@@ -355,7 +355,36 @@ $("#div2").css("backgroundColor","pink");
 2. `text()`：获取/设置元素的标签体纯文本内容  ` <a><font>内容</font></a>` --> 内容。参数为空则为获取参数值，参数不为空则为设置新值。
 3. `val()`：获取/设置元素的 value 属性值，参数为空则为获取参数值，参数不为空则为设置新值。
 
-
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script  src="../js/jquery-3.3.1.min.js"></script>
+		<script>
+			$(function () {
+                // 获取 myinput 的 value 值
+				var value = $("#myinput").val();
+				// 设置 value 值
+                $("#myinput").val("李四");
+                // 获取 mydiv 的标签体内容
+				var html = $("#mydiv").html();
+				// 设置标签体内容 
+                $("#mydiv").html("<p>aaaa</p>");
+                // 获取 mydiv 文本内容
+                var text = $("#mydiv").text();
+                // 🍓设置文本，设置后内容为 <div id="mydiv">bbb</div>，p 标签不存在！
+                $("#mydiv").text("bbb");
+            });
+		</script>
+	</head>
+	<body>
+		<input id="myinput" type="text" name="username" value="张三" /><br />
+		<div id="mydiv"><p><a href="#">标题标签</a></p></div>
+	</body>
+</html>
+```
 
 
 **2) 属性操作**
