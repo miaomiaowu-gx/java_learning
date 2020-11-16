@@ -614,7 +614,7 @@ $("#city").empty();
 
 #### 19.6.3 qq 表情选择
 
-
+<img src="./img6/88-img.png" width=300>
 
 ```html
 <script>
