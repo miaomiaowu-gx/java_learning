@@ -326,15 +326,198 @@
 
 
 
+分析：
 
-### 20.5 插件
+1 给开始按钮绑定单击事件
+
+* 1.1 定义循环定时器
+* 1.2 切换小相框的 src 属性
+  * 定义数组，存放图片资源路径
+  * 生成随机数。数组索引
+
+2 给结束按钮绑定单击事件
+* 2.1 停止定时器
+* 2.2 给大相框设置 src 属性
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery案例之抽奖</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+
+    <script language='javascript' type='text/javascript'>
+        var imgs = ["../img/man00.jpg",
+                    "../img/man01.jpg",
+                    "../img/man02.jpg",
+                    "../img/man03.jpg",
+                    "../img/man04.jpg",
+                    "../img/man05.jpg",
+                    "../img/man06.jpg",
+                    ];
+        var startId;//开始定时器的id
+        var index;//随机角标
+        $(function () {
+            //处理按钮是否可以使用的效果
+            $("#startID").prop("disabled",false);
+            $("#stopID").prop("disabled",true);
+            
+           //1. 给开始按钮绑定单击事件
+            $("#startID").click(function () {
+                // 1.1 定义循环定时器 20毫秒执行一次
+                startId = setInterval(function () {
+                    //处理按钮是否可以使用的效果
+                    $("#startID").prop("disabled",true);
+                    $("#stopID").prop("disabled",false);
+
+                    //1.2生成随机角标 0-6
+                    index = Math.floor(Math.random() * 7);//0.000--0.999 --> * 7 --> 0.0-----6.9999
+                    //1.3设置小相框的src属性
+                    $("#img1ID").prop("src",imgs[index]);
+
+                },20);
+            });
+            
+            //2. 给结束按钮绑定单击事件
+            $("#stopID").click(function () {
+                //处理按钮是否可以使用的效果
+                $("#startID").prop("disabled",false);
+                $("#stopID").prop("disabled",true);
+
+               // 1.1 停止定时器
+                clearInterval(startId);
+               // 1.2 给大相框设置src属性
+                $("#img2ID").prop("src",imgs[index]).hide();
+                //显示1秒之后
+                $("#img2ID").show(1000);
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<!-- 小像框 -->
+<div style="border-style:dotted;width:160px;height:100px">
+    <img id="img1ID" src="../img/man00.jpg" style="width:160px;height:100px"/>
+</div>
+
+<!-- 大像框 -->
+<div
+        style="border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px">
+    <img id="img2ID" src="../img/man00.jpg" width="800px" height="500px"/>
+</div>
+
+<!-- 开始按钮 -->
+<input
+        id="startID"
+        type="button"
+        value="点击开始"
+        style="width:150px;height:150px;font-size:22px">
+
+<!-- 停止按钮 -->
+<input
+        id="stopID"
+        type="button"
+        value="点击停止"
+        style="width:150px;height:150px;font-size:22px">
+</body>
+</html>
+```
+
+
+### 20.5 插件机制
 
 插件：增强 JQuery 的功能
 
 实现方式：
 
 1. `$.fn.extend(object)`，增强通过 Jquery 获取的对象的功能 `$("#id")`。
-2. `$.extend(object)`，增强 JQeury 对象自身的功能 `$/jQuery。`
+2. `$.extend(object)`，增强 JQeury 对象自身的功能 `$ 或 jQuery。`
 
 
+
+1）使用 jquery 插件，给 jq 对象添加 2 个方法：check() 选中所有复选框、uncheck() 取消选中所有复选框。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01-jQuery对象进行方法扩展</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //1.定义jqeury的对象插件，可以被所有jq对象使用
+        $.fn.extend({
+            //定义了一个check()方法。所有的jq对象都可以调用该方法
+            check:function () { //check方法名称
+               //让复选框选中
+                //this:调用该方法的jq对象
+                this.prop("checked",true);
+            },
+            uncheck:function () {
+                //让复选框不选中
+                this.prop("checked",false);
+            }
+        });
+        $(function () {
+           // 获取按钮
+            //$("#btn-check").check();
+            //复选框对象.check();
+            $("#btn-check").click(function () {
+                //获取复选框对象
+                $("input[type='checkbox']").check();
+            });
+            $("#btn-uncheck").click(function () {
+                //获取复选框对象
+                $("input[type='checkbox']").uncheck();
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="btn-check" type="button" value="点击选中复选框" onclick="checkFn()">
+<input id="btn-uncheck" type="button" value="点击取消复选框选中" onclick="uncheckFn()">
+<br/>
+<input type="checkbox" value="football">足球
+<input type="checkbox" value="basketball">篮球
+<input type="checkbox" value="volleyball">排球
+
+</body>
+</html>
+```
+
+2）对全局方法扩展 2 个方法，扩展 min 方法：求 2 个值的最小值；扩展 max 方法：求 2 个值最大值。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01-jQuery对象进行方法扩展</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $.extend({
+            max:function (a,b) {
+                //返回两数中的较大值
+                return a >= b ? a:b;
+            },
+            min:function (a,b) {
+                //返回两数中的较小值
+                return a <= b ? a:b;
+            }
+        });
+
+        //调用全局方法
+        var max = $.max(4,3);
+        //alert(max);
+        var min = $.min(1,2);
+        alert(min);
+    </script>
+</head>
+<body>
+</body>
+</html>
+```
 
