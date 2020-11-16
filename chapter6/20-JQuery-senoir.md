@@ -212,20 +212,119 @@
 3) 事件切换：toggle
 
 * `jq对象.toggle(fn1,fn2...)`，当单击 jq 对象对应的组件后，会执行 fn1。第二次点击会执行 fn2.....
-* 注意：1.9版本 .toggle() 方法删除，jQuery Migrate（迁移）插件可以恢复此功能。
+* 注意：1.9版本 `.toggle() `方法删除，jQuery Migrate（迁移）插件可以恢复此功能。
 
 ```html
+<!-- jQuery Migrate 插件 -->
 <script src="../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8">
 </script>
 ```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+           //获取按钮，调用toggle方法
+           $("#btn").toggle(function () {
+               //改变div背景色backgroundColor 颜色为 green
+               $("#myDiv").css("backgroundColor","green");
+           },function () {
+               //改变div背景色backgroundColor 颜色为 pink
+               $("#myDiv").css("backgroundColor","pink");
+           });
+        });
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="事件切换">
+    <div id="myDiv" style="width:300px;height:300px;background:pink">
+        点击按钮变成绿色，再次点击红色
+    </div>
+</body>
+</html>
+```
+
 
 ### 20.4 案例
 
 #### 20.4.1 广告显示和隐藏
 
+**需求**：
+
+1. 当页面加载完，3 秒后。自动显示广告
+
+2. 广告显示 5 秒后，自动消失。
+
+**分析**：
+
+1. 使用定时器来完成。setTimeout(执行一次定时器)
+
+2. 分析发现 JQuery 的显示和隐藏动画效果其实就是控制 display
+
+3. 使用 show/hide 方法来完成广告的显示
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>广告的自动显示与隐藏</title>
+    <style>
+        #content{width:100%;height:500px;background:#999}
+    </style>
+
+    <!--引入jquery-->
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        //入口函数，在页面加载完成之后，定义定时器，调用这两个方法
+        $(function () {
+           //定义定时器，调用adShow方法 3秒后执行一次
+           setTimeout(adShow,3000);
+           //定义定时器，调用adHide方法，8秒后执行一次
+            setTimeout(adHide,8000);
+        });
+        //显示广告
+        function adShow() {
+            //获取广告div，调用显示方法
+            $("#ad").show("slow");
+        }
+        //隐藏广告
+        function adHide() {
+            //获取广告div，调用隐藏方法
+            $("#ad").hide("slow");
+        }
+    </script>
+</head>
+<body>
+<!-- 整体的DIV -->
+<div>
+    <!-- 广告DIV -->
+    <!-- 由于 display=none，初始化后图片不显示 -->
+    <div id="ad" style="display: none;">
+        <img style="width:100%" src="../img/adv.jpg" />
+    </div>
+
+    <!-- 下方正文部分 -->
+    <div id="content">
+        正文部分
+    </div>
+</div>
+</body>
+</html>
+```
 
 
-#### 20.4.2 抽奖演示
+#### 20.4.2 抽奖
+
+
+
+
 
 
 
