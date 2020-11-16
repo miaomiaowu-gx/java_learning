@@ -37,26 +37,27 @@
 
 ### 20.2 遍历
 
-1) js 的遍历方式
+**1) js 的遍历方式**
 
 * for(初始化值;循环结束条件;步长)
 
 
-2) jq 的遍历方式
+**2) jq 的遍历方式**
 
-			1. jq对象.each(callback)
-				1. 语法：
-					jquery对象.each(function(index,element){});
-						* index:就是元素在集合中的索引
-						* element：就是集合中的每一个元素对象
-	
-						* this：集合中的每一个元素对象
-				2. 回调函数返回值：
-					* true:如果当前function返回为false，则结束循环(break)。
-					* false:如果当前function返回为true，则结束本次循环，继续下次循环(continue)
-			2. $.each(object, [callback])
-			3. for..of: jquery 3.0 版本之后提供的方式
-				for(元素对象 of 容器对象)
+1. `jq对象.each(callback)`
+
+	* 语法：`jquery对象.each(function(index,element){});`
+		* index：就是元素在集合中的索引
+		* element：就是集合中的每一个元素对象
+		* this：集合中的每一个元素对象
+		
+	* 回调函数返回值：
+		* true：如果当前 function 返回为 false，则结束循环(break)。	
+		* false：如果当前 function 返回为 true，则结束本次循环，继续下次循环(continue)。
+
+2. `$.each(object, [callback])`
+
+3. `for..of`: jquery 3.0 版本之后提供的方式：`for(元素对象 of 容器对象)`
 
 
 
