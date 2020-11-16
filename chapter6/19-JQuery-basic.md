@@ -391,14 +391,43 @@ $("#div2").css("backgroundColor","pink");
 
 🍒 通用属性操作
 
-1. `attr()`：获取/设置元素的属性
+1. `attr()`：获取/设置元素的属性，获取传属性名字，设置传入键值对。
 2. `removeAttr()`：删除属性
 3. `prop()`：获取/设置元素的属性
 4. `removeProp()`：删除属性
 	
 * attr 和 prop 区别？
-   * 如果操作的是元素的固有属性，则建议使用 prop
-   * 如果操作的是元素自定义的属性，则建议使用 attr
+   * 如果操作的是元素的**固有属性**，则建议使用 prop
+   * 如果操作的是元素**自定义的属性**，则建议使用 attr
+   * select 下 option 的所有属性（selected、disabled）**必须使用** prop 才能获取
+   * input 的 checked 属性**必须使用** prop 才能获取
+
+```html
+<head>
+	<script type="text/javascript">
+		$(function () {
+            //获取北京节点的name属性值
+			var name = $("#bj").attr("name");
+            //设置北京节点的name属性的值为dabeijing
+            $("#bj").attr("name","dabeijing");
+            //新增北京节点的discription属性 属性值是didu
+            $("#bj").attr("discription","didu");
+            //删除北京节点的name属性并检验name属性是否存在
+            $("#bj").removeAttr("name");
+            //获得hobby的的选中状态
+			var checked = $("#hobby").prop("checked");
+            //var checked = $("#hobby").attr("checked"); //获取不到，弹出undefined
+        });
+	</script>
+</head>
+<body>
+	 <ul>
+		 <li id="bj" name="beijing" xxx="yyy">北京</li>
+		 <li id="tj" name="tianjin">天津</li>
+	 </ul>
+	 <input type="checkbox" id="hobby"/>
+</body>
+```
 
 🍒 对 class 属性操作
 
