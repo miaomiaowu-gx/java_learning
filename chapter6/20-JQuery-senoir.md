@@ -41,6 +41,24 @@
 
 * for(初始化值; 循环结束条件; 步长)
 
+```html
+<script type="text/javascript">
+    $(function () {
+        //1.获取所有的 ul 下的 li
+        var citys = $("#city li");
+        //2.遍历li
+        for (var i = 0; i < citys.length; i++) {
+            if("上海" == citys[i].innerHTML){
+                //break; 结束循环
+                //continue; //结束本次循环，继续下次循环
+            }
+            //获取内容
+            alert(i+":"+citys[i].innerHTML);
+        }   
+    });   
+</script>    
+```
+
 
 **2) jq 的遍历方式**（三种）
 
