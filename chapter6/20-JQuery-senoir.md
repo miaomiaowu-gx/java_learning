@@ -64,14 +64,37 @@
 
 1. `jq对象.each(callback)`
 
-	* 语法：`jquery对象.each(function(index,element){});`
-		* index：就是元素在集合中的索引
-		* element：就是集合中的每一个元素对象
-		* this：集合中的每一个元素对象
-		
-	* 回调函数返回值：
-		* true：如果当前 function 返回为 false，则结束循环(break)。	
-		* false：如果当前 function 返回为 true，则结束本次循环，继续下次循环(continue)。
+* 语法：`jquery对象.each(function(index,element){});`
+   * index：就是元素在集合中的索引
+   * element：就是集合中的每一个元素对象
+   * this：集合中的每一个元素对象
+	
+* 回调函数返回值：
+   * true：如果当前 function 返回为 false，则结束循环(break)。	
+   * false：如果当前 function 返回为 true，则结束本次循环，继续下次循环(continue)。
+
+
+```html
+<script type="text/javascript">
+    $(function () {
+        //1.获取所有的 ul 下的 li
+        var citys = $("#city li");
+        //2. jq对象.each(callback)
+        //2.1 获取li对象第一种方式 this，不能获取到索引，空参！
+        citys.each(function () {
+            alert(this.innerHTML);
+            alert($(this).html());
+        });  
+        //2.2 获取li对象第二种方式，在回调函数中定义参数：index（索引）、element（元素对象）
+        //参数名可以起任意值
+        citys.each(function (index, element) {
+            alert(index+":"+element.innerHTML);
+            alert(index+":"+$(element).html());
+        }); 
+    });   
+</script> 
+```
+
 
 2. `$.each(object, [callback])`
 
