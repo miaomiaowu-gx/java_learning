@@ -128,17 +128,86 @@
 
 ### 20.3 事件绑定
 
-1) jquery 标准的绑定方式
-
-* `jq对象.事件方法(回调函数)；`
-* 注：如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
+1) jquery 标准的绑定方式：`jq对象.事件方法(回调函数);`
+* 如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
 * `表单对象.submit();` //让表单提交
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+           //1.获取name对象，绑定click事件
+           $("#name").click(function () {
+               alert("我被点击了...")
+           });
+
+           //给 name 绑定两个事件：鼠标移动到元素之上事件、绑定鼠标移出事件。
+            $("#name").mouseover(function () {
+               alert("鼠标来了...")
+            });
+            $("#name").mouseout(function () {
+                alert("鼠标走了...")
+            });
+
+            //简化操作，链式编程
+            $("#name").mouseover(function () {
+                alert("鼠标来了...")
+            }).mouseout(function () {
+                alert("鼠标走了...")
+            });
+            
+            alert("我要获得焦点了...")
+            //让文本输入框获得焦点，不传参，使用浏览器默认方法获得焦点
+            $("#name").focus();
+            //表单对象.submit();//让表单提交
+        });
+    </script>
+</head>
+<body>
+<input id="name" type="text" value="绑定点击事件">
+</body>
+</html>
+```
 
 2) on 绑定事件/off 解除绑定
 
 * `jq对象.on("事件名称",回调函数)`
 * `jq对象.off("事件名称")`
-* 如果 off 方法不传递任何参数，则将组件上的所有事件全部解绑
+* 如果 off 方法**不传递任何参数**，则将组件上的所有事件**全部解绑**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+           //1.使用on给按钮绑定单击事件  click
+           $("#btn").on("click",function () {
+               alert("我被点击了。。。")
+           }) ;
+           //2. 使用off解除btn按钮的单击事件
+            $("#btn2").click(function () {
+                //解除btn按钮的单击事件
+                //$("#btn").off("click");
+                $("#btn").off();//将组件上的所有事件全部解绑
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="使用on绑定点击事件">
+<input id="btn2" type="button" value="使用off解绑点击事件">
+</body>
+</html>
+```
 
 3) 事件切换：toggle
 
