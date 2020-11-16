@@ -147,6 +147,30 @@
 
 #### 1.1.3 代码编写
 
+1 在 webapp 下创建 index.jsp 文件
+
+```jsp
+
+```
+
+2 在 java 文件夹下创建 cn.itcast.controller.HelloController 类
+
+```java
+
+```
+
+3 更新 springmvc.xml 文件约束
+
+```xml
+
+```
+
+
+
+ 
+
+
+
 
 
 
