@@ -550,6 +550,8 @@ $("#city").empty();
 
 #### 19.6.2 全选全不选
 
+<img src="./img6/87-table-exm.png" width=600>
+
 ```html
 
 ```
