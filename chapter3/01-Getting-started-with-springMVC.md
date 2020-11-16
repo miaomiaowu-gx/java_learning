@@ -4,7 +4,7 @@
 
 #### 1.1.1 需求分析
 
-
+<img src="./img3/02-Introductory-cases.png" width=300>
 
 #### 1.1.2 搭建开发环境
 
