@@ -63,6 +63,36 @@
 
 ### 20.3 事件绑定
 
+1) jquery 标准的绑定方式
+
+* jq对象.事件方法(回调函数)；
+* 注：如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
+* 表单对象.submit();//让表单提交
+
+2) on 绑定事件/off 解除绑定
+
+* jq对象.on("事件名称",回调函数)
+* jq对象.off("事件名称")
+* 如果 off 方法不传递任何参数，则将组件上的所有事件全部解绑
+
+3) 事件切换：toggle
+
+* jq对象.toggle(fn1,fn2...)，当单击 jq 对象对应的组件后，会执行 fn1。第二次点击会执行 fn2.....
+* 注意：1.9版本 .toggle() 方法删除,jQuery Migrate（迁移）插件可以恢复此功能。
+
+`<script src="../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8"></script>`
+
+
 ### 20.4 案例
 
 ### 20.5 插件
+
+插件：增强 JQuery 的功能
+
+实现方式：
+
+1. `$.fn.extend(object)`，增强通过 Jquery 获取的对象的功能 `$("#id")`。
+2. `$.extend(object)`，增强 JQeury 对象自身的功能 `$/jQuery。`
+
+
+
