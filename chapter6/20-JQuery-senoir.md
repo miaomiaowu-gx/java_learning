@@ -322,8 +322,7 @@
 
 #### 20.4.2 抽奖
 
-
-
+<img src="./img6/90-luck-draw.png" width=700>
 
 
 
