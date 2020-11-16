@@ -10,11 +10,21 @@
 
 1 创建新工程，选择 Maven 并勾选 Create from archetype，选择 org.apache.maven.archetypes:maven-archetype-webapp。GroupId 设为 cn.itcast，Artifactld 设为 `springmvc_quick_start`。
 
-* 解决项目创建过慢问题，添加键值对`archetypeCatalog
-: internal`。
+* 解决项目创建过慢问题，添加键值对`archetypeCatalog : internal`。
+
+2 
 
 
-internal
+
+3 
+
+
+
+
+
+4 
+
+
 
 #### 1.1.3 代码编写
 
