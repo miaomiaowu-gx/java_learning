@@ -391,7 +391,7 @@ $("#div2").css("backgroundColor","pink");
 
 🍒 通用属性操作
 
-1. `attr()`：获取/设置元素的属性，获取传属性名字，设置传入键值对。
+1. `attr()`：获取/设置元素的属性，**获取**传属性名字，**设置**传入键值对。
 2. `removeAttr()`：删除属性
 3. `prop()`：获取/设置元素的属性
 4. `removeProp()`：删除属性
@@ -436,6 +436,50 @@ $("#div2").css("backgroundColor","pink");
 3. `toggleClass()`：切换 class 属性
    * toggleClass("one")：判断如果元素对象上存在 class="one"，则将属性值 one 删除掉。如果元素对象上不存在 class="one"，则添加
 4. `css()`
+
+```html
+<style type="text/css">	
+		/*待用的样式*/
+		.second{
+			width: 300px;
+			height: 340px;
+			margin: 20px;
+			background: yellow;
+			border: pink 3px dotted;
+			float:left;
+			font-size: 22px;
+			font-family:Roman;
+		}			
+ </style>
+<script type="text/javascript">
+	$(function () {
+		//<input type="button" value="采用属性增加样式(改变id=one的样式)"  id="b1"/>
+		$("#b1").click(function () {
+			$("#one").prop("class","second");
+		});
+		//<input type="button" value=" addClass"  id="b2"/>
+		$("#b2").click(function () {
+			$("#one").addClass("second");
+		});
+		//<input type="button" value="removeClass"  id="b3"/>
+		$("#b3").click(function () {
+			$("#one").removeClass("second");
+		});
+		//<input type="button" value=" 切换样式"  id="b4"/>
+		$("#b4").click(function () {
+			$("#one").toggleClass("second");
+		});
+		//<input type="button" value=" 通过css()获得id为one背景颜色"  id="b5"/>
+		$("#b5").click(function () {
+			var backgroundColor = $("#one").css("backgroundColor");
+		});
+		//<input type="button" value=" 通过css()设置id为one背景颜色为绿色"  id="b6"/>
+		$("#b6").click(function () {
+			 $("#one").css("backgroundColor","green");
+		});
+	});	 
+</script>
+```
 
 **3) CRUD 操作**
 
