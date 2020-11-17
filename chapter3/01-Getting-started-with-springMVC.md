@@ -671,11 +671,59 @@ public class ParamController {
 
 **解决方案**：自定义类型转换器
 
+1 在 java 文件夹下创建 cn.itcast.utils.StringToDateConverter 日期转换类
 
+```java
+package cn.itcast.utils;
 
+import org.springframework.core.convert.converter.Converter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/**
+ * 把字符串转换日期
+ * Converter<S, T>：
+ *  第一个参数 S 固定为字符串（页面以字符串形式传递所有数据）
+ *  第二个参数 T 为要转换的类型
+ */
+public class StringToDateConverter implements Converter<String, Date>{
+    /**
+     * String source    传入进来字符串
+     */
+    @Override
+    public Date convert(String source) {
+        // 判断
+        if(source == null){
+            throw new RuntimeException("请您传入数据");
+        }
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
+        try {
+            // 把字符串转换日期
+            return df.parse(source);
+        } catch (Exception e) {
+            throw new RuntimeException("数据类型转换出现错误");
+        }
+    }
+}
+```
 
+2 在 springmvc.xml 文件中添加**自定义类型转换器配置**
+
+```xml
+<!--配置自定义类型转换器-->
+<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <property name="converters">
+        <set>
+            <bean class="cn.itcast.utils.StringToDateConverter"/>
+        </set>
+    </property>
+</bean>
+
+<!-- 开启SpringMVC框架注解的支持-->
+<mvc:annotation-driven conversion-service="conversionService"/>
+```
 
 #### 1.2.6 获取Servlet原生的API
 
