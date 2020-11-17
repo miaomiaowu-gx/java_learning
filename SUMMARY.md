@@ -28,6 +28,7 @@
   * [第八节 Spring 中的事务控制](chapter2/08-Transaction-control-in-spring.md)
 * [第三章 SpringMVC](chapter3.md)
   * [第一节 SpringMVC 入门](chapter3/01-Getting-started-with-springMVC.md)
+  * [第二节 常用注解](chapter3/02-common-notes.md)
 * [第四章 SpringBoot](chapter4.md)
 * [第五章 JVM 虚拟机](chapter5.md)
 * [第六章 JavaWeb](chapter6.md)
