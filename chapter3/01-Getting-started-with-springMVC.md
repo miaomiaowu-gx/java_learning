@@ -363,7 +363,105 @@ er"></bean>
 <!-- End -->
 ```
 
-#### 1.1.6 RequestMapping注解 
+#### 1.1.6 RequestMapping 注解 
+
+**作用**：用于建立请求 URL 和处理请求方法之间的对应关系。 
+
+**源码**：
+
+```java
+@Target({ElementType.METHOD, ElementType.TYPE}) //元注解：可作用在方法、作用在类上
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Mapping
+public @interface RequestMapping {
+    String name() default "";
+
+    @AliasFor("path")
+    String[] value() default {};
+
+    @AliasFor("value")
+    String[] path() default {};
+
+    RequestMethod[] method() default {};
+    String[] params() default {};
+    String[] headers() default {};
+    String[] consumes() default {};
+    String[] produces() default {};
+}
+
+/*
+@Retention 按生命周期来划分可分为 3 类：
+1、RetentionPolicy.SOURCE：注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
+2、RetentionPolicy.CLASS：注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
+3、RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
+这3个生命周期分别对应于：Java源文件(.java文件) ---> .class文件 ---> 内存中的字节码。
+*/
+```
+
+**出现位置**： 
+
+* 类上：请求 URL 的第一级访问目录。此处不写的话，就相当于应用的根目录。 写的话需要以 `/` 开头。它出现的目的是为了使 URL 可以按照模块化管理: 
+
+```
+账户模块：
+/account/add
+/account/update
+/account/delete
+
+订单模块：
+/order/add
+/order/update
+/order/delete
+
+/account 与 /order 就是把 RequsetMappding 写在类上，使 URL 更加精细。
+```
+
+* 方法上：请求 URL 的第二级访问目录。
+
+**属性**： 
+
+1. `value`：用于指定请求的 URL。 它和 path 属性的作用是一样的。
+
+2. `method`：用于指定请求的方式。取值有：RequestMethod.GET、RequestMethod.POST、RequestMethod.DELETE、RequestMethod.HEAD 等。
+
+3. `params`：用于指定限制请求参数的条件。它支持简单的表达式。 要求请求参数的 key 和 value 必须和配置的一模一样。
+
+    ```html
+    params = {"accountName"}，表示 url 请求参数必须有 accountName，例：
+    <a href="/testRequestMapping?accountName">RequestMapping 注解</a>
+    
+    params = {"moeny=100"}，表示请求参数中 money 必须是 100，例：
+    <a href="/testRequestMapping?moeny=100">RequestMapping 注解</a>
+    ```
+    
+4. `headers`：用于指定限制请求消息头的条件。
+
+注意：以上四个属性只要出现 2 个或以上时，他们的关系是与的关系。 
+
+#### 1.1 7 配置注意事项
+
+🍒 **在 jsp 中使用第二种方法配置时，不要在访问 URL 前面加 `/`，否则无法找到资源。** 
+
+```html
+<!-- 第一种访问方式 -->
+<a href="${pageContext.request.contextPath}/account/findAccount">查询账户</a>
+<br/>
+<!-- 第二种访问方式 -->
+<a href="account/findAccount">查询账户</a>
+```
+
+### 1.2 请求参数的绑定
+
+
+
+
+
+
+
+### 1.3 常用注解
+
+
 
 
 
