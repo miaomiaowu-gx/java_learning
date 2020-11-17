@@ -294,3 +294,23 @@ public class HelloController {
 
 #### 1.1.5 使用的组件介绍
 
+
+<img src="./img3/04-component-execution-process.png" width=1300>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
