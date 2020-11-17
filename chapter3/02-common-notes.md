@@ -73,6 +73,22 @@ public class AnnoController {
 
 **使用示例**：
 
+```html
+<a href="anno/testPathVariable/10">testPathVariable</a>
+```
+
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+    @RequestMapping(value="/testPathVariable/{sid}")
+    public String testPathVariable(@PathVariable(name="sid") String id){
+        System.out.println("执行了...");
+        System.out.println(id);
+        return "success";
+    }
+}
+```
 **分析**：
 
 
