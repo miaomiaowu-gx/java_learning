@@ -671,7 +671,9 @@ public class ParamController {
 
 **解决方案**：自定义类型转换器
 
-1 在 java 文件夹下创建 cn.itcast.utils.StringToDateConverter 日期转换类
+1 **定义一个类，实现 Converter 接口，该接口有两个泛型**。
+
+* 在 java 文件夹下创建 cn.itcast.utils.StringToDateConverter 日期转换类
 
 ```java
 package cn.itcast.utils;
@@ -709,7 +711,9 @@ public class StringToDateConverter implements Converter<String, Date>{
 }
 ```
 
-2 在 springmvc.xml 文件中添加**自定义类型转换器配置**
+2 在 springmvc.xml 文件中添加**自定义类型转换器配置**，将自定义的转换器注册到类型转换服务中去。 
+
+3 在 **annotation-driven** 标签中**引用**配置的类型转换服务。 
 
 ```xml
 <!--配置自定义类型转换器-->
@@ -727,14 +731,62 @@ public class StringToDateConverter implements Converter<String, Date>{
 
 #### 1.2.6 获取Servlet原生的API
 
+1 超链接
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>Servlet原生的API</h3>
+    <a href="param/testServlet">Servlet原生的API</a>
+</body>
+</html>
+```
+
+2 想获取什么对象，就在 Controller 函数参数中添加对应的变量
+
+```java
+package cn.itcast.controller;
+
+import cn.itcast.domain.Account;
+import cn.itcast.domain.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/param")
+public class ParamController {
+    // 原生的API
+    @RequestMapping("/testServlet")
+    public String testServlet(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("执行了...");
+        System.out.println(request);
+
+        HttpSession session = request.getSession();
+        System.out.println(session);
+
+        ServletContext servletContext = session.getServletContext();
+        System.out.println(servletContext);
+
+        System.out.println(response);
+        return "success";
+    }
+}
+```
 
 
-### 1.3 常用注解
 
 
 
-
-
+  
 
 
 
