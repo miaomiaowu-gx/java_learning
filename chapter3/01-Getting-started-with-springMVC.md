@@ -453,9 +453,64 @@ public @interface RequestMapping {
 
 ### 1.2 请求参数的绑定
 
+#### 1.2.1 绑定的机制 
+
+表单中请求参数都是基于 key=value，SpringMVC 绑定请求参数的过程是通过把表单提交请求参数，作为控制器中方法参数进行绑定的。 
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>请求参数</h3>
+    <a href="param/testParam?username=haha&password=1234">请求参数</a>
+</body>
+</html>
+```
+
+```java
+@Controller
+@RequestMapping("/param")
+public class ParamController {
+    @RequestMapping("/testParam")
+    public String testRequestMapping(String username, String password){
+        System.out.println("请求参数绑定 ...");
+        System.out.println("用户名： "+username);
+        System.out.println("密码： "+password);
+        return "success";
+    }
+}
+```
+
+**支持的数据类型：**
+
+* **基本类型参数**：包括基本类型和 String 类型，**要求参数名称必须和控制器中方法的形参名称保持一致。 (严格区分大小写)**
+* POJO 类型参数：包括**实体类**，以及关联的实体类，要求表单中参数名称和 POJO 类的属性名称保持一致。并且控制器方法的参数类型是 POJO 类型。
+* **数组和集合类型参数**：包括 List 结构和 Map 结构的集合（包括数组） 
+
+#### 1.2.2 请求参数绑定实体类型
 
 
 
+#### 1.2.3 配置解决中文乱码的过滤器
+
+
+
+#### 1.2.4 请求参数绑定集合类型
+
+
+
+
+
+#### 1.2.5 自定义类型转换器
+
+
+
+
+
+#### 1.2.6 获取Servlet原生的API
 
 
 
