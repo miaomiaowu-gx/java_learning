@@ -588,6 +588,8 @@ public class Account implements Serializable{
 
     private List<User> list;
     private Map<String,User> map;
+    
+    ...
 }    
 ```
 
@@ -621,7 +623,53 @@ public class Account implements Serializable{
 
 #### 1.2.5 自定义类型转换器
 
+##### 1.2.5.1 问题描述-文本框输入含有日期对象
 
+**实体类**
+
+```java
+public class User implements Serializable{
+    private String uname;
+    private Integer age;
+    private Date date;
+}
+```
+
+**提交表单**
+
+```jsp
+<%--自定义类型转换器--%>
+<form action="param/saveUser" method="post">
+    用户姓名：<input type="text" name="uname" /><br/>
+    用户年龄：<input type="text" name="age" /><br/>
+    用户生日：<input type="text" name="date" /><br/>
+    <input type="submit" value="提交" />
+</form>
+```
+
+**Controller**
+
+```java
+@Controller
+@RequestMapping("/param")
+public class ParamController {
+    // 自定义类型转换器
+    @RequestMapping("/saveUser")
+    public String saveUser(User user){
+        System.out.println("执行了...");
+        System.out.println(user);
+        return "success";
+    }
+}
+```
+
+当用户生日输入 `2020/11/11` 时，可正常访问。然而，当输入 `2020-11-11` 会**报 400-Bad Request 错误**。
+
+##### 1.2.5.2 解决方案
+
+**分析**：在表单处输入的任意数据都会作为字符串提交，如用户年龄值 99，SpringMvc 会将该字符串转为 Integer 类型。而输入的 2020/11/11，SpringMvc 无法将其转换为 Date 类型。
+
+**解决方案**：自定义类型转换器
 
 
 
