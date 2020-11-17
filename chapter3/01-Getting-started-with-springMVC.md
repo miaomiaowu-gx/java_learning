@@ -147,27 +147,130 @@
 
 #### 1.1.3 代码编写
 
-1 在 webapp 下创建 index.jsp 文件
+1 在 webapp 下创建 index.jsp 文件（主页面）
 
 ```jsp
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>入门程序</h3>
+    <a href="/hello">入门程序</a>
+</body>
+</html>
 ```
 
 2 在 java 文件夹下创建 cn.itcast.controller.HelloController 类
 
 ```java
+package cn.itcast.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+// 控制器类
+@Controller
+public class HelloController {
+    @RequestMapping("/hello")  
+    public String sayHello(){
+        System.out.println("Hello StringMVC");
+        //返回值字符串的名字，是跳转后的文件名
+        return "success";  //跳转到 success.jsp 文件
+    }
+}
+
+/*
+@Controller：定义了一个控制器类，使用它标记的类就是一个 SpringMvc Controller 对象，分发处理器会扫描使用该注解的类的方法，并检测该方法是否使用了 @RequestMapping 注解。
+* @Controller 只是定义了一个控制器类，而使用 @RequestMapping 注解的方法才是处理请求的处理器。
+* @Controller 标记在一个类上还不能真正意义上说它就是 SpringMvc 的控制器，因为这个时候 Spring 还不认识它，需要把这个控制器交给 Spring 来管理。有两种方式可以管理：
+
+<!--基于注解的装配-->
+
+<!--方式一-->
+<bean class="com.HelloWorld"/>
+
+<!--方式二-->
+<!--路径写到controller的上一层-->
+<context:component-scan base-package="com"/>
+*/
 ```
 
-3 更新 springmvc.xml 文件约束
+
+3 在 WEB-INF 中创建 pages文件夹，在 pages文件夹创建 success.jsp 文件
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>入门成功</h3>
+</body>
+</html>
+```
+
+4 更新 springmvc.xml 文件约束
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 开启注解扫描 -->
+    <context:component-scan base-package="cn.itcast"/>
+
+    <!-- 视图解析器对象 帮助跳转指定页面-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- prefix：文件路径 -->
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <!-- suffix：文件后缀名 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 开启 SpringMVC 框架注解的支持 -->
+    <mvc:annotation-driven/>
+</beans>
 ```
 
-4 在 WEB-INF 中创建 pages文件夹，
+ 5 在 web.xml 中加载配置文件
 
- 
+```xml
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <!-- 使用前端控制器加载配置文件 -->
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
+```
+
+
 
 
 
