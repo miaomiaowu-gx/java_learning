@@ -475,6 +475,7 @@ public @interface RequestMapping {
 @RequestMapping("/param")
 public class ParamController {
     @RequestMapping("/testParam")
+    //参数 username、password 与请求 url 中的参数一致！否则获取不到值。
     public String testRequestMapping(String username, String password){
         System.out.println("请求参数绑定 ...");
         System.out.println("用户名： "+username);
@@ -492,19 +493,137 @@ public class ParamController {
 
 #### 1.2.2 请求参数绑定实体类型
 
+**实体类**
 
+```java
+public class User implements Serializable{
+    private String uname;
+    private Integer age;
+    getter & setter 方法...
+}
+
+public class Account implements Serializable{
+    private String username;
+    private String password;
+    private Double money;
+    private User user;
+}    
+```
+
+**提交表单**
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>请求参数</h3>
+    <%--<a href="param/testParam?username=haha&password=1234">请求参数</a>--%>
+
+    <%--把数据封装Account类中--%>
+    <form action="param/saveAccount" method="post">
+        <%-- name 属性，与实体类中属性名相同 --%>
+        姓名：<input type="text" name="username" /><br/>
+        密码：<input type="text" name="password" /><br/>
+        金额：<input type="text" name="money" /><br/>
+        用户姓名：<input type="text" name="user.uname" /><br/>
+        用户年龄：<input type="text" name="user.age" /><br/>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>
+```
+
+**Controller**
+
+```java
+@Controller
+@RequestMapping("/param")
+public class ParamController {
+    /**
+     * 请求参数绑定把数据封装到JavaBean的类中
+     * @return
+     */
+    @RequestMapping("/saveAccount")
+    //参数为实体类类型 Account 
+    public String saveAccount(Account account){
+        System.out.println("执行了...");
+        System.out.println(account);
+        return "success";
+    }
+}
+```
 
 #### 1.2.3 配置解决中文乱码的过滤器
 
+配置过滤器拦截，解决中文乱码问题。在 web.xml 中添加过滤器配置：
 
+```xml
+<!--配置解决中文乱码的过滤器-->
+<filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
 
 #### 1.2.4 请求参数绑定集合类型
 
+**实体类**
 
+```java
+public class Account implements Serializable{
+    private String username;
+    private String password;
+    private Double money;
 
+    private List<User> list;
+    private Map<String,User> map;
+}    
+```
 
+**提交表单**
+
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>请求参数</h3>
+
+    <%--把数据封装Account类中，类中存在list和map的集合--%>
+    <form action="param/saveAccount" method="post">
+        姓名：<input type="text" name="username" /><br/>
+        密码：<input type="text" name="password" /><br/>
+        金额：<input type="text" name="money" /><br/>
+		
+        用户姓名：<input type="text" name="list[0].uname" /><br/>
+        用户年龄：<input type="text" name="list[0].age" /><br/>
+
+        用户姓名：<input type="text" name="map['one'].uname" /><br/>
+        用户年龄：<input type="text" name="map['one'].age" /><br/>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>
+```
 
 #### 1.2.5 自定义类型转换器
+
+
+
+
 
 
 
