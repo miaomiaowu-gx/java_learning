@@ -290,9 +290,7 @@ public class HelloController {
 
 【springmvc.xml】开启注解扫描，将 HelloController 类变为对象（默认单例）加载进 IOC 容器中。
 
-
-<img src="./img3/03-pipline.png" width=400>
-
-
+<img src="./img3/03-pipline.png" width=600>
 
 #### 1.1.5 使用的组件介绍
+
