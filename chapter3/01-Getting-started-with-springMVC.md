@@ -270,14 +270,27 @@ public class HelloController {
 </web-app>
 ```
 
+**load-on-startup 标签作用**：
 
+1. load-on-startup 元素标记容器**是否在启动**的时候就加载这个 servlet (实例化并调用其 init() 方法)。
 
+2. 它的值必须是一个整数，表示 servlet 应该被载入的**顺序**。
 
+3. 当值为 0 或者大于 0 时，表示容器在启动时就加载并初始化这个 servlet。
 
+4. 当值小于 0 或者没有指定时，则表示容器在该 Servlet 第一次被请求时，才会去加载。
 
+5. 正数的值越小，该 Servlet 的优先级就越高，应用启动时就优先加载。**数字代表的是优先级，而非启动延迟时间。**
 
+6. 当值相同的时候，容器就会自己选择优先加载。
 
 #### 1.1.4 流程总结
+
+【web.xml】由于配置了 load-on-startup 标签，当服务器启动时，会立即创建 DispatcherServlet 对象，并加载 springmvc.xml 配置文件。
+
+【springmvc.xml】开启注解扫描，将 HelloController 类变为对象（默认单例）加载进 IOC 容器中。
+
+
 
 
 
