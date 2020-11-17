@@ -38,8 +38,31 @@ public class AnnoController {
 
 **使用示例**：
 
+```html
+<form action="anno/testRequestBody" method="post">
+    用户姓名：<input type="text" name="username" /><br/>
+    用户年龄：<input type="text" name="age" /><br/>
+    <input type="submit" value="提交" />
+</form>
+```
 
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+    /**
+     * 获取到请求体的内容
+     */
+    @RequestMapping("/testRequestBody")
+    public String testRequestBody(@RequestBody String body){
+        System.out.println("执行了...");
+        System.out.println(body);
+        return "success";
+    }
+}
+```
 
+**分析**：如果不添加 @RequestBody 注解，默认去寻找名为 body 的参数。
 
 
 #### 2.3 PathVariable 注解
