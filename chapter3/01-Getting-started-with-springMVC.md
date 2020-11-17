@@ -286,21 +286,84 @@ public class HelloController {
 
 #### 1.1.4 流程总结
 
+<img src="./img3/03-pipline.png" width=600>
+
+**执行过程**
+
+1. 服务器启动，应用被加载。读取到 web.xml 中的配置创建 spring 容器并且初始化容器中的对象。
+
+2. 浏览器发送请求，被 DispatherServlet 捕获，该 Servlet 并不处理请求，而是把请求转发出去。转发的路径是根据请求 URL，匹配 @RequestMapping 中的内容。
+
+3. 匹配到了后，执行对应方法。该方法有一个返回值。
+
+4. 根据方法的返回值，借助 InternalResourceViewResolver 找到对应的结果视图。
+
+5. 渲染结果视图，响应浏览器。
+
+**注意**
+
 【web.xml】由于配置了 load-on-startup 标签，当服务器启动时，会立即创建 DispatcherServlet 对象，并加载 springmvc.xml 配置文件。
 
 【springmvc.xml】开启注解扫描，将 HelloController 类变为对象（默认单例）加载进 IOC 容器中。
-
-<img src="./img3/03-pipline.png" width=600>
 
 #### 1.1.5 使用的组件介绍
 
 
 <img src="./img3/04-component-execution-process.png" width=1300>
 
+**DispatcherServlet：前端控制器**
 
+* 用户请求到达前端控制器，它就相当于 mvc 模式中的 c， dispatcherServlet 是整个流程控制的中心，由它调用其它组件处理用户的请求， dispatcherServlet 的存在降低了组件之间的耦合性。
 
+**HandlerMapping：处理器映射器**
 
+* HandlerMapping 负责根据用户请求找到 Handler 即处理器， SpringMVC 提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。
 
+**Handler：处理器** 
+
+* 开发中要编写的具体业务控制器。由 DispatcherServlet 把用户请求转发到 Handler。由 Handler 对具体的用户请求进行处理。 
+
+**HandlAdapter：处理器适配器**
+
+* 通过 HandlerAdapter 对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。
+
+**View Resolver：视图解析器**
+
+* View Resolver 负责将处理结果生成 View 视图， View Resolver 首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成 View 视图对象，最后对 View 进行渲染将处理结果通过页面展示给用户。
+
+**View：视图**
+
+* SpringMVC 框架提供了很多的 View 视图类型的支持，包括： jstlView、freemarkerView、pdfView 等。**最常用的视图就是 jsp**。一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。
+
+🍒 **`<mvc:annotation-driven>` 说明** 🍒
+
+&emsp;&emsp;在 SpringMVC 的各个组件中，**处理器映射器、处理器适配器、视图解析器**称为 SpringMVC 的**三大组件**。使 用 `<mvc:annotation-driven>` 自 动 加 载 `RequestMappingHandlerMapping`（ 处 理 映 射 器 ） 和 `RequestMappingHandlerAdapter`（ 处 理 适 配 器 ），可 用 在 springmvc.xml 配 置 文 件 中 使 用 `<mvc:annotation-driven>` **替代**注解处理器和适配器的配置。 
+
+`<mvc:annotation-driven>` 相当于如下配置：
+
+```xml
+<!-- 上面的标签相当于 如下配置-->
+<!-- Begin -->
+<!-- HandlerMapping -->
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+
+<!-- HandlerAdapter -->
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
+<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
+<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+
+<!-- HadnlerExceptionResolvers -->
+<bean class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExcept
+ionResolver"></bean>
+<bean class="org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolv
+er"></bean>
+<bean class="org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver"
+></bean>
+<!-- End -->
+```
+
+#### 1.1.6 RequestMapping注解 
 
 
 
