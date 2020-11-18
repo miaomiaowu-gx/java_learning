@@ -71,6 +71,9 @@ public class AnnoController {
 
 **属性**：
 
+* value：用于指定 url 中占位符名称。
+* required：是否必须提供占位符。
+
 **使用示例**：
 
 ```html
@@ -90,7 +93,7 @@ public class AnnoController {
 }
 ```
 
-**分析**：
+**分析**：注意 Url 的输入方式 `/{sid}` 对应着 `/10`，而不是 `sid=10` 方式。
 
 
 
