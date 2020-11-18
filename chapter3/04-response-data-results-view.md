@@ -231,7 +231,84 @@ public class UserController {
 
 ##### 4.4.1 过滤静态资源
 
+【问题描述】
 
+在浏览器访问如下页面
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        // 页面加载，绑定单击事件
+        $(function(){
+            $("#btn").click(function(){
+                alert("hello btn");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <button id="btn">发送ajax的请求</button>
+</body>
+</html>
+```
+
+点击按钮 “发送ajax的请求”，并不会弹出 alert 信息。
+
+【分析原因】
+
+```xml
+<!--配置前端控制器-->
+<servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+```
+
+如上显示，web.xml 中配置的前端控制器拦截了对 JQuery 的访问 (js/jquery.min.js)。
+
+【解决方案】
+
+在 springmvc.xml 配置文件中设置静态资源不拦截，`**` 表示所有文件。
+
+```xml
+<!--前端控制器，哪些静态资源不拦截-->
+<mvc:resources location="/css/" mapping="/css/**"/>
+<mvc:resources location="/images/" mapping="/images/**"/>
+<mvc:resources location="/js/" mapping="/js/**"/>
+```
+
+其中目录结构如下：
+
+```markdown
+src
+ |___main
+   |___webapp
+     |___css(文件夹内含有.css文件)
+     |___images(文件夹内含有各种图像文件)
+     |___js(文件夹内含有各种.js文件)
+     |___WEB-INF
+     | |___web.xml(前端控制器、中文乱码过滤器)
+     | |___pages
+     |   |___success.jsp
+     |___index.jsp(默认的主页面)    
+```        
 
 
 ##### 4.4.2 发送 ajax 的请求
