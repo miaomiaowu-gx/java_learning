@@ -198,9 +198,12 @@ public class AnnoController {
 #### 2.6 CookieValue 注解
 
 
-**作用**：
+**作用**：用于把指定 cookie 名称的值传入控制器方法参数。
 
 **属性**：
+
+* `value`：指定 cookie 的名称。
+* `required`：是否必须有此 cookie。
 
 **使用示例**：
 
