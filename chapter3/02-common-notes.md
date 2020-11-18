@@ -67,7 +67,7 @@ public class AnnoController {
 
 #### 2.3 PathVariable 注解
 
-**作用**：
+**作用**：用于绑定 url 中的占位符。例如：请求 url 中 `/delete/{id}`，这个 {id} 就是 url 占位符。url 支持占位符是 spring3.0 之后加入的。是 springmvc 支持 rest 风格 URL 的一个重要标志。
 
 **属性**：
 
