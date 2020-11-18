@@ -62,16 +62,7 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 需要多导入几个相关坐标
 
 ```xml
-<dependency>
-  <groupId>commons-fileupload</groupId>
-  <artifactId>commons-fileupload</artifactId>
-  <version>1.3.1</version>
-</dependency>
-<dependency>
-  <groupId>commons-io</groupId>
-  <artifactId>commons-io</artifactId>
-  <version>2.4</version>
-</dependency>
+
 
 <dependency>
   <groupId>com.sun.jersey</groupId>
@@ -88,8 +79,96 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 
 #### 5.3 传统方式上传代码回顾
 
+【web 页面】
 
-#### 5.4 
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+    <h3>传统文件上传</h3>
+
+    <form action="/user/fileupload1" method="post" enctype="multipart/form-data">
+        选择文件：<input type="file" name="upload" /><br/>
+        <input type="submit" value="上传" />
+    </form>
+</body>
+</html>
+```
+
+【在 pom.xml 中添加坐标】
+
+```xml
+<dependency>
+  <groupId>commons-fileupload</groupId>
+  <artifactId>commons-fileupload</artifactId>
+  <version>1.3.1</version>
+</dependency>
+<dependency>
+  <groupId>commons-io</groupId>
+  <artifactId>commons-io</artifactId>
+  <version>2.4</version>
+</dependency>
+```
+
+【控制器】
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    /**
+     * 文件上传
+     */
+    @RequestMapping("/fileupload1")
+    public String fileuoload1(HttpServletRequest request) throws Exception {
+        System.out.println("文件上传...");
+
+        // 使用fileupload组件完成文件上传
+        // 上传的位置
+        String path = request.getSession().getServletContext().getRealPath("/uploads/");
+        // 判断，该路径是否存在
+        File file = new File(path);
+        if(!file.exists()){
+            // 创建该文件夹
+            file.mkdirs();
+        }
+
+        // 解析request对象，获取上传文件项
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        // 解析request
+        List<FileItem> items = upload.parseRequest(request);
+        // 遍历
+        for(FileItem item:items){
+            // 进行判断，当前item对象是否是上传文件项
+            if(item.isFormField()){
+                // 说明普通表单向
+            }else{
+                // 说明上传文件项
+                // 获取上传文件的名称
+                String filename = item.getName();
+                // 把文件的名称设置唯一值，uuid
+                String uuid = UUID.randomUUID().toString().replace("-", "");
+                filename = uuid+"_"+filename;
+                // 完成文件上传
+                item.write(new File(path,filename));
+                // 删除临时文件
+                item.delete();
+            }
+        }
+        return "success";
+    }
+}
+```
+
+
+
+
+#### 5.4 Springmvc 方式上传
 
 #### 5.5 
 
