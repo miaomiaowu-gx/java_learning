@@ -195,6 +195,10 @@ public class UserController {
 
 **超链接页面**
 
+```html
+<a href="user/testForwardOrRedirect">testForwardOrRedirect</a>
+```        
+
 
 **控制器**
 
