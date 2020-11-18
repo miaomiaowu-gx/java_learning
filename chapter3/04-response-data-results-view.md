@@ -329,19 +329,66 @@ src
 </dependency>
 ```
 
-2 
+2 **访问页面**
 
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        // 页面加载，绑定单击事件
+        $(function(){
+            $("#btn").click(function(){
+                // 发送ajax请求
+                $.ajax({
+                    // 编写json格式，设置属性和值
+                    url:"user/testAjax",
+                    contentType:"application/json;charset=UTF-8",
+                    data:'{"username":"hehe","password":"123","age":30}',
+                    dataType:"json",
+                    type:"post",
+                    success:function(data){
+                        // data服务器端响应的json的数据，进行解析
+                        alert(data);
+                        alert(data.username);
+                        alert(data.password);
+                        alert(data.age);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">发送ajax的请求</button>
+</body>
+</html>
+```
 
-**超链接页面**
-
-
-**控制器**
+3 **控制器**
 
 ```java
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+    /**
+     * 模拟异步请求响应
+     * @RequestBody：把接收到的 json 串封装为 User对象（jackson 包）
+     * @ResponseBody：将返回的  User对象转换为 json 串，并响应
+     */
+    @RequestMapping("/testAjax")
+    public @ResponseBody User testAjax(@RequestBody User user){
+        System.out.println("testAjax方法执行了...");
+        // 客户端发送ajax的请求，传的是json字符串，后端把json字符串封装到user对象中
+        System.out.println(user);
+        // 做响应，模拟查询数据库
+        user.setUsername("haha");
+        user.setAge(40);
+        // 做响应
+        return user;
+    }
 }
 ```
 
