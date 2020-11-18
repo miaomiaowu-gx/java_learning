@@ -240,9 +240,7 @@ public class UserController {
 <html>
 <head>
     <title>Title</title>
-
     <script src="js/jquery.min.js"></script>
-
     <script>
         // 页面加载，绑定单击事件
         $(function(){
@@ -250,9 +248,7 @@ public class UserController {
                 alert("hello btn");
             });
         });
-
     </script>
-
 </head>
 <body>
     <button id="btn">发送ajax的请求</button>
@@ -311,12 +307,12 @@ src
 ```        
 
 
-##### 4.4.2 发送 ajax 的请求
+##### 4.4.2 发送 ajax 的请求并响应 json 格式数据  
 
 
 
 
-##### 4.4.3 响应 json 格式数据   
+
 
 
 
