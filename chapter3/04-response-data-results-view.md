@@ -33,13 +33,13 @@ public class User implements Serializable{
 
 ##### 4.2.1 字符串
 
-超链接页面
+**超链接页面**
 
 ```html
 <a href="user/testString" >testString</a>
 ```
 
-控制器
+**控制器**
 
 ```java
 @Controller
@@ -63,7 +63,7 @@ public class UserController {
 }
 ```
 
-在跳转页面 success.jsp 中读取数据
+**在跳转页面 success.jsp 中读取数据，根据返回的字符串值 success 跳转到指定页面。**
 
 ```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
@@ -78,7 +78,6 @@ public class UserController {
 </body>
 </html>
 ```
-
 
 ##### 4.2.2 void 
 
