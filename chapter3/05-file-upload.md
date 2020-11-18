@@ -34,10 +34,7 @@ Content-Type: text/plain              (协议的类型 - MIME 类型)
                                       (空行)
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 -----------------------------7de1a433602ac--
-
 ```
-
-
 
 
 ##### 5.1.3 借助第三方组件实现文件上传
