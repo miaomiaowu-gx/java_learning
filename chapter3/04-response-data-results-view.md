@@ -81,22 +81,133 @@ public class UserController {
 
 ##### 4.2.2 void 
 
+**超链接页面**
 
+```html
+<a href="user/testVoid">testVoid</a>
+```
+
+**控制器**
+
+
+* **转发**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    /**
+     * 请求转发一次请求，不用编写项目的名称
+     */
+    @RequestMapping("/testVoid")
+    public void testVoid(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("testVoid方法执行了...");
+        // 编写请求转发的程序
+        request.getRequestDispatcher("/WEB-INF/pages/success.jsp").forward(request,response);
+        return;
+    }
+}
+```
+
+* **重定向**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    /**
+     * 重定向是两次请求，需要提供项目名称
+     */
+    @RequestMapping("/testVoid")
+    public void testVoid(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("testVoid方法执行了...");
+        // 重定向：index.jsp在webapp文件夹下，该方式不能直接访问WEB-INF下的页面
+        response.sendRedirect(request.getContextPath()+"/index.jsp");
+        return;
+    }
+}
+```
+
+
+* **直接响应**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+    /**
+     * 是void
+     */
+    @RequestMapping("/testVoid")
+    public void testVoid(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("testVoid方法执行了...");
+        // 设置中文乱码
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        // 直接会进行响应
+        response.getWriter().print("你好");
+        return;
+    }
+}
+```
 
 
 ##### 4.2.3 ModelAndView 
 
 
 
+**超链接页面**
+
+
+**控制器**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+}
+```
 
 
 
 #### 4.3 forward 转发
 
 
+**超链接页面**
+
+
+**控制器**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+}
+```
+
+
+
 
 
 #### 4.4 Redirect 重定向
+
+**超链接页面**
+
+
+**控制器**
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+}
+```
+
+
 
 
 
