@@ -309,12 +309,27 @@ src
 
 ##### 4.4.2 发送 ajax 的请求并响应 json 格式数据  
 
+1 导入 jackson 坐标，将接收到的 json 数据封装到 JavaBean 中。
 
+```xml
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.9.0</version>
+</dependency>
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-core</artifactId>
+  <version>2.9.0</version>
+</dependency>
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-annotations</artifactId>
+  <version>2.9.0</version>
+</dependency>
+```
 
-
-
-
-
+2 
 
 
 **超链接页面**
