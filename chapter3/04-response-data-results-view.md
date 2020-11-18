@@ -309,7 +309,7 @@ src
 
 ##### 4.4.2 发送 ajax 的请求并响应 json 格式数据  
 
-1 导入 jackson 坐标，将接收到的 json 数据封装到 JavaBean 中。
+🍒 1 导入 jackson 坐标，将接收到的 json 数据封装到 JavaBean 中。
 
 ```xml
 <dependency>
@@ -329,7 +329,7 @@ src
 </dependency>
 ```
 
-2 **访问页面**
+🍒 2 **访问页面**
 
 ```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -367,7 +367,7 @@ src
 </html>
 ```
 
-3 **控制器**
+🍒 3 **控制器**
 
 ```java
 @Controller
