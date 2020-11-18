@@ -210,6 +210,9 @@ public class AnnoController {
 
 * **jsp 中示例代码**
 
+```html
+<a href="anno/testCookieValue">CookieValue</a>
+```
 
 
 * **控制器中示例代码**
@@ -218,19 +221,17 @@ public class AnnoController {
 @Controller
 @RequestMapping("/anno")
 public class AnnoController {
-
+    /**
+     * 获取Cookie的值
+     */
+    @RequestMapping(value="/testCookieValue")
+    public String testCookieValue(@CookieValue(value="JSESSIONID") String cookieValue){
+        System.out.println("执行了...");
+        System.out.println(cookieValue);
+        return "success";
+    }
 }
 ```
-
-
-
-
-
-**分析**：
-
-
-
-
 
 
 #### 2.7 ModelAttribute 注解 
