@@ -190,6 +190,8 @@ public class UserController {
 
 #### 4.3 forward 转发
 
+用关键字，不能使用视图解析器，因此路径需要自己写正确！
+
 
 **超链接页面**
 
