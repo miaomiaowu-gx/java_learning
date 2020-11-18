@@ -156,7 +156,7 @@ public class UserController {
                 filename = uuid+"_"+filename;
                 // 完成文件上传
                 item.write(new File(path,filename));
-                // 删除临时文件
+                // 删除临时文件(当上传文件大小>10Kb，会产生临时文件)
                 item.delete();
             }
         }
@@ -166,15 +166,30 @@ public class UserController {
 ```
 
 
-
-
 #### 5.4 Springmvc 方式上传
 
-#### 5.5 
+##### 5.4.1 Springmvc 方式上传原理分析
 
-#### 5.6   
+
+
+
+##### 5.4.2 代码实现
+
+ 
+   
+
+#### 5.5 跨服务器上传
+
+##### 5.5.1 分析
+
+##### 5.5.2 搭建环境
+
+##### 5.5.3 代码实现
+
+
+
 
 
 ​      
 
-#### 5.7                         
+                       
