@@ -339,22 +339,29 @@ public class AnnoController {
 #### 2.8 SessionAttributes 注解
 
 
-**作用**：
+**作用**：用于多次执行控制器方法间的参数共享。
 
 **属性**：
 
-**使用示例**：
+* `value`：用于指定存入的属性名称。
+* `type`：用于指定存入的数据类型。
 
+**使用示例**：
 
 * **jsp 中示例代码**
 
-
+```html
+<a href="anno/testSessionAttributes">testSessionAttributes</a>
+<a href="anno/getSessionAttributes">getSessionAttributes</a>
+<a href="anno/delSessionAttributes">delSessionAttributes</a>
+```
 
 * **控制器中示例代码**
 
 ```java
 @Controller
 @RequestMapping("/anno")
+@SessionAttributes(value={"msg"})   // 把msg=美美存入到session域对中，该注解只能作用在类上
 public class AnnoController {
 
 }
