@@ -363,24 +363,57 @@ public class AnnoController {
 @RequestMapping("/anno")
 @SessionAttributes(value={"msg"})   // 把msg=美美存入到session域对中，该注解只能作用在类上
 public class AnnoController {
+    /**
+     * SessionAttributes的注解
+     */
+    @RequestMapping(value="/testSessionAttributes")
+    public String testSessionAttributes(Model model){
+        System.out.println("testSessionAttributes...");
+        // 底层会存储到request域对象中
+        model.addAttribute("msg","美美");
+        return "success";
+    }
 
+    /**
+     * 获取值
+     */
+    @RequestMapping(value="/getSessionAttributes")
+    public String getSessionAttributes(ModelMap modelMap){
+        System.out.println("getSessionAttributes...");
+        String msg = (String) modelMap.get("msg");
+        System.out.println(msg);
+        return "success";
+    }
+
+    /**
+     * 清除
+     */
+    @RequestMapping(value="/delSessionAttributes")
+    public String delSessionAttributes(SessionStatus status){
+        System.out.println("getSessionAttributes...");
+        status.setComplete();
+        return "success";
+    }
 }
 ```
 
 
+* **在 success.jsp 页面访问**
 
+要设置 isELIgnored 页面属性
 
-
-
-
-
-
-
-**分析**：
-
-
-
-
-
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <h3>入门成功</h3>
+    ${ msg }
+    ${sessionScope}
+</body>
+</html>
+```
 
 
