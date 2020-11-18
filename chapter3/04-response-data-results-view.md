@@ -156,9 +156,11 @@ public class UserController {
 ##### 4.2.3 ModelAndView 
 
 
-
 **超链接页面**
 
+```html
+<a href="user/testModelAndView" >testModelAndView</a>
+```
 
 **控制器**
 
@@ -166,11 +168,25 @@ public class UserController {
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping("/testModelAndView")
+    public ModelAndView testModelAndView(){
+        // 创建ModelAndView对象（由SpringMvc直接提供）
+        ModelAndView mv = new ModelAndView();
+        System.out.println("testModelAndView方法执行了...");
+        // 模拟从数据库中查询出User对象
+        User user = new User();
+        user.setUsername("小凤");
+        user.setPassword("456");
+        user.setAge(30);
 
+        // 把user对象存储到mv对象中，也会把user对象存入到request对象
+        mv.addObject("user",user);
+        // 跳转到哪个页面
+        mv.setViewName("success");
+        return mv;
+    }
 }
 ```
-
-
 
 #### 4.3 forward 转发
 
