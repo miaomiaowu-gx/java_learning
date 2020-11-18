@@ -236,45 +236,108 @@ public class AnnoController {
 
 #### 2.7 ModelAttribute 注解 
 
-**作用**：
+**作用**：该注解是 SpringMVC4.3 版本以后新加入的。它可以用于修饰方法和参数。
+
+* 出现在方法上，表示当前方法会在控制器的方法执行之前，先执行。它可以修饰没有返回值的方法，也可以修饰有具体返回值的方法。
+
+* 出现在参数上，获取指定的数据给参数赋值。
 
 **属性**：
 
+ * `value`：用于获取数据的 key。 key 可以是 POJO 的属性名称，也可以是 map 结构的 key。
+
+
+**应用场景**：当表单提交数据不是完整的实体类数据时，保证没有提交数据的字段使用数据库对象原来的数据。
+
+* 例如：用户含有三个属性 uname(String)、age(Integer)、date(Date)，而表单提交只包含 uname 与 age 属性。
+
 **使用示例**：
 
+* **User 实体类**
+
+```java
+public class User implements Serializable{
+    private String uname;
+    private Integer age;
+    private Date date;
+    ...
+}
 
 * **jsp 中示例代码**
 
+```html
+<form action="anno/testModelAttribute" method="post">
+    用户姓名：<input type="text" name="uname" /><br/>
+    用户年龄：<input type="text" name="age" /><br/>
+    <input type="submit" value="提交" />
+</form>
+```
 
-
-* **控制器中示例代码**
+* **控制器：有返回值（方式一）**
 
 ```java
 @Controller
 @RequestMapping("/anno")
 public class AnnoController {
 
+    /**
+     * ModelAttribute注解
+     */
+    @RequestMapping(value="/testModelAttribute")
+    public String testModelAttribute(User user){
+        System.out.println("testModelAttribute执行了...");
+        System.out.println(user);
+        return "success";
+    }
+
+    @ModelAttribute
+    public User showUser(String uname){
+        System.out.println("showUser执行了...");
+        // 通过用户查询数据库（模拟）
+        User user = new User();
+        user.setUname(uname);
+        user.setAge(20);
+        user.setDate(new Date());
+        return user;
+    }
 }
 ```
 
 
+* **控制器：没有返回值（方式二）**
 
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+    /**
+     * ModelAttribute注解
+     */
+    @RequestMapping(value="/testModelAttribute")
+    public String testModelAttribute(@ModelAttribute("abc") User user){
+        System.out.println("testModelAttribute执行了...");
+        System.out.println(user);
+        return "success";
+    }
 
-
-
-
-
-
-
-**分析**：
-
-
-
-
-
+    // 会先执行该方法
+    @ModelAttribute
+    public void showUser(String uname, Map<String,User> map){
+        System.out.println("showUser执行了...");
+        // 通过用户查询数据库（模拟）
+        User user = new User();
+        user.setUname(uname);
+        user.setAge(20);
+        user.setDate(new Date());
+        // 将查询到的结果放到 map 中
+        map.put("abc",user);
+    }
+}
+```
 
 
 #### 2.8 SessionAttributes 注解
+
 
 **作用**：
 
