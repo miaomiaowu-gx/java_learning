@@ -103,12 +103,15 @@ public class AnnoController {
 #### 2.4 HiddentHttpMethodFilter 过滤器(了解)
 
 
-**作用**：由于浏览器 form 表单只支持 GET 与 POST 请求，而 DELETE、 PUT 等 method 并不支持， Spring3.0 添加了一个过滤器，可以将浏览器请求改为指定的请求方式，发送给我们的控制器方法，使得支持 GET、 POST、 PUT 与 DELETE 请求。
+**作用**：由于浏览器 form 表单只支持 GET 与 POST 请求，而 DELETE、 PUT 等 method 并不支持， Spring3.0 添加了一个过滤器，**可以将浏览器请求改为指定的请求方式，发送给控制器方法**，使得支持 GET、 POST、 PUT 与 DELETE 请求。
 
+**使用方法**：
 
+* 第一步：在 web.xml 中配置该过滤器。
 
-**属性**：
+* 第二步：请求方式必须使用 post 请求。
 
+* 第三步：按照要求提供 `_method` 请求参数，该参数的取值就是需要的请求方式。
 
 
 **使用示例**：
