@@ -170,7 +170,7 @@ public class UserController {
 
 ##### 5.4.1 Springmvc 方式上传原理分析
 
-
+<img src="./img3/06-spring-file-upload.png" width=500>
 
 
 ##### 5.4.2 代码实现
