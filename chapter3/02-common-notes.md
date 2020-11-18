@@ -84,7 +84,7 @@ public class AnnoController {
 @Controller
 @RequestMapping("/anno")
 public class AnnoController {
-    @RequestMapping(value="/testPathVariable/{sid}")
+    @RequestMapping(value="/testPathVariable/{sid}", method=RequestMethod.GET)
     public String testPathVariable(@PathVariable(name="sid") String id){
         System.out.println("执行了...");
         System.out.println(id);
@@ -100,7 +100,7 @@ public class AnnoController {
 <img src="./img3/05-restfule.png" width=600>
 
 
-#### 2.4 HiddentHttpMethodFilter 过滤器
+#### 2.4 HiddentHttpMethodFilter 过滤器(了解)
 
 
 **作用**：
