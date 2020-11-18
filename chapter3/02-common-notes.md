@@ -125,6 +125,8 @@ public class AnnoController {
 
 #### 2.5 RequestHeader 注解
 
+用处不大
+
 **作用**：
 
 **属性**：
