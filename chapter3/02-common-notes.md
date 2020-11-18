@@ -168,27 +168,35 @@ public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
 
 **使用示例**：
 
-
 * **jsp 中示例代码**
 
-
+```html
+<a href="anno/testRequestHeader">RequestHeader</a>
+```
 
 * **控制器中示例代码**
 
-
-
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+    /**
+     * 获取请求头的值
+     */
+    @RequestMapping(value="/testRequestHeader")
+    public String testRequestHeader(@RequestHeader(value="Accept") String header){
+        System.out.println("执行了...");
+        System.out.println(header);
+        return "success";
+    }
+}
+```
 
 **分析**：在实际开发中一般不怎么用。
 
 
-
-
-
-
-
-
-
 #### 2.6 CookieValue 注解
+
 
 **作用**：
 
@@ -203,6 +211,13 @@ public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
 
 * **控制器中示例代码**
 
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+
+}
+```
 
 
 
@@ -229,6 +244,18 @@ public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
 
 
 * **控制器中示例代码**
+
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+
+}
+```
+
+
+
+
 
 
 
@@ -257,6 +284,18 @@ public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
 
 
 * **控制器中示例代码**
+
+```java
+@Controller
+@RequestMapping("/anno")
+public class AnnoController {
+
+}
+```
+
+
+
+
 
 
 
