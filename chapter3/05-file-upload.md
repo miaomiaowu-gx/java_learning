@@ -16,6 +16,13 @@
 
 ##### 5.1.2 文件上传的原理分析
 
+当 form 表单的 enctype 取值不是默认值后，`request.getParameter()` 将失效。
+
+`enctype="application/x-www-form-urlencoded"` 时，form 表单的正文内容是：`key=value&key=value&key=value`。
+
+当 form 表单的 enctype 取值为 Mutilpart/form-data 时，请求正文内容就变成：
+
+
 
 
 
