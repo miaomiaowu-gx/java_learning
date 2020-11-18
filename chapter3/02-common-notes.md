@@ -1,6 +1,6 @@
-## 第二节 常用注解
+## 第三节 常用注解
 
-#### 2.1 RequestParam 注解
+#### 3.1 RequestParam 注解
 
 **作用**：把请求中指定名称的参数给控制器中的形参赋值。
 
@@ -35,7 +35,7 @@ public class AnnoController {
 **分析**：超链接的 url 中传递的参数名 name 与 Controller 中 testRequestParam 方法的参数名 username 不一致，无法赋值。使用 `@RequestParam` 注解 “ 标明匹配关系 ”。
 
 
-#### 2.2 RequestBody 注解
+#### 3.2 RequestBody 注解
 
 **作用**：用于获取请求体内容。直接使用得到是 key=value&key=value... 结构的数据。get 请求方式不适用，因为 get 请求方式没有请求体。
 
@@ -75,7 +75,7 @@ public class AnnoController {
 **分析**：如果不添加 @RequestBody 注解，默认去寻找名为 body 的参数。
 
 
-#### 2.3 PathVariable 注解
+#### 3.3 PathVariable 注解
 
 **作用**：用于绑定 url 中的占位符。例如：请求 url 中 `/delete/{id}`，这个 {id} 就是 url 占位符。url 支持占位符是 spring3.0 之后加入的。是 springmvc 支持 rest 风格 URL 的一个重要标志。
 
@@ -115,7 +115,7 @@ public class AnnoController {
 <img src="./img3/05-restfule.png" width=600>
 
 
-#### 2.4 HiddentHttpMethodFilter 过滤器(了解)
+#### 3.4 HiddentHttpMethodFilter 过滤器(了解)
 
 
 **作用**：由于浏览器 form 表单只支持 GET 与 POST 请求，而 DELETE、 PUT 等 method 并不支持， Spring3.0 添加了一个过滤器，**可以将浏览器请求改为指定的请求方式，发送给控制器方法**，使得支持 GET、 POST、 PUT 与 DELETE 请求。
@@ -155,7 +155,7 @@ public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
 ```
 
 
-#### 2.5 RequestHeader 注解
+#### 3.5 RequestHeader 注解
 
 
 
@@ -195,7 +195,7 @@ public class AnnoController {
 **分析**：在实际开发中一般不怎么用。
 
 
-#### 2.6 CookieValue 注解
+#### 3.6 CookieValue 注解
 
 
 **作用**：用于把指定 cookie 名称的值传入控制器方法参数。
@@ -234,7 +234,7 @@ public class AnnoController {
 ```
 
 
-#### 2.7 ModelAttribute 注解 
+#### 3.7 ModelAttribute 注解 
 
 **作用**：该注解是 SpringMVC4.3 版本以后新加入的。它可以用于修饰方法和参数。
 
@@ -336,7 +336,7 @@ public class AnnoController {
 ```
 
 
-#### 2.8 SessionAttributes 注解
+#### 3.8 SessionAttributes 注解
 
 
 **作用**：用于多次执行控制器方法间的参数共享。
