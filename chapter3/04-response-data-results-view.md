@@ -226,7 +226,22 @@ public class UserController {
 }
 ```
 
-#### 4.5 ResponseBody 响应 json 数据
+#### 4.4 ResponseBody 响应 json 数据
+
+
+##### 4.4.1 过滤静态资源
+
+
+
+
+##### 4.4.2 发送 ajax 的请求
+
+
+
+
+##### 4.4.3 响应 json 格式数据   
+
+
 
 
 **超链接页面**
