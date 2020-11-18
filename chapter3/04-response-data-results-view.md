@@ -188,7 +188,7 @@ public class UserController {
 }
 ```
 
-#### 4.3 forward 转发
+#### 4.3 forward 和 redirect 关键字进行页面跳转
 
 用关键字，不能使用视图解析器，因此路径需要自己写正确！
 
@@ -202,19 +202,32 @@ public class UserController {
 
 **控制器**
 
+* **forward 转发**
+
 ```java
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+    System.out.println("testForwardOrRedirect方法执行了...");
+    // 请求的转发
+    return "forward:/WEB-INF/pages/success.jsp";
 }
 ```
 
+* **redirect 重定向**
 
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    System.out.println("testForwardOrRedirect方法执行了...");
+    // 重定向：index.jsp 在根目录下，可访问
+    return "redirect:/index.jsp";
+}
+```
 
+#### 4.5 ResponseBody 响应 json 数据
 
-
-#### 4.4 Redirect 重定向
 
 **超链接页面**
 
@@ -233,4 +246,8 @@ public class UserController {
 
 
 
-#### 4.5 ResponseBody 响应 json 数据
+
+
+
+
+
