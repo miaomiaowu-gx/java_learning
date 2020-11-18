@@ -22,6 +22,19 @@
 
 当 form 表单的 enctype 取值为 Mutilpart/form-data 时，请求正文内容就变成：
 
+```markdown
+(每一部分都是 MIME 类型描述的正文)
+-----------------------------7de1a433602ac (分界符)
+Content-Disposition: form-data; name="userName" (协议头)
+aaa (协议的正文)
+-----------------------------7de1a433602ac
+Content-Disposition: form-data; name="file";
+filename="C:\Users\zhy\Desktop\fileupload_demofile\b.txt"
+Content-Type: text/plain              (协议的类型 - MIME 类型)
+                                      (空行)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+-----------------------------7de1a433602ac--
+
 
 
 
