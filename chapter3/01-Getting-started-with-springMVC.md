@@ -1,20 +1,18 @@
 ## 第一节 SpringMVC 入门
 
-### 1.1 入门程序
-
-#### 1.1.1 需求分析
+#### 1.1 需求分析
 
 <img src="./img3/02-Introductory-cases.png" width=300>
 
-#### 1.1.2 搭建开发环境
+#### 1.2 搭建开发环境
 
-1 创建新工程，选择 Maven 并勾选 Create from archetype，选择 org.apache.maven.archetypes:maven-archetype-webapp。GroupId 设为 cn.itcast，Artifactld 设为 `springmvc_quick_start`。
+🍒 1 创建新工程，选择 Maven 并勾选 Create from archetype，选择 org.apache.maven.archetypes:maven-archetype-webapp。GroupId 设为 cn.itcast，Artifactld 设为 `springmvc_quick_start`。 
 
 * 解决项目创建过慢问题，添加键值对`archetypeCatalog : internal`。
 
-2 在 main 文件夹下创建 java 文件夹，右键选择 Mark Directory as，选择 Sources Root。在 main文件夹下创建 resources 文件夹，右键选择 Mark Directory as，选择 Resources Root。
+🍒 2 在 main 文件夹下创建 java 文件夹，右键选择 Mark Directory as，选择 Sources Root。在 main文件夹下创建 resources 文件夹，右键选择 Mark Directory as，选择 Resources Root。
 
-3 导入需要的坐标，在 pom.xml 中配置。
+🍒 3 导入需要的坐标，在 pom.xml 中配置。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -113,7 +111,7 @@
 </project>
 ```
 
-4 在 web.xml 中**配置前端控制器**（实质就是一个 Servlet）
+🍒 4 在 web.xml 中**配置前端控制器**（实质就是一个 Servlet）
 
 ```xml
 <!DOCTYPE web-app PUBLIC
@@ -133,7 +131,7 @@
 </web-app>
 ```
 
-5 在 resources 文件夹下创建 XML Configuration File->Spring Config->springmvc 文件
+🍒 5 在 resources 文件夹下创建 XML Configuration File->Spring Config->springmvc 文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -143,11 +141,11 @@
 </beans>
 ```
 
-6 部署服务器，在 Run/Debug Configurations 页面添加一个 Local Tomcat Server，命名为 springmvc。在 Deployment 选项点击➕，选择 Artifact，选择 springmvc_quick_start:war。
+🍒 6 部署服务器，在 Run/Debug Configurations 页面添加一个 Local Tomcat Server，命名为 springmvc。在 Deployment 选项点击➕，选择 Artifact，选择 springmvc_quick_start:war。
 
-#### 1.1.3 代码编写
+#### 1.3 代码编写
 
-1 在 webapp 下创建 index.jsp 文件（主页面）
+🍒 1 在 webapp 下创建 index.jsp 文件（主页面）
 
 ```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -162,7 +160,7 @@
 </html>
 ```
 
-2 在 java 文件夹下创建 cn.itcast.controller.HelloController 类
+🍒 2 在 java 文件夹下创建 cn.itcast.controller.HelloController 类
 
 ```java
 package cn.itcast.controller;
@@ -197,8 +195,7 @@ public class HelloController {
 */
 ```
 
-
-3 在 WEB-INF 中创建 pages文件夹，在 pages文件夹创建 success.jsp 文件
+🍒 3 在 WEB-INF 中创建 pages文件夹，在 pages文件夹创建 success.jsp 文件
 
 ```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -212,7 +209,7 @@ public class HelloController {
 </html>
 ```
 
-4 更新 springmvc.xml 文件约束
+🍒 4 更新 springmvc.xml 文件约束
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -244,7 +241,7 @@ public class HelloController {
 </beans>
 ```
 
- 5 在 web.xml 中加载配置文件
+🍒 5 在 web.xml 中加载配置文件
 
 ```xml
 <!DOCTYPE web-app PUBLIC
@@ -284,7 +281,7 @@ public class HelloController {
 
 6. 当值相同的时候，容器就会自己选择优先加载。
 
-#### 1.1.4 流程总结
+#### 1.4 流程总结
 
 <img src="./img3/03-pipline.png" width=600>
 
@@ -306,7 +303,7 @@ public class HelloController {
 
 【springmvc.xml】开启注解扫描，将 HelloController 类变为对象（默认单例）加载进 IOC 容器中。
 
-#### 1.1.5 使用的组件介绍
+#### 1.5 使用的组件介绍
 
 
 <img src="./img3/04-component-execution-process.png" width=1300>
@@ -363,7 +360,7 @@ er"></bean>
 <!-- End -->
 ```
 
-#### 1.1.6 RequestMapping 注解 
+#### 1.6 RequestMapping 注解 
 
 **作用**：用于建立请求 URL 和处理请求方法之间的对应关系。 
 
@@ -439,7 +436,8 @@ public @interface RequestMapping {
 
 注意：以上四个属性只要出现 2 个或以上时，他们的关系是与的关系。 
 
-#### 1.1 7 配置注意事项
+#### 1.7 配置注意事项 
+
 
 🍒 **在 jsp 中使用第二种方法配置时，不要在访问 URL 前面加 `/`，否则无法找到资源。** 
 
