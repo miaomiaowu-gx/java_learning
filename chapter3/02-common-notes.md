@@ -97,7 +97,7 @@ public class AnnoController {
 
 **该注解的作用**：
 
-
+<img src="./img3/05-restfule.png" width=600>
 
 
 #### 2.4 HiddentHttpMethodFilter 过滤器
