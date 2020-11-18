@@ -10,9 +10,14 @@
 
 **使用示例**：
 
+* **jsp 中示例代码**
+
 ```html
 <a href="anno/testRequestParam?name=哈哈">RequestParam</a>
 ```
+
+* **控制器中示例代码**
+
 
 ```java
 @Controller
@@ -38,6 +43,8 @@ public class AnnoController {
 
 **使用示例**：
 
+* **jsp 中示例代码**
+
 ```html
 <form action="anno/testRequestBody" method="post">
     用户姓名：<input type="text" name="username" /><br/>
@@ -45,6 +52,9 @@ public class AnnoController {
     <input type="submit" value="提交" />
 </form>
 ```
+
+* **控制器中示例代码**
+
 
 ```java
 @Controller
@@ -76,9 +86,14 @@ public class AnnoController {
 
 **使用示例**：
 
+* **jsp 中示例代码**
+
 ```html
 <a href="anno/testPathVariable/10">testPathVariable</a>
 ```
+
+* **控制器中示例代码**
+
 
 ```java
 @Controller
@@ -116,27 +131,56 @@ public class AnnoController {
 
 **使用示例**：
 
+* **jsp 中示例代码**
 
+```html
+<!-- 更新 -->
+<form action="springmvc/testRestPUT/1" method="post">
+    用户名称： <input type="text" name="username"><br/>
+    <!-- 定义隐藏域传输要设置的请求方式 -->
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" value="更新">
+</form>
+```
 
-**分析**：
+* **控制器中示例代码**
 
-
-
-
-
+```java
+// put 请求：更新
+@RequestMapping(value="/testRestPUT/{id}",method=RequestMethod.PUT)
+public String testRestfulURLPUT(@PathVariable("id")Integer id,User user){
+    System.out.println("rest put "+id+","+user);
+    return "success";
+}
+```
 
 
 #### 2.5 RequestHeader 注解
 
-用处不大
 
-**作用**：
+
+**作用**：用于获取请求消息头。
 
 **属性**：
 
+* `value`：提供消息头名称
+* `required`：是否必须有此消息头
+
 **使用示例**：
 
-**分析**：
+
+* **jsp 中示例代码**
+
+
+
+* **控制器中示例代码**
+
+
+
+
+**分析**：在实际开发中一般不怎么用。
+
+
 
 
 
@@ -151,6 +195,18 @@ public class AnnoController {
 **属性**：
 
 **使用示例**：
+
+
+* **jsp 中示例代码**
+
+
+
+* **控制器中示例代码**
+
+
+
+
+
 
 **分析**：
 
@@ -167,6 +223,18 @@ public class AnnoController {
 
 **使用示例**：
 
+
+* **jsp 中示例代码**
+
+
+
+* **控制器中示例代码**
+
+
+
+
+
+
 **分析**：
 
 
@@ -182,6 +250,18 @@ public class AnnoController {
 **属性**：
 
 **使用示例**：
+
+
+* **jsp 中示例代码**
+
+
+
+* **控制器中示例代码**
+
+
+
+
+
 
 **分析**：
 
