@@ -530,21 +530,69 @@ public class AccountController {
 
 #### 7.2.3 整合 Spring 和 SpringMVC
 
-##### 7.2.3.1 第一步：配置监听器实现启动服务创建容器
+##### 7.2.3.1 第一步：在 web.xml 中配置监听器实现启动服务创建容器
 
 
 <img src="./img3/08-spring-springmvc.png" width=450>
 
+```xml
+<!--配置Spring的监听器，默认只加载WEB-INF目录下的applicationContext.xml配置文件-->
+<listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<!--设置配置文件的路径-->
+<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>classpath:applicationContext.xml</param-value>
+</context-param>
+```
 
 
+##### 7.2.3.2 在 Controller 中调用 service 的方法 
 
+```java
+package cn.itcast.controller;
 
+import cn.itcast.service.IAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-##### 7.2.3.2  
+import java.util.List;
+
+/**
+ * 帐户web
+ */
+@Controller
+@RequestMapping("/account")
+public class AccountController {
+
+    @Autowired
+    private IAccountService accountService;
+
+    @RequestMapping("/findAll")
+    public String findAll(){
+        System.out.println("表现层：查询所有账户...");
+        // 调用 service 的方法
+        accountService.findAll();
+        return "list";
+    }
+}
+```
 
 
 #### 7.2.4 保证 MyBatis 框架在 web 工程中独立运行
+
+
+
+
 #### 7.2.5 整合 Spring 和 MyBatis
+
+
+
+
+
+
 #### 7.2.6 测试 SSM 整合结果
 
 
