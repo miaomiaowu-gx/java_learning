@@ -312,6 +312,48 @@ public class AccountController {
 
 #### 7.2.1 保证 Spring 框架在 web 工程中独立运行
 
+##### 7.2.1.1 第一步：编写 Spring 配置文件并导入约束
+
+在 resources 文件夹下创建 applicationContext.xml 文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--开启注解的扫描，希望处理service和dao，controller不需要Spring框架去处理-->
+    <context:component-scan base-package="cn.itcast" >
+        <!--配置哪些注解不扫描-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+</beans>
+```
+
+
+##### 7.2.1.2 使用注解配置业务层和持久层
+
+
+
+
+
+
+
+##### 7.2.1.3 
+
+
+
 
 
 #### 7.2.2 保证 SpringMVC 在 web 工程中独立运行
