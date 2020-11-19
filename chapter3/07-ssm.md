@@ -613,8 +613,77 @@ public interface IAccountDao {
 
 ##### 7.2.4.2 编写核心配置文件 SqlMapConfig.xml
 
+在 resources 文件夹下创建 SqlMapConfig.xml 文件
 
-##### 7.2.4.3 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置环境 -->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///ssm"/>
+                <property name="username" value="root"/>
+                <property name="password" value="mysql"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 引入映射配置文件 -->
+    <mappers>
+        <!--<mapper class="cn.itcast.dao.IAccountDao"></mapper>-->
+        <package name="cn.itcast.dao" />
+    </mappers>
+</configuration>
+```
+
+##### 7.2.4.3 测试
+
+```java
+package cn.itcast.test;
+
+import cn.itcast.dao.IAccountDao;
+import cn.itcast.domain.Account;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Test;
+
+import java.io.InputStream;
+import java.util.List;
+
+public class TestMyBatis {
+
+    /**
+     * 测试查询
+     */
+    @Test
+    public void run1() throws Exception {
+        // 加载配置文件
+        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        // 创建SqlSessionFactory对象
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        // 创建SqlSession对象
+        SqlSession session = factory.openSession();
+        // 获取到代理对象
+        IAccountDao dao = session.getMapper(IAccountDao.class);
+        // 查询所有数据
+        List<Account> list = dao.findAll();
+        for(Account account : list){
+            System.out.println(account);
+        }
+        // 关闭资源
+        session.close();
+        in.close();
+    }
+}
+```
 
 
 ##### 7.2.4.4 
