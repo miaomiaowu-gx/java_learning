@@ -59,22 +59,6 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 
 6. 在 webapp 文件夹下创建目录 pages，并在其下创建 success.jsp 页面。
 
-需要多导入几个相关坐标
-
-```xml
-
-
-<dependency>
-  <groupId>com.sun.jersey</groupId>
-  <artifactId>jersey-core</artifactId>
-  <version>1.18.1</version>
-</dependency>
-<dependency>
-  <groupId>com.sun.jersey</groupId>
-  <artifactId>jersey-client</artifactId>
-  <version>1.18.1</version>
-</dependency>
-```
 
 
 #### 5.3 传统方式上传代码回顾
@@ -256,18 +240,13 @@ public class UserController {
 
 #### 5.5 Springmvc 跨服务器文件上传
 
-##### 5.5.1 分析
+
+##### 5.5.1 分析与搭建环境
+
+搭建两个 tomcat 服务器，应用服务器(springmvc)与图片服务器(fileupload)，当上传图片请求发给应用服务器时，应用服务器接收到请求，把图片存储到图片服务器。
 
 
-
-
-##### 5.5.2 搭建环境
-
-
-
-
-
-##### 5.5.3 代码实现
+##### 5.5.2 代码实现
 
 【web 页面】
 
