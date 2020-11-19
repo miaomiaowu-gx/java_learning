@@ -335,6 +335,18 @@ public class MyInterceptor2 implements HandlerInterceptor{
 </mvc:interceptors>
 ```
 
+执行顺序：
+
+```
+MyInterceptor1执行了...前1111
+MyInterceptor1执行了...前2222
+testInterceptor执行了...
+MyInterceptor1执行了...后2222
+MyInterceptor1执行了...后1111
+success.jsp执行了...
+MyInterceptor1执行了...最后2222
+MyInterceptor1执行了...最后1111
+```
 
 
 
@@ -345,16 +357,6 @@ public class MyInterceptor2 implements HandlerInterceptor{
 
 
 
-
-
-
-
-
-
-
-
-
-#### 6.2.4  
 
 
 
