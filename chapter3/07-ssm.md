@@ -583,8 +583,33 @@ public class AccountController {
 
 #### 7.2.4 保证 MyBatis 框架在 web 工程中独立运行
 
-##### 7.2.4.1 
+##### 7.2.4.1 持久层添加注解
 
+```java
+package cn.itcast.dao;
+
+import cn.itcast.domain.Account;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+/**
+ * 帐户dao接口
+ */
+@Repository
+public interface IAccountDao {
+
+    // 查询所有账户
+    @Select("select * from account")
+    public List<Account> findAll();
+
+    // 保存帐户信息
+    @Insert("insert into account (name,money) values (#{name},#{money})")
+    public void saveAccount(Account account);
+}
+```
 
 ##### 7.2.4.2 
 
