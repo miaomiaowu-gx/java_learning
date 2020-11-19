@@ -1,4 +1,4 @@
-## 第七节 SSM 整合
+![](/chapter3/img3/08-spring-springmvc.png)## 第七节 SSM 整合
 
 说明：用 Spring 框架去整合其他框架 (SpringMVC 与 Mybatis)，使用配置文件+注解方式。
 
@@ -531,6 +531,10 @@ public class AccountController {
 #### 7.2.3 整合 Spring 和 SpringMVC
 
 ##### 7.2.3.1 第一步：配置监听器实现启动服务创建容器
+
+
+<img src="./img3/08-spring-springmvc.png" width=450>
+
 
 
 
