@@ -17,7 +17,7 @@ CREATE TABLE account(
 );
 ```
 
-#### 7.1.2 
+#### 7.1.2 创建 Maven 的工程
 
 
 
