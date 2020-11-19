@@ -297,7 +297,42 @@ public class UserController {
 
 【控制器】
 
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
 
+    /**
+     * 跨服务器文件上传
+     * @return
+     */
+    @RequestMapping("/fileupload3")
+    public String fileuoload3(MultipartFile upload) throws Exception {
+        System.out.println("跨服务器文件上传...");
+
+        // 定义上传文件服务器路径
+        String path = "http://localhost:9090/uploads/";
+
+        // 说明上传文件项
+        // 获取上传文件的名称
+        String filename = upload.getOriginalFilename();
+        // 把文件的名称设置唯一值，uuid
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        filename = uuid+"_"+filename;
+
+        // 创建客户端的对象
+        Client client = Client.create();
+
+        // 和图片服务器进行连接
+        WebResource webResource = client.resource(path + filename);
+
+        // 上传文件
+        webResource.put(upload.getBytes());
+
+        return "success";
+    }
+}
+```
 
 ​      
 
