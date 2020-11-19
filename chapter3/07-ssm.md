@@ -521,12 +521,17 @@ public class AccountController {
 
 【跳转页面 list.jsp】
 
+在 WEB-INF 下创建 pages 文件夹，并在其下创建 list.jsp 
 
-
-
+```html
+<h3>查询所有账户信息</h3>
+```
 
 
 #### 7.2.3 整合 Spring 和 SpringMVC
+
+
+
 
 #### 7.2.4 保证 MyBatis 框架在 web 工程中独立运行
 #### 7.2.5 整合 Spring 和 MyBatis
