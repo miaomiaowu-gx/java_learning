@@ -342,9 +342,7 @@ public class AccountController {
 ```
 
 
-##### 7.2.1.2 使用注解配置业务层和持久层
-
-【业务层】
+##### 7.2.1.2 使用注解配置业务层
 
 
 ```java
@@ -378,8 +376,27 @@ public class AccountServiceImpl implements IAccountService{
 
 ##### 7.2.1.3 第三步：测试 Spring 能否独立运行
 
+```java
+package cn.itcast.test;
 
+import cn.itcast.service.IAccountService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+public class TestSpring {
+
+    @Test
+    public void run1(){
+        // 加载配置文件
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        // 获取对象
+        IAccountService as = (IAccountService) ac.getBean("accountService");
+        // 调用方法
+        as.findAll();
+    }
+}
+```
 
 
 #### 7.2.2 保证 SpringMVC 在 web 工程中独立运行
