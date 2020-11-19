@@ -175,7 +175,24 @@ public class UserController {
 
 ##### 5.4.2 代码实现
 
- 
+【web 页面】
+
+```html
+<h3>Springmvc文件上传</h3>
+
+<form action="/user/fileupload2" method="post" enctype="multipart/form-data">
+    选择文件：<input type="file" name="upload" /><br/>
+    <input type="submit" value="上传" />
+</form>
+```
+
+【在 pom.xml 中添加坐标】
+
+
+
+【控制器】
+
+
 
 
 #### 5.5 跨服务器上传
@@ -186,7 +203,11 @@ public class UserController {
 
 ##### 5.5.3 代码实现
 
+【web 页面】
 
+【在 pom.xml 中添加坐标】
+
+【控制器】
 
 
 
