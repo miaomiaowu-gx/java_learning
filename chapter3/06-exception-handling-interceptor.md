@@ -30,7 +30,85 @@
   
 #### 6.1.3 程序实现
 
-      
+【web 访问页面】
+
+```html
+<a href="user/testException" >异常处理</a>
+```
+
+【编写自定义异常类-用于提示信息】
+
+* 在 src->java 下创建 cn.itcast.exception 包，并在其下创建 SysException 类，继承于 Exception。
+
+```java
+package cn.itcast.exception;
+
+/**
+ * 自定义异常类
+ */
+public class SysException extends Exception{
+
+    // 存储提示信息的
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public SysException(String message) {
+        this.message = message;
+    }
+}
+```
+
+【编写异常处理器】
+
+```java
+package cn.itcast.exception;
+
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * 异常处理器
+ */
+public class SysExceptionResolver implements HandlerExceptionResolver{
+
+    /**
+     * 处理异常业务逻辑
+     */
+    @Override
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        // 获取到异常对象
+        SysException e = null;
+        if(ex instanceof SysException){
+            e = (SysException)ex;
+        }else{
+            e = new SysException("系统正在维护....");
+        }
+        // 创建ModelAndView对象
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("errorMsg",e.getMessage());
+        mv.setViewName("error");
+        return mv;
+    }
+}
+```
+
+
+【】
+【】
+【】
+【】
+【】
+                        
   
   
 ### 6.2 拦截器
