@@ -611,7 +611,7 @@ public interface IAccountDao {
 }
 ```
 
-##### 7.2.4.2 
+##### 7.2.4.2 编写核心配置文件 SqlMapConfig.xml
 
 
 ##### 7.2.4.3 
