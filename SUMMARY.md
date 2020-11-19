@@ -33,6 +33,7 @@
   * [第四节 响应数据和结果视图](chapter3/04-response-data-results-view.md)
   * [第五节 SpringMVC 实现文件上传](chapter3/05-file-upload.md)
   * [第六节 异常处理与拦截器](chapter3/06-exception-handling-interceptor.md)
+  * [第七节 SSM 整合](chapter3/07-ssm.md)
 * [第四章 SpringBoot](chapter4.md)
 * [第五章 JVM 虚拟机](chapter5.md)
 * [第六章 JavaWeb](chapter6.md)
