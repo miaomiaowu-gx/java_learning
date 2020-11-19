@@ -159,6 +159,21 @@ public class UserController {
 
 #### 6.2.1 拦截器之介绍
 
+
+&emsp;&emsp;Spring MVC 的处理器拦截器类似于 Servlet 开发中的过滤器 Filter，用于对处理器进行预处理和后处理。用户可以自己定义一些拦截器来实现特定的功能。
+
+&emsp;&emsp;拦截器链（Interceptor Chain），就是将拦截器按一定的顺序联结成一条链。在访问被拦截的方法或字段时，拦截器链中的拦截器就会按其之前定义的顺序被调用。
+
+**拦截器与过滤器区别**：
+
+* **过滤器**是 servlet 规范中的一部分，任何 java web 工程都可以使用。
+* **拦截器**是 SpringMVC 框架自己的，只有使用了 SpringMVC 框架的工程才能用。
+
+* **过滤器**在 url-pattern 中配置了 `/*` 之后，可以对所有要访问的资源拦截。
+* **拦截器**只会拦截访问的控制器方法，如果访问的是 jsp、html、css、image 或者 js 是不会进行拦截的。是 AOP 思想的具体应用。
+
+要想自定义拦截器，要求必须实现 `HandlerInterceptor` 接口。
+
 #### 6.2.2 搭建环境
 
 参考第一节 SpringMVC 入门环境搭建
