@@ -298,8 +298,14 @@ public class AccountServiceImpl implements IAccountService{
 在 controller 下创建 AccountController 类
 
 ```java
+package cn.itcast.controller;
 
-
+/**
+ * 帐户web
+ */
+public class AccountController {
+}
+```
 
 
 
