@@ -192,8 +192,7 @@ public class UserController {
 6. 在 webapp 文件夹下创建目录 pages，并在其下创建 success.jsp 页面。
 
 
-
-#### 6.2.3 
+#### 6.2.3 代码实现
 
 
 #### 6.2.4  
