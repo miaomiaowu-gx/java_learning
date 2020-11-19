@@ -307,6 +307,41 @@ public class AccountController {
 }
 ```
 
+### 7.2 整合步骤
+
+
+#### 7.2.1 保证 Spring 框架在 web 工程中独立运行
+
+
+
+#### 7.2.2 保证 SpringMVC 在 web 工程中独立运行
+
+#### 7.2.3 整合 Spring 和 SpringMVC
+
+#### 7.2.4 保证 MyBatis 框架在 web 工程中独立运行
+#### 7.2.5 整合 Spring 和 MyBatis
+#### 7.2.6 测试 SSM 整合结果
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
