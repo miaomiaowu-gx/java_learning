@@ -252,7 +252,7 @@ public interface IAccountDao {
 }
 ```
 
-#### 7.1.6 编写业务层接口
+#### 7.1.6 编写业务层接口及实现类
 
 在 service 下创建 IAccountService 接口
 
@@ -269,9 +269,35 @@ public interface IAccountService {
 }
 ```
 
+在 service 下创建 impl.AccountServiceImpl 类
 
-#### 7.1.7 
+```java
+package cn.itcast.service.impl;
 
+import cn.itcast.domain.Account;
+import cn.itcast.service.IAccountService;
+import java.util.List;
+
+public class AccountServiceImpl implements IAccountService{
+
+    @Override
+    public List<Account> findAll() {
+        System.out.println("业务层：查询所有账户...");
+        return null;
+    }
+
+    @Override
+    public void saveAccount(Account account) {
+        System.out.println("业务层：保存帐户...");
+    }
+}
+```
+
+#### 7.1.7 Web 层（controller）
+
+在 controller 下创建 AccountController 类
+
+```java
 
 
 
