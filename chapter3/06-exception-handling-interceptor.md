@@ -36,7 +36,7 @@
 <a href="user/testException" >异常处理</a>
 ```
 
-【编写自定义异常类-用于提示信息】
+【编写自定义异常类 - 用于提示信息】
 
 * 在 src->java 下创建 cn.itcast.exception 包，并在其下创建 SysException 类，继承于 Exception。
 
@@ -140,7 +140,20 @@ public class UserController {
 <bean id="sysExceptionResolver" class="cn.itcast.exception.SysExceptionResolver"/>
 ```
 
-【】
+【跳转 error 页面】
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    ${errorMsg}
+</body>
+</html>
+```
+
 【】
 【】
                         
