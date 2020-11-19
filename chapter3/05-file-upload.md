@@ -246,11 +246,54 @@ public class UserController {
 搭建两个 tomcat 服务器，应用服务器(springmvc)与图片服务器(fileupload)，当上传图片请求发给应用服务器时，应用服务器接收到请求，把图片存储到图片服务器。
 
 
+在实际开发中，会有很多处理不同功能的服务器。例如：
+* 应用服务器：负责部署应用
+* 数据库服务器：运行数据库
+* 缓存和消息服务器：负责处理大并发访问的缓存和消息
+* 文件服务器：负责存储用户上传文件的服务器。
+(注意：此处说的不是服务器集群）
+
+分服务器处理的目的是让服务器各司其职，从而提高项目的运行效率。
+
 ##### 5.5.2 代码实现
 
 【web 页面】
 
-【在 pom.xml 中添加坐标】
+```html
+<h3>跨服务器文件上传</h3>
+
+<form action="/user/fileupload3" method="post" enctype="multipart/form-data">
+    选择文件：<input type="file" name="upload" /><br/>
+    <input type="submit" value="上传" />
+</form>
+```
+
+【在 pom.xml 中添加负责处理文件上传的项目中拷贝文件上传的必备 jar 包】
+
+```xml
+<dependency>
+  <groupId>commons-fileupload</groupId>
+  <artifactId>commons-fileupload</artifactId>
+  <version>1.3.1</version>
+</dependency>
+<dependency>
+  <groupId>commons-io</groupId>
+  <artifactId>commons-io</artifactId>
+  <version>2.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.sun.jersey</groupId>
+  <artifactId>jersey-core</artifactId>
+  <version>1.18.1</version>
+</dependency>
+<dependency>
+  <groupId>com.sun.jersey</groupId>
+  <artifactId>jersey-client</artifactId>
+  <version>1.18.1</version>
+</dependency>
+```
+
 
 【控制器】
 
