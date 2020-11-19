@@ -306,8 +306,34 @@ public class MyInterceptor2 implements HandlerInterceptor{
 }
 ```
 
+【拦截器配置 springmvc.xml】
 
+```xml
+<!--配置拦截器-->
+<mvc:interceptors>
+    <!--配置拦截器-->
+    <mvc:interceptor>
+        <!--要拦截的具体的方法-->
+        <mvc:mapping path="/user/*"/>
+        <!--不要拦截的方法
+        <mvc:exclude-mapping path=""/>
+        -->
+        <!--配置拦截器对象-->
+        <bean class="cn.itcast.controller.cn.itcast.interceptor.MyInterceptor1" />
+    </mvc:interceptor>
 
+    <!--配置第二个拦截器-->
+    <mvc:interceptor>
+        <!--要拦截的具体的方法-->
+        <mvc:mapping path="/**"/>
+        <!--不要拦截的方法
+        <mvc:exclude-mapping path=""/>
+        -->
+        <!--配置拦截器对象-->
+        <bean class="cn.itcast.controller.cn.itcast.interceptor.MyInterceptor2" />
+    </mvc:interceptor>
+</mvc:interceptors>
+```
 
 
 
