@@ -19,8 +19,15 @@ CREATE TABLE account(
 
 #### 7.1.2 创建 Maven 的工程
 
-创建 Maven 工程并添加 “archetypeCatalog:internal”。
+1. 创建 Maven 工程并添加 “archetypeCatalog:internal”。
 
+2. 在 src->main 下创建 java 文件夹与 resources 文件夹，并右键选择 Mark Directory as，设置相应的根目录。 
+
+3. 在 src->main->java 创建包
+   * cn.itcast.domain
+   * cn.itcast.dao
+   * cn.itcast.service
+   * cn.itcast.controller
 
 #### 7.1.3 在 pom.xml 中导入坐标
 
