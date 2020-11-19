@@ -334,6 +334,18 @@ public class UserController {
 }
 ```
 
-​      
+【在 springmvc.xml 中配置文件解析器】
+
+```xml
+<!--配置文件解析器对象-->
+<!-- 此处的 id 值是固定的，不能修改，不能起别的名称，否则无法实现请求参数的绑定。-->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!--可以设置一些属性，此设置上传文件的最大尺寸为 10MB-->
+    <property name="maxUploadSize" value="10485760" />
+</bean>
+```
+
+
+
 
 ​                       
