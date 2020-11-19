@@ -252,8 +252,60 @@ public interface IAccountDao {
 }
 ```
 
+#### 7.1.6 编写业务层接口
+
+在 service 下创建 IAccountService 接口
+
+```java
+package cn.itcast.service;
+import cn.itcast.domain.Account;
+import java.util.List;
+
+public interface IAccountService {
+    // 查询所有账户
+    public List<Account> findAll();
+    // 保存帐户信息
+    public void saveAccount(Account account);
+}
+```
 
 
-
-#### 7.1.6 
 #### 7.1.7 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
