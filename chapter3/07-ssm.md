@@ -488,9 +488,18 @@ public class TestSpring {
 
 ##### 7.2.2.3 第三步：编写 Controller 和 jsp 页面
 
+【index.jsp 页面】
+
+```html
+<a href="account/findAll">测试查询</a>
+```
+
+【控制器】
 
 
 
+
+【跳转页面 list.jsp】
 
 #### 7.2.3 整合 Spring 和 SpringMVC
 
