@@ -231,7 +231,29 @@ public class Account implements Serializable{
 ```
 
 
+#### 7.1.5 编写持久层接口
 
-#### 7.1.5 
+在 dao 下创建 IAccountDao 接口
+
+```java
+package cn.itcast.dao;
+import cn.itcast.domain.Account;
+import java.util.List;
+
+/**
+ * 帐户dao接口
+ */
+@Repository
+public interface IAccountDao {
+    // 查询所有账户
+    public List<Account> findAll();
+    // 保存帐户信息
+    public void saveAccount(Account account);
+}
+```
+
+
+
+
 #### 7.1.6 
 #### 7.1.7 
