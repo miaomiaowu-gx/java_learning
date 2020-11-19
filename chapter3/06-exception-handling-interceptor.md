@@ -8,7 +8,7 @@
 
 系统的 dao、service、controller 出现异常都通过 throws Exception 向上抛出，最后由 springmvc 前端控制器交由异常处理器进行异常处理，如下图：
 
-<ing src="./img3/07-exception-ana.png" width=600>
+<img src="./img3/07-exception-ana.png" width=600>
 
 
 #### 6.1.2 搭建环境
