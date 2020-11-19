@@ -170,7 +170,7 @@ public class UserController {
 * **拦截器**是 SpringMVC 框架自己的，只有使用了 SpringMVC 框架的工程才能用。
 
 * **过滤器**在 url-pattern 中配置了 `/*` 之后，可以对所有要访问的资源拦截。
-* **拦截器**只会拦截访问的控制器方法，如果访问的是 jsp、html、css、image 或者 js 是不会进行拦截的。是 AOP 思想的具体应用。
+* **拦截器**只会拦截访问的**控制器**方法，如果访问的是 jsp、html、css、image 或者 js 是不会进行拦截的。是 AOP 思想的具体应用。
 
 要想自定义拦截器，要求必须实现 `HandlerInterceptor` 接口。
 
@@ -189,7 +189,6 @@ public class UserController {
 5. 在 webapp 文件夹下删除原 index.jsp，然后创建新的 index.jsp 文件。
 
 6. 在 webapp 文件夹下创建目录 pages，并在其下创建 success.jsp 页面。
-
 
 
 
