@@ -711,16 +711,11 @@ public class TestMyBatis {
 ```
 
 
-##### 7.2.4.4 
-
-
-
-
-
-
-
-
 #### 7.2.5 整合 Spring 和 MyBatis
+
+
+
+
 
 
 
