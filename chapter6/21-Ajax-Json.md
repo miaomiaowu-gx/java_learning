@@ -16,9 +16,7 @@
 **作用**：提升用户的体验
 
 
-#### 21.1.2 AJAX 实现原生 JS 方式
-
-##### 21.1.2.1 原生的JS实现方式（了解）
+#### 21.1.2 AJAX 实现原生 JS 方式（了解）
 
 【web 网页】
 
@@ -121,11 +119,11 @@ public class AjaxServlet extends HttpServlet {
 }
 ```
 
-##### 21.1.2.2 JQeury 实现方式
+#### 21.1.3 AJAX 实现 JQuery 实现方式
 
  共有三种：
 
-🍒 `$.ajax()` ：
+##### 21.1.3.1 🍒 `$.ajax()` ：
 
 **语法**：`$.ajax({键值对});`
 
@@ -165,7 +163,7 @@ public class AjaxServlet extends HttpServlet {
 </html>
 ```
 
-🍒 `$.get()` ：发送 get 请求
+##### 21.1.3.2 🍒 `$.get()` ：发送 get 请求
 
 * 语法：`$.get(url, [data], [callback], [type])`
 * 参数：
@@ -174,7 +172,30 @@ public class AjaxServlet extends HttpServlet {
    * callback：回调函数
    * type：响应结果的类型
 
-🍒 `$.post()` ：发送 post 请求
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        //定义方法
+        function  fun() {
+            $.get("ajaxServlet",{username:"rose"},function (data) {
+                alert(data);
+            },"text");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="发送异步请求" onclick="fun();">
+    <input>
+</body>
+</html>
+```
+
+##### 21.1.3.3 🍒 `$.post()` ：发送 post 请求
 
 * 语法：`$.post(url, [data], [callback], [type])`
 * 参数：
@@ -183,21 +204,35 @@ public class AjaxServlet extends HttpServlet {
    * callback：回调函数
    * type：响应结果的类型
 
-
-
-#### 21.1.3 AJAX 实现 JQuery 实现方式
-
-
-
-
-#### 21.1.4
-
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        //定义方法
+        function  fun() {
+            $.post("ajaxServlet",{username:"rose"},function (data) {
+                alert(data);
+            },"text");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="发送异步请求" onclick="fun();">
+    <input>
+</body>
+</html>
+```
 
 
 ### 21.2 Json
 
 #### 21.2.1 JSON 概念
+
+
 
 
 #### 21.2.2
