@@ -713,16 +713,145 @@ public class TestMyBatis {
 
 #### 7.2.5 整合 Spring 和 MyBatis
 
+整合成功：service 可以成功调用到 dao 对象
+
+##### 7.2.5.1 在 Spring 的配置文件 applicationContext.xml 中添加配置
 
 
+Spring 整合 MyBatis 框架步骤：
+
+1. 配置连接池
+2. 配置 SqlSessionFactory 工厂
+3. 配置 AccountDao 接口所在包
+
+```xml
+<!--Spring整合MyBatis框架-->
+<!--配置连接池-->
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    <property name="jdbcUrl" value="jdbc:mysql:///ssm"/>
+    <property name="user" value="root"/>
+    <property name="password" value="root"/>
+</bean>
+
+<!--配置SqlSessionFactory工厂-->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+</bean>
+
+<!--配置AccountDao接口所在包-->
+<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="cn.itcast.dao"/>
+</bean>
+```
+
+##### 7.2.5.2 删除 SqlMapConfig.xml 文件 
+
+##### 7.2.5.3 把 dao 交给容器 (添加 @Repository 注解)
+
+```java
+package cn.itcast.dao;
+
+import cn.itcast.domain.Account;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+// 帐户dao接口
+@Repository
+public interface IAccountDao {
+    // 查询所有账户
+    @Select("select * from account")
+    public List<Account> findAll();
+    // 保存帐户信息
+    @Insert("insert into account (name,money) values (#{name},#{money})")
+    public void saveAccount(Account account);
+}
+```
+
+##### 7.2.5.4 在 service 中注入 IAccountDao 接口 (@Autowired)
+
+```java
+package cn.itcast.service.impl;
+
+import cn.itcast.dao.IAccountDao;
+import cn.itcast.domain.Account;
+import cn.itcast.service.IAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service("accountService")
+public class AccountServiceImpl implements IAccountService{
+
+    @Autowired
+    private IAccountDao accountDao;
+
+    @Override
+    public List<Account> findAll() {
+        System.out.println("业务层：查询所有账户...");
+        return accountDao.findAll();
+    }
+
+    @Override
+    public void saveAccount(Account account) {
+        System.out.println("业务层：保存帐户...");
+        accountDao.saveAccount(account);
+    }
+}
+```
+
+##### 7.2.5.5 在 AccountController.java 中使用 Model 对象存储信息到页面
+
+```java
+package cn.itcast.controller;
+
+/**
+ * 帐户web
+ */
+@Controller
+@RequestMapping("/account")
+public class AccountController {
+
+    @Autowired
+    private IAccountService accountService;
+
+    @RequestMapping("/findAll")
+    public String findAll(Model model){
+        System.out.println("表现层：查询所有账户...");
+        // 调用service的方法
+        List<Account> list = accountService.findAll();
+        model.addAttribute("list",list);
+        return "list";
+    }
+}
+```
+
+##### 7.2.5.6 在跳转页面 list.jsp 遍历数据
+
+```html
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+    <h3>查询所有的帐户</h3>
+
+    <c:forEach items="${list}" var="account">
+        ${account.name}
+    </c:forEach>
+</body>
+</html>
+```
 
 
-
-
-
-
-
-#### 7.2.6 测试 SSM 整合结果
+#### 7.2.6 Spring 整合 MyBatis 框架配置事务
 
 
 
