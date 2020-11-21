@@ -359,8 +359,43 @@ json 现在多作为**存储和交换文本信息**的语法，进行数据的�
 
 #### 21.2.3 JSON 数据和 Java 对象的相互转换
 
+**JSON 常见解析器**：Jsonlib，Gson，fastjson，jackson。
 
+##### 21.2.3.1 JSON 转为 Java 对象
 
+1. 导入 jackson 的相关 jar 包
+2. 创建 Jackson 核心对象 ObjectMapper
+3. 调用 ObjectMapper 的相关方法进行转换：`readValue(json字符串数据,Class)`
+
+```java
+
+```
+
+##### 21.2.3.2 Java 对象转换 JSON
+
+1. 导入 jackson 的相关 jar 包
+2. 创建 Jackson 核心对象 ObjectMapper
+3. 调用 ObjectMapper 的相关方法进行转换
+
+```java
+
+```
+
+1) 转换方法：`writeValue(参数1，obj)`
+参数1：
+File：将obj对象转换为JSON字符串，并保存到指定的文件中
+Writer：将obj对象转换为JSON字符串，并将json数据填充到字符输出流中
+OutputStream：将obj对象转换为JSON字符串，并将json数据填充到字节输出流中
+* writeValueAsString(obj):将对象转为json字符串
+
+2) 注解：
+* `@JsonIgnore`：排除属性。
+* `@JsonFormat`：属性值得格式化
+* `@JsonFormat(pattern = "yyyy-MM-dd")`
+
+3) 复杂 java 对象转换
+* List：数组
+* Map：对象格式一致
 
 
 
