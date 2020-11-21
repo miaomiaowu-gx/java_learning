@@ -363,12 +363,26 @@ json 现在多作为**存储和交换文本信息**的语法，进行数据的�
 
 ##### 21.2.3.1 JSON 转为 Java 对象
 
-1. 导入 jackson 的相关 jar 包
+1. 导入 jackson 的相关 jar 包：`jackson-annotations-2.2.3.jar`、`jackson-core-2.2.3.jar`、`jackson-databind-2.2.3.jar` 。
 2. 创建 Jackson 核心对象 ObjectMapper
 3. 调用 ObjectMapper 的相关方法进行转换：`readValue(json字符串数据,Class)`
 
 ```java
+public class JacksonTest {
+    //演示 JSON 字符串转为 Java 对象
+    @Test
+    public void test() throws Exception {
+       //1.初始化 JSON 字符串
+        String json = "{\"gender\":\"男\",\"name\":\"张三\",\"age\":23}";
 
+        //2.创建 ObjectMapper 对象
+        ObjectMapper mapper = new ObjectMapper();
+        //3.转换为 Java 对象 (Person 对象)
+        Person person = mapper.readValue(json, Person.class);
+
+        System.out.println(person);
+    }
+}
 ```
 
 ##### 21.2.3.2 Java 对象转换 JSON
@@ -377,34 +391,217 @@ json 现在多作为**存储和交换文本信息**的语法，进行数据的�
 2. 创建 Jackson 核心对象 ObjectMapper
 3. 调用 ObjectMapper 的相关方法进行转换
 
-```java
+**1) 转换方法**：
 
+* `writeValue(参数1，obj)`
+   * 参数 1 可以有如下取值：
+       * File：将 obj 对象转换为 JSON 字符串，并保存到指定的文件中。
+       * Writer：将 obj 对象转换为 JSON 字符串，并将 json 数据填充到字符输出流中。
+       * OutputStream：将 obj 对象转换为 JSON 字符串，并将 json 数据填充到字节输出流中。
+
+* `writeValueAsString(obj)`：将对象转为 json 字符串。
+
+【实体类】
+
+```java
+package cn.itcast.domain;
+public class Person {
+    private String name;
+    private int age ;
+    private String gender;
+    getter & setter 方法 ...
+}
 ```
 
-1) 转换方法：`writeValue(参数1，obj)`
-参数1：
-File：将obj对象转换为JSON字符串，并保存到指定的文件中
-Writer：将obj对象转换为JSON字符串，并将json数据填充到字符输出流中
-OutputStream：将obj对象转换为JSON字符串，并将json数据填充到字节输出流中
-* writeValueAsString(obj):将对象转为json字符串
+【使用示例】
 
-2) 注解：
-* `@JsonIgnore`：排除属性。
+```java
+package cn.itcast.test;
+
+import cn.itcast.domain.Person;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
+
+import java.io.FileWriter;
+import java.util.*;
+
+public class JacksonTest {
+    //Java对象转为JSON字符串
+    @Test
+    public void test1() throws Exception {
+        //1.创建Person对象
+        Person p  = new Person();
+        p.setName("张三");
+        p.setAge(23);
+        p.setGender("男");
+
+        //2.创建Jackson的核心对象  ObjectMapper
+        ObjectMapper mapper = new ObjectMapper();
+        
+        //3.1 转换
+        String json = mapper.writeValueAsString(p);
+        //json值为：{"name":"张三","age":23,"gender":"男"}
+
+        //3.2 writeValue，将数据写到 d://a.txt 文件中
+        mapper.writeValue(new File("d://a.txt"),p);
+
+        //3.3 writeValue，将数据关联到 Writer 中
+        mapper.writeValue(new FileWriter("d://b.txt"),p);
+    }
+}
+```
+
+**2) 注解**：
+
+* `@JsonIgnore`：排除属性。对应的属性，将来不会转换成字符串。
 * `@JsonFormat`：属性值得格式化
-* `@JsonFormat(pattern = "yyyy-MM-dd")`
+   * `@JsonFormat(pattern = "yyyy-MM-dd")`
+
+【@JsonIgnore】
+
+```java
+// 实体类
+public class Person {
+    private String name;
+    private int age ;
+    private String gender;
+
+    @JsonIgnore // 忽略该属性
+    private Date birthday;
+    ...
+}
+
+// 测试
+public class JacksonTest {
+    @Test
+    public void test2() throws Exception {
+        //1.创建Person对象
+        Person p = new Person();
+        p.setName("张三");
+        p.setAge(23);
+        p.setGender("男");
+        p.setBirthday(new Date());
+        
+        //2.转换
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(p);
+
+        System.out.println(json);
+        //{"name":"张三","age":23,"gender":"男"}
+        //birthday 属性不会被打印：【"birthday":1530958029263】
+        //birthday：默认输出的是毫秒值。
+    }
+}
+```
+
+
+【@JsonFormat】
+
+```java
+// 实体类
+public class Person {
+    private String name;
+    private int age ;
+    private String gender;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date birthday;
+    ...
+}
+
+// 测试
+public class JacksonTest {
+    @Test
+    public void test2() throws Exception {
+        //1.创建Person对象
+        Person p = new Person();
+        p.setName("张三");
+        p.setAge(23);
+        p.setGender("男");
+        p.setBirthday(new Date());
+        
+        //2.转换
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(p);
+
+        System.out.println(json);
+        //{"name":"张三","age":23,"gender":"男","birthday":"2018-07-07"}
+        //birthday：默认输出的是毫秒值。【"birthday":1530958029263】
+    }
+}
+```
 
 3) 复杂 java 对象转换
-* List：数组
-* Map：对象格式一致
+
+* List：转换后是数组
+* Map：转换后与对象格式一致
+
+```java
+public class JacksonTest {
+    @Test
+    public void test3() throws Exception {
+        //1.创建Person对象
+        Person p = new Person();
+        p.setName("张三");
+        p.setAge(23);
+        p.setGender("男");
+        p.setBirthday(new Date());
+
+        Person p1 = new Person();
+        p1.setName("张三");
+        p1.setAge(23);
+        p1.setGender("男");
+        p1.setBirthday(new Date());
+
+        Person p2 = new Person();
+        p2.setName("张三");
+        p2.setAge(23);
+        p2.setGender("男");
+        p2.setBirthday(new Date());
+
+        //创建List集合
+        List<Person> ps = new ArrayList<Person>();
+        ps.add(p);
+        ps.add(p1);
+        ps.add(p2);
+
+        //2.转换
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(ps);
+        // [{},{},{}]
+        /*
+          [{"name":"张三","age":23,"gender":"男","birthday":"2018-07-07"},
+           {"name":"张三","age":23,"gender":"男","birthday":"2018-07-07"},
+           {"name":"张三","age":23,"gender":"男","birthday":"2018-07-07"}]
+        */
+        System.out.println(json);
+    }
+
+    @Test
+    public void test4() throws Exception {
+        //1.创建map对象
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("name","张三");
+        map.put("age",23);
+        map.put("gender","男");
+
+        //2.转换
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(map);
+        System.out.println(json);//{"gender":"男","name":"张三","age":23}
+    }
+}
+```
 
 
 
 ### 21.3 案例：校验用户名是否存在 
 
+服务器响应的数据，在客户端使用时，要想当做 json数 据格式使用。有两种解决方案：
 
-
-
-
+1. `$.get(type)`：将最后一个参数 type 指定为 "json"
+2. 在服务器端设置 MIME 类型
+* `response.setContentType("application/json;charset=utf-8");`
 
 
 
