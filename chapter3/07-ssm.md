@@ -853,6 +853,8 @@ public class AccountController {
 
 #### 7.2.6 Spring 整合 MyBatis 框架配置事务
 
+7.2.5 小节中 findAll 方法可以正常执行，但是 save 方法缺少事务控制，并不能保存数据到数据库中。
+
 
 
 
