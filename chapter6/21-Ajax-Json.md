@@ -232,15 +232,136 @@ public class AjaxServlet extends HttpServlet {
 
 #### 21.2.1 JSON 概念
 
+概念：JavaScript Object Notation，JavaScript 对象表示法。
+
+```js
+Person p = new Person();
+p.setName("张三");
+p.setAge(23);
+p.setGender("男");
+
+var p = {"name":"张三","age":23,"gender":"男"};
+```
+
+json 现在多作为**存储和交换文本信息**的语法，进行数据的传输时 JSON 比 XML 更小、更快，更易解析。
+
+#### 21.2.2 语法
+
+**【基本规则】**
+
+1. 数据在名称/值对中：json 数据是由键值对构成的
+   * 键用引号 (单双都行) 引起来，也可以不使用引号
+   * 值得取值类型：
+      * 数字（整数或浮点数）
+      * 字符串（在双引号中）
+      * 逻辑值（true 或 false）
+      * 数组（在方括号中）`{"persons":[{},{}]}`
+      * 对象（在花括号中） `{"address":{"province"："陕西"....}}`
+      * null
+2. 数据由逗号分隔：多个键值对由逗号分隔
+3. 花括号保存对象：使用 `{}` 定义 json 格式
+4. 方括号保存数组：`[]`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1. 定义基本格式
+        var person = {"name": "张三", age: 23, 'gender': true};
+		alert(person);
+        
+        //2. 嵌套格式   {}———> []
+        var persons = {
+            "persons": [
+                {"name": "张三", "age": 23, "gender": true},
+                {"name": "李四", "age": 24, "gender": true},
+                {"name": "王五", "age": 25, "gender": false}
+                ]
+        };
+        alert(persons);
+        
+        //3. 嵌套格式   []———> {}
+        var ps = [{"name": "张三", "age": 23, "gender": true},
+            {"name": "李四", "age": 24, "gender": true},
+            {"name": "王五", "age": 25, "gender": false}];
+        alert(ps);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+**【获取数据】**
+
+1. `json对象.键名`
+2. `json对象["键名"]`
+3. `数组对象[索引]`
+
+```html
+<script>
+    //接上面代码
+    //1. 获取name的值
+    var name1 = person.name;       //张三
+    var name2 = person["name"];    //张三
+    
+    //2. 嵌套格式   {}———> []
+    var name3 = persons.persons[2].name;   //王五
+    
+    //3. 嵌套格式   []———> {}
+    var name4 = ps[1].name;  //李四
+</script>  
+```
+
+【遍历】
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1.定义基本格式
+        var person = {"name": "张三", age: 23, 'gender': true};
+
+        var ps = [{"name": "张三", "age": 23, "gender": true},
+            {"name": "李四", "age": 24, "gender": true},
+            {"name": "王五", "age": 25, "gender": false}];
+        
+        //获取person对象中所有的键和值
+        //for in 循环
+        for(var key in person){
+            //person.key：获取不到值，因为相当于 person."name"
+            //alert(key + ":" + person.key);
+            alert(key+":"+person[key]);
+        }
+
+       //获取ps中的所有值
+        for (var i = 0; i < ps.length; i++) {
+            var p = ps[i];
+            for(var key in p){
+                alert(key+":"+p[key]);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+
+#### 21.2.3 JSON 数据和 Java 对象的相互转换
 
 
 
-#### 21.2.2
 
-
-
-
-#### 21.2.3
 
 
 ### 21.3 案例：校验用户名是否存在 
