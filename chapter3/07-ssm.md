@@ -855,17 +855,55 @@ public class AccountController {
 
 7.2.5 小节中 findAll 方法可以正常执行，但是 save 方法缺少事务控制，并不能保存数据到数据库中。
 
+ ##### 7.2.6.1 在 Spring 的配置文件 applicationContext.xml 中配置声明式事务管理
 
+配置 Spring 框架声明式事务管理步骤：
 
+1. 配置事务管理器
+2. 配置事务通知
+3. 配置 AOP 增强
 
+```xml
+<!--配置Spring框架声明式事务管理-->
+<!--配置事务管理器-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+</bean>
 
+<!--配置事务通知-->
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <tx:attributes>
+        <tx:method name="find*" read-only="true"/>
+        <tx:method name="*" isolation="DEFAULT"/>
+    </tx:attributes>
+</tx:advice>
 
+<!--配置AOP增强-->
+<aop:config>
+    <aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itcast.service.impl.*ServiceImpl.*(..))"/>
+</aop:config>
+```
 
+##### 7.2.6.2 测试 save 方法页面 index.jsp
 
+```html
+<form action="account/save" method="post">
+    姓名：<input type="text" name="name" /><br/>
+    金额：<input type="text" name="money" /><br/>
+    <input type="submit" value="保存"/><br/>
+</form>
+```
 
+##### 7.2.6.3 controller 中添加 save 方法
 
-
-
+```java
+@RequestMapping("/save")
+public void save(Account account, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    accountService.saveAccount(account);
+    response.sendRedirect(request.getContextPath()+"/account/findAll");
+    return;
+}
+```
 
 
 
