@@ -60,6 +60,7 @@
   * [第二十一节 Ajax & Json](chapter6/21-Ajax-Json.md)
 * [第七章 Maven 项目管理工具](chapter7.md)
 * [第八章 Redis](chapter8.md)
+  * [第一节 命令操作](chapter8/01-redis-command-operation.md)
 * [第九章 Nginx](chapter9.md)
 * [第十章 数据库优化](chapter10.md)
 * [第十一章 计算机网络](chapter11.md)
