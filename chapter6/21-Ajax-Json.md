@@ -601,8 +601,110 @@ public class JacksonTest {
 
 1. `$.get(type)`：将最后一个参数 type 指定为 "json"
 2. 在服务器端设置 MIME 类型
-* `response.setContentType("application/json;charset=utf-8");`
+   * `response.setContentType("application/json;charset=utf-8");`
 
 
+【注册页面】
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        //在页面加载完成后
+        $(function () {
+           //给 username 绑定 blur 事件（离焦时间）
+           $("#username").blur(function () {
+               //获取 username 文本输入框的值
+               var username = $(this).val();
+               //发送 ajax 请求
+               //期望服务器响应回的数据格式：{"userExsit":true,"msg":"此用户名太受欢迎,请更换一个"}
+               //                         {"userExsit":false,"msg":"用户名可用"}
+               $.get("findUserServlet",{username:username},function (data) {
+                   //判断 userExsit 键的值是否是 true
+                   // alert(data);
+                   var span = $("#s_username");
+                   if(data.userExsit){
+                       //用户名存在
+                       span.css("color","red");
+                       span.html(data.msg);
+                   }else{
+                       //用户名不存在
+                       span.css("color","green");
+                       span.html(data.msg);
+                   }
+               });
+           }); 
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="username" name="username" placeholder="请输入用户名">
+        <span id="s_username"></span>
+        <br>
+        <input type="password" name="password" placeholder="请输入密码"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+</body>
+</html>
+```
+
+【控制器】
+
+```java
+package cn.itcast.web.servlet;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+@WebServlet("/findUserServlet")
+public class FindUserServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取用户名
+        String username = request.getParameter("username");
+
+        //2.调用service层判断用户名是否存在（模拟）
+
+        //期望服务器响应回的数据格式：{"userExsit":true,"msg":"此用户名太受欢迎,请更换一个"}
+        //                         {"userExsit":false,"msg":"用户名可用"}
+
+        //设置响应的数据格式为json
+        response.setContentType("application/json;charset=utf-8");
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        if("tom".equals(username)){
+            //存在
+            map.put("userExsit",true);
+            map.put("msg","此用户名太受欢迎,请更换一个");
+        }else{
+            //不存在
+            map.put("userExsit",false);
+            map.put("msg","用户名可用");
+        }
+
+        //将map转为json，并且传递给客户端
+        //将map转为json
+        ObjectMapper mapper = new ObjectMapper();
+        //并且传递给客户端
+        mapper.writeValue(response.getWriter(),map);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
+    }
+}
+```
 
 
