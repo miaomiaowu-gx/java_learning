@@ -14,7 +14,7 @@ redis 存储的是：key,value 格式的数据，其中 key 都是字符串，va
 
 1. 存储：`set key value`
 
-```shell
+```bash
 127.0.0.1:6379> set username zhangsan
 OK
 ```
