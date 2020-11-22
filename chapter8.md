@@ -91,3 +91,11 @@
 
 
 ### 下载及安装
+
+
+1. 官网：https://redis.io
+2. 中文网：http://www.redis.net.cn/
+3. 解压直接可以使用：
+* redis.windows.conf：配置文件
+* redis-cli.exe：redis的客户端
+* redis-server.exe：redis服务器端
