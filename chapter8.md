@@ -110,6 +110,8 @@
 
 3. 解压直接可以使用：
 
-   * redis.windows.conf：配置文件
-   * redis-cli.exe：redis的客户端
-   * redis-server.exe：redis服务器端
+   * `redis.windows.conf`：配置文件
+   * `redis-cli.exe`：redis 的客户端
+   * `redis-server.exe`：redis 服务器端
+   
+   
