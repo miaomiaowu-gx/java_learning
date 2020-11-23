@@ -39,26 +39,39 @@ OK
 #### 1.1.2 哈希类型 hash
 
 
-		1. 存储： hset key field value
-			127.0.0.1:6379> hset myhash username lisi
-			(integer) 1
-			127.0.0.1:6379> hset myhash password 123
-			(integer) 1
-		2. 获取： 
-			* hget key field: 获取指定的field对应的值
-				127.0.0.1:6379> hget myhash username
-				"lisi"
-			* hgetall key：获取所有的field和value
-				127.0.0.1:6379> hgetall myhash
-				1) "username"
-				2) "lisi"
-				3) "password"
-				4) "123"
-				
-		3. 删除： hdel key field
-			127.0.0.1:6379> hdel myhash username
-			(integer) 1
+**1. 存储**：`hset key field value`
 
+```shell
+127.0.0.1:6379> hset myhash username lisi
+(integer) 1
+127.0.0.1:6379> hset myhash password 123
+(integer) 1
+```
+
+**2. 获取**： 
+
+* `hget key field`: 获取指定的 field 对应的值
+
+```shell
+127.0.0.1:6379> hget myhash username
+"lisi"
+```
+
+* `hgetall key`：获取所有的 field 和 value
+
+```shell
+127.0.0.1:6379> hgetall myhash
+1) "username"
+2) "lisi"
+3) "password"
+4) "123"
+```				
+**3. 删除**：`hdel key field`
+
+```shell
+127.0.0.1:6379> hdel myhash username
+(integer) 1
+```
 
 
 
