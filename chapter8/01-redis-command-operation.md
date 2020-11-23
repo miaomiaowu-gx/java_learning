@@ -12,21 +12,21 @@ redis 存储的是：key,value 格式的数据，其中 key 都是字符串，va
 
 #### 1.1.1 字符串类型 string
 
-1. 存储：`set key value`
+**1. 存储**：`set key value`
 
 ```bash
 127.0.0.1:6379> set username zhangsan
 OK
 ```
 
-2. 获取：`get key`
+**2. 获取**：`get key`
 
 ```shell
 127.0.0.1:6379> get username
 "zhangsan"
 ```
 			
-3. 删除：`del key`
+**3. 删除**：`del key`
 
 ```shell
 127.0.0.1:6379> del username
@@ -78,26 +78,37 @@ OK
 #### 1.1.3 列表类型 list
 
 可以添加一个元素到列表的头部（左边）或者尾部（右边）
-		1. 添加：
-			1. lpush key value: 将元素加入列表左表
-				
-			2. rpush key value：将元素加入列表右边
-				
-				127.0.0.1:6379> lpush myList a
-				(integer) 1
-				127.0.0.1:6379> lpush myList b
-				(integer) 2
-				127.0.0.1:6379> rpush myList c
-				(integer) 3
-		2. 获取：
-			* lrange key start end ：范围获取
-				127.0.0.1:6379> lrange myList 0 -1
-				1) "b"
-				2) "a"
-				3) "c"
-		3. 删除：
-			* lpop key： 删除列表最左边的元素，并将元素返回
-			* rpop key： 删除列表最右边的元素，并将元素返回
+
+**1. 添加**：
+
+* `lpush key value`: 将元素加入列表左表
+	
+* `rpush key value`：将元素加入列表右边
+
+```shell	
+127.0.0.1:6379> lpush myList a
+(integer) 1
+127.0.0.1:6379> lpush myList b
+(integer) 2
+127.0.0.1:6379> rpush myList c
+(integer) 3
+```
+
+**2. 获取**：
+
+* `lrange key start end` ：范围获取
+
+```shell
+127.0.0.1:6379> lrange myList 0 -1
+1) "b"
+2) "a"
+3) "c"
+```
+
+**3. 删除**：
+
+* `lpop key`：删除列表最左边的元素，并将元素返回
+* `rpop key`：删除列表最右边的元素，并将元素返回
 
 
 
