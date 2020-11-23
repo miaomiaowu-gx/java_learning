@@ -114,18 +114,28 @@ OK
 
 #### 1.1.4 集合类型 set ：不允许重复元素
 
-		1. 存储：sadd key value
-			127.0.0.1:6379> sadd myset a
-			(integer) 1
-			127.0.0.1:6379> sadd myset a
-			(integer) 0
-		2. 获取：smembers key:获取set集合中所有元素
-			127.0.0.1:6379> smembers myset
-			1) "a"
-		3. 删除：srem key value:删除set集合中的某个元素	
-			127.0.0.1:6379> srem myset a
-			(integer) 1
+**1. 存储**：`sadd key value`
 
+```shell
+127.0.0.1:6379> sadd myset a
+(integer) 1
+127.0.0.1:6379> sadd myset a
+(integer) 0
+```
+
+**2. 获取**：`smembers key`，获取 set 集合中所有元素
+
+```shell
+127.0.0.1:6379> smembers myset
+1) "a"
+```
+
+**3. 删除**：`srem key value`，删除 set 集合中的某个元素	
+
+```shell
+127.0.0.1:6379> srem myset a
+(integer) 1
+```
 
 
 
