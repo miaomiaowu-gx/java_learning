@@ -29,7 +29,7 @@ OK
 3. 删除：`del key`
 
 ```shell
-127.0.0.1:6379> del age
+127.0.0.1:6379> del username
 (integer) 1
 127.0.0.1:6379> get username
 (nil)
