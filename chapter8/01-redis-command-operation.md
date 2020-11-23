@@ -143,36 +143,48 @@ OK
 
 不允许重复元素，且元素有顺序。每个元素都会关联一个 double 类型的分数。redis 正是通过分数来为集合中的成员进行从小到大的排序。
 
-		1. 存储：zadd key score value
-			127.0.0.1:6379> zadd mysort 60 zhangsan
-			(integer) 1
-			127.0.0.1:6379> zadd mysort 50 lisi
-			(integer) 1
-			127.0.0.1:6379> zadd mysort 80 wangwu
-			(integer) 1
-		2. 获取：zrange key start end [withscores]
-			127.0.0.1:6379> zrange mysort 0 -1
-			1) "lisi"
-			2) "zhangsan"
-			3) "wangwu"
+**1. 存储**：`zadd key score value`
 
-			127.0.0.1:6379> zrange mysort 0 -1 withscores
-			1) "zhangsan"
-			2) "60"
-			3) "wangwu"
-			4) "80"
-			5) "lisi"
-			6) "500"
-		3. 删除：zrem key value
-			127.0.0.1:6379> zrem mysort lisi
-			(integer) 1
+```shell
+127.0.0.1:6379> zadd mysort 60 zhangsan
+(integer) 1
+127.0.0.1:6379> zadd mysort 50 lisi
+(integer) 1
+127.0.0.1:6379> zadd mysort 80 wangwu
+(integer) 1
+```
 
+**2. 获取**：`zrange key start end [withscores]`
+
+```shell
+127.0.0.1:6379> zrange mysort 0 -1
+1) "lisi"
+2) "zhangsan"
+3) "wangwu"
+
+127.0.0.1:6379> zrange mysort 0 -1 withscores
+1) "zhangsan"
+2) "60"
+3) "wangwu"
+4) "80"
+5) "lisi"
+6) "500"
+```
+
+**3. 删除**：`zrem key value`
+
+```shell
+127.0.0.1:6379> zrem mysort lisi
+(integer) 1
+```
 
 #### 1.1.6 通用命令
 
-1. keys * : 查询所有的键
-2. type key ： 获取键对应的value的类型
-3. del key：删除指定的key value 
+1. `keys *` : 查询所有的键
+
+2. `type key` ： 获取键对应的 value 的类型
+
+3. `del key` ：删除指定的 key value 
 
 
 ### 1.2 持久化
