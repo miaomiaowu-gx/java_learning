@@ -137,9 +137,53 @@ public void test4(){
 
 #### 2.1.4 操作 set
 
+```java
+/**
+ * set 数据结构操作
+ */
+@Test
+public void test5(){
+    //1. 获取连接
+    Jedis jedis = new Jedis();//如果使用空参构造，默认值 "localhost",6379端口
+    
+    //2. 操作
+    // set 存储
+    jedis.sadd("myset","java","php","c++");
+
+    // set 获取
+    Set<String> myset = jedis.smembers("myset");
+    System.out.println(myset);
+
+    //3. 关闭连接
+    jedis.close();
+}
+```
+
 #### 2.1.5 操作 sortedset
 
-  
+```java
+/**
+ * sortedset 数据结构操作
+ */
+@Test
+public void test6(){
+    //1. 获取连接
+    Jedis jedis = new Jedis();//如果使用空参构造，默认值 "localhost",6379端口
+    
+    //2. 操作
+    // sortedset 存储
+    jedis.zadd("mysortedset",3,"亚瑟");
+    jedis.zadd("mysortedset",30,"后裔");
+    jedis.zadd("mysortedset",55,"孙悟空");
+
+    // sortedset 获取
+    Set<String> mysortedset = jedis.zrange("mysortedset", 0, -1);
+    System.out.println(mysortedset);
+
+    //3. 关闭连接
+    jedis.close();
+}
+```  
 
 
 
