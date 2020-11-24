@@ -444,7 +444,7 @@ public class JDBCUtils {
 #### 2.3.3 文件结构
 
 ```markdown
-|__ src
+|__ src (druid.properties、jedis.properties)
 | |__ cn.itcast
 |   |__ util (JDBCUtils.java)
 |   |__ dao (ProvinceDao.java)
@@ -455,12 +455,10 @@ public class JDBCUtils {
 |   | |__ servlet (ProvinceServlet.java)
 |   |
 |   |
-|   |
-|   |
-|   |
-|   |
-|   |                                                    
-                                                                                          
+|__ web (index.html) 
+  |__ js (JQuery jar 包)
+  |__ WEB-INF
+    |__ lib (jar 包)                                                                     
 ```
 
 #### 2.3.4 实体类
@@ -597,7 +595,14 @@ public class ProvinceServlet extends HttpServlet {
 }
 ```
 
-#### 2.3.8
+#### 2.3.8 web 页面
+
+```html
+
+```
+
+
+
 #### 2.3.9
 #### 2.3.10
 #### 2.3.11                                                    
