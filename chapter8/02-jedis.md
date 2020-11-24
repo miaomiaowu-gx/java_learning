@@ -490,9 +490,9 @@ import java.util.List;
 public interface ProvinceDao {
     public List<Province> findAll();
 }
-```                                                                                                                                             【接口实现类】   
+​```                                                                                                                                             【接口实现类】   
 
-```java
+​```java
 package cn.itcast.dao.impl;
 
 import cn.itcast.dao.ProvinceDao;
@@ -537,11 +537,31 @@ public interface ProvinceService {
 
 【接口实现类】
 
+```java
+package cn.itcast.service.impl;
+
+import cn.itcast.dao.ProvinceDao;
+import cn.itcast.dao.impl.ProvinceDaoImpl;
+import cn.itcast.domain.Province;
+import cn.itcast.service.ProvinceService;
+
+import java.util.List;
+
+public class ProvinceServiceImpl implements ProvinceService {
+    //声明dao
+    private ProvinceDao dao = new ProvinceDaoImpl();
+
+    @Override
+    public List<Province> findAll() {
+        return dao.findAll();
+    }
+}
+```
+
+#### 2.3.7 Servlet
 
 
 
-
-#### 2.3.7
 #### 2.3.8
 #### 2.3.9
 #### 2.3.10
