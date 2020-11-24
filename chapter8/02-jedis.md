@@ -359,20 +359,105 @@ INSERT INTO province VALUES(NULL,'广州');
 INSERT INTO province VALUES(NULL,'陕西');
 ```
                         
-               
-                  
-#### 2.3.2                      
-                        
+                            
+#### 2.3.2 环境准备                       
+     
+1 导入相关 jar 包 (web->WEB-INF->lib)
+
+2 导入 JQuery
+
+3 在 src 下创建 druid.properties 配置文件                       
+                                           
+```properties
+driverClassName=com.mysql.jdbc.Driver
+url=jdbc:mysql:///day23
+username=root
+password=mysql
+initialSize=5
+maxActive=10
+maxWait=3000
+```                                                                                 
+
+4 在 src 下创建 jedis.properties 配置文件                                                                                                                                                                  
+       
+```properties                                                                                                                                                                                                                                                                                                                                     
+host=127.0.0.1
+port=6379
+maxTotal=50
+maxIdle=10
+```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                            
-#### 2.3.3                               
-                                 
+#### 2.3.3 文件结构
+
+```markdown
+|___src
+| |___cn.itcast
+|   |___dao()
+|   | |___impl() 
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |
+|   |                                                    
+                                                                                          
+```                                 
                                     
-#### 2.3.4                                        
+#### 2.3.4 实体类
+
+```java
+package cn.itcast.domain;
+
+public class Province {
+
+    private int id;
+    private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```                                                                              
                                           
                                              
-#### 2.3.5                                                 
+#### 2.3.5 持久层
+
+【接口】
+                                                                                                ```java
+package cn.itcast.dao;
+
+import cn.itcast.domain.Province;
+import java.util.List;
+
+public interface ProvinceDao {
+    public List<Province> findAll();
+}
+```                                                                                                                                                
                                                    
-                                                      
+#### 2.3.6   
+#### 2.3.7
+#### 2.3.8
+#### 2.3.9
+#### 2.3.10
+#### 2.3.11                                                    
                                                             
     
     
