@@ -451,8 +451,8 @@ public class JDBCUtils {
 |   | |__ impl (ProvinceDaoImpl.java) 
 |   |__ service (ProvinceService.java)
 |   | |__ impl (ProvinceServiceImpl.java)
-|   |
-|   |
+|   |__ web
+|   | |__ servlet (ProvinceServlet.java)
 |   |
 |   |
 |   |
