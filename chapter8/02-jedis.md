@@ -340,7 +340,7 @@ public void test8(){
 	
 * 在 service 对应的增删改方法中，将 redis 数据删除。   
 	
- 
+
 
 #### 2.3.1 搭建数据库
 
@@ -490,7 +490,9 @@ import java.util.List;
 public interface ProvinceDao {
     public List<Province> findAll();
 }
-```                                                                                                                                             【接口实现类】   
+```
+
+【接口实现类】 
 
 ```java
 package cn.itcast.dao.impl;
