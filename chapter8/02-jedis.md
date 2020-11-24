@@ -452,9 +452,8 @@ public class JDBCUtils {
 |   |__ service (ProvinceService.java)
 |   | |__ impl (ProvinceServiceImpl.java)
 |   |__ web
-|   | |__ servlet (ProvinceServlet.java)
-|   |
-|   |
+|     |__ servlet (ProvinceServlet.java)
+|     
 |__ web (index.html) 
   |__ js (JQuery jar 包)
   |__ WEB-INF
@@ -598,10 +597,40 @@ public class ProvinceServlet extends HttpServlet {
 #### 2.3.8 web 页面
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $(function () {
+            //发送ajax请求，加载所有省份数据
+            $.get("provinceServlet",{},function (data) {
+                //[{"id":1,"name":"北京"},{"id":2,"name":"上海"},{"id":3,"name":"广州"},{"id":4,"name":"陕西"}]
 
+                //1.获取select
+                var province = $("#province");
+                //2.遍历json数组
+                $(data).each(function () {
+                    //3.创建<option>
+                    var option = "<option name='"+this.id+"'>"+this.name+"</option>";
+                    //4.调用select的append追加option
+                    province.append(option);
+                });
+            });
+        });
+    </script>
+    
+</head>
+<body>
+        <select id="province">
+            <option>--请选择省份--</option>
+        </select>
+</body>
+</html>
 ```
-
-
 
 #### 2.3.9
 #### 2.3.10
