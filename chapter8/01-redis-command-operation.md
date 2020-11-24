@@ -65,7 +65,8 @@ OK
 2) "lisi"
 3) "password"
 4) "123"
-```				
+```
+				
 **3. 删除**：`hdel key field`
 
 ```shell
