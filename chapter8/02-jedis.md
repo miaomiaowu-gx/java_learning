@@ -647,8 +647,95 @@ public class ProvinceServlet extends HttpServlet {
 
 #### 2.3.10 优化代码(添加 redis 缓存)
 
+【在 ProvinceService 接口中添加新方法 】
 
+```java
+package cn.itcast.service;
 
-#### 2.3.11                                                    
+public interface ProvinceService {
+    public List<Province> findAll();
+    // 添加新方
+    public String findAllJson();
+}
+```                                                 
 
-  
+【实现类】
+
+```java
+package cn.itcast.service.impl;
+
+public class ProvinceServiceImpl implements ProvinceService {
+    //声明dao
+    private ProvinceDao dao = new ProvinceDaoImpl();
+
+    @Override
+    public List<Province> findAll() {
+        return dao.findAll();
+    }
+
+    /**
+        使用redis缓存
+     */
+    @Override
+    public String findAllJson() {
+        //1.先从redis中查询数据
+        //1.1获取redis客户端连接
+        Jedis jedis = JedisPoolUtils.getJedis();
+        String province_json = jedis.get("province");
+        //2判断 province_json 数据是否为null
+        if(province_json == null || province_json.length() == 0){
+            //redis中没有数据
+            System.out.println("redis中没数据，查询数据库...");
+            //2.1从数据中查询
+            List<Province> ps = dao.findAll();
+            //2.2将list序列化为json
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                province_json = mapper.writeValueAsString(ps);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+            //2.3 将json数据存入redis
+            jedis.set("province",province_json);
+            //归还连接
+            jedis.close();
+        }else{
+            System.out.println("redis中有数据，查询缓存...");
+        }
+        return province_json;
+    }
+}  
+```  
+
+【Servlet】
+
+```java
+package cn.itcast.web.servlet;
+
+@WebServlet("/provinceServlet")
+public class ProvinceServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        //1.调用service查询
+//        ProvinceService service = new ProvinceServiceImpl();
+//        List<Province> list = service.findAll();
+//        //2.序列化list为json
+//        ObjectMapper mapper = new ObjectMapper();
+//        String json = mapper.writeValueAsString(list);
+
+        //1.调用service查询
+        ProvinceService service = new ProvinceServiceImpl();
+        String json = service.findAllJson();
+        System.out.println(json);
+        
+        //3.响应结果
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write(json);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request, response);
+    }
+}
+```        
+        
+                
