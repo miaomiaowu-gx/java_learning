@@ -444,13 +444,13 @@ public class JDBCUtils {
 #### 2.3.3 文件结构
 
 ```markdown
-|___ src
-| |___ cn.itcast
-|   |___ util (JDBCUtils.java)
-|   |___ dao (ProvinceDao.java)
-|   | |___ impl (ProvinceDaoImpl.java) 
-|   |___ service (ProvinceService.java)
-|   | |___ impl (ProvinceServiceImpl.java)
+|__ src
+| |__ cn.itcast
+|   |__ util (JDBCUtils.java)
+|   |__ dao (ProvinceDao.java)
+|   | |__ impl (ProvinceDaoImpl.java) 
+|   |__ service (ProvinceService.java)
+|   | |__ impl (ProvinceServiceImpl.java)
 |   |
 |   |
 |   |
