@@ -34,10 +34,26 @@ public class JedisTest {
 }    
 ```    
     
+### 2.1 Jedis 操作    
+
+#### 2.1.1 操作 string  
+
+#### 2.1.2 操作 hash  
+
+#### 2.1.3 操作 list
+
+#### 2.1.4 操作 set
+
+#### 2.1.5 操作 sortedset
+
+  
+
+
+
+### 2.2 Jedis 连接池
     
     
-    
-    
+### 2.3 案例    
     
     
     
