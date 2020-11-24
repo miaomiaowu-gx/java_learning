@@ -64,7 +64,47 @@ public void test2(){
 
 #### 2.1.2 操作 hash  
 
+```java
+/**
+ * hash 数据结构操作
+ */
+@Test
+public void test3(){
+    //1. 获取连接
+    Jedis jedis = new Jedis();//如果使用空参构造，默认值 "localhost",6379端口
+    //2. 操作
+    // 存储hash
+    jedis.hset("user","name","lisi");
+    jedis.hset("user","age","23");
+    jedis.hset("user","gender","female");
+
+    // 获取hash
+    String name = jedis.hget("user", "name");
+    System.out.println(name);
+    
+    // 获取hash的所有map中的数据
+    Map<String, String> user = jedis.hgetAll("user");
+
+    // keyset
+    Set<String> keySet = user.keySet();
+    for (String key : keySet) {
+        //获取value
+        String value = user.get(key);
+        System.out.println(key + ":" + value);
+    }
+
+    //3. 关闭连接
+    jedis.close();
+}
+```
+
+
 #### 2.1.3 操作 list
+
+
+
+
+
 
 #### 2.1.4 操作 set
 
