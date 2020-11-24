@@ -1,16 +1,16 @@
 ## 第二节 Jedis
 
-Jedis: 一款 java 操作 redis 数据库的工具。
+Jedis：一款 java 操作 redis 数据库的工具。
 
 使用步骤
 
-1) 下载 jedis 的 jar 包
+1）下载 jedis 的 jar 包
 
 * jedis-2.7.0.jar
 
 * commons-pool2-2.3.jar
 
-2) 使用
+2）使用
 
 ```java
 package cn.itcast.jedis.test;
@@ -215,7 +215,7 @@ public void test7(){
 }
 ```
 
-jedis 详细配置
+【jedis 详细配置】
 
 ```properties
 #最大活动对象数     
@@ -335,13 +335,13 @@ public void test8(){
 
 2. 当页面加载完成后，发送 ajax 请求，加载所有省份。
 
+注意：使用 redis 缓存一些不经常发生变化的数据。数据库的数据一旦发生改变，则需要更新缓存。
+* 数据库的表执行增删改的相关操作，需要将 redis 缓存数据情况，再次存入
+	
+* 在 service 对应的增删改方法中，将 redis 数据删除。   
+	
+ 
 
-* 注意：使用 redis 缓存一些不经常发生变化的数据。
-		* 数据库的数据一旦发生改变，则需要更新缓存。
-			* 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入
-			* 在service对应的增删改方法中，将redis数据删除。   
-      
-         
 #### 2.3.1 搭建数据库
 
 ```sql
@@ -366,8 +366,8 @@ INSERT INTO province VALUES(NULL,'陕西');
 
 2 导入 JQuery
 
-3 在 src 下创建 druid.properties 配置文件                       
-                                           
+3 在 src 下创建 druid.properties 配置文件              
+
 ```properties
 driverClassName=com.mysql.jdbc.Driver
 url=jdbc:mysql:///day23
@@ -479,7 +479,7 @@ public class Province {
 
 #### 2.3.5 持久层
 
-【接口】
+【接口】 
 
 ```java
 package cn.itcast.dao;
@@ -490,9 +490,9 @@ import java.util.List;
 public interface ProvinceDao {
     public List<Province> findAll();
 }
-​```                                                                                                                                             【接口实现类】   
+```                                                                                                                                             【接口实现类】   
 
-​```java
+```java
 package cn.itcast.dao.impl;
 
 import cn.itcast.dao.ProvinceDao;
