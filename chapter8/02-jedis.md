@@ -360,7 +360,7 @@ INSERT INTO province VALUES(NULL,'陕西');
 ```
 
 
-#### 2.3.2 环境准备                       
+#### 2.3.2 环境准备                        
 
 1 导入相关 jar 包 (web->WEB-INF->lib)
 
