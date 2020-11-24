@@ -147,7 +147,7 @@ public void test5(){
     Jedis jedis = new Jedis();//如果使用空参构造，默认值 "localhost",6379端口
     
     //2. 操作
-    // set 存储
+    // set 存储(可以一次存多个)
     jedis.sadd("myset","java","php","c++");
 
     // set 获取
@@ -173,7 +173,7 @@ public void test6(){
     //2. 操作
     // sortedset 存储
     jedis.zadd("mysortedset",3,"亚瑟");
-    jedis.zadd("mysortedset",30,"后裔");
+    jedis.zadd("mysortedset",30,"后羿");
     jedis.zadd("mysortedset",55,"孙悟空");
 
     // sortedset 获取
