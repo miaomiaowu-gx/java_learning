@@ -33,8 +33,8 @@ public class JedisTest {
         jedis.close();
     }    
 }    
-```    
-    
+```
+
 ### 2.1 Jedis 操作各种 Redis 中的数据结构    
 
 #### 2.1.1 操作 string  
@@ -183,7 +183,7 @@ public void test6(){
     //3. 关闭连接
     jedis.close();
 }
-```  
+```
 
 
 ### 2.2 Jedis 连接池
@@ -326,7 +326,7 @@ public void test8(){
 }
 ```
 
-    
+
 ### 2.3 案例 
 
 案例需求
@@ -358,10 +358,10 @@ INSERT INTO province VALUES(NULL,'上海');
 INSERT INTO province VALUES(NULL,'广州');
 INSERT INTO province VALUES(NULL,'陕西');
 ```
-                        
-                            
+
+
 #### 2.3.2 环境准备                       
-     
+
 1 导入相关 jar 包 (web->WEB-INF->lib)
 
 2 导入 JQuery
@@ -376,7 +376,7 @@ password=mysql
 initialSize=5
 maxActive=10
 maxWait=3000
-```                                                                                 
+```
 
 4 在 src 下创建 jedis.properties 配置文件                                                                                                                                                                  
        
@@ -385,9 +385,9 @@ host=127.0.0.1
 port=6379
 maxTotal=50
 maxIdle=10
-```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-                           
+```
+
+
 #### 2.3.3 文件结构
 
 ```markdown
@@ -407,8 +407,8 @@ maxIdle=10
 |   |
 |   |                                                    
                                                                                           
-```                                 
-                                    
+```
+
 #### 2.3.4 实体类
 
 ```java
@@ -435,13 +435,14 @@ public class Province {
         this.name = name;
     }
 }
-```                                                                              
-                                          
-                                             
+```
+
+
 #### 2.3.5 持久层
 
 【接口】
-                                                                                                ```java
+
+```java
 package cn.itcast.dao;
 
 import cn.itcast.domain.Province;
@@ -462,3 +463,4 @@ public interface ProvinceDao {
     
     
     
+```
