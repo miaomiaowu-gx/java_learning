@@ -101,9 +101,38 @@ public void test3(){
 
 #### 2.1.3 操作 list
 
+```java
+/**
+ * list 数据结构操作
+ */
+@Test
+public void test4(){
+    //1. 获取连接
+    Jedis jedis = new Jedis();
+    //2. 操作
+    // list 存储
+    jedis.lpush("mylist","a","b","c");//从左边存
+    jedis.rpush("mylist","a","b","c");//从右边存
 
+    // list 范围获取
+    List<String> mylist = jedis.lrange("mylist", 0, -1);
+    System.out.println(mylist);
+    
+    // list 弹出
+    String element1 = jedis.lpop("mylist");//c
+    System.out.println(element1);
 
+    String element2 = jedis.rpop("mylist");//c
+    System.out.println(element2);
 
+    // list 范围获取
+    List<String> mylist2 = jedis.lrange("mylist", 0, -1);
+    System.out.println(mylist2);
+
+    //3. 关闭连接
+    jedis.close();
+}
+```
 
 
 #### 2.1.4 操作 set
