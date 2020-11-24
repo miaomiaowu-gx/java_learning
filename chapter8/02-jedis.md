@@ -327,7 +327,53 @@ public void test8(){
 ```
 
     
-### 2.3 案例    
+### 2.3 案例 
+
+案例需求
+
+1. 提供 index.html 页面，页面中有一个省份下拉列表。
+
+2. 当页面加载完成后，发送 ajax 请求，加载所有省份。
+
+
+* 注意：使用 redis 缓存一些不经常发生变化的数据。
+		* 数据库的数据一旦发生改变，则需要更新缓存。
+			* 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入
+			* 在service对应的增删改方法中，将redis数据删除。   
+      
+         
+#### 2.3.1 搭建数据库
+
+```sql
+CREATE DATABASE day23; -- 创建数据库
+USE day23; 			   -- 使用数据库
+CREATE TABLE province(   -- 创建表
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	NAME VARCHAR(20) NOT NULL
+	
+);
+-- 插入数据
+INSERT INTO province VALUES(NULL,'北京');
+INSERT INTO province VALUES(NULL,'上海');
+INSERT INTO province VALUES(NULL,'广州');
+INSERT INTO province VALUES(NULL,'陕西');
+```
+                        
+               
+                  
+#### 2.3.2                      
+                        
+                           
+#### 2.3.3                               
+                                 
+                                    
+#### 2.3.4                                        
+                                          
+                                             
+#### 2.3.5                                                 
+                                                   
+                                                      
+                                                            
     
     
     
