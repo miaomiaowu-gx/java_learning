@@ -378,13 +378,66 @@ maxActive=10
 maxWait=3000
 ```
 
-4 在 src 下创建 jedis.properties 配置文件                                                                                                                                                                  
-       
-```properties                                                                                                                                                                                                                                                                                                                                     
+4 在 src 下创建 jedis.properties 配置文件                                                                                                           
+```properties                                             
 host=127.0.0.1
 port=6379
 maxTotal=50
 maxIdle=10
+```
+
+5 在 src->cn->itcast->util 下导入 JDBCUtils.java 类
+
+```java
+package cn.itcast.util;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+
+/**
+ * JDBC工具类 使用Durid连接池
+ */
+public class JDBCUtils {
+
+    private static DataSource ds ;
+
+    static {
+        try {
+            //1.加载配置文件
+            Properties pro = new Properties();
+            //使用ClassLoader加载配置文件，获取字节输入流
+            InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+            pro.load(is);
+
+            //2.初始化连接池对象
+            ds = DruidDataSourceFactory.createDataSource(pro);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取连接池对象
+     */
+    public static DataSource getDataSource(){
+        return ds;
+    }
+
+    /**
+     * 获取连接Connection对象
+     */
+    public static Connection getConnection() throws SQLException {
+        return  ds.getConnection();
+    }
+}
 ```
 
 
@@ -393,10 +446,11 @@ maxIdle=10
 ```markdown
 |___src
 | |___cn.itcast
-|   |___dao()
-|   | |___impl() 
-|   |
-|   |
+|   |___util (JDBCUtils.java)
+|   |___dao (ProvinceDao.java)
+|   | |___impl (ProvinceDaoImpl.java) 
+|   |___service (ProvinceService.java)
+|   | |___impl (ProvinceServiceImpl.java)
 |   |
 |   |
 |   |
@@ -413,30 +467,15 @@ maxIdle=10
 
 ```java
 package cn.itcast.domain;
-
 public class Province {
-
     private int id;
     private String name;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
 }
 ```
-
 
 #### 2.3.5 持久层
 
@@ -451,16 +490,61 @@ import java.util.List;
 public interface ProvinceDao {
     public List<Province> findAll();
 }
-```                                                                                                                                                
-                                                   
-#### 2.3.6   
+```                                                                                                                                             【接口实现类】   
+
+```java
+package cn.itcast.dao.impl;
+
+import cn.itcast.dao.ProvinceDao;
+import cn.itcast.domain.Province;
+import cn.itcast.util.JDBCUtils;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+
+public class ProvinceDaoImpl implements ProvinceDao {
+
+    //1.声明成员变量 jdbctemplement
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+
+    @Override
+    public List<Province> findAll() {
+        //1.定义sql
+        String sql = "select * from province ";
+        //2.执行sql
+        List<Province> list = template.query(sql, new BeanPropertyRowMapper<Province>(Province.class));
+        return list;
+    }
+}
+```
+
+#### 2.3.6 Service 层
+
+【接口】
+
+```java
+package cn.itcast.service;
+
+import cn.itcast.domain.Province;
+import java.util.List;
+
+public interface ProvinceService {
+    public List<Province> findAll();
+    public String findAllJson();
+}
+```
+
+【接口实现类】
+
+
+
+
+
 #### 2.3.7
 #### 2.3.8
 #### 2.3.9
 #### 2.3.10
 #### 2.3.11                                                    
-                                                            
-    
-    
-    
-```
+
+  
