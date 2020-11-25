@@ -58,7 +58,7 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 
 1）创建 Maven 工程时选择如下 archetype：
 
-<img src="./img7/06-maven-webapp.png" width=200>
+<img src="./img7/06-maven-webapp.png" width=450>
 
 2）补全目录：main 下创建 java，右键选择 Mark Directory as，选择 Sources Root。
 
