@@ -22,7 +22,11 @@
 
 #### Maven 的依赖管理 
 
-Maven 的一个核心特性就是依赖管理。当涉及到多模块的项目（包含成百个模块或者子项目），管理依赖就变成一项困难的任务。 Maven 展示出了它对处理这种情形的高度控制。 
+&emsp;&emsp;Maven 的一个核心特性就是**依赖管理**。当涉及到多模块的项目（包含成百个模块或者子项目），管理依赖就变成一项困难的任务。 Maven 展示出了它对处理这种情形的高度控制。 
 
-![](/chapter7/img7/01-dependency-management.png)
+<img src="./chapter7/img7/01-dependency-management.png" width=350>
+
+&emsp;&emsp;maven 工程中不直接将 jar 包导入到工程中，而是通过在 pom.xml 文件中添加所需 jar 包的坐标，在需要用到 jar 包的时候，只要查找 pom.xml 文件，再通过 pom.xml 文件中的坐标，到一个专门用于 ”存放 jar 包的仓库” (maven 仓库)中根据坐标从而找到这些 jar 包，把这些 jar 包拿去运行。 为了解决这个过程中速度慢的问题，maven 通过**建立索引**，大大提高加载 jar 包的速度，可以认为 jar 包基本跟放在本地的工程文件中再读取出来的速度是一样的。 
+
+#### 项目的一键构建 
 
