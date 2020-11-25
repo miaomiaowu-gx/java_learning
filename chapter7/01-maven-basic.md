@@ -30,12 +30,6 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 <img src="./img7/04-conceptual-model.png" width=600>
 
 
-
-
-
-
-
-
 ### 1.2 IDEA 开发 maven 项目
 
 
