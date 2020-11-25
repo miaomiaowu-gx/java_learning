@@ -23,7 +23,7 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 * Default Lifecycle 构建的核心部分，编译，测试，打包，部署等等。
 * Site Lifecycle 生成项目报告，站点，发布站点。
 
-
+<img src="./img7/03-maven-life-cycle.png" width=400>
 
 
 
