@@ -30,3 +30,27 @@
 
 #### 项目的一键构建 
 
+构建：项目从编译、测试、运行、打包、安装 ，部署整个过程都交给 maven 进行管理，这个过程称为构建。
+一键构建：整个构建过程，使用 maven 一个命令可以轻松完成整个工作。 
+
+### Maven 使用
+
+#### Maven 安装 
+
+1）下载 zip 文件：https://maven.apache.org/download.cgi
+
+2）将 Maven 解压到一个没有中文没有空格的路径下 
+
+* bin：存放了 maven 的命令，比如前面用到的 mvn tomcat:run
+* boot：存放了一些 maven 本身的引导程序，如类加载器等
+* conf：存放了 maven 的一些配置文件，如 setting.xml 文件
+* lib：存放了 maven 本身运行所需的一些 jar 包 
+
+3）需安装 Java JDK，配置 JAVA_HOME 系统变量，将 `JAVA_HOME/bin` 添加到环境变量。
+
+4）配置 MAVEN_HOME，变量值就是 maven 安装的路径。并将  `MAVEN_HOME/bin` 添加到环境变量。
+
+5）`mvn -v` 命令检查 maven 是否安装成功。 
+
+#### Maven 仓库的分类 
+
