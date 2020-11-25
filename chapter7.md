@@ -79,3 +79,8 @@ maven 会先找用户配置，如果找到则**以用户配置文件为准**，�
 
 <img src="./chapter7/img7/02-file-structure.png" width=300>
 
+#### Maven 工程运行 
+
+进入 maven 工程目录（当前目录有 pom.xml 文件），运行 `tomcat:run` 命令。
+
+ 
