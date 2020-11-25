@@ -54,3 +54,15 @@
 
 #### Maven 仓库的分类 
 
+* **本地仓库** ：用来存储从**远程仓库或中央仓库**下载的插件和 jar 包，项目使用一些插件或 jar 包，优先从本地仓库查找。默认本地仓库位置在 `${user.dir}/.m2/repository`，${user.dir} 表示 windows 用户目录。 
+* **远程仓库**(私服)：如果本地需要插件或者 jar 包，本地仓库没有， 默认去远程仓库下载。远程仓库可以在互联网内也可以在局域网内。 
+* **中央仓库** ：在 maven 软件中**内置**一个远程仓库地址 http://repo1.maven.org/maven2 ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。 
+
+#### Maven 本地仓库配置 
+
+在 `MAVE_HOME/conf/settings.xml` 文件中配置本地仓库位置 ：
+
+```xml
+<localRepository>本地仓库路径</localRepository>
+```
+
