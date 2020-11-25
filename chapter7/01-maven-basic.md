@@ -2,6 +2,7 @@
 
 ### 1.1 Maven 常用命令
 
+mvn clean
 
 
 
