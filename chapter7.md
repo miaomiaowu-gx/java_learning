@@ -77,3 +77,4 @@ maven 会先找用户配置，如果找到则**以用户配置文件为准**，�
 
 #### Maven 工程目录结构 
 
+<img src="./chapter7/img7/02-file-structure.png" width=400>
