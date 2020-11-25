@@ -36,6 +36,16 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 
 1 打开 IDEA，选择 Create New Project。
 
+2 按下图选择 archetype。
+
+<img src="./img7/05-maven-java-pro.png" width=400>
+
+3 填写 GroupId（公司或组织名称） 与 ArtifactId（当前项目名称）。
+
+4 在 main 文件夹下创建 resources 目录，右键选择 Mark Directory as，选择 Resources Root。
+
+5 在 test 文件夹下创建 resources 目录，右键选择 Mark Directory as，选择 Test Resources Root。
+
 
 #### 1.2.2 
 
