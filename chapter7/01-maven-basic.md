@@ -100,7 +100,7 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 
 <img src="./img7/08-plugins-temples.png" width=950>     
     
-### 1.3 
+#### 1.2.6 dependency 标签下 scope 标签的参数选择 
 
 
 
