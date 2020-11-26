@@ -67,8 +67,34 @@ Maven 对项目构建过程分为三套相互独立的生命周期，分别是�
 <img src="./img7/07-web-path.png" width=950>
 
    
+#### 1.2.5 在 pom.xml 中修改 maven 工程运行环境
 
-#### 1.2.5 
+```xml
+<build>
+  <plugins>
+    <plugin>
+      <!-- maven 自带 tomcat6 -->
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat7-maven-plugin</artifactId>
+      <version>2.2</version>
+      <configuration>
+        <port>8888</port>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <!--编译的jdk版本-->
+        <target>1.8</target>
+        <!--编译class的jdk版本-->
+        <source>1.8</source>
+        <encoding>UTF-8</encoding>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
     
 ### 1.3 
 
