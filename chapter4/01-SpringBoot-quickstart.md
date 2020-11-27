@@ -1,15 +1,13 @@
 ## 第一节 SpringBoot 快速入门
 
-## 2.1 代码实现
+### 1.1 代码实现
 
-### 2.1.1 创建Maven工程
+#### 创建 Maven 工程
 
 使用 idea 工具创建一个 maven 工程，该工程为普通的 java 工程即可。
 
 
-
-
-### 2.1.2 添加SpringBoot的起步依赖
+#### 添加 SpringBoot 起步依赖
 
 SpringBoot要求，项目要继承SpringBoot的起步依赖spring-boot-starter-parent
 
