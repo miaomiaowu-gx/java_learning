@@ -53,7 +53,7 @@ public class MySpringBootApplication {
 
 #### 1.1.4 编写 Controller
 
-在引导类MySpringBootApplication同级包或者子级包中创建QuickStartController
+在引导类 MySpringBootApplication 同级包或者子级包中创建 QuickStartController。
 
 ```java
 package com.itheima.controller;
@@ -76,7 +76,7 @@ public class QuickStartController {
 
 #### 1.1.5 测试
 
-执行SpringBoot起步类的主方法，控制台打印日志如下：
+执行 SpringBoot 起步类的主方法，控制台打印日志如下：
 
 ```
 .   ____          _            __ _ _
@@ -97,11 +97,9 @@ o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of
 
 通过日志发现，Tomcat started on port(s): 8080 (http) with context path ''
 
-tomcat已经起步，端口监听8080，web应用的虚拟工程名称为空
+tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空。
 
-打开浏览器访问url地址为：http://localhost:8080/quick
-
-![](img\5.png)
+打开浏览器访问 url 地址为：http://localhost:8080/quick。页面显示 “springboot 访问成功!”。
 
 ### 1.2 快速入门解析
 
