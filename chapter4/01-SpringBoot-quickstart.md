@@ -7,9 +7,9 @@
 使用 idea 工具创建一个 maven 工程，该工程为普通的 java 工程即可。
 
 
-#### 添加 SpringBoot 起步依赖
+#### 在 pom.xml 中添加 SpringBoot 起步依赖
 
-SpringBoot要求，项目要继承SpringBoot的起步依赖spring-boot-starter-parent
+SpringBoot 要求，项目要继承 SpringBoot 的起步依赖 spring-boot-starter-parent。
 
 ```xml
 <parent>
@@ -19,7 +19,7 @@ SpringBoot要求，项目要继承SpringBoot的起步依赖spring-boot-starter-p
 </parent>
 ```
 
-SpringBoot要集成SpringMVC进行Controller的开发，所以项目要导入web的启动依赖
+SpringBoot 要集成 SpringMVC 进行 Controller 的开发，所以项目要导入 web 的启动依赖。
 
 ```xml
 <dependencies>
