@@ -105,8 +105,8 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 #### 1.2.1 SpringBoot 代码解析
 
-- @SpringBootApplication：标注SpringBoot的启动类，该注解具备多种功能（后面详细剖析）
-- SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的启动类，参数为SpringBoot启动类的字节码对象
+- @SpringBootApplication：标注 SpringBoot 的启动类，该注解具备多种功能。
+- SpringApplication.run (MySpringBootApplication.class) 代表运行 SpringBoot 的启动类，参数为 SpringBoot 启动类的字节码对象。
 
 #### 1.2.2 SpringBoot 工程热部署
 
