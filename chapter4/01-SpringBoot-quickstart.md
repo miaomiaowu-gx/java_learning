@@ -130,7 +130,7 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 ![](img\20.png)
 
-#### 1.2.3 使用idea快速创建SpringBoot项目
+#### 1.2.3 使用 idea 快速创建 SpringBoot 项目
 
 ![](img\6.png)
 
