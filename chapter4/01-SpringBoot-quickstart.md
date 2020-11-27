@@ -99,7 +99,7 @@ o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of
 
 tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空。
 
-打开浏览器访问 url 地址为：http://localhost:8080/quick。页面显示 “springboot 访问成功!”。
+打开浏览器访问 url 地址为：`http://localhost:8080/quick`。页面显示 “springboot 访问成功!”。
 
 ### 1.2 快速入门解析
 
