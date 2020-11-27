@@ -2,12 +2,12 @@
 
 ### 1.1 代码实现
 
-#### 创建 Maven 工程
+#### 1.1.1 创建 Maven 工程
 
 使用 idea 工具创建一个 maven 工程，该工程为普通的 java 工程即可。
 
 
-#### 在 pom.xml 中添加 SpringBoot 起步依赖
+#### 1.1.2 在 pom.xml 中添加 SpringBoot 起步依赖
 
 SpringBoot 要求，项目要继承 SpringBoot 的起步依赖 spring-boot-starter-parent。
 
@@ -32,7 +32,7 @@ SpringBoot 要集成 SpringMVC 进行 Controller 的开发，所以项目要导�
 
 
 
-### 2.1.3 编写SpringBoot引导类
+#### 1.1.3 编写 SpringBoot 引导类
 
 要通过SpringBoot提供的引导类起步SpringBoot才可以进行访问
 
@@ -52,7 +52,7 @@ public class MySpringBootApplication {
 }
 ```
 
-### 2.1.4 编写Controller
+#### 1.1.4 编写 Controller
 
 在引导类MySpringBootApplication同级包或者子级包中创建QuickStartController
 
@@ -75,7 +75,7 @@ public class QuickStartController {
 }
 ```
 
-### 2.1.5 测试
+#### 1.1.5 测试
 
 执行SpringBoot起步类的主方法，控制台打印日志如下：
 
@@ -104,14 +104,14 @@ tomcat已经起步，端口监听8080，web应用的虚拟工程名称为空
 
 ![](img\5.png)
 
-## 2.2 快速入门解析
+### 1.2 快速入门解析
 
-### 2.2.2 SpringBoot代码解析
+#### 1.2.1 SpringBoot 代码解析
 
 - @SpringBootApplication：标注SpringBoot的启动类，该注解具备多种功能（后面详细剖析）
 - SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的启动类，参数为SpringBoot启动类的字节码对象
 
-### 2.2.3 SpringBoot工程热部署
+#### 1.2.2 SpringBoot 工程热部署
 
 我们在开发中反复修改类、页面等资源，每次修改后都是需要重新启动才生效，这样每次启动都很麻烦，浪费了大量的时间，我们可以在修改代码后不重启就能生效，在 pom.xml 中添加如下配置就可以实现这样的功能，我们称之为热部署。
 
@@ -133,7 +133,7 @@ tomcat已经起步，端口监听8080，web应用的虚拟工程名称为空
 
 ![](img\20.png)
 
-### 2.2.4 使用idea快速创建SpringBoot项目
+#### 1.2.3 使用idea快速创建SpringBoot项目
 
 ![](img\6.png)
 
