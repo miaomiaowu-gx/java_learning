@@ -34,7 +34,7 @@ SpringBoot 要集成 SpringMVC 进行 Controller 的开发，所以项目要导�
 
 #### 1.1.3 编写 SpringBoot 引导类
 
-要通过 SpringBoot 提供的引导类起步 SpringBoot 才可以进行访问。在 main->java 文件夹下创建 `com.itheima.MySpringBootApplication.java` 文件。
+要通过 SpringBoot 提供的引导类起步 SpringBoot 才可以进行访问。在 main->java 文件夹下创建 `com.itheima.MySpringBootApplication` java 类文件。
 
 ```java
 package com.itheima;
@@ -44,7 +44,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MySpringBootApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MySpringBootApplication.class);
     }
