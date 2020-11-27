@@ -4,21 +4,8 @@
 
 ### 2.1.1 创建Maven工程
 
-使用idea工具创建一个maven工程，该工程为普通的java工程即可
+使用 idea 工具创建一个 maven 工程，该工程为普通的 java 工程即可。
 
-![](img\1.png)
-
-
-
-![](img\2.png)
-
-
-
-![](img\3.png)
-
-
-
-![](img\4.png)
 
 
 
