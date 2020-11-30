@@ -17,7 +17,7 @@
 &emsp;&emsp;YML 文件格式是 YAML (YAML Aint Markup Language) 编写的文件格式，YAML 是一种直观的能够被电脑识别的**数据序列化格式**，并且容易被人类阅读，容易和脚本语言交互，可以被支持 YAML 库的不同的编程语言程序导入，比如： C/C++, Ruby, Python, Java, Perl, C#, PHP 等。YML 文件是以数据为核心的，比传统的 xml 方式更加简洁。
 
 
-&emsp;&emsp;YML 文件的扩展名可以使用 `.yml` 或者 `.yaml`。
+&emsp;&emsp;**YML 文件的扩展名可以使用 `.yml` 或者 `.yaml`。**
 
 ##### 3.1.2.2 yml 配置文件的语法
 
