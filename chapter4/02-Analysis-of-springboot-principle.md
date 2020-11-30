@@ -299,8 +299,9 @@ public class ServerProperties {
 
 prefix = "server" 表示 SpringBoot 配置文件中的前缀，SpringBoot 会将配置文件中以 server 开始的属性映射到该类的字段中。映射关系如下：
 
-![](img\12.png)
+【自添加项目配置文件】
 
+<img src="./img4/04-application-config.png" width=500>
 
 
 
