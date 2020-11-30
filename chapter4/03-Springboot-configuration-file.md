@@ -300,3 +300,16 @@ public class QuickStartController {
 
 **注意：使用 `@ConfigurationProperties` 方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供 set 方法才可以，而使用 `@Value` 注解修饰的字段不需要提供 set 方法。**
 
+#### 3.2.3 configuration-processor 作用
+
+可以为 `@ConfigurationProperties` 注解在 pom.xml 中配置
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+作用：在配置 yaml 文件时，会根据实体类有提示。
