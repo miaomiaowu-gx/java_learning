@@ -177,11 +177,11 @@ public @interface SpringBootApplication {
 
 其中，
 
-@SpringBootConfiguration：等同与@Configuration，既标注该类是Spring的一个配置类
+* `@SpringBootConfiguration`：等同与 `@Configuration`，既标注该类是 Spring 的一个配置类
 
-@EnableAutoConfiguration：SpringBoot自动配置功能开启
+* `@EnableAutoConfiguration`：SpringBoot 自动配置功能开启
 
-按住Ctrl点击查看注解@EnableAutoConfiguration
+按住 Ctrl 点击查看注解 @EnableAutoConfiguration
 
 ```java
 @Target(ElementType.TYPE)
@@ -195,9 +195,9 @@ public @interface EnableAutoConfiguration {
 }
 ```
 
-其中，@Import(AutoConfigurationImportSelector.class) 导入了AutoConfigurationImportSelector类
+其中，@Import(AutoConfigurationImportSelector.class) 导入了 AutoConfigurationImportSelector 类
 
-按住Ctrl点击查看AutoConfigurationImportSelector源码
+按住 Ctrl 点击查看 AutoConfigurationImportSelector 源码
 
 ```java
 public String[] selectImports(AnnotationMetadata annotationMetadata) {
@@ -224,7 +224,7 @@ protected List<String> getCandidateConfigurations(AnnotationMetadata metadata,
 
 ```
 
-其中，SpringFactoriesLoader.loadFactoryNames 方法的作用就是从META-INF/spring.factories文件中读取指定类对应的类名称列表 
+其中，SpringFactoriesLoader.loadFactoryNames 方法的作用就是从 META-INF/spring.factories 文件中读取指定类对应的类名称列表 
 
 ![](img\11.png)
 
@@ -243,9 +243,9 @@ org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,\
 ... ... ...
 ```
 
-上面配置文件存在大量的以Configuration为结尾的类名称，这些类就是存有自动配置信息的类，而SpringApplication在获取这些类名后再加载
+上面配置文件存在大量的以 Configuration 为结尾的类名称，这些类就是存有自动配置信息的类，而 SpringApplication 在获取这些类名后再加载
 
-我们以ServletWebServerFactoryAutoConfiguration为例来分析源码：
+以 ServletWebServerFactoryAutoConfiguration 为例来分析源码：
 
 ```java
 @Configuration
@@ -265,9 +265,9 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 其中，
 
-@EnableConfigurationProperties(ServerProperties.class) 代表加载ServerProperties服务器配置属性类
+@EnableConfigurationProperties(ServerProperties.class) 代表加载 ServerProperties 服务器配置属性类
 
-进入ServerProperties.class源码如下：
+进入 ServerProperties.class 源码如下：
 
 ```java
 @ConfigurationProperties(prefix = "server", ignoreUnknownFields = true)
@@ -290,7 +290,7 @@ public class ServerProperties {
 
 其中，
 
-prefix = "server" 表示SpringBoot配置文件中的前缀，SpringBoot会将配置文件中以server开始的属性映射到该类的字段中。映射关系如下：
+prefix = "server" 表示 SpringBoot 配置文件中的前缀，SpringBoot 会将配置文件中以 server 开始的属性映射到该类的字段中。映射关系如下：
 
 ![](img\12.png)
 
