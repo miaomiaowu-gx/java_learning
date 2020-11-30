@@ -9,7 +9,7 @@
 
 #### 1.1.2 在 pom.xml 中添加 SpringBoot 起步依赖
 
-SpringBoot 要求，项目要继承 SpringBoot 的起步依赖 spring-boot-starter-parent。
+SpringBoot 要求，所有项目都要继承 SpringBoot 的起步依赖 spring-boot-starter-parent。
 
 ```xml
 <parent>
