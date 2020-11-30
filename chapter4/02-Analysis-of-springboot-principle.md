@@ -71,7 +71,7 @@
 </build>
 ```
 
-从上面的 spring-boot-starter-dependencies 的 pom.xml 中可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，所以 SpringBoot 工程继承 spring-boot-starter-parent 后已经具备版本锁定等配置。因此起步依赖的作用就是进行依赖的传递。
+从上面的 spring-boot-starter-dependencies 的 pom.xml 中可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，**所以 SpringBoot 工程继承 spring-boot-starter-parent 后已经具备版本锁定等配置。因此起步依赖的作用就是进行依赖的传递。**
 
 #### 2.1.2 分析 spring-boot-starter-web
 
