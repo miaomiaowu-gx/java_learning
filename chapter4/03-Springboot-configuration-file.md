@@ -4,11 +4,11 @@
 
 #### 3.1.1 SpringBoot 配置文件类型和作用
 
-SpringBoot是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，就可以使用application.properties或者application.yml（application.yaml）进行配置。
+SpringBoot 是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，就可以使用 application.properties 或者 application.yml（application.yaml）进行配置。
 
-SpringBoot默认会从Resources目录下加载application.properties或application.yml（application.yaml）文件
+SpringBoot 默认会从 Resources 目录下加载 application.properties 或 application.yml（application.yaml）文件。
 
-其中，application.properties文件是键值对类型的文件，之前一直在使用，所以此处不在对properties文件的格式进行阐述。除了properties文件外，SpringBoot还可以使用yml文件进行配置，下面对yml文件进行讲解。
+其中，application.properties 文件是键值对类型的文件，之前一直在使用，所以此处不在对 properties 文件的格式进行阐述。除了 properties 文件外，SpringBoot 还可以使用 yml 文件进行配置，下面对 yml 文件进行讲解。
 
 #### 3.1.2 application.yml 配置文件
 
