@@ -233,7 +233,7 @@ protected List<String> getCandidateConfigurations(AnnotationMetadata metadata,
 
 其中，SpringFactoriesLoader.loadFactoryNames 方法的作用就是从 META-INF/spring.factories 文件中读取指定类对应的类名称列表。 
 
-![](img\11.png)
+<img src="./img4/03-spring-factories.png" width=600>
 
 spring.factories 文件中有关自动配置的配置信息如下：
 
