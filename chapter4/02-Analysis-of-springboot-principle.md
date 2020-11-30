@@ -140,6 +140,8 @@
 
 ### 2.2 自动配置原理解析
 
+#### 2.2.1 @SpringBootApplication 注解
+
 按住 Ctrl 点击查看启动类 MySpringBootApplication 上的注解 `@SpringBootApplication`。
 
 ```java
@@ -177,9 +179,14 @@ public @interface SpringBootApplication {
 
 其中，
 
-* `@SpringBootConfiguration`：等同与 `@Configuration`，既标注该类是 Spring 的一个配置类
+* `@SpringBootConfiguration`：等同与 `@Configuration`，既标注该类是 Spring 的一个配置类。
 
-* `@EnableAutoConfiguration`：SpringBoot 自动配置功能开启
+* `@EnableAutoConfiguration`：SpringBoot 自动配置功能开启。
+
+* `@ComponentScan`：扫描启动类当前路径及其子包路径下的 Controller。 
+
+
+
 
 按住 Ctrl 点击查看注解 @EnableAutoConfiguration
 
