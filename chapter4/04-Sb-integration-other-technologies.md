@@ -85,11 +85,11 @@ public interface UserMapper {
 }
 ```
 
-注意：@Mapper标记该类是一个mybatis的mapper接口，可以被spring boot自动扫描到spring上下文中
+注意：@Mapper 标记该类是一个 mybatis 的 mapper 接口，可以被spring boot 自动扫描到 spring 上下文中。
 
 #### 4.1.7 配置 Mapper 映射文件
 
-在src\main\resources\mapper路径下加入UserMapper.xml配置文件"
+在 src\main\resources\mapper 路径下加入 UserMapper.xml 配置文件"
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -104,10 +104,10 @@ public interface UserMapper {
 #### 4.1.8 在 application.properties 中添加 mybatis 的信息
 
 ```properties
-#spring集成Mybatis环境
-#pojo别名扫描包
+# spring 集成 Mybatis 环境
+# pojo 别名扫描包（实体类所在包）
 mybatis.type-aliases-package=com.itheima.domain
-#加载Mybatis映射文件
+#加载 Mybatis 映射文件
 mybatis.mapper-locations=classpath:mapper/*Mapper.xml
 ```
 
