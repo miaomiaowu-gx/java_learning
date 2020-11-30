@@ -134,11 +134,7 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 <img src="./img4/01-springboot-initializr.png" width=800>
 
-![](img\8.png)
-
-![](img\9.png)
-
-![](img\10.png)
+<img src="./img4/02-springboot-select.png" width=800>
 
 
 
@@ -192,7 +188,6 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
 
