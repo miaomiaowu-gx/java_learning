@@ -295,9 +295,7 @@ public class QuickStartController {
 }
 ```
 
-浏览器访问地址：http://localhost:8080/quick 结果如下：
+浏览器访问地址：http://localhost:8080/quick。
 
-![](img\13.png)
-
-注意：使用 @ConfigurationProperties 方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供 set 方法才可以，而使用 @Value 注解修饰的字段不需要提供 set 方法。
+**注意：使用 `@ConfigurationProperties` 方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供 set 方法才可以，而使用 `@Value` 注解修饰的字段不需要提供 set 方法。**
 
