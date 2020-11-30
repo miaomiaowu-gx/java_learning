@@ -276,6 +276,7 @@ person:
 @ConfigurationProperties(prefix = "person")
 public class QuickStartController {
 
+    //必须要有 set 方法
     private String name;
     private Integer age;
 
