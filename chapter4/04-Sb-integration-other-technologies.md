@@ -190,12 +190,12 @@ public class MapperTest {
 
 
 
-### 4.3 SpringBoot整合Spring Data JPA
+### 4.3 SpringBoot 整合 Spring Data JPA
 
 #### 4.3.1 添加 Spring Data JPA 的起步依赖
 
 ```xml
-<!-- springBoot JPA的起步依赖 -->
+<!-- springBoot JPA 的起步依赖 -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
