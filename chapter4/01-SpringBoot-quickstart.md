@@ -144,7 +144,7 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 
 
-通过idea快速创建的SpringBoot项目的pom.xml中已经导入了我们选择的web的起步依赖的坐标
+通过 idea 快速创建的 SpringBoot 项目的 pom.xml 中已经导入选择的 web 的起步依赖的坐标
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -200,7 +200,7 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 ```
 
-可以使用快速入门的方式创建Controller进行访问，此处不再赘述
+可以使用快速入门的方式创建 Controller 进行访问，此处不再赘述
 
 
 
