@@ -151,7 +151,7 @@ public class MySpringBootApplication {
 }
 ```
 
-注解@SpringBootApplication的源码
+注解 `@SpringBootApplication` 的源码
 
 ```java
 @Target(ElementType.TYPE)
@@ -171,9 +171,7 @@ public @interface SpringBootApplication {
 	 */
 	@AliasFor(annotation = EnableAutoConfiguration.class)
 	Class<?>[] exclude() default {};
-
 	... ... ...
-
 }
 ```
 
