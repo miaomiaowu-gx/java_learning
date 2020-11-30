@@ -5,7 +5,7 @@
 #### 4.1.1 添加 Mybatis 的起步依赖
 
 ```xml
-<!--mybatis起步依赖-->
+<!-- mybatis 起步依赖 -->
 <dependency>
     <groupId>org.mybatis.spring.boot</groupId>
     <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -25,19 +25,19 @@
 
 #### 4.1.3 添加数据库连接信息
 
-在application.properties中添加数据量的连接信息
+在 application.properties 中添加数据量的连接信息
 
 ```properties
-#DB Configuration:
+# DB Configuration:
 spring.datasource.driverClassName=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
 spring.datasource.username=root
-spring.datasource.password=root
+spring.datasource.password=mysql
 ```
 
 #### 4.1.4 创建 user 表
 
-在test数据库中创建user表
+在 test 数据库中创建 user 表
 
 ```sql
 -- ----------------------------
@@ -72,8 +72,7 @@ public class User {
     // 姓名
     private String name;
   
-    //此处省略getter和setter方法 .. ..
-    
+    //此处省略 getter 和 setter 方法 ...
 }
 ```
 
