@@ -163,8 +163,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = MySpringBootApplication.class)
+@RunWith(SpringRunner.class) //固定写法
+@SpringBootTest(classes = MySpringBootApplication.class) //启动类(引导类)
 public class MapperTest {
 
     @Autowired
@@ -175,25 +175,18 @@ public class MapperTest {
         List<User> users = userMapper.queryUserList();
         System.out.println(users);
     }
-
 }
 ```
 
 其中，
 
-SpringRunner 继承自 SpringJUnit4ClassRunner，使用哪一个 Spring 提供的测试测试引擎都可以。
+* SpringRunner 继承自 SpringJUnit4ClassRunner，使用哪一个 Spring 提供的测试测试引擎都可以。
 
-```java
-public final class SpringRunner extends SpringJUnit4ClassRunner 
-```
+    ```java
+    public final class SpringRunner extends SpringJUnit4ClassRunner 
+    ```
 
-`@SpringBootTest` 的属性指定的是引导类的字节码对象。
-
-
-
-#### 4.2.3 控制台打印信息
-
-![](img\15.png)
+* `@SpringBootTest` 的属性指定的是**引导类**的字节码对象。
 
 
 
