@@ -75,7 +75,7 @@
 
 #### 2.1.2 分析 spring-boot-starter-web
 
-按住Ctrl点击pom.xml中的spring-boot-starter-web，跳转到了spring-boot-starter-web的pom.xml，xml配置如下（只摘抄了部分重点配置）：
+按住 Ctrl 点击 pom.xml 中的 spring-boot-starter-web，跳转到 spring-boot-starter-web 的 pom.xml，xml 配置如下（只摘抄了部分重点配置）：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
