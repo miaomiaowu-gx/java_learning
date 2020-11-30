@@ -35,14 +35,14 @@
 <dependencyManagement>
   <dependencies>
     <dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot</artifactId>
-	<version>2.0.1.RELEASE</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot</artifactId>
+        <version>2.0.1.RELEASE</version>
     </dependency>
     <dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-test</artifactId>
-	<version>2.0.1.RELEASE</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-test</artifactId>
+        <version>2.0.1.RELEASE</version>
     </dependency>
     ... ... ...
   </dependencies>
