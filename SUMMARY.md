@@ -37,6 +37,8 @@
 * [第四章 SpringBoot](chapter4.md)
   * [第一节 SpringBoot 快速入门](chapter4/01-SpringBoot-quickstart.md)
   * [第二节 SpringBoot 原理分析](chapter4/02-Analysis-of-springboot-principle.md)
+  * [第三节 SpringBoot 配置文件](chapter4/03-Springboot-configuration-file.md)
+  * [第四节 SpringBoot 整合其他技术](chapter4/04-Sb-integration-other-technologies.md)
 * [第五章 JVM 虚拟机](chapter5.md)
 * [第六章 JavaWeb](chapter6.md)
   * [第一节 Junit单元测试-反射-注解](chapter6/di-yi-jie-junit-dan-yuan-ce-8bd5-fan-5c04-zhu-89e35d.md)
