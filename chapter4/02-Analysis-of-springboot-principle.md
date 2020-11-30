@@ -186,6 +186,7 @@ public @interface SpringBootApplication {
 * `@ComponentScan`：扫描启动类当前路径及其子包路径下的 Controller。 
 
 
+#### 2.2.2 @EnableAutoConfiguration 注解
 
 
 按住 Ctrl 点击查看注解 @EnableAutoConfiguration
