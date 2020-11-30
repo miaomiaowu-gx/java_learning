@@ -279,11 +279,13 @@ public class JpaTest {
 
 #### 4.3.7 控制台打印信息
 
-![](img\16.png)
+<img src="./img4/07-jpa-sout.png" width=600>
 
 注意：如果是 jdk9，执行报错如下：
 
-![](img\17.png)
+<img src="./img4/08-jpa-jdk9-error.png" width=600>
+
+
 
 原因：jdk 缺少相应的 jar
 
