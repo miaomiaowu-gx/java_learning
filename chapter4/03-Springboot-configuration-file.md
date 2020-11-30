@@ -207,11 +207,11 @@ server:
 
 #### 3.2.1 使用注解 @Value 映射
 
-我们可以通过@Value注解将配置文件中的值映射到一个Spring管理的Bean的字段上
+可以通过 `@Value` 注解将配置文件中的值映射到一个 Spring 管理的 Bean 的字段上。
 
 例如：
 
-application.properties配置如下：
+application.properties 配置如下：
 
 ```properties
 person:
@@ -219,7 +219,7 @@ person:
   age: 18
 ```
 
-或者，application.yml配置如下：
+或者，application.yml 配置如下：
 
 ```yaml
 person:
@@ -227,7 +227,7 @@ person:
   age: 18
 ```
 
-实体Bean代码如下：
+实体 Bean 代码如下：
 
 ```java
 @Controller
@@ -254,11 +254,11 @@ public class QuickStartController {
 
 
 
-#### 3.2.2 使用注解@ConfigurationProperties映射
+#### 3.2.2 使用注解 @ConfigurationProperties 映射
 
-通过注解@ConfigurationProperties(prefix="配置文件中的key的前缀")可以将配置文件中的配置自动与实体进行映射
+通过注解 `@ConfigurationProperties(prefix="配置文件中的key的前缀")` 可以将配置文件中的配置自动与实体进行映射。
 
-application.properties配置如下：
+application.properties 配置如下：
 
 ```properties
 person:
@@ -266,7 +266,7 @@ person:
   age: 18
 ```
 
-或者，application.yml配置如下：
+或者，application.yml 配置如下：
 
 ```yaml
 person:
@@ -274,7 +274,7 @@ person:
   age: 18
 ```
 
-实体Bean代码如下：
+实体 Bean 代码如下：
 
 ```java
 @Controller
@@ -304,5 +304,5 @@ public class QuickStartController {
 
 ![](img\13.png)
 
-注意：使用@ConfigurationProperties方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供set方法才可以，而使用@Value注解修饰的字段不需要提供set方法
+注意：使用 @ConfigurationProperties 方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供 set 方法才可以，而使用 @Value 注解修饰的字段不需要提供 set 方法。
 
