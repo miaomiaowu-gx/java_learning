@@ -189,7 +189,7 @@ public @interface SpringBootApplication {
 #### 2.2.2 @EnableAutoConfiguration 注解
 
 
-按住 Ctrl 点击查看注解 @EnableAutoConfiguration
+按住 Ctrl 点击查看注解 `@EnableAutoConfiguration`
 
 ```java
 @Target(ElementType.TYPE)
