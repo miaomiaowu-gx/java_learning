@@ -27,18 +27,18 @@
 
 - 示例代码：
 
-- ```yaml
+  ```yaml
   name: haohao
   ```
 
-- 注意：value之前有一个空格
+- 注意：**value 之前有一个空格**
 
 ###### 3.1.2.2.2 配置对象数据
 
-- 语法： 
+- 语法：缩进一致，代表同一级 
 
+   ```yaml
   ​	key: 
-
   ​		key1: value1
 
   ​		key2: value2
@@ -46,7 +46,8 @@
   ​	或者：
 
   ​	key: {key1: value1,key2: value2}
-
+   ```
+  
 - 示例代码：
 
 - ```yaml
