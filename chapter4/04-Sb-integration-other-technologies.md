@@ -139,7 +139,7 @@ public class MapperController {
 #### 4.2.1 添加 Junit 的起步依赖
 
 ```xml
-<!--测试的起步依赖-->
+<!-- 测试的起步依赖 -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-test</artifactId>
@@ -181,13 +181,13 @@ public class MapperTest {
 
 其中，
 
-SpringRunner继承自SpringJUnit4ClassRunner，使用哪一个Spring提供的测试测试引擎都可以
+SpringRunner 继承自 SpringJUnit4ClassRunner，使用哪一个 Spring 提供的测试测试引擎都可以。
 
 ```java
 public final class SpringRunner extends SpringJUnit4ClassRunner 
 ```
 
-@SpringBootTest的属性指定的是引导类的字节码对象
+`@SpringBootTest` 的属性指定的是引导类的字节码对象。
 
 
 
