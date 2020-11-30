@@ -205,7 +205,7 @@ public class MapperTest {
 #### 4.3.2 添加数据库驱动依赖
 
 ```xml
-<!-- MySQL连接驱动 -->
+<!-- MySQL 连接驱动 -->
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
@@ -219,7 +219,7 @@ public class MapperTest {
 spring.datasource.driverClassName=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
 spring.datasource.username=root
-spring.datasource.password=root
+spring.datasource.password=mysql
 
 #JPA Configuration:
 spring.jpa.database=MySQL
@@ -229,7 +229,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.hibernate.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy
 ```
 
-#### 4.3.4 创建实体配置实体
+#### 4.3.4 创建实体类配置实体
 
 ```java
 @Entity
@@ -252,6 +252,7 @@ public class User {
 #### 4.3.5 编写 UserRepository
 
 ```java
+//JpaRepository<当前实体范型，实体id类型>
 public interface UserRepository extends JpaRepository<User,Long>{
     public List<User> findAll();
 }
@@ -280,16 +281,16 @@ public class JpaTest {
 
 ![](img\16.png)
 
-注意：如果是jdk9，执行报错如下：
+注意：如果是 jdk9，执行报错如下：
 
 ![](img\17.png)
 
-原因：jdk缺少相应的jar
+原因：jdk 缺少相应的 jar
 
-解决方案：手动导入对应的maven坐标，如下：
+解决方案：手动导入对应的 maven 坐标，如下：
 
 ```xml
-<!--jdk9需要导入如下坐标-->
+<!-- jdk9 需要导入如下坐标 -->
 <dependency>
     <groupId>javax.xml.bind</groupId>
     <artifactId>jaxb-api</artifactId>
