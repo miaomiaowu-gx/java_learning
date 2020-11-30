@@ -132,9 +132,9 @@
 
 #### 3.1.3 SpringBoot 配置信息的查询
 
-上面提及过，SpringBoot的配置文件，主要的目的就是对配置信息进行修改的，但在配置时的key从哪里去查询呢？我们可以查阅SpringBoot的官方文档
+上面提及过，SpringBoot 的配置文件，主要的目的就是对配置信息进行修改的，但在配置时的 key 从哪里去查询呢？可以查阅 SpringBoot 的官方文档
 
-文档URL：https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#common-application-properties
+文档 URL：https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#common-application-properties
 
 常用的配置摘抄如下：
 
@@ -181,18 +181,18 @@ spring.elasticsearch.jest.username= # Login username.
 
 ```
 
-可以通过配置application.poperties 或者 application.yml 来修改SpringBoot的默认配置
+可以通过配置 application.poperties 或者 application.yml 来修改 SpringBoot 的默认配置。
 
 例如：
 
-application.properties文件
+application.properties 文件
 
 ```properties
 server.port=8888
-server.servlet.context-path=demo
+server.servlet.context-path=/demo
 ```
 
-application.yml文件
+application.yml 文件
 
 ```yaml
 server:
