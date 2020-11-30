@@ -21,6 +21,23 @@
 
 ##### 3.1.2.2 yml 配置文件的语法
 
+配置文件加载顺序
+
+```xml
+<resource>
+    <filtering>true</filtering>
+    <directory>${basedir}/src/main/resources</directory>
+    <includes>
+        <include>**/application*.yml</include>
+        <include>**/application*.yaml</include>
+        <include>**/application*.properties</include>
+    </includes>
+</resource>
+```
+
+后加载的会覆盖之前加载的，因此 properties 文件优先级最高，yaml 优先级次之，yml优先级最低。
+
+
 ###### 3.1.2.2.1 配置普通数据
 
 - 语法： key: value
@@ -38,14 +55,13 @@
 - 语法：缩进一致，代表同一级 
 
    ```yaml
-  ​	key: 
-  ​		key1: value1
+  ​ key: 
+  ​	key1: value1 # [冒号与 value 间留有一个空格]
+  ​	key2: value2
 
-  ​		key2: value2
+  ​ # 或者：
 
-  ​	或者：
-
-  ​	key: {key1: value1,key2: value2}
+  ​ key: {key1: value1,key2: value2}
    ```
   
 - 示例代码：
@@ -59,11 +75,12 @@
   #或者
 
   person: {name: haohao,age: 31,addr: beijing}
+  # 冒号后仍然需要留有空格！
   ```
 
-- 注意：key1前面的空格个数不限定，在yml语法中，相同缩进代表同一个级别
+- 注意：key1 前面的空格个数不限定，在 yml 语法中，相同缩进代表同一个级别
 
-###### 3.1.2.2.2 配置Map数据 
+###### 3.1.2.2.2 配置 Map 数据 
 
 同上面的对象写法
 
