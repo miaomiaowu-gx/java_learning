@@ -286,7 +286,6 @@ public class JpaTest {
 <img src="./img4/08-jpa-jdk9-error.png" width=600>
 
 
-
 原因：jdk 缺少相应的 jar
 
 解决方案：手动导入对应的 maven 坐标，如下：
@@ -307,7 +306,7 @@ public class JpaTest {
 #### 4.4.1 添加 redis 的起步依赖
 
 ```xml
-<!-- 配置使用redis启动器 -->
+<!-- 配置使用 redis 启动器 -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
