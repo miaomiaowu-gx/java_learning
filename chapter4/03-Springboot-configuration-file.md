@@ -87,20 +87,21 @@
 ###### 3.1.2.2.3 配置数组（List、Set）数据
 
 - 语法： 
+  
+  ```yaml
+  ​key: 
+  ​	- value1
+  ​	- value2
+    
+  # 或者：
 
-  ​	key: 
-
-  ​		- value1
-
-  ​		- value2
-
-  或者：
-
-  ​	key: [value1,value2]
+  ​key: [value1,value2]
+  ```
 
 - 示例代码：
 
-- ```yaml
+  ```yaml
+  #集合中的元素是普通字符串
   city:
     - beijing
     - tianjin
