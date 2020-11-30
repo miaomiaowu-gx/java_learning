@@ -203,15 +203,14 @@ public @interface EnableAutoConfiguration {
 }
 ```
 
-其中，@Import(AutoConfigurationImportSelector.class) 导入了 AutoConfigurationImportSelector 类
+其中，`@Import(AutoConfigurationImportSelector.class)` 导入了 AutoConfigurationImportSelector 类
 
 按住 Ctrl 点击查看 AutoConfigurationImportSelector 源码
 
 ```java
 public String[] selectImports(AnnotationMetadata annotationMetadata) {
         ... ... ...
-        List<String> configurations = getCandidateConfigurations(annotationMetadata,
-                                                                   attributes);
+        List<String> configurations = getCandidateConfigurations(annotationMetadata,attributes);
         configurations = removeDuplicates(configurations);
         Set<String> exclusions = getExclusions(annotationMetadata, attributes);
         checkExcludedClasses(configurations, exclusions);
