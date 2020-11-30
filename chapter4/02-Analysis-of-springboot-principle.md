@@ -5,7 +5,7 @@
 
 #### 2.1.1 分析 spring-boot-starter-parent
 
-按住Ctrl点击pom.xml中的spring-boot-starter-parent，跳转到了spring-boot-starter-parent的pom.xml，xml配置如下（只摘抄了部分重点配置）：
+按住 Ctrl 点击 pom.xml 中的 spring-boot-starter-parent，跳转到  spring-boot-starter-parent 的 pom.xml，xml 配置如下（只摘抄了部分重点配置）：
 
 ```xml
 <parent>
@@ -16,7 +16,7 @@
 </parent>
 ```
 
-按住Ctrl点击pom.xml中的spring-boot-starter-dependencies，跳转到了spring-boot-starter-dependencies的pom.xml，xml配置如下（只摘抄了部分重点配置）：
+按住 Ctrl 点击 pom.xml 中的 spring-boot-starter-dependencies，跳转到 spring-boot-starter-dependencies 的 pom.xml，xml 配置如下（只摘抄了部分重点配置）：
 
 ```xml
 <properties>
@@ -71,7 +71,7 @@
 </build>
 ```
 
-从上面的spring-boot-starter-dependencies的pom.xml中我们可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，所以我们的SpringBoot工程继承spring-boot-starter-parent后已经具备版本锁定等配置了。所以起步依赖的作用就是进行依赖的传递。
+从上面的 spring-boot-starter-dependencies 的 pom.xml 中可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，所以 SpringBoot 工程继承 spring-boot-starter-parent 后已经具备版本锁定等配置。因此起步依赖的作用就是进行依赖的传递。
 
 #### 2.1.2 分析 spring-boot-starter-web
 
