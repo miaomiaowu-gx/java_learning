@@ -214,9 +214,8 @@ server:
 application.properties 配置如下：
 
 ```properties
-person:
-  name: zhangsan
-  age: 18
+person.name=zhangsan
+person.age=18
 ```
 
 或者，application.yml 配置如下：
@@ -238,7 +237,6 @@ public class QuickStartController {
     @Value("${person.age}")
     private Integer age;
 
-
     @RequestMapping("/quick")
     @ResponseBody
     public String quick(){
@@ -248,9 +246,7 @@ public class QuickStartController {
 }
 ```
 
-浏览器访问地址：http://localhost:8080/quick 结果如下：
-
-![](img\13.png)
+浏览器访问地址：http://localhost:8080/quick。
 
 
 
@@ -261,9 +257,8 @@ public class QuickStartController {
 application.properties 配置如下：
 
 ```properties
-person:
-  name: zhangsan
-  age: 18
+person.name=zhangsan
+person.age=18
 ```
 
 或者，application.yml 配置如下：
