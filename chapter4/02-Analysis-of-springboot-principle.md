@@ -305,7 +305,11 @@ prefix = "server" 表示 SpringBoot 配置文件中的前缀，SpringBoot 会将
 
 
 
-【】
+【默认配置】
+
+
+<img src="./img4/05-metadata-config.png" width=500>
+
 
 
 
