@@ -124,11 +124,11 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 出现这种情况，并不是热部署配置问题，其根本原因是因为 Intellij IEDA 默认情况下不会自动编译，需要对 IDEA 进行自动编译的设置，如下：
 
-![](img\19.png)
+1）File->Settings...->Compiler->勾选 Build project automatically。
 
-然后 Shift+Ctrl+Alt+/，选择Registry
+2）然后 Shift+Ctrl+Alt+/，选择 Registry，勾选 compiler.automake.allow.when.app.running。
 
-![](img\20.png)
+
 
 #### 1.2.3 使用 idea 快速创建 SpringBoot 项目
 
