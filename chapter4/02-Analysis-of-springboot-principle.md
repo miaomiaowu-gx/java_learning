@@ -140,7 +140,7 @@
 
 ### 2.2 自动配置原理解析
 
-按住Ctrl点击查看启动类MySpringBootApplication上的注解@SpringBootApplication
+按住 Ctrl 点击查看启动类 MySpringBootApplication 上的注解 `@SpringBootApplication`。
 
 ```java
 @SpringBootApplication
