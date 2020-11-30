@@ -132,7 +132,7 @@ public class MapperController {
 
 #### 4.1.10 测试
 
-![](img\14.png)
+<img src="./img4/06-springboot-mabatis.png" width=600>
 
 ### 4.2 SpringBoot 整合 Junit
 
