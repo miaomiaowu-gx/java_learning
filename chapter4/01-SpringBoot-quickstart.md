@@ -132,9 +132,7 @@ tomcat 已经起步，端口监听 8080，web 应用的虚拟工程名称为空�
 
 #### 1.2.3 使用 idea 快速创建 SpringBoot 项目
 
-![](img\6.png)
-
-![](img\7.png)
+<img src="./img4/01-springboot-initializr.png" width=800>
 
 ![](img\8.png)
 
