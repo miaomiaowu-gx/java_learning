@@ -123,6 +123,9 @@
     - name: wangwu
       age: 38
       score: 90
+      
+  #或者
+  student: [{name: zhangsan,age: 18,score: 100},{name: lisi,age: 28,score: 88}]
   ```
 
 - 注意：value1 与之间的 - 之间存在一个空格
