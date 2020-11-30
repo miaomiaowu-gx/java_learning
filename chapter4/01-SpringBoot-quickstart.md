@@ -19,7 +19,7 @@ SpringBoot 要求，所有项目都要继承 SpringBoot 的起步依赖 spring-b
 </parent>
 ```
 
-SpringBoot 要集成 SpringMVC 进行 Controller 的开发，所以项目要导入 web 的启动依赖。
+SpringBoot 要集成 SpringMVC 进行 Controller 的开发，所以项目要导入 web 的启动依赖（web 功能模块）。
 
 ```xml
 <dependencies>
