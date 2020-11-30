@@ -134,7 +134,7 @@
 
 ```
 
-从上面的spring-boot-starter-web的pom.xml中我们可以发现，spring-boot-starter-web就是将web开发要使用的spring-web、spring-webmvc等坐标进行了“打包”，这样我们的工程只要引入spring-boot-starter-web起步依赖的坐标就可以进行web开发了，同样体现了依赖传递的作用。
+从上面的 spring-boot-starter-web 的 pom.xml 中可以发现，spring-boot-starter-web 就是将 web 开发要使用的 spring-web、spring-webmvc 等坐标进行了“打包”，这样工程只要引入 spring-boot-starter-web 起步依赖的坐标就可以进行 web 开发了，同样体现了依赖传递的作用。
 
 
 
