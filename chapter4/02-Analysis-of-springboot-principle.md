@@ -250,7 +250,7 @@ org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,\
 ... ... ...
 ```
 
-上面配置文件存在大量的以 Configuration 为结尾的类名称，这些类就是存有自动配置信息的类，而 SpringApplication 在获取这些类名后再加载
+**上面配置文件存在大量的以 AutoConfiguration 为结尾的类名称，这些类就是存有自动配置信息的类，而 SpringApplication 在获取这些类名后再加载。**
 
 以 ServletWebServerFactoryAutoConfiguration 为例来分析源码：
 
@@ -272,7 +272,7 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 其中，
 
-@EnableConfigurationProperties(ServerProperties.class) 代表加载 ServerProperties 服务器配置属性类
+`@EnableConfigurationProperties(ServerProperties.class)` 代表加载 ServerProperties 服务器配置属性类。
 
 进入 ServerProperties.class 源码如下：
 
