@@ -4,19 +4,20 @@
 
 #### 3.1.1 SpringBoot 配置文件类型和作用
 
-SpringBoot 是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，就可以使用 application.properties 或者 application.yml（application.yaml）进行配置。
+&emsp;&emsp;SpringBoot 是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，就可以使用 application.properties 或者 application.yml（application.yaml）进行配置。
 
-SpringBoot 默认会从 Resources 目录下加载 application.properties 或 application.yml（application.yaml）文件。
+&emsp;&emsp;**SpringBoot 默认会从 Resources 目录下加载 application.properties 或 application.yml（application.yaml）文件。**
 
-其中，application.properties 文件是键值对类型的文件，之前一直在使用，所以此处不在对 properties 文件的格式进行阐述。除了 properties 文件外，SpringBoot 还可以使用 yml 文件进行配置，下面对 yml 文件进行讲解。
+&emsp;&emsp;其中，application.properties 文件是键值对类型的文件，之前一直在使用，所以此处不在对 properties 文件的格式进行阐述。除了 properties 文件外，SpringBoot 还可以使用 yml 文件进行配置，下面对 yml 文件进行讲解。
 
 #### 3.1.2 application.yml 配置文件
 
 ##### 3.1.2.1 yml 配置文件简介
 
-YML文件格式是YAML (YAML Aint Markup Language)编写的文件格式，YAML是一种直观的能够被电脑识别的的数据数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，比如： C/C++, Ruby, Python, Java, Perl, C#, PHP等。YML文件是以数据为核心的，比传统的xml方式更加简洁。
+&emsp;&emsp;YML 文件格式是 YAML (YAML Aint Markup Language) 编写的文件格式，YAML 是一种直观的能够被电脑识别的**数据序列化格式**，并且容易被人类阅读，容易和脚本语言交互，可以被支持 YAML 库的不同的编程语言程序导入，比如： C/C++, Ruby, Python, Java, Perl, C#, PHP 等。YML 文件是以数据为核心的，比传统的 xml 方式更加简洁。
 
-YML文件的扩展名可以使用.yml或者.yaml。
+
+&emsp;&emsp;YML 文件的扩展名可以使用 `.yml` 或者 `.yaml`。
 
 ##### 3.1.2.2 yml 配置文件的语法
 
