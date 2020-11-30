@@ -336,16 +336,16 @@ public class RedisTest {
 
     @Test
     public void test() throws JsonProcessingException {
-        //从redis缓存中获得指定的数据
+        //1、从 redis 缓存中获得指定的数据，数据形式为 json 串
         String userListData = redisTemplate.boundValueOps("user.findAll").get();
-        //如果redis中没有数据的话
+        //2、判断 redis 中是否存在数据
         if(null==userListData){
-            //查询数据库获得数据
+            //3、不存在数据，查询数据库获得数据
             List<User> all = userRepository.findAll();
             //转换成json格式字符串
             ObjectMapper om = new ObjectMapper();
             userListData = om.writeValueAsString(all);
-            //将数据存储到redis中，下次在查询直接从redis中获得数据，不用在查询数据库
+            //4、将数据存储到redis中，下次在查询直接从redis中获得数据，不用在查询数据库
             redisTemplate.boundValueOps("user.findAll").set(userListData);
             System.out.println("===============从数据库获得数据===============");
         }else{
@@ -353,9 +353,7 @@ public class RedisTest {
         }
 
         System.out.println(userListData);
-
     }
-
 }
 ```
 
