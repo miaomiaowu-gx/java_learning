@@ -183,7 +183,7 @@ public @interface SpringBootApplication {
 
 * `@EnableAutoConfiguration`：SpringBoot 自动配置功能开启。
 
-* `@ComponentScan`：扫描启动类当前路径及其子包路径下的 Controller。 
+* `@ComponentScan`：扫描启动类当前路径及其子包路径下的 [? Controller]。 
 
 
 #### 2.2.2 @EnableAutoConfiguration 注解
