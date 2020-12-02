@@ -13,3 +13,9 @@ Dubbo 是用于分布式系统的框架所以要先了解什么是分布式。
 
 
 ### 1.2 发展演变
+
+<img src="./img9/01-dubbo-architecture.png" width=500>
+
+
+
+
