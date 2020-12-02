@@ -43,6 +43,8 @@
 
 核心难点：如何进行远程过程调用，以及如何拆分业务
 
+<img src="./img9/02-distributed-architecture.png" width=700>
+
 
 
 #### 1.2.4 分布式服务架构
