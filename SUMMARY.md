@@ -67,7 +67,7 @@
 * [第八章 Redis](chapter8.md)
   * [第一节 命令操作](chapter8/01-redis-command-operation.md)
   * [第二节 Jedis](chapter8/02-jedis.md)
-* [第九章 Nginx](chapter9.md)
+* [第九章 Dubbo](chapter9.md)
 * [第十章 数据库优化](chapter10.md)
 * [第十一章 计算机网络](chapter11.md)
 * [第十二章 操作系统](chapter12.md)
