@@ -43,7 +43,13 @@
 
 核心难点：如何进行远程过程调用，以及如何拆分业务
 
-<img src="./img9/02-distributed-architecture.png" width=700>
+<img src="./img9/02-distributed-architecture.png" width=500>
+
+
+
+
+
+
 
 
 
