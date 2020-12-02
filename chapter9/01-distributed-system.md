@@ -48,5 +48,7 @@
 #### 1.2.4 流动计算架构(SOA)
 
 
+<img src="./img9/02-flow-computer.png" width=500>
+
 
 ### 1.3 RPC 
