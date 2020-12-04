@@ -5,6 +5,15 @@
 
 1 在官网下载 Zookeeper 压缩包，解压。
 
+2 在 zookeeper-x.x.xx 文件夹的 conf 文件夹下，复制 zoo_sample.cfg 文件并重命名为 zoo.cfg。
+
+3 在 zookeeper-x.x.xx 文件夹下创建 data 文件夹，修改 zoo.cfg 配置：
+
+```cfg
+dataDir=../data
+
+```
+
 
 #### 3.1.1 ZooKeeper 注册中心
 
