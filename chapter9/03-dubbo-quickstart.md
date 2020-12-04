@@ -11,7 +11,6 @@
 
 ```cfg
 dataDir=../data
-
 ```
 
 
