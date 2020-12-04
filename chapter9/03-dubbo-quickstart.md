@@ -76,9 +76,11 @@ numChildren = 0
 #### 3.1.2 搭建管理控制台(监控中心 Monitor)  
 
 
-1 调转到 github 地址：https://github.com/apache/dubbo
+1 调转到 github 地址：https://github.com/apache/dubbo。
 
-2 在 README.md 文件中找到 Dubbo ecosystem 下的
+2 在 README.md 文件中找到 Dubbo ecosystem 下的 Dubbo Admin，下载对应的 zip 包。
+
+
 
 
 
