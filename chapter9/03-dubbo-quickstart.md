@@ -80,7 +80,7 @@ numChildren = 0
 
 2 在 README.md 文件中找到 Dubbo ecosystem 下的 Dubbo Admin，下载对应的 zip 包。
 
-3 
+3 在 pom 目录下，打开 cmd 命令
 
 
 
