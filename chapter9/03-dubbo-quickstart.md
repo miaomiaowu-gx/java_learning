@@ -17,5 +17,5 @@
 服务消费者配置&测试
 
 
-监控中心_Simple Monitor安装配置
+监控中心 Simple Monitor安装配置
 
