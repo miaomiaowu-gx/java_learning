@@ -27,7 +27,7 @@ dataDir=../data
 <img src="./img9/09-zookeeper.jpg" width=400>
 
 
-流程说明：
+**流程说明**：
 
 * **服务提供者启动时**: 向 `/dubbo/com.foo.BarService/providers` 目录下写入自己的 URL 地址
 
