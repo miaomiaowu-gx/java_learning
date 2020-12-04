@@ -88,6 +88,7 @@ numChildren = 0
 
 #### 3.1.2 搭建管理控制台(监控中心 Monitor)  
 
+【待解决】
 
 1 调转到 github 地址：https://github.com/apache/dubbo。
 
