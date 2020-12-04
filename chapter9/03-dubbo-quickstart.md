@@ -90,9 +90,7 @@ numChildren = 0
 
 【待解决】
 
-1 调转到 github 地址：https://github.com/apache/dubbo。
-
-2 在 README.md 文件中找到 Dubbo ecosystem 下的 Dubbo Admin，下载对应的 zip 包。
+1 下载 dubbo-admin 对应的 zip 包。github: https://github.com/apache/dubbo-admin/tree/master。
 
 3 在 pom.xml 所在目录下，打开 cmd 命令，输入 `mvn clean package`。
 
