@@ -82,7 +82,9 @@ numChildren = 0
 
 3 在 pom.xml 所在目录下，打开 cmd 命令，输入 `mvn clean package`。
 
-4 
+4 在生成的 target 目录下，找到 jar 包。命令行 java -jar dubbo-admin-xxxxxx.jar。
+
+5 浏览器 localhost:7001 访问，默认情况下，用户与密码均是 root。
 
 
 
