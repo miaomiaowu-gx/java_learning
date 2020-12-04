@@ -110,6 +110,12 @@ numChildren = 0
 
 ```
 netstat -ano|findstr "7001"
+//输出
+//  TCP    0.0.0.0:7001           0.0.0.0:0              LISTENING       9556
+//  TCP    [::]:7001              [::]:0                 LISTENING       9556
+
+taskkill /T /F /PID 9556
+// 成功: 已终止 PID 9556 (属于 PID 7736 子进程)的进程。
 ```
 
 
