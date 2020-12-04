@@ -20,6 +20,8 @@ dataDir=../data
 4 运行 bin 文件夹下的 zkServer.cmd 启动服务端，zkCli.cmd 启动客户端。
 
 
+##### 使用
+
 
 
 
