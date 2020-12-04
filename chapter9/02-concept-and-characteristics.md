@@ -8,6 +8,6 @@
 ### 2.1 Dubbo 特性
 
 
-
+<img src="./img9/06-characteristic.png" width=600>
 
 ### 2.2 Dubbo 设计架构
