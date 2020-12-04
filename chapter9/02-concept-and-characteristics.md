@@ -14,5 +14,7 @@
 
 ### 2.2 Dubbo 设计架构
 
+<img src="./img9/07-framework.png" width=600>
+
 
 
