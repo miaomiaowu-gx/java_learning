@@ -36,6 +36,9 @@ dataDir=../data
 * **监控中心启动时**: 订阅 `/dubbo/com.foo.BarService` 目录下的所有提供者和消费者 URL 地址。
 
 
+
+**客户端操作**：
+
 获取根节点下的值 `get /`
 
 ```cmd
