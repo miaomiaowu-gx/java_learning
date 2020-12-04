@@ -92,9 +92,15 @@ numChildren = 0
 
 1 下载 dubbo-admin 对应的 zip 包。github: https://github.com/apache/dubbo-admin/tree/master。
 
-3 在 pom.xml 所在目录下，打开 cmd 命令，输入 `mvn clean package`。
+2 解压后进入目录修改指定 zookeeper 地址
 
-4 在生成的 target 目录下，找到 jar 包。命令行 java -jar dubbo-admin-xxxxxx.jar。
+* 查看 dubbo-admin-master\dubbo-admin\src\main\resources\application.properties 文件。
+
+* 将 zookeeper 的监控中心的地址配置为本地端口，`dubbo.registry.address=zookeeper://127.0.0.1:2181`。
+
+3 在dubo-zookeeper\dubbo-admin-master\dubbo-admin文件夹下 cmd 打包，输入 `mvn clean package`。
+
+4 在生成的 target 目录下，找到 jar 包。命令行 `java -jar dubbo-admin-0.0.1-SNAPSHOT.jar`。
 
 5 浏览器 localhost:7001 访问，默认情况下，用户与密码均是 root。
 
