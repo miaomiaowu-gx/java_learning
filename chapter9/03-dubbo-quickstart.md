@@ -39,7 +39,7 @@ dataDir=../data
 
 **客户端操作**：
 
-获取根节点下的值 `get /`
+* 获取根节点下的值 `get /`
 
 ```cmd
 cZxid = 0x0
@@ -55,19 +55,19 @@ dataLength = 0
 numChildren = 1
 ```
 
-获取节点 `ls /`
+* 获取节点 `ls /`
 
 ```
 [zookeeper]
 ```
 
-创建节点并设置值 `create -e /atguigu 123456`，然后查看节点 `ls /`
+* 创建节点并设置值 `create -e /atguigu 123456`，然后查看节点 `ls /`
 
 ```
 [zookeeper, atguigu]
 ```
 
-获取创建节点的值 `get /atguigu`
+* 获取创建节点的值 `get /atguigu`
 
 ```
 123456
