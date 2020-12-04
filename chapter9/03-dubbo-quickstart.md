@@ -26,6 +26,16 @@ dataDir=../data
 
 <img src="./img9/09-zookeeper.jpg" width=400>
 
+
+流程说明：
+
+* 服务提供者启动时: 向 `/dubbo/com.foo.BarService/providers` 目录下写入自己的 URL 地址
+
+* 服务消费者启动时: 订阅 `/dubbo/com.foo.BarService/providers` 目录下的提供者 URL 地址。并向 `/dubbo/com.foo.BarService/consumers` 目录下写入自己的 URL 地址
+
+* 监控中心启动时: 订阅 `/dubbo/com.foo.BarService` 目录下的所有提供者和消费者 URL 地址。
+
+
 获取根节点下的值 `get /`
 
 ```cmd
