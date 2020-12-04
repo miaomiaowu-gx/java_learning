@@ -26,6 +26,51 @@ dataDir=../data
 
 <img src="./img9/09-zookeeper.jpg" width=400>
 
+获取根节点下的值 `get /`
+
+```cmd
+cZxid = 0x0
+ctime = Thu Jan 01 08:00:00 CST 1970
+mZxid = 0x0
+mtime = Thu Jan 01 08:00:00 CST 1970
+pZxid = 0x0
+cversion = -1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 1
+```
+
+获取节点 `ls /`
+
+```
+[zookeeper]
+```
+
+创建节点并设置值 `create -e /atguigu 123456`，然后查看节点 `ls /`
+
+```
+[zookeeper, atguigu]
+```
+
+获取创建节点的值 `get /atguigu`
+
+```
+123456
+cZxid = 0x2
+ctime = Fri Dec 04 15:36:31 CST 2020
+mZxid = 0x2
+mtime = Fri Dec 04 15:36:31 CST 2020
+pZxid = 0x2
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x10010f255ab0000
+dataLength = 6
+numChildren = 0
+```
+
 
 
 #### 3.1.2 管理控制台  
