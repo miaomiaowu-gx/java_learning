@@ -35,8 +35,6 @@ dataDir=../data
 
 * **监控中心启动时**: 订阅 `/dubbo/com.foo.BarService` 目录下的所有提供者和消费者 URL 地址。
 
-
-
 **客户端操作**：
 
 * 获取根节点下的值 `get /`
@@ -84,11 +82,7 @@ dataLength = 6
 numChildren = 0
 ```
 
-
-
 #### 3.1.2 搭建管理控制台(监控中心 Monitor)  
-
-【待解决】
 
 1 下载 dubbo-admin 对应的 zip 包。github: https://github.com/apache/dubbo-admin/tree/master。
 
@@ -104,11 +98,9 @@ numChildren = 0
 
 5 浏览器 localhost:7001 访问，默认情况下，用户与密码均是 root。
 
-
-
 **查看端口占用情况**
 
-```
+```shell
 netstat -ano|findstr "7001"
 //输出
 //  TCP    0.0.0.0:7001           0.0.0.0:0              LISTENING       9556
@@ -118,13 +110,18 @@ taskkill /T /F /PID 9556
 // 成功: 已终止 PID 9556 (属于 PID 7736 子进程)的进程。
 ```
 
-
-
 ### 3.2 dubbo-helloword
 
 #### 3.2.1 需求
 
+某个电商系统，**订单服务**需要调用**用户服务**获取**某个用户的所有地址**。
 
+现在需要创建两个服务模块进行测试：
+
+| 模块                  | 功能           |
+| --------------------- | -------------- |
+| 订单服务 web 模块     | 创建订单等     |
+| 用户服务 service 模块 | 查询用户地址等 |
 
 
 #### 3.2.2 
