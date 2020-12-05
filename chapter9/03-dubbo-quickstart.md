@@ -6,7 +6,7 @@
 #### 3.1.1 ZooKeeper 注册中心
 
 ##### 安装
- 
+
 1 在官网下载 Zookeeper 压缩包，解压。
 
 2 在 zookeeper-x.x.xx 文件夹的 conf 文件夹下，复制 zoo_sample.cfg 文件并重命名为 zoo.cfg。
@@ -120,7 +120,16 @@ taskkill /T /F /PID 9556
 
 
 
-### 3.2 创建提供者消费者工程
+### 3.2 dubbo-helloword
+
+#### 3.2.1 需求
+
+
+
+
+#### 3.2.2 
+
+创建提供者消费者工程
 
 
 
