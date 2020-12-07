@@ -64,11 +64,11 @@
     dubbo.registry.check=false
     ```
     
-  * `dubbo.reference.check=false`，强制改变所有 reference 的 check 值，就算配置中有声明，也会被覆盖。
+  * `dubbo.reference.check=false`，**强制改变**所有 reference 的 check 值，就算配置中有声明，也会被覆盖。
 
-  * `dubbo.consumer.check=false`，是设置 check 的缺省值，如果配置中有显式的声明，如：<dubbo:reference check="true"/>，不会受影响。
+  * `dubbo.consumer.check=false`，是设置 check 的**缺省值**，如果配置中有显式的声明，如：`<dubbo:reference check="true"/>`，不会受影响。
 
-  * `dubbo.registry.check=false`，前面两个都是指订阅成功，但提供者列表是否为空是否报错，如果注册订阅失败时，也允许启动，需使用此选项，将在后台定时重试。   
+  * `dubbo.registry.check=false`，前面两个都是指**订阅成功**，但提供者列表**是否为空**是否报错，**如果注册订阅失败时，也允许启动**，需使用此选项，将在后台定时重试。   
     
 
 * 通过 -D 参数
