@@ -89,6 +89,9 @@
 
 其中，服务提供方配置，通过 URL 经由注册中心传递给消费方。
 
+<img src="./img9/11-dubbo-config-override.jpg" width=600>
+
+
 
 
 ### 5.4 配置重试次数
