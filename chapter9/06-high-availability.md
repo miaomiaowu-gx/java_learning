@@ -28,7 +28,7 @@
 UserService userService; 
 ```
 
-### 6.2 负载均衡机制
+### 6.2 集群下 dubbo 负载均衡机制
 
 
 
