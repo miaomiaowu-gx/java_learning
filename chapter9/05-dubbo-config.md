@@ -96,6 +96,19 @@
 
 ### 5.4 配置重试次数
 
+关键字 retries，不包含第一次调用。
+
+```xml
+<dubbo:reference interface="com.gx.gmall.service.UserService" id="userServuce" timeout="5000" retries="3">
+</dubbo:reference>
+```
+
+除了第一次调用，方法会再次重试三次！
+
+* 幂等（设置重试次数）
+  * 如：查询、删除、修改
+* 非幂等（不能设置重试次数）
+  * 如：新增
 
 
 ### 5.5 配置多版本
