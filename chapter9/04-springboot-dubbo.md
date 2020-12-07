@@ -56,7 +56,13 @@ dubbo.protocol.port=20880
 #连接监控中心
 dubbo.monitor.protocol=registry
 ```     
-   
+ 
+3）使用注解暴漏服务
+
+```java
+      
+     
+         
 
 ### 4.3 boot-order-service-consumer 服务消费者
 
