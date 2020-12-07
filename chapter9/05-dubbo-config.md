@@ -35,6 +35,51 @@
 
 &emsp;&emsp;另外，如果项目的 Spring 容器是懒加载的，或者通过 API 编程延迟引用服务，请关闭 check，否则服务临时不可用时，会抛出异常，拿到 null 引用，如果 check="false"，总是会返回引用，当服务恢复时，能自动连上。
 
+#### 用法
+
+* 关闭**某个服务**的启动时检查 (没有提供者时报错)：
+    
+    ```xml
+    <dubbo:reference interface="com.foo.BarService" check="false" />
+    ```
+
+* 关闭**所有服务**的启动时检查 (没有提供者时报错)：
+    
+    ```xml
+    <dubbo:consumer check="false" />
+    ```
+
+* 关闭注册中心启动时检查 (注册订阅失败时报错)：
+
+    ```xml
+    <dubbo:registry check="false" />
+    ```
+
+* 通过 dubbo.properties
+
+    ```properties
+    dubbo.reference.com.foo.BarService.check=false
+    dubbo.reference.check=false
+    dubbo.consumer.check=false
+    dubbo.registry.check=false
+    ```
+    
+  * `dubbo.reference.check=false`，强制改变所有 reference 的 check 值，就算配置中有声明，也会被覆盖。
+
+  * `dubbo.consumer.check=false`，是设置 check 的缺省值，如果配置中有显式的声明，如：<dubbo:reference check="true"/>，不会受影响。
+
+  * `dubbo.registry.check=false`，前面两个都是指订阅成功，但提供者列表是否为空是否报错，如果注册订阅失败时，也允许启动，需使用此选项，将在后台定时重试。   
+    
+
+* 通过 -D 参数
+
+    ```shell
+    java -Ddubbo.reference.com.foo.BarService.check=false
+    java -Ddubbo.reference.check=false
+    java -Ddubbo.consumer.check=false 
+    java -Ddubbo.registry.check=false
+    ```
+
 ### 5.3 配置超时 & 配置覆盖关系
 
 
