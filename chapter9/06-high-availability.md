@@ -37,6 +37,9 @@ UserService userService;
 #### 6.2.1 Random LoadBalance 基于权重的随机负载均衡机制
 
 
+
+
+
 #### 6.2.2 RoundRobin LoadBalance 基于权重的轮询负载均衡机制 
 
 
