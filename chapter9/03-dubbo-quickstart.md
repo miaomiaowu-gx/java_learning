@@ -178,7 +178,40 @@ taskkill /T /F /PID 9556
 
 3）创建 user-service-provider 模块，服务提供者
 
+* 在 pom.xml 中加入对 gmail-interface 的依赖
 
+    ```xml
+    <dependency>
+        <groupId>com.gx</groupId>
+        <artifactId>gmail-interface</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    ```
+
+* 在 java 下创建 com.gx.gmall.service.impl 包，并创建 UserServiceImpl 实现类
+
+    ```java
+    package com.gx.gmall.service.impl;
+    
+    import com.gx.gmall.bean.UserAddress;
+    import com.gx.gmall.service.UserService;
+    
+    import java.util.Arrays;
+    import java.util.List;
+    
+    public class UserServiceImpl implements UserService {
+        public List<UserAddress> getUserAddressList(String userId) {
+    
+            UserAddress address1 = new UserAddress(1, "河南省郑州巩义市宋陵大厦2F", "1", "安然", "150360313x", "Y");
+            UserAddress address2 = new UserAddress(2, "北京市昌平区沙河镇沙阳路", "1", "情话", "1766666395x", "N");
+    
+            return Arrays.asList(address1,address2);
+        }
+    }
+    ```
+
+
+4）
 
 
 
