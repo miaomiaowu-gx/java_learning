@@ -197,7 +197,20 @@ public class BarServiceStub implements BarService {
 
 ### 5.7 配置与 SpringBoot 整合的三种方式
 
+1、将服务提供者注册到注册中心(如何暴露服务)
 
+1.1导入Dubbo的依赖 和 zookeeper 客户端
+
+2、让服务消费者去注册中心订阅服务提供者的服务地址
+Springboot与Dubbo整合的三种方式
+
+2.1导入dubbo-starter。在application.properties配置属性，使用@Service【暴露服务】，使用@Reference【引用服务】
+
+2.2保留Dubbo 相关的xml配置文件
+导入dubbo-starter，使用@ImportResource导入Dubbo的xml配置文件
+
+3、使用 注解API的方式
+将每一个组件手动配置到容器中,让dubbo来扫描其他的组件
 
 
 
