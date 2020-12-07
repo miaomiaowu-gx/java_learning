@@ -10,7 +10,7 @@
 &emsp;&emsp;Dubbo 可以**自动加载** classpath 根目录下的 dubbo.properties，但是同样可以使用 JVM 参数来指定路径：`-Ddubbo.properties.file=xxx.properties`。
 
 
-### 5.2 重写与优先级
+#### 5.1.2 重写与优先级
 
 
 <img src="./img9/10-dubbo-properties-override.jpg" width=400>
@@ -27,6 +27,20 @@
 > 如果 id 没有在 protocol 中配置，将使用 name 作为默认属性。
 
 
+### 5.2 启动检查 
 
 
 
+### 5.3 配置超时 & 配置覆盖关系
+
+
+### 5.4 配置重试次数
+
+
+### 5.5 配置多版本
+
+
+### 5.6 配置本地存根
+
+
+### 5.7 配置与 SpringBoot 整合的三种方式
