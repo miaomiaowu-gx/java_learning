@@ -225,10 +225,8 @@ taskkill /T /F /PID 9556
 
 * 在 java 下创建 com.gx.gmall.service.impl 包，并创建 OrderServiceImpl 实现类
     
-    
     ```java
     package com.gx.gmall.service.impl;
-    
     
     import com.gx.gmall.bean.UserAddress;
     import com.gx.gmall.service.OrderService;
@@ -254,6 +252,24 @@ taskkill /T /F /PID 9556
 
 #### 3.2.3 服务提供者配置&测试
 
+1）添加依赖 pom.xml
+
+```xml
+<!--dubbo-->
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>dubbo</artifactId>
+    <version>2.6.2</version>
+</dependency>
+<!--注册中心是 zookeeper，引入zookeeper客户端-->
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>2.12.0</version>
+</dependency>
+```
+
+2）
 
 
 
