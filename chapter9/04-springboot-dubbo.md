@@ -33,7 +33,29 @@
 
 #### 4.2.2 配置
 
- 
+1）在 pom.xml 中导入 dubbo 依赖
+
+```xml
+<dependency>
+	<groupId>com.alibaba.boot</groupId>
+	<artifactId>dubbo-spring-boot-starter</artifactId>
+	<version>0.2.1.RELEASE</version>
+</dependency>
+```
+
+2）配置 resources 文件夹下的 application.properties 文件
+
+```properties 
+dubbo.application.name=boot-user-service-provider
+dubbo.registry.address=127.0.0.1:2181
+dubbo.registry.protocol=zookeeper
+
+dubbo.protocol.name=dubbo
+dubbo.protocol.port=20880
+
+#连接监控中心
+dubbo.monitor.protocol=registry
+```     
    
 
 ### 4.3 boot-order-service-consumer 服务消费者
