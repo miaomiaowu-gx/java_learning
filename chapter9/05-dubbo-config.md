@@ -10,5 +10,14 @@
 &emsp;&emsp;Dubbo 可以**自动加载** classpath 根目录下的 dubbo.properties，但是同样可以使用 JVM 参数来指定路径：`-Ddubbo.properties.file=xxx.properties`。
 
 
-
 ### 5.2 重写与优先级
+
+
+<img src="./img9/10-dubbo-properties-override.jpg" width=400>
+
+
+
+
+
+
+
