@@ -57,12 +57,55 @@ dubbo.protocol.port=20880
 dubbo.monitor.protocol=registry
 ```     
  
-3）使用注解暴漏服务
+3）使用 dubbo 的 @Service 注解暴漏服务
 
 ```java
-      
+ package com.gx.gmall.service.impl;
+
+import com.gx.gmall.bean.UserAddress;
+import com.gx.gmall.service.UserService;
+import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Service //dubbo用于声明provider的注解
+@Component //用于标注业务层组件（service）
+public class UserServiceImpl implements UserService {
+
+    @Override
+    public List<UserAddress> getUserAddressList(String userId) {
+
+        UserAddress address1 = new UserAddress(1, "河南省郑州巩义市宋陵大厦2F", "1", "安然", "150360313x", "Y");
+        UserAddress address2 = new UserAddress(2, "北京市昌平区沙河镇沙阳路", "1", "情话", "1766666395x", "N");
+
+        return Arrays.asList(address1,address2);
+    }
+}
+```     
      
-         
+4）BootProviderApplication 启动类配置
+
+```java
+package com.gx.gmall;
+
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@EnableDubbo //开启基于注解的dubbo功能
+@SpringBootApplication
+public class BootUserServiceProviderApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BootUserServiceProviderApplication.class, args);
+	}
+
+}
+```
+                  
+                                                      
 
 ### 4.3 boot-order-service-consumer 服务消费者
 
