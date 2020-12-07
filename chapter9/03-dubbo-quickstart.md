@@ -321,6 +321,10 @@ public class MainApplication {
 #### 3.2.4 服务消费者配置&测试
 
 
+
+
+
+
 ### 3.3 监控中心 Simple Monitor 安装配置
 
 简单的监控中心：dubbo-monitor-simple
