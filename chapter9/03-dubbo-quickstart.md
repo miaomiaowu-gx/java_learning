@@ -211,7 +211,22 @@ taskkill /T /F /PID 9556
     ```
 
 
-4）
+4）创建 order-service-consumer 模块，服务消费者(订单服务)
+
+* 在 pom.xml 中加入对 gmail-interface 的依赖
+
+    ```xml
+    <dependency>
+        <groupId>com.gx</groupId>
+        <artifactId>gmail-interface</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    ```
+
+* 在 java 下创建 com.gx.gmall.service.impl 包，并创建 OrderServiceImpl 实现类
+
+```java
+
 
 
 
