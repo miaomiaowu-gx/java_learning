@@ -120,11 +120,45 @@
 2. 再将所有消费者升级为新版本
 3. 然后将剩下的一半提供者升级为新版本
 
+* 老版本服务提供者配置：
+
+```xml
+<dubbo:service interface="com.foo.BarService" ref="BarServiceImpl01" version="1.0.0" />
+<bean id="BarServiceImpl01" class="此处省略"></bean>
+```
+
+* 新版本服务提供者配置：
+
+```xml
+<dubbo:service interface="com.foo.BarService" ref="BarServiceImpl02" version="2.0.0" />
+<bean id="BarServiceImpl02" class="此处省略"></bean>
+```
 
 
+* 老版本服务消费者配置：
+
+```xml
+<dubbo:reference id="barService" interface="com.foo.BarService" version="1.0.0" />
+```
+
+
+* 新版本服务消费者配置：
+
+```xml
+<dubbo:reference id="barService" interface="com.foo.BarService" version="2.0.0" />
+```
 
 
 ### 5.6 配置本地存根
 
 
+
+
+
 ### 5.7 配置与 SpringBoot 整合的三种方式
+
+
+
+
+
+
