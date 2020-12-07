@@ -82,7 +82,7 @@ dataLength = 6
 numChildren = 0
 ```
 
-#### 3.1.2 搭建管理控制台(监控中心 Monitor)  
+#### 3.1.2 搭建管理控制台(监控中心 dubbo-admin)  
 
 1 下载 dubbo-admin 对应的 zip 包。github: https://github.com/apache/dubbo-admin/tree/master。
 
