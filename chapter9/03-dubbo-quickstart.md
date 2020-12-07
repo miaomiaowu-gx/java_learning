@@ -129,7 +129,56 @@ taskkill /T /F /PID 9556
 
 1）创建工程 dubbohelloword 工程，删除 src 文件夹，groupId 设为 com.gx
 
-2）创建 gmallinterface 模块，
+2）创建 gmall-interface 模块，用于存放实体类与接口文件。
+
+* 在 java 下创建包 com.gx.gmall.bean 存放 UserAddress 类。
+
+    ```java
+    package com.gx.gmall.bean;
+    
+    import java.io.Serializable;
+    
+    public class UserAddress implements Serializable {
+        private Integer id;
+        private String userAddress; //用户地址
+        private String userId; //用户id
+        private String consignee; //收货人
+        private String phoneNum; //电话号码
+        private String isDefault; //是否为默认地址    Y-是     N-否
+        // getter and setter ...
+    }
+    ```    
+
+* 在 java 下创建包 com.gx.gmall.service 存放 OrderService 与 UserService 接口。
+
+    ```java
+    package com.gx.gmall.service;
+    
+    public interface OrderService {
+        /**
+         * 初始化订单
+         */
+        public void initOrder(String userID);
+    }
+    ```
+
+    ```java
+    package com.gx.gmall.service;
+    
+    import com.gx.gmall.bean.UserAddress;
+    import java.util.List;
+    
+    public interface UserService {
+        /**
+         * 按照用户id返回所有的收货地址
+         */
+        public List<UserAddress> getUserAddressList(String userId);
+    }
+    ```
+
+3）创建 user-service-provider 模块，服务提供者
+
+
 
 
 
