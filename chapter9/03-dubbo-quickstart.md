@@ -388,4 +388,29 @@ public class ConsumerApplication {
 
 ### 3.3 监控中心 Simple Monitor 安装配置
 
-简单的监控中心：dubbo-monitor-simple
+1）进入 dubbo-monitor-simple 文件，执行 cmd 命令，mvn package 打包成 jar 包。
+
+github: https://github.com/apache/dubbo-admin/tree/master。
+
+2）将 `dubbo-monitor-simple-2.0.0-assembly.tar.gz` 压缩包解压至当前文件夹，解压后在 config 文件夹下查看 properties 的配置是否是本地的 zookeeper。
+
+```properties
+dubbo.registry.address=zookeeper://127.0.0.1:2181
+dubbo.protocol.port=7070
+dubbo.jetty.port=8080
+```
+
+3）打开解压后的 `assembly.bin` 文件，`start.bat` 启动 `dubbo-monitor-simple监控中心`。
+
+4）`localhost:8080` ，可以看到一个监控中心。但是还没有内容！
+
+5）在服务提供者和消费者的 xml 中配置以下内容，再次启动服务提供和消费者启动类。
+
+```xml
+<!--dubbo-monitor-simple监控中心发现的配置-->
+<!-- 方式一 -->
+<dubbo:monitor protocol="registry"></dubbo:monitor>
+<!-- 方式二 -->
+<!--<dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
+```
+
