@@ -147,7 +147,7 @@ taskkill /T /F /PID 9556
         private String isDefault; //是否为默认地址    Y-是     N-否
         // getter and setter ...
     }
-    ```    
+    ```
 
 * 在 java 下创建包 com.gx.gmall.service 存放 OrderService 与 UserService 接口。
 
@@ -224,7 +224,7 @@ taskkill /T /F /PID 9556
     ```
 
 * 在 java 下创建 com.gx.gmall.service.impl 包，并创建 OrderServiceImpl 实现类
-    
+  
     ```java
     package com.gx.gmall.service.impl;
     
@@ -247,8 +247,6 @@ taskkill /T /F /PID 9556
         }
     }
     ```
-
-
 
 #### 3.2.3 服务提供者配置&测试
 
@@ -316,13 +314,76 @@ public class MainApplication {
 
 4）启动 zookeeper 与 dubbo-admin，运行项目，在 localhost://7001 查看服务情况。
 
-
-
 #### 3.2.4 服务消费者配置&测试
 
 
+1）服务消费者项目中添加依赖 pom.xml
 
+```xml
+<!--dubbo-->
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>dubbo</artifactId>
+    <version>2.6.2</version>
+</dependency>
+<!--注册中心是 zookeeper，引入zookeeper客户端-->
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>2.12.0</version>
+</dependency>
+```
 
+2）在 resource 文件中创建 consumer.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+   
+    <!--包扫描-->
+    <context:component-scan base-package="com.gx.gmall.service.impl"/>
+
+    <!--指定当前服务/应用的名字(同样的服务名字相同，不要和别的服务同名)-->
+    <dubbo:application name="order-service-consumer"></dubbo:application>
+    <!--指定注册中心的位置-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
+
+    <!--调用远程暴露的服务，生成远程服务代理-->
+    <dubbo:reference interface="com.gx.gmall.service.UserService" id="userService"></dubbo:reference>
+</beans>
+```
+
+3）在 java 下的 com.gx.gmall 包下创建 ConsumerApplication 类
+
+```java
+package com.gx.gmall;
+
+import com.gx.gmall.service.OrderService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
+
+public class ConsumerApplication {
+    public static void main(String[] args) throws IOException {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("consumer.xml");
+        OrderService orderService = applicationContext.getBean(OrderService.class);
+
+        //调用方法查询出数据
+        orderService.initOrder("1");
+        System.out.println("调用完成...");
+        System.in.read();
+    }
+}
+```
+
+4）启动 zookeeper 与 dubbo-admin，运行项目，在 localhost://7001 查看服务情况。
 
 
 ### 3.3 监控中心 Simple Monitor 安装配置
