@@ -181,7 +181,28 @@ public class OrderController  {
 
 #### 4.3.2 配置 
 
+1）在 pom.xml 中导入 dubbo 依赖
+
+```xml
+<dependency>
+	<groupId>com.alibaba.boot</groupId>
+	<artifactId>dubbo-spring-boot-starter</artifactId>
+	<version>0.2.1.RELEASE</version>
+</dependency>
+```
+
+2）配置 resources 文件夹下的 application.properties 文件
+
+```properties
+server.port=8081
+dubbo.application.name=boot-order-service-consumer
+dubbo.registry.address=zookeeper://127.0.0.1:2181
+
+#连接监控中心 注册中心协议
+dubbo.monitor.protocol=registry
+```
 
 
-5）
+
+
 
