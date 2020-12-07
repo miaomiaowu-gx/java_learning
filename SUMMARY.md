@@ -71,7 +71,7 @@
   * [第一节 分布式系统](chapter9/01-distributed-system.md)
   * [第二节 Dubbo 概念及特性](chapter9/02-concept-and-characteristics.md)
   * [第三节 Dubbo 入门](chapter9/03-dubbo-quickstart.md)
-  * [第四节 与 SpringBoot 整合](chapter9/04-springboot-dubbo.md)
+  * [第四节 Dubbo 与 SpringBoot 整合](chapter9/04-springboot-dubbo.md)
 * [第十章 数据库优化](chapter10.md)
 * [第十一章 计算机网络](chapter11.md)
 * [第十二章 操作系统](chapter12.md)
