@@ -15,7 +15,16 @@
 
 <img src="./img9/10-dubbo-properties-override.jpg" width=400>
 
+优先级从高到低：
 
+* JVM -D 参数：当部署或者启动应用时，它可以轻易地重写配置，比如，改变 dubbo 协议端口；
+
+* XML：XML 中的当前配置会重写 dubbo.properties 中的；
+
+* Properties：默认配置，仅仅作用于以上两者没有配置时。
+
+> 如果在 classpath 下有超过一个 dubbo.properties 文件，比如，两个 jar 包都各自包含了 dubbo.properties，dubbo 将随机选择一个加载，并且打印错误日志。
+> 如果 id 没有在 protocol 中配置，将使用 name 作为默认属性。
 
 
 
