@@ -28,7 +28,27 @@
 UserService userService; 
 ```
 
-### 6.2 集群下 dubbo 负载均衡机制
+### 6.2 集群下 dubbo 负载均衡配置
+
+在集群负载均衡时，Dubbo 提供了多种均衡策略，缺省为 random 随机调用。
+
+负载均衡策略如下:
+
+#### 6.2.1 Random LoadBalance 基于权重的随机负载均衡机制
+
+
+#### 6.2.2 RoundRobin LoadBalance 基于权重的轮询负载均衡机制 
+
+
+
+#### 6.2.3 LeastActive LoadBalance 最少活跃数负载均衡机制 
+
+
+
+
+#### 6.2.4 ConsistentHash LoadBalance 一致性 hash 负载均衡机制
+
+
 
 
 
