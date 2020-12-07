@@ -226,7 +226,28 @@ taskkill /T /F /PID 9556
 * 在 java 下创建 com.gx.gmall.service.impl 包，并创建 OrderServiceImpl 实现类
 
 ```java
+package com.gx.gmall.service.impl;
 
+
+import com.gx.gmall.bean.UserAddress;
+import com.gx.gmall.service.OrderService;
+import com.gx.gmall.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+    @Autowired
+    public UserService userService;
+    public void initOrder(String userID) {
+        //查询用户的收货地址
+        List<UserAddress> userAddressList = userService.getUserAddressList(userID);
+        System.out.println(userAddressList);
+    }
+}
+```
 
 
 
