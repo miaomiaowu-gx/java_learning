@@ -202,6 +202,51 @@ dubbo.registry.address=zookeeper://127.0.0.1:2181
 dubbo.monitor.protocol=registry
 ```
 
+3）@Reference 引用远程提供者服务
+
+```java
+package com.gx.gmall.service.impl;
+
+import com.gx.gmall.bean.UserAddress;
+import com.gx.gmall.service.OrderService;
+import com.gx.gmall.service.UserService;
+import jdk.nashorn.internal.ir.annotations.Reference;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class OrderServiceImpl implements OrderService {
+    //@Autowired
+    @Reference //引用远程提供者服务
+    public UserService userService;
+    public List<UserAddress> initOrder(String userID) {
+        //查询用户的收货地址
+        List<UserAddress> userAddressList = userService.getUserAddressList(userID);
+        return userAddressList;
+    }
+}
+```
+
+4）在启动类开启基于注解的 dubbo 功能
+
+```java
+package com.gx.gmall;
+
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@EnableDubbo
+@SpringBootApplication
+public class BootOrderServiceConsumerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BootOrderServiceConsumerApplication.class, args);
+	}
+
+}
+```
 
 
 
