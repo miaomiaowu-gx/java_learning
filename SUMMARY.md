@@ -74,6 +74,7 @@
   * [第四节 Dubbo 与 SpringBoot 整合](chapter9/04-springboot-dubbo.md)
   * [第五节 Dubbo 配置](chapter9/05-dubbo-config.md)
   * [第六节 高可用](chapter9/06-high-availability.md)
+  * [第七节 原理](chapter9/07-principle.md)
 * [第十章 数据库优化](chapter10.md)
 * [第十一章 计算机网络](chapter11.md)
 * [第十二章 操作系统](chapter12.md)
