@@ -127,7 +127,7 @@ taskkill /T /F /PID 9556
 #### 3.2.2 创建提供者消费者工程
 
 
-
+创建工程 dubbohelloword 工程，删除 src 文件夹，groupId 设为 com.gx
 
 
 
