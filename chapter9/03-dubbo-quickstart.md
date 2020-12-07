@@ -252,7 +252,7 @@ taskkill /T /F /PID 9556
 
 #### 3.2.3 服务提供者配置&测试
 
-1）添加依赖 pom.xml
+1）服务提供者项目中添加依赖 pom.xml
 
 ```xml
 <!--dubbo-->
@@ -269,8 +269,52 @@ taskkill /T /F /PID 9556
 </dependency>
 ```
 
-2）
+2）在 resource 文件中创建 provider.xml
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--1、指定当前服务/应用的名字(同样的服务名字相同，不要和别的服务同名)-->
+    <dubbo:application name="user-service-provider"></dubbo:application>
+    <!--2、指定注册中心的位置-->
+    <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>-->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+    <!--3、指定通信规则（通信协议? 服务端口）此处name值是固定的-->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+    <!--4、暴露服务 让别人调用 ref指向服务的真正实现对象-->
+    <dubbo:service interface="com.gx.gmall.service.UserService" ref="userServiceImpl"></dubbo:service>
+
+    <!--服务的实现-->
+    <bean id="userServiceImpl" class="com.gx.gmall.service.impl.UserServiceImpl"></bean>
+</beans>
+```
+
+
+3）在 java 下的 com.gx.gmall 包下创建 MainApplication 类
+
+```java
+package com.gx.gmall;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
+
+public class MainApplication {
+    public static void main(String[] args) throws IOException {
+        ClassPathXmlApplicationContext applicationContext= new ClassPathXmlApplicationContext("provider.xml");
+        applicationContext.start();
+        //为了让程序不中止，阻塞读取字符
+        System.in.read();
+    }
+}
+```
+
+4）启动 zookeeper 与 dubbo-admin，运行项目，在 localhost://7001 查看服务情况。
 
 
 
