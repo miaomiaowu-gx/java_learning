@@ -32,7 +32,17 @@
 
 #### 7.2.1 BIO (Blocking IO)
 
+
+<img src="./img9/18-bio.png" width=600>
+
+
+
 #### 7.2.2 NIO (Non-Blocking IO)
+
+<img src="./img9/19-nio.png" width=600>
+
+
+
 
 
 ### 7.3 框架设计
