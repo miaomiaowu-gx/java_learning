@@ -91,6 +91,12 @@ https://www.sohu.com/a/272879207_463994
 
 ### 7.5 服务暴露流程
 
+<img src="./img9/23-service-exposure.png" width=900>
+
+
+
+
+
 
 ### 7.6 服务引用流程
 
