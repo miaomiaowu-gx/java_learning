@@ -229,7 +229,41 @@ public class ProviderApplication {
 
 > 提供者、消费者都需要配置！
 
-#### 6.5.2 
+#### 6.5.2 配置 Provider 端
+
+在 Dubbo 的 Provider 上增加 `@HystrixCommand` 配置，这样子调用就会经过 Hystrix 代理。
+
+
+```java
+@Service(version = "1.0.0")
+public class HelloServiceImpl implements HelloService {
+    @HystrixCommand(commandProperties = {
+     @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000") })
+    @Override
+    public String sayHello(String name) {
+        // System.out.println("async provider received: " + name);
+        // return "annotation: hello, " + name;
+        throw new RuntimeException("Exception to show hystrix enabled.");
+    }
+}
+```
+
+
+
+
+#### 6.5.3 配置 Consumer 端 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
