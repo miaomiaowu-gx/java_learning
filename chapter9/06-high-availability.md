@@ -135,9 +135,19 @@ registry.register(URL.valueOf("override://0.0.0.0/com.foo.BarService?category=co
 
 ### 6.4 服务容错 
 
+&emsp;&emsp;在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。
+
+
+
+
 
 
 ### 6.5 Hystrix
+
+
+
+
+
 
 
 
