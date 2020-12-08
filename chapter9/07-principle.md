@@ -85,6 +85,10 @@ https://www.sohu.com/a/272879207_463994
 ### 7.4 标签解析
 
 
+<img src="./img9/22-config.png" width=900>
+
+
+
 ### 7.5 服务暴露流程
 
 
