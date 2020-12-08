@@ -95,14 +95,17 @@ https://www.sohu.com/a/272879207_463994
 
 
 
-
-
-
 ### 7.6 服务引用流程
+
+
+<img src="./img9/24-service-ref.png" width=900>
+
+
+
 
  
 ### 7.7 服务调用流程
 
     
-### 7.7             
+           
     
