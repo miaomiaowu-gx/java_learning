@@ -32,7 +32,7 @@ UserService userService;
 
 在集群负载均衡时，Dubbo 提供了多种均衡策略，缺省为 random 随机调用。
 
-负载均衡策略如下:
+负载均衡策略如下: https://dubbo.apache.org/zh/docs/v2.7/dev/source/loadbalance/#m-zhdocsv27devsourceloadbalance
 
 #### 6.2.1 Random LoadBalance 基于权重的随机负载均衡机制
 
