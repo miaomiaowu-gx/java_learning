@@ -204,8 +204,32 @@ dubbo:reference
 
 &emsp;&emsp;Hystrix 旨在通过控制那些访问远程系统、服务和第三方库的节点，从而对延迟和故障提供更强大的容错能力。Hystrix 具备拥有回退机制和断路器功能的线程和信号隔离，请求缓存和请求打包，以及监控和配置等功能
 
+#### 6.5.1 配置 spring-cloud-starter-netflix-hystrix
 
 
+spring boot 官方提供了对 hystrix 的集成，直接在 pom.xml 里加入依赖：
+
+```xml
+<dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+      <version>1.4.4.RELEASE</version>
+</dependency>
+```
+
+然后在 Application 类(启动类)上增加 `@EnableHystrix` 来启用 hystrix starter：
+
+```xml
+@SpringBootApplication
+@EnableHystrix //开启服务容错功能
+public class ProviderApplication {
+	...启动方法
+}
+```
+
+> 提供者、消费者都需要配置！
+
+#### 6.5.2 
 
 
 
