@@ -75,6 +75,37 @@ UserService userService;
 * 缺省用 160 份虚拟节点，如果要修改，请配置 `<dubbo:parameter key="hash.nodes" value="320" />`
 
 
+#### 6.2.5 配置
+
+ 
+* 服务端服务级别
+
+```xml
+<dubbo:service interface="..." loadbalance="roundrobin" />
+```
+
+* 客户端服务级别
+
+```xml
+<dubbo:reference interface="..." loadbalance="roundrobin" />
+```
+
+* 服务端方法级别
+
+```xml
+<dubbo:service interface="...">
+    <dubbo:method name="..." loadbalance="roundrobin"/>
+</dubbo:service>
+```
+
+* 客户端方法级别
+
+```xml
+<dubbo:reference interface="...">
+    <dubbo:method name="..." loadbalance="roundrobin"/>
+</dubbo:reference>   
+```
+
 ### 6.3 服务降级
 
 
