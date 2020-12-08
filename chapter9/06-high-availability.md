@@ -207,7 +207,7 @@ dubbo:reference
 #### 6.5.1 配置 spring-cloud-starter-netflix-hystrix
 
 
-spring boot 官方提供了对 hystrix 的集成，直接在 pom.xml 里加入依赖：
+&emsp;&emsp;spring boot 官方提供了对 hystrix 的集成，直接在 pom.xml 里加入依赖：
 
 ```xml
 <dependency>
@@ -217,7 +217,7 @@ spring boot 官方提供了对 hystrix 的集成，直接在 pom.xml 里加入�
 </dependency>
 ```
 
-然后在 Application 类(启动类)上增加 `@EnableHystrix` 来启用 hystrix starter：
+&emsp;&emsp;然后在 Application 类(启动类)上增加 `@EnableHystrix` 来启用 hystrix starter：
 
 ```xml
 @SpringBootApplication
@@ -231,7 +231,7 @@ public class ProviderApplication {
 
 #### 6.5.2 配置 Provider 端
 
-在 Dubbo 的 Provider 上增加 `@HystrixCommand` 配置，这样子调用就会经过 Hystrix 代理。
+&emsp;&emsp;在 Dubbo 的 Provider 上增加 `@HystrixCommand` 配置，这样子调用就会经过 Hystrix 代理。
 
 
 ```java
@@ -255,10 +255,20 @@ public class HelloServiceImpl implements HelloService {
 #### 6.5.3 配置 Consumer 端 
 
 
+&emsp;&emsp;对于 Consumer 端，则可以增加一层 method 调用，并在 method 上配置 `@HystrixCommand`。当调用出错时，会走到 fallbackMethod = "reliable" 的调用里。
 
+```java
+@Reference(version = "1.0.0")
+private HelloService demoService;
 
-
-
+@HystrixCommand(fallbackMethod = "reliable")
+public String doSayHello(String name) {
+    return demoService.sayHello(name);
+}
+public String reliable(String name) {
+    return "hystrix fallback value";
+}
+```
 
 
 
