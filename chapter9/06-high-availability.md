@@ -64,6 +64,9 @@ UserService userService;
 
 #### 6.2.4 ConsistentHash LoadBalance 一致性 hash 负载均衡机制
 
+<img src="./img9/16-ConsistentHash-LoadBalance.png" width=600>
+
+
 
 * 一致性 Hash，相同参数的请求总是发到同一提供者。
 
