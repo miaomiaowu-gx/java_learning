@@ -115,8 +115,11 @@ UserService userService;
 
 
 
-### 6.4 服务容错 & Hystrix
+### 6.4 服务容错 
 
 
 
-### 6.5 
+### 6.5 Hystrix
+
+
+
