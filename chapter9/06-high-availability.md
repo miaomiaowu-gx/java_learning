@@ -40,7 +40,7 @@ UserService userService;
 
 * 在一个截面上碰撞的概率高，但调用量越大分布越均匀，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。
 
-
+<img src="./img9/13-Random-LoadBalance.png" width=600>
 
 #### 6.2.2 RoundRobin LoadBalance 基于权重的轮询负载均衡机制 
 
@@ -49,6 +49,7 @@ UserService userService;
 
 * 存在慢的提供者累积请求的问题，比如：第二台机器很慢，但没挂，当请求调到第二台时就卡在那，久而久之，所有请求都卡在调到第二台上
 
+<img src="./img9/14-RoundRobin-LoadBalance.png" width=600>
 
 
 #### 6.2.3 LeastActive LoadBalance 最少活跃数负载均衡机制 
@@ -57,7 +58,7 @@ UserService userService;
 
 * 使慢的提供者收到更少请求，因为越慢的提供者的调用前后计数差会越大。
 
-
+<img src="./img9/15-LeastActive-LoadBalance.png" width=600>
 
 
 
