@@ -130,7 +130,25 @@ maven 导入 jar 包中的一些概念：
 
 * 路径近者优先原则。直接依赖路径比传递依赖路径近，那么最终项目进入的 jar 包会是路径近的直接依赖包。
 
-
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-bean</artifactId>
+    <version>4.2.4.RELEASE</version>
+  </dependency>
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.0.2.RELEASE</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.2.8.RELEASE</version>
+  </dependency>
+</dependencies>
+```
 
 
 **解决 jar 包冲突的方式三【推荐使用】**：
