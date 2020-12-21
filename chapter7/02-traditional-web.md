@@ -57,9 +57,13 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
 ```
 
 
-#### 2.2.2 
+#### 2.2.2 创建 maven web 工程
 
-  
+1）选择 apache 下的 maven-archetype-webapp 骨架，GroupId 为 com.gx，项目名称 ArtifactId 为 maven_1. 
+
+2）为 web.xml 添加 【web 配置文件头部声明】
+
+    
 
 ### 2.3 maven 导入 jar 包时冲突的解决
 
