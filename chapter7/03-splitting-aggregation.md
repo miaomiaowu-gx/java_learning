@@ -101,6 +101,19 @@
 
 4）web 模块
 
+* 在模块 pom.xml 中配置对 service 模块的依赖
+
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.gx</groupId>
+            <artifactId>maven_2_service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    ```
+
+* 
 
 
 
