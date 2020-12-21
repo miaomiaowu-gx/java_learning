@@ -537,6 +537,55 @@ public class ItemsTest {
 
 ### 2.6 service 层代码编写
 
+1）在 main->java 下创建 com.gx.service 包，其下创建 ItemsService 接口。
+
+```java
+package com.gx.service;
+
+import com.gx.domain.Items;
+
+public interface ItemsService {
+    public Items findById(Integer id);
+}
+```
+
+2）在 main->java 下创建 com.gx.service.impl 包，其下创建 ItemsServiceImpl 类。
+
+```java
+package com.gx.service.impl;
+
+import com.gx.dao.ItemsDao;
+import com.gx.domain.Items;
+import com.gx.service.ItemsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * 原则：
+ * 自己写的类尽量使用注解
+ * 框架类尽量使用配置文件
+ */
+
+@Service
+public class ItemsServiceImpl implements ItemsService {
+
+    @Autowired
+    private ItemsDao itemsDao;
+
+    public Items findById(Integer id) {
+        return itemsDao.findById(id);
+    }
+}
+```
+
+3）在 `applicationContext.xml` 中添加 service 层配置
+
+```xml
+
+```
+
+
+
 
 
 ### 2.7 web 层代码编写
