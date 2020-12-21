@@ -410,9 +410,33 @@ maven 工程是可以分父子依赖关系的。凡是依赖别的项目后，�
 </build>
 ```
 
-
-
 ### 2.5 dao 层代码编写
+
+1）在 main->java 下创建 com.gx.domain 包，创建 Items 实体类。
+
+```java
+package com.gx.domain;
+
+import java.util.Date;
+
+public class Items {
+    private Integer id;
+    private String name;
+    private Double price;
+    private String pic;
+    private Date createtime;
+    private String detail;
+    // getter & setter 方法  
+}
+```
+
+2）在 main->java 下创建 com.gx.dao 包，创建 ItemsDao 接口。
+
+```java
+
+```
+
+
 
 
 
