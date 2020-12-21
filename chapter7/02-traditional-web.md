@@ -77,7 +77,22 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
 </web-app>
 ```
 
-3）        
+3）删掉 pom.xml 中多余的内容
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gx</groupId>
+  <artifactId>maven_1</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+</project>
+```                
 
 ### 2.3 maven 导入 jar 包时冲突的解决
 
