@@ -158,7 +158,25 @@ maven 导入 jar 包中的一些概念：
 
 * 直接排除法。当要排除某个 jar 包下依赖包，在配置 exclusions 标签的时候，内部可以不写版本号。因为此时依赖包使用的版本和默认和本 jar 包一样。
 
-
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.0.2.RELEASE</version>
+    <exclusions>
+      <exclusion>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+      </exclusion>
+    </exclusions>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.2.8.RELEASE</version>
+  </dependency>
+</dependencies>
 
 
 
