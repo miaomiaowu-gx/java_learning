@@ -629,3 +629,114 @@ public class ItemsTest {
 ```
 
 ### 2.7 web 层代码编写
+
+1）在 main->java 下创建 com.gx.controller 包，其下创建 ItemsController 类。
+
+```java
+package com.gx.controller;
+
+import com.gx.domain.Items;
+import com.gx.service.ItemsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/items")
+public class ItemsController {
+
+    @Autowired
+    private ItemsService itemsService;
+
+    @RequestMapping("/findDetail")
+    /**
+     * Model:方便向页面传值
+     */
+    public String findDetail(Model model){
+        Items items = itemsService.findById(1);
+        model.addAttribute("item", items);
+        return "itemDetail";
+    }
+
+}
+```
+
+2）在 resources 下创建 springmvc.xml 配置文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			    http://www.springframework.org/schema/beans/spring-beans.xsd
+			    http://www.springframework.org/schema/context
+			    http://www.springframework.org/schema/context/spring-context.xsd
+			    http://www.springframework.org/schema/aop
+			    http://www.springframework.org/schema/aop/spring-aop.xsd
+			    http://www.springframework.org/schema/tx
+			    http://www.springframework.org/schema/tx/spring-tx.xsd
+			    http://www.springframework.org/schema/mvc
+			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--组件扫描-->
+    <context:component-scan base-package="com.gx.controller"/>
+
+    <!--处理器映射器，处理器适配器-->
+    <mvc:annotation-driven/>
+
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--释放静态资源-->
+    <mvc:default-servlet-handler/>
+    
+</beans>
+```
+
+3）在 WEB-INF 下创建文件夹 pages，创建 itemDetail.jsp 文件
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>    
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body> 
+	<form>
+		<table width="100%" border=1>
+			<tr>
+				<td>商品名称</td>
+				<td> ${item.name } </td>
+			</tr>
+			<tr>
+				<td>商品价格</td>
+				<td> ${item.price } </td>
+			</tr>
+			<tr>
+				<td>生成日期</td>
+				<td> <fmt:formatDate value="${item.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
+			</tr>
+			<tr>
+				<td>商品简介</td>
+				<td>${item.detail} </td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+```
+
