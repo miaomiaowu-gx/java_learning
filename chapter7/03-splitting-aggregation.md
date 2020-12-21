@@ -3,7 +3,9 @@
 
 ### 3.1 maven 工程拆分与聚合的思想
 
+
 <img src="./img7/11-split-aggregation.png" width=700>
+
 
 ### 3.2 
 
