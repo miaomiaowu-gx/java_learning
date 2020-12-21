@@ -94,7 +94,7 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
 </project>
 ```                
 
-### 2.3 maven 导入 jar 包时冲突的解决
+### 2.3 解决 maven 导入 jar 包时冲突
 
 maven 工程要导入 jar 包的坐标，就必须要考虑解决 jar 包冲突。
 
