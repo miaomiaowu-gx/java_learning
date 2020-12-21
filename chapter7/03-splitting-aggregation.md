@@ -95,7 +95,7 @@
     </dependencies>
     ```
 
-* 模块 java 文件夹下创建 `com.gx.service` 包，创建`com.gx.service.impl` 包。
+* 模块 java 文件夹下创建 `com.gx.service` 包并拷贝，创建`com.gx.service.impl` 包并拷贝 ItemsServiceImpl 实现类。
 
 
 
