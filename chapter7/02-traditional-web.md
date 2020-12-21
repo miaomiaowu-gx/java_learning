@@ -92,7 +92,16 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
   <packaging>war</packaging>
   
 </project>
-```                
+``` 
+
+#### 2.2.3 完善文件夹结构
+
+1）在 src->main 下创建 java 文件夹、resources 文件夹，并设置对应的 **Root。
+
+2）在 src 下创建 test 文件夹，右键设置为 Sources Root。
+                                
+                                
+                                                                
 
 ### 2.3 解决 maven 导入 jar 包时冲突
 
