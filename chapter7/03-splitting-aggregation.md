@@ -117,8 +117,9 @@
 
 * 在 java 下创建 com.gx.controller 包，并拷贝 ItemsController 类。
 
+* 将配置文件 springmvc.xml 与 log4j.properties 拷贝到 resources 文件夹下。
 
-
+* 在 WEB-INF 下创建 pages 文件夹，并拷贝 itemDetail.jsp 文件。
 
 
 
