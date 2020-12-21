@@ -76,9 +76,16 @@
 
 * 在 resources 下创建 `com/gx/dao` 目录，将 ItemsDao.xml 拷贝过来。
 
-* 将 applicationContext.xml 文件拷贝到 resources 文件夹下。只保留 dao 层配置，删除 service 层配置！为了加以区分，将文件重命名为 applicationContext-dao.xml。
+* 将 applicationContext.xml 文件拷贝到 resources 文件夹下。只保留 dao 层配置，删除 service 层配置！
 
-* 
+* 为了加以区分，将文件 applicationContext.xml 重命名为 applicationContext-dao.xml，移动到 resources 下的 spring 文件夹下（新建文件夹）。
+
+
+3）
+
+
+
+4）
 
 ### 3.6 maven 父子工程三种启动方式
 
