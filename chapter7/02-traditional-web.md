@@ -19,8 +19,8 @@ maven 是一个项目管理工具。主要功能：依赖管理、一键构建�
 
 * 如果私服没有 jar 包，可以从中央仓库下载，也可以从本地上传。
 
-maven常用命令：clean，compile，test，package，install，deploy。
-maven三套生命周期：清理生命周期，默认生命周期，站点生命周期。
+maven 常用命令：clean，compile，test，package，install，deploy。
+maven 三套生命周期：清理生命周期，默认生命周期，站点生命周期。
 
 
 ### 2.2 
