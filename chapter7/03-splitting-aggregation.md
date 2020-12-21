@@ -97,7 +97,7 @@
 
 * 模块 java 文件夹下创建 `com.gx.service` 包并拷贝 ItemsService 接口，创建`com.gx.service.impl` 包并拷贝 ItemsServiceImpl 实现类。
 
-* 在 resources 下创建 spring 文件夹，
+* 在 resources 下创建 spring 文件夹，拷贝 applicationContext 文件，并重命名为 applicationContext-service.xml。删除 dao 相关配置，保留 service 相关配置！
 
 4）
 
