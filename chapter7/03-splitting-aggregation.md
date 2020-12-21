@@ -125,28 +125,28 @@
 
 * 在 resources 下创建文件 applicationContext.xml
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-			    http://www.springframework.org/schema/beans/spring-beans.xsd
-			    http://www.springframework.org/schema/context
-			    http://www.springframework.org/schema/context/spring-context.xsd
-			    http://www.springframework.org/schema/aop
-			    http://www.springframework.org/schema/aop/spring-aop.xsd
-			    http://www.springframework.org/schema/tx
-			    http://www.springframework.org/schema/tx/spring-tx.xsd
-			    http://www.springframework.org/schema/mvc
-			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-        <import resource="classpath:spring/applicationContext-dao.xml" />
-        <import resource="classpath:spring/applicationContext-service.xml" />
-</beans>
-```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:aop="http://www.springframework.org/schema/aop"
+           xmlns:tx="http://www.springframework.org/schema/tx"
+           xmlns:mvc="http://www.springframework.org/schema/mvc"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+    			    http://www.springframework.org/schema/beans/spring-beans.xsd
+    			    http://www.springframework.org/schema/context
+    			    http://www.springframework.org/schema/context/spring-context.xsd
+    			    http://www.springframework.org/schema/aop
+    			    http://www.springframework.org/schema/aop/spring-aop.xsd
+    			    http://www.springframework.org/schema/tx
+    			    http://www.springframework.org/schema/tx/spring-tx.xsd
+    			    http://www.springframework.org/schema/mvc
+    			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+            <import resource="classpath:spring/applicationContext-dao.xml" />
+            <import resource="classpath:spring/applicationContext-service.xml" />
+    </beans>
+    ```
 
 
 ### 3.6 maven 父子工程三种启动方式
