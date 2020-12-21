@@ -81,7 +81,21 @@
 * 为了加以区分，将文件 applicationContext.xml 重命名为 applicationContext-dao.xml，移动到 resources 下的 spring 文件夹下（新建文件夹）。
 
 
-3）
+3）service 模块
+
+* 在模块 pom.xml 中配置对 dao 模块的依赖
+
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.gx</groupId>
+            <artifactId>maven_2_dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+    ```
+
+* 模块 java 文件夹下创建 `com.gx.service` 包，创建`com.gx.service.impl` 包。
 
 
 
