@@ -15,7 +15,24 @@
 
 3）同理，创建 `maven_2_service` 模块，不用选择任何骨架。
 
-4）创建 `maven_2_web` 模块，选择 apache 下的 `maven-archetype-webapp` 骨架。
+4）创建 `maven_2_web` 模块，选择 apache 下的 `maven-archetype-webapp` 骨架。删除该模块 pom.xml 多余的自动生成内容。
+
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>maven_2_parent</artifactId>
+        <groupId>com.gx</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>maven_2_web</artifactId>
+    <packaging>war</packaging>
+</project>
+```  
 
 
 ### 3.3 工程和模块的关系以及继承和依赖的概念
