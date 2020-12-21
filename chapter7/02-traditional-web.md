@@ -581,11 +581,51 @@ public class ItemsServiceImpl implements ItemsService {
 3）在 `applicationContext.xml` 中添加 service 层配置
 
 ```xml
+<!--service层配置文件开始-->
 
+<!--组件扫描配置-->
+<context:component-scan base-package="com.gx.service"/>
+
+<!--aop面向切面编程，切面就是切入点和通知的组合-->
+<!--配置事务管理器-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+</bean>
+<!--配置事务的通知-->
+<tx:advice id="advice">
+    <tx:attributes>
+        <tx:method name="save*" propagation="REQUIRED"/>
+        <tx:method name="update*" propagation="REQUIRED"/>
+        <tx:method name="delete*" propagation="REQUIRED"/>
+        <tx:method name="find*" read-only="true"/>
+        <tx:method name="*" propagation="REQUIRED"/>
+    </tx:attributes>
+</tx:advice>
+
+<!--配置切面-->
+<aop:config>
+    <aop:pointcut id="pointcut" expression="execution(* com.gx.service.impl.*.*(..))"/>
+    <aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
+</aop:config>
+<!--service层配置文件结束-->
 ```
 
+4）测试
 
+```java
+public class ItemsTest {
 
-
+    @Test
+    public void findById(){
+        //获取spring容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //service测试
+        ItemsService itemsService = ac.getBean(ItemsService.class);
+        //调用方法
+        Items items = itemsService.findById(1);
+        System.out.println(items.getName());
+    }
+}
+```
 
 ### 2.7 web 层代码编写
