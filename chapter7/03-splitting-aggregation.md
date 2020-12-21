@@ -99,7 +99,10 @@
 
 * 在 resources 下创建 spring 文件夹，拷贝 applicationContext 文件，并重命名为 applicationContext-service.xml。删除 dao 相关配置，保留 service 相关配置！
 
-4）
+4）web 模块
+
+
+
 
 ### 3.6 maven 父子工程三种启动方式
 
