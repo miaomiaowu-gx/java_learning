@@ -69,6 +69,10 @@
 
 2）在 `maven_2_dao` 模块
 
+* src->main->java 文件夹下创建 com.gx.domain 包，放入 Items 类。创建 com.gx.dao 包，放入 ItemsDao 接口。
+
+* 
+
 
 ### 3.6 maven 父子工程三种启动方式
 
