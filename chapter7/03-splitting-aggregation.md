@@ -7,7 +7,7 @@
 <img src="./img7/11-split-aggregation.png" width=700>
 
 
-### 3.2 
+### 3.2 maven 父子工程的创建
 
 ### 3.3 
 
