@@ -26,6 +26,35 @@ maven 是一个项目管理工具。主要功能：依赖管理、一键构建�
 
 ### 2.2 环境准备
 
+#### 2.2.1 数据库
+
+创建 maven 数据库，执行如下 sql 语句
+
+```sql
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `items`
+-- ----------------------------
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE `items` (
+  `id` int(10) NOT NULL auto_increment,
+  `name` varchar(20) default NULL,
+  `price` float(10,0) default NULL,
+  `pic` varchar(40) default NULL,
+  `createtime` datetime default NULL,
+  `detail` varchar(200) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of items
+-- ----------------------------
+INSERT INTO `items` VALUES ('1', '传智播客', '1000', null, '2018-03-13 09:29:30', '带我走上人生巅峰');
+INSERT INTO `items` VALUES ('2', '黑马310', null, null, '2018-03-28 10:05:52', '插入测试');
+INSERT INTO `items` VALUES ('3', '黑马307', '199', null, '2018-03-07 10:08:04', '插入测试');
+INSERT INTO `items` VALUES ('7', '插入测试', null, null, null, null);
+INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
+```
 
 
 ### 2.3 maven 导入 jar 包时冲突的解决
