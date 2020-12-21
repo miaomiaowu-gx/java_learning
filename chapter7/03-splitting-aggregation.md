@@ -58,7 +58,7 @@
 ### 3.4 传递依赖下来的包是否能用
 
 
-
+<img src="./img7/12-transitive-dependency.png" width=500>
 
 
 
