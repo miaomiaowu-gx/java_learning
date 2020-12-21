@@ -71,7 +71,7 @@
 
 * src->main->java 文件夹下创建 com.gx.domain 包，放入 Items 类。创建 com.gx.dao 包，放入 ItemsDao 接口。
 
-* 
+* 在 resources 下创建 `com/gx/dao` 目录，将 ItemsDao.xml 拷贝过来。
 
 
 ### 3.6 maven 父子工程三种启动方式
