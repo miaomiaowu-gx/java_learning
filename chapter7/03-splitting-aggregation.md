@@ -123,6 +123,10 @@
 
 * 将 web.xml 内容拷贝过来。
 
+* 在 resources 下创建文件 applicationContext.xml
+
+
+
 ### 3.6 maven 父子工程三种启动方式
 
 
