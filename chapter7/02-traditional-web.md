@@ -150,6 +150,10 @@ maven 导入 jar 包中的一些概念：
 </dependencies>
 ```
 
+* 进入项目的 spring-core 版本是 4.2.8.RELEASE，因为直接依赖会优先于传递依赖！
+
+
+
 
 **解决 jar 包冲突的方式三【推荐使用】**：
 
