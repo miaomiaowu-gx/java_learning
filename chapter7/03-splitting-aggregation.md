@@ -121,7 +121,7 @@
 
 * 在 WEB-INF 下创建 pages 文件夹，并拷贝 itemDetail.jsp 文件。
 
-
+* 将 web.xml 内容拷贝过来。
 
 ### 3.6 maven 父子工程三种启动方式
 
