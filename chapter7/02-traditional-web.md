@@ -124,8 +124,6 @@ maven 导入 jar 包中的一些概念：
 </dependencies>
 ```
 
-![](/chapter7/img7/10-maven-pom-spring.png)
-
 <img src="./img7/10-maven-pom-spring.png" width=500>
 
 **解决 jar 包冲突的方式二**：
