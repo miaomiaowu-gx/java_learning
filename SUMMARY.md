@@ -64,6 +64,7 @@
   * [第二十一节 Ajax & Json](chapter6/21-Ajax-Json.md)
 * [第七章 Maven 项目管理工具](chapter7.md)
   * [第一节 Maven 基础](chapter7/01-maven-basic.md)
+  * [第二节 Maven 传统 web 工程做数据查询操作](chapter7/02-traditional-web.md)
 * [第八章 Redis](chapter8.md)
   * [第一节 命令操作](chapter8/01-redis-command-operation.md)
   * [第二节 Jedis](chapter8/02-jedis.md)
