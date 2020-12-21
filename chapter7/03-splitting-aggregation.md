@@ -9,6 +9,10 @@
 
 ### 3.2 maven 父子工程的创建
 
+1）创建父工程，选择 new Project 或者 new Module 都可以，父工程只要有 pom.xml 就可以。此处，创建 Maven 工程，无需选任何骨架，GroupId 为 com.gx，ArtifactId 为 `maven_2_parent`。删除 src 文件。
+
+2）
+
 
 
 ### 3.3 工程和模块的关系以及继承和依赖的概念
