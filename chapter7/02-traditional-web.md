@@ -63,7 +63,21 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
 
 2）为 web.xml 添加 【web 配置文件头部声明】
 
-    
+```xml
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+</web-app>
+```
+
+3）        
 
 ### 2.3 maven 导入 jar 包时冲突的解决
 
