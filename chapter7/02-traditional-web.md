@@ -98,7 +98,7 @@ INSERT INTO `items` VALUES ('8', '插入测试', null, null, null, null);
 
 1）在 src->main 下创建 java 文件夹、resources 文件夹，并设置对应的 **Root。
 
-2）在 src 下创建 test 文件夹，右键设置为 Sources Root。
+2）在 src 下创建 test 文件夹，右键设置为 Test Sources Root。
                                 
                                 
                                                                 
