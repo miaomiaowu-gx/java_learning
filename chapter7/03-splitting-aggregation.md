@@ -113,7 +113,9 @@
     </dependencies>
     ```
 
-* 
+* 补全目录，在 src->main 下创建 java 与 resources 文件夹，并设置对应的 **Root。
+
+* 在 java 下创建 com.gx.controller 包，并拷贝 ItemsController 类。
 
 
 
