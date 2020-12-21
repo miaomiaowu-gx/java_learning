@@ -433,14 +433,106 @@ public class Items {
 2）在 main->java 下创建 com.gx.dao 包，创建 ItemsDao 接口。
 
 ```java
+package com.gx.dao;
 
+import com.gx.domain.Items;
+
+public interface ItemsDao {
+    public Items findById(Integer id);
+}
 ```
 
+3）使用 Mybatis 框架，不用写实现类，让 Mybatis 直接生成接口的代理对象。在 resources 下创建与接口同一路径下的文件夹，放置 mapper 映射文件，即 `com/gx/dao`，文件名为 `ItemsDao.xml` 。
 
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- namespace 为接口的全限定类名！ -->
+<mapper namespace="com.gx.dao.ItemsDao">
+    <!-- id 为对应的接口名 -->
+    <!-- parameterType 参数类型-->
+    <!-- resultType 返回值类型 之后必须要扫描包路径，否则 Items 识别不到！ -->
+    <select id="findById" parameterType="int" resultType="Items">
+        SELECT * FROM items WHERE id = #{id}
+    </select>
+</mapper>
+```
 
+4）在 resources 下创建 spring 配置文件 `applicationContext.xml`
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			    http://www.springframework.org/schema/beans/spring-beans.xsd
+			    http://www.springframework.org/schema/context
+			    http://www.springframework.org/schema/context/spring-context.xsd
+			    http://www.springframework.org/schema/aop
+			    http://www.springframework.org/schema/aop/spring-aop.xsd
+			    http://www.springframework.org/schema/tx
+			    http://www.springframework.org/schema/tx/spring-tx.xsd
+			    http://www.springframework.org/schema/mvc
+			    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--dao层配置文件开始-->
+    <!--配置连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql:///maven"/>
+        <property name="username" value="root"/>
+        <property name="password" value="mysql"/>
+    </bean>
+
+    <!-- mybatis 真正操作对象 SqlSession-->
+    <!--配置生产SqlSession对象的工厂-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--扫描pojo包，给包下所有pojo对象起别名-->
+        <property name="typeAliasesPackage" value="com.gx.domain"/>
+    </bean>
+
+    <!--扫描接口包路径，生成包下所有接口的代理对象，并且放入spring容器中-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.gx.dao"/>
+    </bean>
+    <!--dao层配置文件结束-->
+</beans>
+```
+
+5）测试，在 test->java 下创建 `com.gx.test.ItemsTest`
+
+```java
+package com.gx.test;
+
+import com.gx.dao.ItemsDao;
+import com.gx.domain.Items;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ItemsTest {
+
+    @Test
+    public void findById(){
+        //获取spring容器
+        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //dao测试
+        //从容器中拿到所需的dao的代理对象
+        ItemsDao itemsDao = ac.getBean(ItemsDao.class);
+        //调用方法
+        Items items = itemsDao.findById(1);
+        System.out.println(items.getName());
+    }
+}
+```
 
 
 ### 2.6 service 层代码编写
