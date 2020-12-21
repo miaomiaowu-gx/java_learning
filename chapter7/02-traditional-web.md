@@ -109,7 +109,20 @@ maven 导入 jar 包中的一些概念：
 
 * 第一声明优先原则：哪个 jar 包的坐标在靠上的位置，这个 jar 包就是先声明的。先声明的 jar 包坐标下的依赖包，可以优先进入项目中。
 
-
+```xml
+<dependencies>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-bean</artifactId>
+    <version>4.2.4.RELEASE</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.0.2.RELEASE</version>
+  </dependency>
+</dependencies>
+```
 
 
 **解决 jar 包冲突的方式二**：
