@@ -15,7 +15,8 @@
 
 3）同理，创建 `maven_2_service` 模块，不用选择任何骨架。
 
-4）
+4）创建 `maven_2_web` 模块，选择 apache 下的 `maven-archetype-webapp` 骨架。
+
 
 ### 3.3 工程和模块的关系以及继承和依赖的概念
 
