@@ -164,7 +164,7 @@
 🍓 **方式三**：使用本地安装的 tomcat。
 
 
-
+<img src="./img7/13-maven-install-local-tomcat.png" width=700>
 
 访问网址为：http://localhost:8080/items/findDetail
 
