@@ -151,6 +151,11 @@
 
 ### 3.6 maven 父子工程三种启动方式
 
+方式一：直接启动父工程，在 Maven Project 选项卡中选择 tomcat7:run。访问网址： http://localhost:8080/maven_2_web/items/findDetail
+
+方式二：
+
+
 
 
 
