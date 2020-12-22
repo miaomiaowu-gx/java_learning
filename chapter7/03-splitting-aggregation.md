@@ -158,6 +158,8 @@
 
 * 直接运行 web 模块 tomcat7:run，会报错，显示找不到 service 模块，这是因为 pom.xml 文件中引用了 service，程序会到本地仓库中寻找 jar 包，找不到因此报错。
 
+* 父工程 Install 命令，将 `maven_2_parent` 以及其下模块 `maven_2_dao`、`maven_2_service`、`maven_2_web` 安装到本地仓库。
+
 
 
 
