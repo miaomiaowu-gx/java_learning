@@ -166,7 +166,7 @@
 
 
 
-
+访问网址为：http://localhost:8080/items/findDetail
 
 
 ### 3.7 
