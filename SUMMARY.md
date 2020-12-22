@@ -66,6 +66,7 @@
   * [第一节 Maven 基础](chapter7/01-maven-basic.md)
   * [第二节 Maven 传统 web 工程做数据查询操作](chapter7/02-traditional-web.md)
   * [第三节 Maven 工程拆分与聚合](chapter7/03-splitting-aggregation.md)
+  * [第四节 私服 & 第三方 jar 包安装](chapter7/04-private-service.md)
 * [第八章 Redis](chapter8.md)
   * [第一节 命令操作](chapter8/01-redis-command-operation.md)
   * [第二节 Jedis](chapter8/02-jedis.md)
