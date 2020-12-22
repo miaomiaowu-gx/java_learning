@@ -154,7 +154,9 @@
 方式一：直接启动父工程，在 Maven Project 选项卡插件中选择 tomcat7:run。访问网址： http://localhost:8080/maven_2_web/items/findDetail
 
 
-方式二：父工程 Lifecycle 中选择 install，
+方式二：父工程 Lifecycle 中选择 install，web 模块插件中选择 tomcat7:run。
+
+* 直接运行 web 模块 tomcat7:run，会报错，显示找不到 service 模块，这是因为 pom.xml 文件中引用了 service，程序会到本地仓库中寻找 jar 包，找不到因此报错。
 
 
 
