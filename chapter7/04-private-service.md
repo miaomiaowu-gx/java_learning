@@ -36,7 +36,7 @@ nexus 仓库默认在 sonatype-work 目录中
 
 
 
-### 4.2 私服的应用-上传及下载 jar 包
+### 4.2 将项目发布到私服
 
 
 在 apache-maven-3.5.2\conf\settings.xml `<servers>` 标签内添加上传设置
