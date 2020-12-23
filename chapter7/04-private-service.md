@@ -42,6 +42,9 @@ nexus 仓库默认在 sonatype-work 目录中
 **需求**：假设多团队分别开发 `maven_2_dao`、`maven_2_service`、 `maven_2_web`，某个团队开发完在 `maven_2_dao` 会将 `maven_2_dao` 发布到私服供 `maven_2_service` 团队使用，将 `maven_2_dao` 工程打成 jar 包发布到私服。
 
 
+#### 4.2.1 配置
+
+
 
 
 
