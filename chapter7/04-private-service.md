@@ -32,6 +32,10 @@ nexus.bat uninstall
 4. virtual(虚拟)：兼容 Maven1 版本的 jar 或者插件。
 
 
+nexus 仓库默认在 sonatype-work 目录中
+
+
+
 ### 4.2 私服的应用-上传及下载 jar 包
 
 
