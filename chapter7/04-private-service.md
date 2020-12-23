@@ -20,6 +20,8 @@ nexus.bat uninstall
 3）查看 nexus-2.12.0-01/conf 下 nexus.properties 配置文件。默认端口 8081。访问网址 `http://localhost:8081/nexus`。默认登录用户名 admin，密码 admin123。
 
 
+![](/chapter7/img7/14-nexus.png)
+
 ### 4.2 私服的应用
 
 
