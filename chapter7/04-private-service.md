@@ -126,6 +126,7 @@ nexus 仓库默认在 sonatype-work 目录中
 	</pluginRepositories>
 </profile>
 
+<!-- 使用 profile 定义仓库需要激活才可生效。 -->
 <activeProfiles>
 	<activeProfile>dev</activeProfile>
 </activeProfiles>
