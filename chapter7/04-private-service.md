@@ -15,7 +15,7 @@ nexus.bat start
 nexus.bat uninstall
 ```
 
-2）JDK 9 会报错：`The nexus service was launched, but failed to start.`。nexus-2.12.0-01\bin\jsw\conf 下 
+2）JDK 9 会报错：`The nexus service was launched, but failed to start.`。修改 nexus-2.12.0-01\bin\jsw\conf 下 wrapper.conf 的
 
 2）nexus-2.12.0-01/conf 下 nexus.properties 配置文件
 
