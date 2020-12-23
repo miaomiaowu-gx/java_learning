@@ -4,16 +4,18 @@
 
 ### 4.1 私服的安装和启动
 
-下载 `nexus-2.12.0-01-bundle.zip` 并解压到没有中文的目录下。进入 nexus-2.12.0-01/bin 文件夹，以管理员启动命令行，进入该目录，
-
+1）下载 `nexus-2.12.0-01-bundle.zip` 并解压到没有中文的目录下。进入 nexus-2.12.0-01/bin 文件夹，以管理员启动命令行，进入该目录：
 
 ```
 安装：
 nexus.bat install
-
+启动：
+nexus.bat start
 卸载：
 nexus.bat uninstall
 ```
+
+2）nexus-2.12.0-01/conf 下 nexus.properties 配置文件
 
 
 ### 4.2 私服的应用
