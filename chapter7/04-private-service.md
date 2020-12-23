@@ -84,6 +84,10 @@ nexus 仓库默认在 sonatype-work 目录中
 注意： pom.xml 里的 `<id>` 和 settings.xml 配置 `<id>` 对应！
 
 
+
+
+
+
 ### 4.3 安装第三方 jar 包到本地仓库
 
 
