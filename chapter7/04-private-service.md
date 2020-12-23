@@ -59,7 +59,9 @@ nexus 仓库默认在 sonatype-work 目录中
 </server>
 ```
 
+* releases 连接发布版本项目仓库
 
+* snapshots 连接测试版本项目仓库
 
 
 
