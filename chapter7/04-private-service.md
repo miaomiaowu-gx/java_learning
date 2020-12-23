@@ -15,7 +15,7 @@ nexus.bat start
 nexus.bat uninstall
 ```
 
-2）JDK 9 会报错：`The nexus service was launched, but failed to start.`。修改 nexus-2.12.0-01\bin\jsw\conf 下 wrapper.conf 的 【wrapper.java.command=自己的JDK安装目录\bin\java】
+2）JDK 9 会报错：`The nexus service was launched, but failed to start.`。修改 nexus-2.12.0-01\bin\jsw\conf 下 wrapper.conf 的 【wrapper.java.command=自己的JDK8安装目录\bin\java】
 
 3）查看 nexus-2.12.0-01/conf 下 nexus.properties 配置文件。默认端口 8081。
 
