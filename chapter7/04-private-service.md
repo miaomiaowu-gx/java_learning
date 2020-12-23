@@ -23,6 +23,14 @@ nexus.bat uninstall
 <img src="./img7/14-nexus.png" width=800>
 
 
+1. hosted，宿主仓库，部署自己的 jar 到这个类型的仓库，包括 releases 和 snapshot 两部分，Releases 公司内部发布版本仓库、 Snapshots 公司内部测试版本仓库。
+
+2. proxy，代理仓库，用于代理远程的公共仓库，如 maven 中央仓库，用户连接私服，私服自动去中央仓库下载 jar 包或者插件。
+
+3. group，仓库组，用来合并多个 hosted/proxy 仓库，通常配置自己的 maven 连接仓库组。
+
+4. virtual(虚拟)：兼容 Maven1 版本的 jar 或者插件。
+
 
 ### 4.2 私服的应用-上传及下载 jar 包
 
