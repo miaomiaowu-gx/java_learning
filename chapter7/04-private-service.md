@@ -100,7 +100,36 @@ nexus 仓库默认在 sonatype-work 目录中
 
 第一步：在 setting.xml 中配置仓库：在客户端的 setting.xml 中配置私服的仓库，由于 setting.xml 中没有 repositories 的配置标签需要使用 profile 定义仓库。
 
+```xml
+<!-- 下载jar包配置 -->
+<profile> 
+	<!--profile的id -->
+	<id>dev</id>
+	<repositories>
+		<repository> <!--仓库id，repositories可以配置多个仓库，保证id不重复 -->
+			<id>nexus</id> <!--仓库地址，即nexus仓库组的地址 -->
+			<url>http://localhost:8081/nexus/content/groups/public/</url> <!--是否下载releases构件 -->
+			<releases>
+				<enabled>true</enabled>
+			</releases> <!--是否下载snapshots构件 -->
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories> <!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 -->
+		<pluginRepository> <!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 -->
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://localhost:8081/nexus/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+</profile>
 
+<activeProfiles>
+	<activeProfile>dev</activeProfile>
+</activeProfiles>
+```
 
 
 
