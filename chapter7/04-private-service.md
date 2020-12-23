@@ -85,7 +85,10 @@ nexus 仓库默认在 sonatype-work 目录中
 
 第三步：测试
 
+将项目 dao 工程打成 jar 包发布到私服：
 
+1、 首先启动 nexus
+2、 对 `maven_2_dao` 工程执行 deploy 命令
 
 
 
