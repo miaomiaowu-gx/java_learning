@@ -135,6 +135,8 @@ nexus 仓库默认在 sonatype-work 目录中
 
 ### 4.3 安装第三方 jar 包到本地仓库
 
+第三方 jar 包：fastjson-1.1.37.jar
+
 
 
 
