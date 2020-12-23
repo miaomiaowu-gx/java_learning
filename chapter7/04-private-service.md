@@ -44,16 +44,25 @@ nexus 仓库默认在 sonatype-work 目录中
 
 #### 4.2.1 配置
 
-第一步：需要在客户端即部署 `maven_2_dao` 工程的电脑上配置 maven 环境，并修改 settings.xml 文件， 配置连接私服的用户和密码。此用户名和密码用于私服校验，因为私服需要知道上传的账号和密码是否和私服中的账号和密码一致。
-
-
-
-
-在 apache-maven-3.5.2\conf\settings.xml `<servers>` 标签内添加上传设置
+第一步：需要在客户端即部署 `maven_2_dao` 工程的电脑上配置 maven 环境，并修改 settings.xml 文件，配置连接私服的用户和密码。此用户名和密码用于私服校验，因为私服需要知道上传的账号和密码是否和私服中的账号和密码一致。
 
 ```xml
-
+<server>
+    <id>releases</id>
+    <username>admin</username>
+    <password>admin123</password>
+</server>
+<server>
+    <id>snapshots</id>
+    <username>admin</username>
+    <password>admin123</password>
+</server>
 ```
+
+
+
+
+
 
 
 
