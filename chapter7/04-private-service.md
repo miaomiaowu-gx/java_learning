@@ -66,7 +66,7 @@ nexus 仓库默认在 sonatype-work 目录中
 
 🍒 **第二步**：配置项目 pom.xml
 
-
+配置私服仓库的地址，公司的 jar 包会上传到私服的宿主仓库，根据工程的版本号决定上传到哪个宿主仓库，如果版本为 release 则上传到私服的 release 仓库，如果版本为 snapshot 则上传到私服的 snapshot 仓库。
 
 
 ### 4.3 安装第三方 jar 包到本地仓库
