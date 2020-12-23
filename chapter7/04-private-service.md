@@ -7,6 +7,14 @@
 下载 `nexus-2.12.0-01-bundle.zip` 并解压到没有中文的目录下。进入 nexus-2.12.0-01/bin 文件夹，以管理员启动命令行，进入该目录，
 
 
+```
+安装：
+nexus.bat install
+
+卸载：
+nexus.bat uninstall
+```
+
 
 ### 4.2 私服的应用
 
