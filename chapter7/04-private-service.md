@@ -27,7 +27,11 @@ nexus.bat uninstall
 ### 4.2 私服的应用-上传及下载 jar 包
 
 
-apache-maven-3.5.2\conf\settings.xml
+在 apache-maven-3.5.2\conf\settings.xml 添加上传设置
+
+```xml
+
+```
 
 
 
