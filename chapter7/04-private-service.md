@@ -90,7 +90,7 @@ nexus 仓库默认在 sonatype-work 目录中
 1、 首先启动 nexus
 2、 对 `maven_2_dao` 工程执行 deploy 命令
 
-
+* 根据项目 pom.xml 中 version 定义决定发布到哪个仓库，如果 version 定义为snapshot，执行 deploy 后查看 nexus 的 snapshot 仓库，如果 version 定义为 release 则项目将发布到 nexus 的 release 仓库，本项目将发布到 snapshot 仓库。
 
 
 
