@@ -96,9 +96,9 @@ nexus 仓库默认在 sonatype-work 目录中
 #### 4.2.2 从私服下载 jar 包
 
 
-没有配置 nexus 之前，如果本地仓库没有，去中央仓库下载，通常在企业中会在局域网内部署一台私服服务器，有了私服本地项目首先去本地仓库找 jar，如果没有找到则连接私服从私服下载 jar 包，如果私服没有 jar 包私服同时作为代理服务器从中央仓库下载 jar 包，这样做的好处是一方面由私服对公司项目的依赖 jar 包统一管理，一方面提高下载速度，项目连接私服下载 jar 包的速度要比项目连接中央仓库的速度快的多。
+&emsp;&emsp;没有配置 nexus 之前，如果本地仓库没有，去中央仓库下载，通常在企业中会在局域网内部署一台私服服务器，有了私服本地项目首先去本地仓库找 jar，如果没有找到则连接私服从私服下载 jar 包，如果私服没有 jar 包私服同时作为代理服务器从中央仓库下载 jar 包，这样做的好处是一方面由私服对公司项目的依赖 jar 包统一管理，一方面提高下载速度，项目连接私服下载 jar 包的速度要比项目连接中央仓库的速度快的多。
 
-第一步：在 setting.xml 中配置仓库。在客户端的 setting.xml 中配置私服的仓库，由于 setting.xml 中没有 repositories 的配置标签需要使用 profile 定义仓库。
+配置：在 setting.xml 中配置仓库。在客户端的 setting.xml 中配置私服的仓库，由于 setting.xml 中没有 repositories 的配置标签需要使用 profile 定义仓库。
 
 ```xml
 <!-- 下载jar包配置 -->
@@ -131,10 +131,6 @@ nexus 仓库默认在 sonatype-work 目录中
 	<activeProfile>dev</activeProfile>
 </activeProfiles>
 ```
-
-
-第二步：测试
-
 
 
 
