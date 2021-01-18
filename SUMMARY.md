@@ -91,5 +91,6 @@
 * [第二十章 基本运维](chapter20.md)
 * [第二十一章 安全](chapter21.md)
 * [第二十二章 中间件](chapter22.md)
+* [第二十三章 全文检索 ElasticSearch](chapter23.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
