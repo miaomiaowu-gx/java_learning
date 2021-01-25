@@ -4,7 +4,7 @@
 ### 2.1 `_cat`
 
 
-1）`/_cat/nodes：查看所有节点`
+1）`/_cat/nodes`：查看所有节点
 
 ```
 GET
@@ -16,15 +16,34 @@ http://192.168.56.10:9200/_cat/nodes
 
 
 
-2）
+2）`/_cat/health`：查看健康状态
+
+```
+GET  
+http://192.168.56.10:9200/_cat/health
+
+结果
+1611560267 07:37:47 elasticsearch green 1 1 3 3 0 0 0 0 - 100.0%
+```
 
 
 
-3）
+3）`/_cat/master`：查看主节点信息
+
+```
+GET 
+http://192.168.56.10:9200/_cat/master
+
+结果
+XDjdbKv-QZKoZDKKNCebqQ 127.0.0.1 127.0.0.1 d248687cf2f9
+```
 
 
+4）``：
 
-4）
+```
+GET 
+
 
 ### 2.2 put & post新增数据
 
