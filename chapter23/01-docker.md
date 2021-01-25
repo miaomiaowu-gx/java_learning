@@ -22,7 +22,11 @@ available
 376
 ```
 
-4）
+4）安装 Elasticsearch
+
+
+
+
 
 
 5）
