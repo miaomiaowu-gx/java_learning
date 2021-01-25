@@ -72,6 +72,11 @@ docker update elasticsearch --restart=always
 }
 ```
 
+8）Postman 发送请求 `http://192.168.56.10:9200/_cat/nodes`。
+
+```
+127.0.0.1 15 90 1 0.00 0.01 0.05 dilm * d248687cf2f9
+```
 
 ### 3.2 Kibana
 
