@@ -202,6 +202,12 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 #### 2.4.2 POST 更新文档，不带 `_update`
 
 
+<img src="./img23/09-post-no-update.png" width=600>
+
+
+
+
+#### 2.4.3 
 
 ### 2.5 删除数据 & bulk 批量操作导入样本测试数据
 
