@@ -11,10 +11,14 @@
 
 ### 3.1 一切检索从 `_search`
 
-<img src="./img23/10-search-first.png" width=600>
 
+<img src="./img23/10-search-first.png" width=600
 
 #### 3.1.1 请求参数方式检索
+
+
+<img src="./img23/10-search-first.png" width=600>
+
 
 ```
 GET bank/_search?q=*&sort=account_number:asc
@@ -24,7 +28,24 @@ GET bank/_search?q=*&sort=account_number:asc
 
 默认返回 10 条数据，类似分页查询，只返回第一页。
 
-#### 3.1.1 
+#### 3.1.2 uri + 请求体进行检索
+
+```json
+GET bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "account_number": "asc"
+    },
+    {
+      "balance": "desc"
+    }
+  ]
+}
+```
 
 
 
