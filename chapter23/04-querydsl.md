@@ -1,8 +1,5 @@
 ## 第四节 QueryDSL 基本使用
 
-
-
-
 ### 4.1 基本语法格式
 
 Elasticsearch 提供了一个可以执行查询的 Json 风格的 DSL。这个被称为 Query DSL，该查询语言非常全面。
@@ -98,6 +95,8 @@ GET bank/_search
 "address" : "282 Kings Place"
 "address" : "305 Kings Hwy"
 ```
+
+> 注：当检索词多与 1 个时，
 
 ### 4.3 `match_phrase` 短语匹配
 
