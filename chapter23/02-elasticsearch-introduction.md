@@ -186,6 +186,9 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 }
 ```
 
+3）`if_seq_no=4&if_primary_term=1` 才能查询到。
+
+
 
 
 ### 2.4 put & post 修改数据
