@@ -230,7 +230,9 @@ DELETE http://192.168.56.10:9200/customer/external/1
 DELETE http://192.168.56.10:9200/customer
 ```
 
-没有直接删除类型 `external` 的方法，即 `DELETE http://192.168.56.10:9200/customer/external` 是错误的。
+> elasticsearch 并没有提供删除类型的操作，只提供了删除索引和文档的操作。
+
+> 没有直接删除类型 `external` 的方法，即 `DELETE http://192.168.56.10:9200/customer/external` 是错误的。
 
 
 
