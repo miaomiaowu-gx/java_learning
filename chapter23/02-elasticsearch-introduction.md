@@ -231,7 +231,7 @@ DELETE http://192.168.56.10:9200/customer/external/1
 DELETE http://192.168.56.10:9200/customer
 ```
 
-没有删除 
+没有直接删除类型 `external` 的方法，
 
 
 
