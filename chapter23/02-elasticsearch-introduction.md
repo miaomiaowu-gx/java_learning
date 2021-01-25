@@ -240,7 +240,7 @@ DELETE http://192.168.56.10:9200/customer
 
 语法格式：
 
-```json
+```text
 {action:{metadata}}
 {request body  }
 
