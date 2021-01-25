@@ -236,8 +236,17 @@ DELETE http://192.168.56.10:9200/customer
 
 
 
-### 2.6 bulk 批量操作导入样本测试数据
+### 2.6 bulk 批量操作
 
+导入样本测试数据
 
+语法格式：
 
+```json
+{action:{metadata}}
+{request body  }
+
+{action:{metadata}}
+{request body  }
+```
 
