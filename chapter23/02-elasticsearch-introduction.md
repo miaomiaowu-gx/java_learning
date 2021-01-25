@@ -205,9 +205,24 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 <img src="./img23/09-post-no-update.png" width=600>
 
 
+#### 2.4.3 PUT 更新文档，不带 `_update`
 
 
-#### 2.4.3 
+同 POST 更新文档，不带 `_update` 一样。不检查原数据。
+
+#### 2.4.4 增加属性
+
+上述三种方式都可以，直接在提交参数中添加新增的属性即可。
+
+```json
+{
+    "name":"John Doe",
+    "age": 20
+}
+```    
 
 ### 2.5 删除数据 & bulk 批量操作导入样本测试数据
+
+
+
 
