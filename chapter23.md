@@ -31,6 +31,10 @@ Elasticsearch 在速度和可扩展性方面都表现出色，而且还能够索
 
 ### 相关概念
 
+
 <img src="./chapter23/img23/01-concept.png">
+
+
+
 
 
