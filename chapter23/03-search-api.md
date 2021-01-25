@@ -13,6 +13,19 @@
 
 <img src="./img23/10-search-first.png" width=600>
 
+
+#### 3.1.1 请求参数方式检索
+
+```
+GET bank/_search?q=*&sort=account_number:asc
+```
+
+* 在 `bank` 下检索，
+
+#### 3.1.1 
+
+
+
 ### 3.2 
 
 
