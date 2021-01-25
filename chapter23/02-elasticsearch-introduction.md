@@ -426,6 +426,10 @@ POST /_bulk
 ```
 
 
+`POST bank/account/_bulk`
 
+测试数据：
+
+`https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json`
 
 
