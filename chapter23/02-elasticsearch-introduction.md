@@ -53,7 +53,18 @@ green open .kibana_1                CSQjGYkfTP2GwuAgfk0-PA 1 0 7 0 31.2kb 31.2kb
 
 ### 2.2 put & post新增数据
 
-索引一个文档（保存）：保存一个数据，保存在哪个索引的哪个类型下，指定用哪个唯一标识。如 `PUT customer/external/1;` 在 customer 索引下的 external 类型下保存 1 号数据为
+索引一个文档（保存）：保存一个数据，保存在哪个索引的哪个类型下，指定用哪个唯一标识。
+
+PUT 和 POST 都可以保存数据。
+
+* POST 新增，如果不指定 id，会自动生成 id。指定 id 就会修改这个数据，并新增版本号；
+
+* PUT 可以新增也可以修改。PUT **必须指定** id；由于 PUT 需要指定 id，一般用来做修改操作，不指定 id 会报错。
+
+
+### 2.2.1 PUT
+
+如 `PUT customer/external/1;` 在 customer 索引下的 external 类型下保存 1 号数据为
 
 ```json
 PUT customer/external/1
@@ -63,6 +74,12 @@ PUT customer/external/1
  "name":"John Doe"
 }
 ```
+
+
+
+### 2.2.2 POST
+
+
 
 
 ### 2.3 get 查询数据 & 乐观锁字段
