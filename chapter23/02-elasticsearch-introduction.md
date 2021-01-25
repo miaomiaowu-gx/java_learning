@@ -121,7 +121,70 @@ GET http://192.168.56.10:9200/customer/external/1
 
 将 id=1 的数据更新为 name=1，然后再次更新为 name=2，起始`_seq_no=3` 与 `_primary_term=1`。
 
+1）发送 PUT 请求
 
+```
+http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
+
+请求参数：
+{
+    "name":1
+}
+```
+
+返回结果
+
+```json
+{
+    "_index": "customer",
+    "_type": "external",
+    "_id": "1",
+    "_version": 3,
+    "result": "updated",
+    "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 4,
+    "_primary_term": 1
+}
+```
+
+2）再次发送 PUT 请求
+
+```
+http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
+
+请求参数：
+{
+    "name":2
+}
+```
+
+返回结果
+
+```json
+{
+    "error": {
+        "root_cause": [
+            {
+                "type": "version_conflict_engine_exception",
+                "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [6] and primary term [1]",
+                "index_uuid": "PEVLlW8xQA6ndlKnYZhoTA",
+                "shard": "0",
+                "index": "customer"
+            }
+        ],
+        "type": "version_conflict_engine_exception",
+        "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [6] and primary term [1]",
+        "index_uuid": "PEVLlW8xQA6ndlKnYZhoTA",
+        "shard": "0",
+        "index": "customer"
+    },
+    "status": 409
+}
+```
 
 
 
