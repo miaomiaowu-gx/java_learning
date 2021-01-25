@@ -113,7 +113,7 @@ GET http://192.168.56.10:9200/customer/external/1
 ```
 
 
-
+请求时，通过 `if_seq_no=1&if_primary_term=1`，当序列号匹配的时候，才进行修改，否则不修改。
 
 
 
