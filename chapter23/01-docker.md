@@ -84,11 +84,18 @@ sudo docker pull kibana:7.6.2
 ```
 
 
-2）
+2）启动 kibana
+
+```shell
+docker run --name kibana -e ELASTICSEARCH_HOSTS=http://192.168.56.10:9200 -p 5601:5601 -d kibana:7.6.2
+```
+
+* ELASTICSEARCH_HOSTS 设置为自己的虚拟机地址
+
+3）设置开机启动 kibana
 
 
-3）
+4）浏览器访问 `http://192.168.56.10:5601/app/kibana`
 
 
-4）
 
