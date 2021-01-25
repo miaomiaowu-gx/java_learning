@@ -194,6 +194,12 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 ### 2.4 put & post 修改数据
 
 
+#### 2.4.1 POST 更新文档，带有 `_update`
+
+
+
+
+#### 2.4.2 POST 更新文档，不带 `_update`
 
 
 
