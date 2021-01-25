@@ -18,6 +18,18 @@ Elasticsearch 提供了一个可以执行查询的 Json 风格的 DSL。这个�
 }
 ```
 
+如果针对于某个字段，那么它的结构如下：
+
+```json
+{
+  QUERY_NAME:{
+     FIELD_NAME:{
+       ARGUMENT:VALUE,
+       ARGUMENT:VALUE,...
+      }   
+   }
+}
+```
 
 ### 4.2
 
