@@ -61,7 +61,7 @@ GET bank/_search
 * `_source`：指定返回哪些字段
 
 
-### 4.2
+### 4.2 match 全文检索
 
 
 
