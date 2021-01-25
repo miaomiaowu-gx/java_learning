@@ -81,7 +81,6 @@ PUT customer/external/1
 ### 2.2.2 POST
 
 
-
 <img src="./img23/04-no-id-post.png">
 
 
