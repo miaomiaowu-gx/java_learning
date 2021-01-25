@@ -31,6 +31,36 @@ Elasticsearch 提供了一个可以执行查询的 Json 风格的 DSL。这个�
 }
 ```
 
+#### 举例
+
+```json
+GET bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "balance": {
+        "order": "desc"
+      }
+    }
+  ],
+  "from": 0,
+  "size": 5,
+  "_source": ["balance","firstname"]
+}
+```
+
+* `query`：查询
+
+* `sort`：排序规则
+
+* `from` 与 `size`：分页相关
+
+* `_source`：指定返回哪些字段
+
+
 ### 4.2
 
 
