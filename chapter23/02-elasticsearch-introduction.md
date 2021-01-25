@@ -253,3 +253,66 @@ DELETE http://192.168.56.10:9200/customer
 * bulk api 按顺序执行所有的 action（动作）。如果一个单个的动作因任何原因失败，它将继续处理它后面剩余的动作。当 bulk api 返回时，它将提供每个动作的状态（与发送的顺序相同），所以可以检查是否一个指定的动作是否失败了。
 
 
+#### 2.6.1 执行多条数据 
+
+在浏览器访问 `http://192.168.56.10:5601/app/kibana`，进入 kibana 操作页面。选择左下角 `Dev Tools`。
+
+```
+POST /customer/external/_bulk
+{"index":{"_id":"1"}}
+{"name":"John Doe"}
+{"index":{"_id":"2"}}
+{"name":"John Doe"}
+```
+
+返回结果
+
+```json
+#! Deprecation: [types removal] Specifying types in bulk requests is deprecated.
+{
+  "took" : 220,
+  "errors" : false,
+  "items" : [
+    {
+      "index" : {
+        "_index" : "customer",
+        "_type" : "external",
+        "_id" : "1",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 0,
+        "_primary_term" : 1,
+        "status" : 201
+      }
+    },
+    {
+      "index" : {
+        "_index" : "customer",
+        "_type" : "external",
+        "_id" : "2",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 1,
+        "_primary_term" : 1,
+        "status" : 201
+      }
+    }
+  ]
+}
+```                
+
+#### 2.6.2 
+
+
+
+#### 2.6.3 
