@@ -22,14 +22,24 @@ available
 376
 ```
 
-4）安装 Elasticsearch
+4）配置
+
+```shell
+mkdir -p /mydata/elasticsearch/config
+mkdir -p /mydata/elasticsearch/data
+echo "http.host: 0.0.0.0" >/mydata/elasticsearch/config/elasticsearch.yml
+chmod -R 777 /mydata/elasticsearch/
+```
+
+
+5）安装 Elasticsearch
 
 
 
 
 
 
-5）
+
 
 
 6）
