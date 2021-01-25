@@ -91,7 +91,9 @@ PUT customer/external/1
 
 #### 2.3.1 get 查询数据 
 
-
+```
+GET http://192.168.56.10:9200/customer/external/1
+```
 
 
 #### 2.3.2 乐观锁字段
