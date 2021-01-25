@@ -221,9 +221,8 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 }
 ```    
 
-### 2.5 删除数据 & bulk 批量操作导入样本测试数据
+### 2.5 删除数据 
 
-#### 2.5.1 删除数据
 
 ```
 DELETE http://192.168.56.10:9200/customer/external/1
@@ -231,9 +230,12 @@ DELETE http://192.168.56.10:9200/customer/external/1
 DELETE http://192.168.56.10:9200/customer
 ```
 
-没有直接删除类型 `external` 的方法，
+没有直接删除类型 `external` 的方法，即 `DELETE http://192.168.56.10:9200/customer/external` 是错误的。
 
 
 
-#### 2.5.2 
+### 2.6 bulk 批量操作导入样本测试数据
+
+
+
 
