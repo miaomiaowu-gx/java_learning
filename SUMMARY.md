@@ -95,5 +95,6 @@
   * [第一节 Docker安装 ES](chapter23/01-docker.md)
   * [第二节 ElasticSearch 入门](chapter23/02-elasticsearch-introduction.md)
   * [第三节 Search Api](chapter23/03-search-api.md)
+  * [第四节 QueryDSL 基本使用](04-querydsl.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
