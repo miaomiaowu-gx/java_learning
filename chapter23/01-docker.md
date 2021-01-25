@@ -50,7 +50,7 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 docker update elasticsearch --restart=always
 ```
 
-7）浏览器访问 `http://192.168.56.10:9200/`
+7）浏览器访问 `http://192.168.56.10:9200`
 
 ```json
 {
