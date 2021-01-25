@@ -53,7 +53,16 @@ green open .kibana_1                CSQjGYkfTP2GwuAgfk0-PA 1 0 7 0 31.2kb 31.2kb
 
 ### 2.2 put & post新增数据
 
-索引一个文档（保存）
+索引一个文档（保存）：保存一个数据，保存在哪个索引的哪个类型下，指定用哪个唯一标识。如 `PUT customer/external/1;` 在 customer 索引下的 external 类型下保存 1 号数据为
+
+```json
+PUT customer/external/1
+
+请求参数
+{
+ "name":"John Doe"
+}
+```
 
 
 ### 2.3 get 查询数据 & 乐观锁字段
