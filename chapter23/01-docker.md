@@ -32,7 +32,7 @@ chmod -R 777 /mydata/elasticsearch/
 ```
 
 
-5）启动 Elasticsearch
+5）启动 elasticsearch
 
 ```shell
 docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
@@ -45,13 +45,22 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 ```
 
 
-6）
+6）设置开机启动 elasticsearch
+
+```shell
+docker update elasticsearch --restart=always
+```
+
+### 3.2 Kibana
+
+1）
 
 
-7）
+2）
 
 
-8）
+3）
 
 
-9）
+4）
+
