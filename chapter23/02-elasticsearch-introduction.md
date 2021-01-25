@@ -253,7 +253,7 @@ DELETE http://192.168.56.10:9200/customer
 * bulk api 按顺序执行所有的 action（动作）。如果一个单个的动作因任何原因失败，它将继续处理它后面剩余的动作。当 bulk api 返回时，它将提供每个动作的状态（与发送的顺序相同），所以可以检查是否一个指定的动作是否失败了。
 
 
-#### 2.6.1 执行多条数据 
+#### 2.6.1 实例 1：执行多条数据 
 
 在浏览器访问 `http://192.168.56.10:5601/app/kibana`，进入 kibana 操作页面。选择左下角 `Dev Tools`。
 
@@ -311,7 +311,18 @@ POST /customer/external/_bulk
 }
 ```                
 
-#### 2.6.2 
+#### 2.6.2 实例 2：对于整个索引执行批量操作
+
+```
+POST /_bulk
+{"delete":{"_index":"website","_type":"blog","_id":"123"}}
+{"create":{"_index":"website","_type":"blog","_id":"123"}}
+{"title":"my first blog post"}
+{"index":{"_index":"website","_type":"blog"}}
+{"title":"my second blog post"}
+{"update":{"_index":"website","_type":"blog","_id":"123"}}
+{"doc":{"title":"my updated blog post"}}
+```
 
 
 
