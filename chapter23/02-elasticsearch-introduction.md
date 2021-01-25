@@ -102,8 +102,8 @@ GET http://192.168.56.10:9200/customer/external/1
     "_index": "customer",//在哪个索引
     "_type": "external",//在哪个类型
     "_id": "1",//记录id
-    "_version": 3,//版本号
-    "_seq_no": 6,//并发控制字段，每次更新都会+1，用来做乐观锁
+    "_version": 2,//版本号
+    "_seq_no": 3,//并发控制字段，每次更新都会+1，用来做乐观锁
     "_primary_term": 1,//同上，主分片重新分配，如重启，就会变化
     "found": true,
     "_source": {
@@ -117,7 +117,9 @@ GET http://192.168.56.10:9200/customer/external/1
 
 
 
-#### 2.3.2 乐观锁字段
+#### 2.3.2 实例
+
+将 id=1 的数据更新为 name=1，然后再次更新为 name=2，起始`_seq_no=3` 与 `_primary_term=1`。
 
 
 
