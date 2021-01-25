@@ -47,6 +47,26 @@ GET bank/_search
 }
 ```
 
+使用 from 和 size 可以指定查询第 20-29 条数据。
+
+```java
+GET bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "sort": [
+    {
+      "account_number": "asc"
+    },
+    {
+      "balance": "desc"
+    }
+  ],
+  "from": 20,
+  "size": 10
+}
+```
 
 
 ### 3.2 
