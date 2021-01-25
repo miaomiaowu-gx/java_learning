@@ -80,6 +80,7 @@ docker update elasticsearch --restart=always
 
 ### 3.2 Kibana
 
+
 &emsp;&emsp;Kibana 是一个免费且开放的用户界面，能够对 Elasticsearch 数据进行可视化，并在 Elastic Stack 中进行导航。可以进行各种操作，从跟踪查询负载，到理解请求如何流经整个应用，都能轻松完成。
 
 1）下载 kibana
@@ -87,7 +88,6 @@ docker update elasticsearch --restart=always
 ```shell
 sudo docker pull kibana:7.6.2
 ```
-
 
 2）启动 kibana
 
