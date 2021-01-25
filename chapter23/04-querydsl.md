@@ -63,6 +63,23 @@ GET bank/_search
 
 ### 4.2 match 全文检索
 
+#### 4.2.1 基本类型（非字符串），精确控制
+
+```json
+GET bank/_search
+{
+  "query": {
+    "match": {
+      "account_number": 20
+    }
+  }
+}
+```
+
+检索出一条数据，其 `account_number` 值为 20。
+
+#### 4.2.2 字符串，全文检索
+
 
 
 ### 4.3 
