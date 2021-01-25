@@ -78,9 +78,26 @@ GET bank/_search
 
 检索出一条数据，其 `account_number` 值为 20。
 
-#### 4.2.2 字符串，全文检索
+#### 4.2.2 字符串，全文检索(模糊查询)
 
+```json
+GET bank/_search
+{
+  "query": {
+    "match": {
+      "address": "Kings"
+    }
+  }
+}
+##全文检索最终会按照评分进行排序，会对检索条件进行分词匹配。
+```
 
+检索出两条数据，其 `address` 中含有 `Kings`。两条数据的 `address` 字段如下：
+
+```
+"address" : "282 Kings Place"
+"address" : "305 Kings Hwy"
+```
 
 ### 4.3 
 
