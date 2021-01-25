@@ -9,9 +9,9 @@
 * 通过 REST request body 来发送它们（uri+请求体）；
 
 
-### 3.1 
+### 3.1 一切检索从 `_search`
 
-
+<img src="./img23/10-search-first.png" width=600>
 
 ### 3.2 
 
