@@ -170,14 +170,14 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
         "root_cause": [
             {
                 "type": "version_conflict_engine_exception",
-                "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [6] and primary term [1]",
+                "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [4] and primary term [1]",
                 "index_uuid": "PEVLlW8xQA6ndlKnYZhoTA",
                 "shard": "0",
                 "index": "customer"
             }
         ],
         "type": "version_conflict_engine_exception",
-        "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [6] and primary term [1]",
+        "reason": "[1]: version conflict, required seqNo [3], primary term [1]. current document has seqNo [4] and primary term [1]",
         "index_uuid": "PEVLlW8xQA6ndlKnYZhoTA",
         "shard": "0",
         "index": "customer"
