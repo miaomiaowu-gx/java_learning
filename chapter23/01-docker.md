@@ -12,7 +12,6 @@
 
 ```shell
 sudo docker pull elasticsearch:7.6.2
-sudo docker pull kibana:7.6.2
 ```
 
 3）检查虚拟机内存 `free -m`
@@ -53,7 +52,11 @@ docker update elasticsearch --restart=always
 
 ### 3.2 Kibana
 
-1）
+1）下载 kibana
+
+```shell
+sudo docker pull kibana:7.6.2
+```
 
 
 2）
