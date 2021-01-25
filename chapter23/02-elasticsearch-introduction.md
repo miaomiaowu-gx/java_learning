@@ -324,6 +324,84 @@ POST /_bulk
 {"doc":{"title":"my updated blog post"}}
 ```
 
+运行结果：
 
+```json
+#! Deprecation: [types removal] Specifying types in bulk requests is deprecated.
+{
+  "took" : 278,
+  "errors" : false,
+  "items" : [
+    {
+      "delete" : {
+        "_index" : "website",
+        "_type" : "blog",
+        "_id" : "123",
+        "_version" : 1,
+        "result" : "not_found",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 0,
+        "_primary_term" : 1,
+        "status" : 404
+      }
+    },
+    {
+      "create" : {
+        "_index" : "website",
+        "_type" : "blog",
+        "_id" : "123",
+        "_version" : 2,
+        "result" : "created",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 1,
+        "_primary_term" : 1,
+        "status" : 201
+      }
+    },
+    {
+      "index" : {
+        "_index" : "website",
+        "_type" : "blog",
+        "_id" : "seiOOXcBzZdSKzink7PF",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 2,
+        "_primary_term" : 1,
+        "status" : 201
+      }
+    },
+    {
+      "update" : {
+        "_index" : "website",
+        "_type" : "blog",
+        "_id" : "123",
+        "_version" : 3,
+        "result" : "updated",
+        "_shards" : {
+          "total" : 2,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 3,
+        "_primary_term" : 1,
+        "status" : 200
+      }
+    }
+  ]
+}
+```
 
 #### 2.6.3 
