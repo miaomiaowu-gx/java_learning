@@ -53,7 +53,7 @@ green open .kibana_1                CSQjGYkfTP2GwuAgfk0-PA 1 0 7 0 31.2kb 31.2kb
 
 ### 2.2 put & post新增数据
 
-
+索引一个文档（保存）
 
 
 ### 2.3 get 查询数据 & 乐观锁字段
