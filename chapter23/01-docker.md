@@ -105,5 +105,5 @@ docker update kibana  --restart=always
 
 4）浏览器访问 `http://192.168.56.10:5601/app/kibana`
 
-
+<img src="./img23/02-kibana.png">
 
