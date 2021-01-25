@@ -50,7 +50,32 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 docker update elasticsearch --restart=always
 ```
 
+7）浏览器访问 `http://192.168.56.10:9200/`
+
+```json
+{
+  "name" : "d248687cf2f9",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "XXM1pkC1QVKuBDdtRcj7pQ",
+  "version" : {
+    "number" : "7.6.2",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "ef48eb35cf30adf4db14086e8aabd07ef6fb113f",
+    "build_date" : "2020-03-26T06:34:37.794943Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.4.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+
+
 ### 3.2 Kibana
+
+可视化界面
 
 1）下载 kibana
 
