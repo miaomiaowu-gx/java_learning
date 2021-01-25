@@ -99,8 +99,19 @@ GET bank/_search
 "address" : "305 Kings Hwy"
 ```
 
-### 4.3 
+### 4.3 `match_phrase` 短语匹配
 
 
 
-### 4.4 
+### 4.4 `multi_match` 多字段匹配
+
+
+
+### 4.5 bool 复合查询
+
+### 4.6 filter 过滤
+
+### 4.7 term 查询
+
+### 4.8 aggregations 聚合分析
+
