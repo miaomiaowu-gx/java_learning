@@ -407,3 +407,25 @@ POST /_bulk
 #### 2.6.3 样本测试数据
 
 
+准备了一份顾客银行账户信息的虚构的 JSON 文档样本。每个文档都有下列的 schema（模式）。
+
+```json
+{
+	"account_number": 1,
+	"balance": 39225,
+	"firstname": "Amber",
+	"lastname": "Duke",
+	"age": 32,
+	"gender": "M",
+	"address": "880 Holmes Lane",
+	"employer": "Pyrami",
+	"email": "amberduke@pyrami.com",
+	"city": "Brogan",
+	"state": "IL"
+}
+```
+
+
+
+
+
