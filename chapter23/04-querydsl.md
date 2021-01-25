@@ -100,7 +100,18 @@ GET bank/_search
 
 ### 4.3 `match_phrase` 短语匹配
 
+```json
+GET bank/_search
+{
+  "query": {
+    "match_phrase": {
+      "address": "mill lane"
+    }
+  }
+}
+```
 
+* `mill lane` 以短语形式进行匹配。
 
 ### 4.4 `multi_match` 多字段匹配
 
