@@ -196,7 +196,7 @@ http://192.168.56.10:9200/customer/external/1?if_seq_no=3&if_primary_term=1
 
 #### 2.4.1 POST 更新文档，带有 `_update`
 
-
+<img src="./img23/08-post-update.png" width=600>
 
 
 #### 2.4.2 POST 更新文档，不带 `_update`
