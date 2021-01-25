@@ -52,7 +52,7 @@ GET bank/_search
 }
 ```
 
-* `query`：查询
+* `query`：查询，`match_all` 查询类型【代表查询所有的所有】，es 中可以在 query 中组合非常多的查询类型完成复杂查询。
 
 * `sort`：排序规则
 
