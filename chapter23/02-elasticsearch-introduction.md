@@ -39,13 +39,22 @@ XDjdbKv-QZKoZDKKNCebqQ 127.0.0.1 127.0.0.1 d248687cf2f9
 ```
 
 
-4）``：
+4）`/_cat/indices`：查看索引
 
 ```
 GET 
+http://192.168.56.10:9200/_cat/indices
 
+结果
+green open .kibana_task_manager_1   DPlST-F7Q0iwj-px4ryAUw 1 0 2 1 37.9kb 37.9kb
+green open .apm-agent-configuration uHYGmwXzSA6qmfYFVkUBZw 1 0 0 0   283b   283b
+green open .kibana_1                CSQjGYkfTP2GwuAgfk0-PA 1 0 7 0 31.2kb 31.2kb
+```
 
 ### 2.2 put & post新增数据
+
+
+
 
 ### 2.3 get 查询数据 & 乐观锁字段
 
