@@ -84,7 +84,7 @@ PUT customer/external/1
 <img src="./img23/04-no-id-post.png">
 
 
-
+<img src="./img23/05-id-post.png">
 
 
 ### 2.3 get 查询数据 & 乐观锁字段
