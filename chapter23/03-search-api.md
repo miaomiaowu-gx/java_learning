@@ -22,7 +22,7 @@ GET bank/_search?q=*&sort=account_number:asc
 
 * 在 `bank` 索引下检索，`q=*` 表示查询所有，`sort=account_number:asc` 表示按照 `account_number` 字段升序排列。
 
-
+默认返回 10 条数据，类似分页查询，只返回第一页。
 
 #### 3.1.1 
 
