@@ -94,6 +94,9 @@ docker run --name kibana -e ELASTICSEARCH_HOSTS=http://192.168.56.10:9200 -p 560
 
 3）设置开机启动 kibana
 
+```shell
+docker update kibana  --restart=always
+```
 
 4）浏览器访问 `http://192.168.56.10:5601/app/kibana`
 
