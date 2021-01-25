@@ -128,7 +128,8 @@ GET bank/_search
 }
 ```
 
-* 只有 `address` 字段值等于 `198 Mill Lane` 时，才会被检索到。
+* 只有 `address` 字段值**等于** `198 Mill Lane` 时，才会被检索到。不再是模糊匹配。
+
 
 ### 4.4 `multi_match` 多字段匹配
 
