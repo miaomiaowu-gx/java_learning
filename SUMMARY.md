@@ -93,5 +93,6 @@
 * [第二十二章 中间件](chapter22.md)
 * [第二十三章 全文检索 ElasticSearch](chapter23.md)
   * [第一节 Docker安装 ES](chapter23/01-docker.md)
+  * [第二节 ElasticSearch 入门](chapter23/02-elasticsearch-introduction.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
