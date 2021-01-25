@@ -75,6 +75,7 @@ PUT customer/external/1
 }
 ```
 
+<img src="./img23/03-put-add.png">
 
 
 ### 2.2.2 POST
