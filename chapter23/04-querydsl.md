@@ -113,7 +113,22 @@ GET bank/_search
 
 * `mill lane` 以短语形式进行匹配。单词不再拆分检索，必须两者同时以短语形式出现，才会被检索到。
 
+#### 文本的精确匹配 `keyword`
 
+文本字段的匹配，使用 keyword，匹配的条件要显示字段的全部值，即进行精确匹配的。
+
+```json
+GET bank/_search
+{
+  "query": {
+    "match_phrase": {
+      "address.keyword": "198 Mill Lane"
+    }
+  }
+}
+```
+
+* 只有 `address` 字段值等于 `198 Mill Lane` 时，才会被检索到。
 
 ### 4.4 `multi_match` 多字段匹配
 
