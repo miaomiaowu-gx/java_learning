@@ -272,6 +272,8 @@ GET bank/_search
 
 ### 4.7 term 查询
 
+`term` 和 `match` 一样，匹配某个属性的值。全文检索字段用 `match`，其他非 `text` 字段匹配用 `term`。
+
 
 
 
