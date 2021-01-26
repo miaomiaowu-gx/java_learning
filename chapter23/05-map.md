@@ -4,7 +4,21 @@
 
 ### 5.1 ElasticSearch7 去掉 type 概念
 
+* 关系型数据库中两个数据表示是独立的，即使他们里面有相同名称的列也不影响使用，但 ES 中不是这样的。 Elasticsearch 是基于 Lucene 开发的搜索引擎，而 ES 中不同 type 下名称相同的 filed 最终在 Lucene 中的处理方式是一样的。
 
+  1. 两个不同 type 下的两个 user_name，在 ES 同一个索引下其实被认为是同一个 filed，你必须在两个不同的 type 中定义相同的 filed 映射。否则，不同 type 中的相同字段名称就会在处理中出现冲突的情况，导致 Lucene 处理效率下降。
+
+  2. 去掉 type 就是为了提高 ES 处理数据的效率。
+
+* Elasticsearch 7.x
+
+  * URL 中的 type 参数为可选。比如，索引一个文档不再要求提供文档类型。
+  
+* Elasticsearch 8.x
+
+  * 不再支持 URL 中的 type 参数。
+  
+* 解决：将索引从多类型迁移到单类型，每种类型文档一个独立索引
 
 
 
