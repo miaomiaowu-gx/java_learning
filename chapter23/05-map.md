@@ -105,8 +105,37 @@ PUT /my_index/_mapping
 
 #### 5.3.4 数据迁移
 
+##### 数据迁移格式
+
+先创建 `new_twitter` 的正确映射。然后使用如下方式进行数据迁移：
+
+```json
+POST _reindex [固定写法]
+{
+  "source":{
+      "index":"twitter"
+   },
+  "dest":{
+      "index":"new_twitters"
+   }
+}
+```
+
+将旧索引的 type 下的数据进行迁移：
+
+```json
+POST _reindex [固定写法]
+{
+  "source":{
+      "index":"twitter",
+      "twitter":"twitter"
+   },
+  "dest":{
+      "index":"new_twitters"
+   }
+}
+```
 
 
-
-### 5.4 
+##### 
 
