@@ -270,7 +270,6 @@ GET bank/_search
 <img src="./img23/11-filter.png">
 
 
-
 ### 4.7 term 查询
 
 
