@@ -290,7 +290,84 @@ GET bank/_search
 
 搜索 `address` 中包含 `mill` 的所有人的年龄分布以及平均年龄，但不显示这些人的详情
 
+```json
+GET bank/_search
+{
+  "query": {
+    "match": {
+      "address": "Mill"
+    }
+  },
+  "aggs": {
+    "ageAgg": {
+      "terms": {
+        "field": "age",
+        "size": 10
+      }
+    },
+    "ageAvg": {
+      "avg": {
+        "field": "age"
+      }
+    },
+    "balanceAvg": {
+      "avg": {
+        "field": "balance"
+      }
+    }
+  },
+  "size": 0
+}
+```
 
+返回结果：
+
+```json
+{
+  "took" : 54,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
+  "aggregations" : {
+    "ageAgg" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : 38,
+          "doc_count" : 2
+        },
+        {
+          "key" : 28,
+          "doc_count" : 1
+        },
+        {
+          "key" : 32,
+          "doc_count" : 1
+        }
+      ]
+    },
+    "ageAvg" : {
+      "value" : 34.0
+    },
+    "balanceAvg" : {
+      "value" : 25208.0
+    }
+  }
+}
+```
 
 #### 实例 2
 
