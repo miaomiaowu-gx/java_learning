@@ -160,7 +160,63 @@ state 或者 address 中包含 mill，并且在查询过程中，会对于查询
 
 3. `should`，应该满足 should 所列举的条件。
 
+1）查询 `gender=m`，并且 `address=mill` 的数据
 
+```json
+GET bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "gender": "M"
+          }
+        },
+        {
+          "match": {
+            "address": "mill"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+2）查询 `gender=m`，并且 `address=mill` 的数据，但是 `age!=38`。
+
+```json
+GET bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "gender": "M"
+          }
+        },
+        {
+          "match": {
+            "address": "mill"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "match": {
+            "age": "38"
+          }
+        }
+      ]
+    }
+  }
+} 
+```
+
+
+3）
 
 
 ### 4.6 filter 过滤
