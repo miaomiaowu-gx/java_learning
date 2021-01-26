@@ -96,5 +96,7 @@
   * [第二节 ElasticSearch 入门](chapter23/02-elasticsearch-introduction.md)
   * [第三节 Search Api](chapter23/03-search-api.md)
   * [第四节 QueryDSL 基本使用](chapter23/04-querydsl.md)
+  * [第五节 映射](chapter23/05-map.md)
+  * [第六节 分词](chapter23/06-participle.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
