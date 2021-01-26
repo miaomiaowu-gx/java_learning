@@ -152,3 +152,159 @@ rm -rf elasticsearch-analysis-ik-7.6.2.zip
 
 #### 6.2.1 测试分词器
 
+##### 1) 默认分词器
+
+```json
+GET my_index/_analyze
+{
+   "text":"我是中国人"
+}
+```
+
+输出结果：
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "我",
+      "start_offset" : 0,
+      "end_offset" : 1,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 0
+    },
+    {
+      "token" : "是",
+      "start_offset" : 1,
+      "end_offset" : 2,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 1
+    },
+    {
+      "token" : "中",
+      "start_offset" : 2,
+      "end_offset" : 3,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 2
+    },
+    {
+      "token" : "国",
+      "start_offset" : 3,
+      "end_offset" : 4,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 3
+    },
+    {
+      "token" : "人",
+      "start_offset" : 4,
+      "end_offset" : 5,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 4
+    }
+  ]
+}
+```
+
+##### 2) `ik_smart` 分词器
+
+```json
+GET my_index/_analyze
+{
+   "analyzer": "ik_smart", 
+   "text":"我是中国人"
+}
+```
+
+结果：
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "我",
+      "start_offset" : 0,
+      "end_offset" : 1,
+      "type" : "CN_CHAR",
+      "position" : 0
+    },
+    {
+      "token" : "是",
+      "start_offset" : 1,
+      "end_offset" : 2,
+      "type" : "CN_CHAR",
+      "position" : 1
+    },
+    {
+      "token" : "中国人",
+      "start_offset" : 2,
+      "end_offset" : 5,
+      "type" : "CN_WORD",
+      "position" : 2
+    }
+  ]
+}
+```
+
+##### 3) `ik_max_word` 分词器
+
+
+```json
+GET my_index/_analyze
+{
+   "analyzer": "ik_max_word", 
+   "text":"我是中国人"
+}
+```
+
+结果：
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "我",
+      "start_offset" : 0,
+      "end_offset" : 1,
+      "type" : "CN_CHAR",
+      "position" : 0
+    },
+    {
+      "token" : "是",
+      "start_offset" : 1,
+      "end_offset" : 2,
+      "type" : "CN_CHAR",
+      "position" : 1
+    },
+    {
+      "token" : "中国人",
+      "start_offset" : 2,
+      "end_offset" : 5,
+      "type" : "CN_WORD",
+      "position" : 2
+    },
+    {
+      "token" : "中国",
+      "start_offset" : 2,
+      "end_offset" : 4,
+      "type" : "CN_WORD",
+      "position" : 3
+    },
+    {
+      "token" : "国人",
+      "start_offset" : 3,
+      "end_offset" : 5,
+      "type" : "CN_WORD",
+      "position" : 4
+    }
+  ]
+}
+```
+
+
+
+
+
+
+
+
+
