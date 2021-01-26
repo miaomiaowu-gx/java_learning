@@ -83,8 +83,21 @@ PUT /my_index
 }
 ```
 
-#### 5.3.2
+#### 5.3.2 添加新的字段映射
 
+```json
+PUT /my_index/_mapping
+{
+  "properties": {
+    "employee-id": {
+      "type": "keyword",
+      "index": false
+    }
+  }
+}
+```
+
+* `"index": false`，表明新增的字段不能被检索，只是一个冗余字段。
 
 #### 5.3.3 
 
