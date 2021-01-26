@@ -267,6 +267,9 @@ GET bank/_search
 * `filter` 在使用过程中，并不会计算相关性得分。
 
 
+<img src="./img23/11-filter.png">
+
+
 
 ### 4.7 term 查询
 
