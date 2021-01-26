@@ -49,6 +49,26 @@ GET bank/_mapping
 
 #### 5.3.1 创建索引并指定映射
 
+```json
+PUT /my_index
+{
+  "mappings": {
+    "properties": {
+      "age": {
+        "type": "integer"
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text"
+      }
+    }
+  }
+}
+```
+
+
 
 #### 5.3.2
 
