@@ -36,20 +36,12 @@ Mapping(映射)：Maping 是用来定义一个文档（document），以及它�
 
 * 自定义映射规则来执行动态添加属性；
 
-#### 5.2.1 查看 mapping 信息 
+#### 查看 mapping 信息 
 
 ```
 GET bank/_mapping
 ```
 
-#### 5.2.2 修改 mapping 信息
-
-```
-PUT bank/_mapping
-{
-  ...
-}
-```
 
 ### 5.3 创建映射
 
