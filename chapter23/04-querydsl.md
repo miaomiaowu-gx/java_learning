@@ -453,8 +453,82 @@ GET bank/_search
 
 查出所有年龄分布，并且这些年龄段中 M(男性) 的平均薪资和 F(女性) 的平均薪资以及这个年龄段的总体平均薪资。
 
+```json
+GET bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "aggs": {
+    "ageAgg": {
+      "terms": {
+        "field": "age",
+        "size": 100
+      },
+      "aggs": {
+        "genderAgg": {
+          "terms": {
+            "field": "gender.keyword"
+          },
+          "aggs": {
+            "balanceAvg": {
+              "avg": {
+                "field": "balance"
+              }
+            }
+          }
+        },
+        "ageBalanceAvg": {
+          "avg": {
+            "field": "balance"
+          }
+        }
+      }
+    }
+  },
+  "size": 0
+}
+```
 
+结果：
 
+```json
+{
+  "aggregations" : {
+    "ageAgg" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : 31,
+          "doc_count" : 61,
+          "genderAgg" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "M",
+                "doc_count" : 35,
+                "balanceAvg" : {
+                  "value" : 29565.628571428573
+                }
+              },
+              {
+                "key" : "F",
+                "doc_count" : 26,
+                "balanceAvg" : {
+                  "value" : 26626.576923076922
+                }
+              }
+            ]
+          },
+          "ageBalanceAvg" : {
+            "value" : 28312.918032786885
+          }
+        },
+        ...
+}
+```
 
 
 
