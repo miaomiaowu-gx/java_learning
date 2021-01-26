@@ -136,13 +136,15 @@ POST _analyze
 }
 ```
 
-2）
+2）安装
 
-```
+```shell
 cd /mydata/elasticsearch/plugins
 yum install wget
-
-
+wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2/elasticsearch-analysis-ik-7.6.2.zip
+yum install unzip
+unzip elasticsearch-analysis-ik-7.6.2.zip -d ik
+```
 
 
 3）
