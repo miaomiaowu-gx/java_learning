@@ -137,5 +137,10 @@ POST _reindex [固定写法]
 ```
 
 
-##### 
+##### 实列
+
+1）`GET /bank/_search`
+
+
+
 
