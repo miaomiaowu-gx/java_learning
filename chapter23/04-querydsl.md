@@ -288,7 +288,7 @@ GET bank/_search
 
 #### 实例 1
 
-搜索 `address` 中包含 `mill` 的所有人的年龄分布以及平均年龄，但不显示这些人的详情
+搜索 `address` 中包含 `mill` 的**所有人**的年龄分布以及平均年龄，但不显示这些人的详情
 
 ```json
 GET bank/_search
@@ -319,6 +319,9 @@ GET bank/_search
   "size": 0
 }
 ```
+
+其中，`"size":0` 不显示搜索数据；`aggs` 执行聚合。
+
 
 返回结果：
 
@@ -372,9 +375,78 @@ GET bank/_search
 #### 实例 2
 
 
-按照年龄聚合，并且求这些年龄段的这些人的平均薪资
+按照年龄聚合，并且求**这些年龄段**的这些人的平均薪资
 
+```json
+GET bank/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "aggs": {
+    "ageAgg": {
+      "terms": {
+        "field": "age",
+        "size": 100
+      },
+      "aggs": {
+        "ageAvg": {
+          "avg": {
+            "field": "balance"
+          }
+        }
+      }
+    }
+  },
+  "size": 0
+}
+```
 
+结果：
+
+```json
+{
+  "took" : 30,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1000,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
+  "aggregations" : {
+    "ageAgg" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : 31,
+          "doc_count" : 61,
+          "ageAvg" : {
+            "value" : 28312.918032786885
+          }
+        },
+        {
+          "key" : 39,
+          "doc_count" : 60,
+          "ageAvg" : {
+            "value" : 25269.583333333332
+          }
+        },
+        ...
+      ]
+    }
+  }
+}
+```
 
 #### 实例 3
 
