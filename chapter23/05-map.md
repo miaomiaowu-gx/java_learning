@@ -141,6 +141,24 @@ POST _reindex [固定写法]
 
 1）`GET /bank/_search`
 
+<img src="./img23/13-bank-search.png" width=300>
 
+
+2）
+
+
+3）
+
+
+
+4）
+
+
+
+5）
+
+
+
+6）
 
 
