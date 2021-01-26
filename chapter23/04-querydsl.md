@@ -133,7 +133,22 @@ GET bank/_search
 
 ### 4.4 `multi_match` 多字段匹配
 
+```json
+GET bank/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "mill",
+      "fields": [
+        "state",
+        "address"
+      ]
+    }
+  }
+}
+```
 
+state 或者 address 中包含 mill，并且在查询过程中，会对于查询条件进行**分词**。
 
 ### 4.5 bool 复合查询
 
