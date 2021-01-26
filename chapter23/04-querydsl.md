@@ -216,7 +216,45 @@ GET bank/_search
 ```
 
 
-3）
+3）匹配 `lastName` 应该等于 `Wallace` 的数据。
+
+```json
+GET bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "gender": "M"
+          }
+        },
+        {
+          "match": {
+            "address": "mill"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "match": {
+            "age": "18"
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "lastname": "Wallace"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+`should`：应该达到 should 列举的条件，如果到达会增加相关文档的评分，并不会改变查询的结果。如果 query 中只有 should 且只有一种匹配规则，那么 should 的条件就会被作为默认匹配条件二区改变查询结果。
 
 
 ### 4.6 filter 过滤
