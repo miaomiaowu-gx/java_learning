@@ -275,6 +275,8 @@ GET bank/_search
 `term` 和 `match` 一样，匹配某个属性的值。全文检索字段用 `match`，其他非 `text` 字段匹配用 `term`。
 
 
+<img src="./img23/12-term.png">
+
 
 
 ### 4.8 aggregations 聚合分析
