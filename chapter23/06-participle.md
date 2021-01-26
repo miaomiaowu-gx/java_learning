@@ -136,7 +136,8 @@ POST _analyze
 }
 ```
 
-2）安装
+2）安装 ik 分词
+
 
 ```shell
 cd /mydata/elasticsearch/plugins
@@ -147,11 +148,7 @@ unzip elasticsearch-analysis-ik-7.6.2.zip -d ik
 rm -rf elasticsearch-analysis-ik-7.6.2.zip 
 ```
 
+3）重启容器或虚拟机。
 
-3）
+#### 6.2.1 测试分词器
 
-
-4）
-
-
-5）
