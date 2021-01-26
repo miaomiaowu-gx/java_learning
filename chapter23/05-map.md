@@ -139,26 +139,192 @@ POST _reindex [固定写法]
 
 ##### 实列
 
-1）`GET /bank/_search`
+###### 1) `GET /bank/_search`
 
 <img src="./img23/13-bank-search.png" width=300>
 
 
-2）
+###### 2) `GET /bank/_mapping`
+
+```json
+{
+  "bank" : {
+    "mappings" : {
+      "properties" : {
+        "account_number" : {
+          "type" : "long"
+        },
+        "address" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "age" : {
+          "type" : "long"
+        },
+        "balance" : {
+          "type" : "long"
+        },
+        "city" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "email" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "employer" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "firstname" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "gender" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "lastname" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "state" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 
-3）
+###### 3) `PUT /newbank` 创建映射
+
+* `address` 全文检索，不需要 `keyword`。
+
+* `age` 由 `long` 修改为 `integer`。
+
+* `city` 由 `text` 修改为 `keyword`。
+
+* `email` 由 `text` 修改为 `keyword`。
+
+* `employer` 由 `text` 修改为 `keyword`。
+
+* `firstname` 用来做全文检索，删掉 `keyword`。
+
+* `gender` 由 `text` 修改为 `keyword`。
+
+* `state` 由 `text` 修改为 `keyword`。
+
+```json
+PUT /newbank
+{
+  "mappings": {
+    "properties": {
+      "account_number": {
+        "type": "long"
+      },
+      "address": {
+        "type": "text"
+      },
+      "age": {
+        "type": "integer"
+      },
+      "balance": {
+        "type": "long"
+      },
+      "city": {
+        "type": "keyword"
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "employer": {
+        "type": "keyword"
+      },
+      "firstname": {
+        "type": "text"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "lastname": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "state": {
+        "type": "keyword"
+      }
+    }
+  }
+}
+```
 
 
+###### 4) 数据迁移 `POST _reindex`
 
-4）
+```json
+POST _reindex
+{
+  "source": {
+    "index": "bank",
+    "type": "account"
+  },
+  "dest": {
+    "index": "newbank"
+  }
+}
+```
 
 
-
-5）
-
+###### 5) `GET /newbank/_search`
 
 
-6）
 
 
