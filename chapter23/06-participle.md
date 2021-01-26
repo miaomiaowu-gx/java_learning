@@ -114,6 +114,41 @@ POST _analyze
 所有的语言分词，默认使用的都是 `Standard Analyzer`，但是这些分词器针对于中文的分词，并不友好。为此需要安装中文的分词器。
 
 
+1）查看 elasticsearch 版本号
+
+```
+{
+  "name" : "d248687cf2f9",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "XXM1pkC1QVKuBDdtRcj7pQ",
+  "version" : {
+    "number" : "7.6.2",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "ef48eb35cf30adf4db14086e8aabd07ef6fb113f",
+    "build_date" : "2020-03-26T06:34:37.794943Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.4.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+
+2）
+
+```
+cd /mydata/elasticsearch/plugins
+yum install wget
 
 
 
+
+3）
+
+
+4）
+
+
+5）
