@@ -73,6 +73,16 @@ PUT /my_index
 
 * `text`，全文检索。
 
+返回结果:
+
+```json
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "my_index"
+}
+```
+
 #### 5.3.2
 
 
