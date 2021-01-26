@@ -260,7 +260,7 @@ GET bank/_search
 
 ### 4.6 filter 过滤
 
-
+在 boolean 查询中，`must`, `should` 和 `must_not` 元素都被称为查询子句。文档是否符合每个 `must` 或 `should` 子句中的标准，决定了文档的 `相关性得分`。得分越高，文档越符合您的搜索条件。默认情况下，Elasticsearch 返回根据这些相关性得分排序的文档。
 
 
 ### 4.7 term 查询
