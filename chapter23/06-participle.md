@@ -341,11 +341,11 @@ mkdir html
 mkdir logs
 
 # 创建新的 nginx
-[root@localhost nginx]# docker run -p 80:80 --name nginx \
-> -v /mydata/nginx/html:/usr/share/nginx/html \
-> -v /mydata/nginx/logs:/var/log/nginx \
-> -v /mydata/nginx/conf:/etc/nginx \
-> -d nginx:1.10
+docker run -p 80:80 --name nginx \
+-v /mydata/nginx/html:/usr/share/nginx/html \
+-v /mydata/nginx/logs:/var/log/nginx \
+-v /mydata/nginx/conf:/etc/nginx \
+-d nginx:1.10
 ```
 
 3）配置转发
@@ -365,4 +365,8 @@ systemctl restart network
 sysctl net.ipv4.ip_forward
 ```
 
+4）重新启动 nginx
 
+```
+docker start nginx
+```
