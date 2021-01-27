@@ -98,5 +98,6 @@
   * [第四节 QueryDSL 基本使用](chapter23/04-querydsl.md)
   * [第五节 映射](chapter23/05-map.md)
   * [第六节 分词](chapter23/06-participle.md)
+  * [第七节 SpringBoot 整合 high-level-client](chapter23/07-sb-high-level-client.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
