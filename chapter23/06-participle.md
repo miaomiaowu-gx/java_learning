@@ -346,10 +346,11 @@ mkdir logs
 > -v /mydata/nginx/logs:/var/log/nginx \
 > -v /mydata/nginx/conf:/etc/nginx \
 > -d nginx:1.10
-
 ```
 
+3）配置转发
 
+上述命令返回时带有 `WARNING: IPv4 forwarding is disabled. Networking will not work.`。
 
 
 
