@@ -459,6 +459,44 @@ es  index.html
 docker restart elasticsearch 
 ```
 
+测试
 
+```json
+GET my_index/_analyze
+{
+   "analyzer": "ik_max_word", 
+   "text":"尚硅谷课程"
+}
+```
+
+返回
+
+```json
+{
+  "tokens" : [
+    {
+      "token" : "尚硅谷",
+      "start_offset" : 0,
+      "end_offset" : 3,
+      "type" : "CN_WORD",
+      "position" : 0
+    },
+    {
+      "token" : "硅谷",
+      "start_offset" : 1,
+      "end_offset" : 3,
+      "type" : "CN_WORD",
+      "position" : 1
+    },
+    {
+      "token" : "课程",
+      "start_offset" : 3,
+      "end_offset" : 5,
+      "type" : "CN_WORD",
+      "position" : 2
+    }
+  ]
+}
+```
 
 
