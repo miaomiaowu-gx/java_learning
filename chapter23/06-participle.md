@@ -305,6 +305,8 @@ GET my_index/_analyze
 ```
 
 
+### 6.3 自定义扩展词库
+
 
 
 
