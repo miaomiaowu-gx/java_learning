@@ -51,7 +51,17 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 </parent>
 ```
 
+3）在 `gulimall-search` 中引入 `elasticsearch` 坐标
 
+```xml
+<dependency>
+	<groupId>org.elasticsearch.client</groupId>
+	<artifactId>elasticsearch-rest-high-level-client</artifactId>
+	<version>7.6.2</version>
+</dependency>
+```
+
+4）
 
 
 ### 7.3 
