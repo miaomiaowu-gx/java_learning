@@ -318,7 +318,21 @@ docker run -p 80:80 --name nginx -d nginx:1.10
 # 将容器内的配置文件拷贝到当前目录
 cd /mydata
 mkdir nginx
+# 别忘了 .
 docker container cp nginx:/etc/nginx .
+cd nginx/
+# 配置文件已拷贝
+[root@localhost nginx]# ls
+conf.d  fastcgi_params  koi-utf  koi-win  mime.types  modules  nginx.conf  scgi_params  uwsgi_params  win-utf
+# 暂停容器
+docker stop nginx
+# 移除容器
+docker rm nginx
+# 将文件夹 nginx 重新命名 conf
+cd ..
+mv nginx conf
+# 新建 nginx 文件夹
+mkdir nginx
 ```
 
 
