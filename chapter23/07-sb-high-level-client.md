@@ -74,6 +74,74 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 
 #### 7.2.2 配置
 
+`gulimall-search` 中：
+
+1）导入 `gulimall-common` 坐标。
+
+2）在 `resources` 下 `application.properties` 中添加注册中心：
+
+```properties
+spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+spring.application.name=gulimall-search
+```
+
+
+3）在 `com.atguigu.gulimall.search` 下，创建包 `config`，创建配置类 `GulimallElasticSearchConfig`：
+
+```java
+package com.atguigu.gulimall.search.config;
+
+
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * 1. 导入依赖
+ * 2. 编写配置，给容器中注入一个RestHighLevelClient
+ * 3. 参照官方 API
+ */
+
+@Configuration
+public class GulimallElasticSearchConfig {
+
+    @Bean
+    public RestHighLevelClient esRestClient(){
+        RestClientBuilder builder = RestClient.builder(new HttpHost("192.168.56.10", 9200, "http"));
+        RestHighLevelClient client = new RestHighLevelClient(builder);
+        return client;
+    }
+}
+```
+
+4）启动类
+
+```java
+package com.atguigu.gulimall.search;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@EnableDiscoveryClient
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+public class GulimallSearchApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(GulimallSearchApplication.class, args);
+	}
+}
+```
+
+
+5）
+
+
+
+https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html
 
 #### 7.2.3 测试
 
