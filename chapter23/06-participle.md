@@ -333,6 +333,20 @@ cd ..
 mv nginx conf
 # 新建 nginx 文件夹
 mkdir nginx
+# 将 conf 文件夹移动到 nginx 中
+mv conf nginx/
+# 
+cd nginx/
+mkdir html
+mkdir logs
+
+# 创建新的 nginx
+[root@localhost nginx]# docker run -p 80:80 --name nginx \
+> -v /mydata/nginx/html:/usr/share/nginx/html \
+> -v /mydata/nginx/logs:/var/log/nginx \
+> -v /mydata/nginx/conf:/etc/nginx \
+> -d nginx:1.10
+
 ```
 
 
