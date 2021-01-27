@@ -386,9 +386,30 @@ docker update nginx --restart=always
 
 <img src="./img23/14-nginx-test.png" width=300>
 
+#### 6.3.2 
+
+1）创建词语文件
+    
+```
+[root@localhost html]# pwd
+/mydata/nginx/html
+[root@localhost html]# mkdir es
+[root@localhost html]# ls
+es  index.html
+[root@localhost html]# cd es
+[root@localhost es]# vi fenci.txt
+# 添加以下内容
+# 尚硅谷
+# 张雨绮
+[root@localhost es]# cat fenci.txt 
+尚硅谷
+张雨绮
+```
+
+* nginx 默认到 html 下查找资源。
 
 
-
+2）
 
 
 
