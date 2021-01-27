@@ -251,5 +251,96 @@ GET users/_search
 }
 ```
 
-#### 7.3.2
+#### 7.3.2 保存操作
 
+```java
+package com.atguigu.gulimall.search;
+
+import com.alibaba.fastjson.JSON;
+import com.atguigu.gulimall.search.config.GulimallElasticSearchConfig;
+import lombok.Data;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.IOException;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class GulimallSearchApplicationTests {
+
+	@Autowired
+	private RestHighLevelClient client;
+
+	/**
+	 * 测试[存储]数据到 es
+	 * 再次发送时，是[更新]操作
+	 */
+	@Test
+	public void indexData() throws IOException {
+		IndexRequest indexRequest = new IndexRequest("users"); //根据索引建立请求
+		indexRequest.id("1"); //数据的id
+		//方式一：直接使用k-v对
+		//indexRequest.source("userName","gx","age",18,"gender","女");
+		//方式二：
+		User user = new User();
+		user.setUserName("白敬亭");
+		user.setGender("男");
+		user.setAge(28);
+		String jsonString = JSON.toJSONString(user);
+		indexRequest.source(jsonString, XContentType.JSON);
+		//执行保存操作(同步)
+		IndexResponse index = client.index(indexRequest, GulimallElasticSearchConfig.COMMON_OPTIONS);
+		//提取有用的响应数据
+		System.out.println(index);
+	}
+
+	@Data
+	class User{
+		private String userName;
+		private String gender;
+		private Integer age;
+	}
+}
+```
+
+再次查询 `GET users/_search` 时：
+
+```json
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "users",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 1.0,
+        "_source" : {
+          "age" : 28,
+          "gender" : "男",
+          "userName" : "白敬亭"
+        }
+      }
+    ]
+  }
+}
+```  
