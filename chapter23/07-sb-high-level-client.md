@@ -51,7 +51,7 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 </parent>
 ```
 
-3）在 `gulimall-search` 中引入 `elasticsearch` 坐标
+3）在 `gulimall-search` 模块的 `pom` 中引入 `elasticsearch` 坐标
 
 ```xml
 <dependency>
@@ -61,7 +61,16 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 </dependency>
 ```
 
-4）
+4）在 `gulimall-search` 模块的 `pom` 中添加 `elasticsearch` 约束。
+
+```xml
+<properties>
+	<elasticsearch.version>7.6.2</elasticsearch.version>
+</properties>
+```
+
+<img src="./img23/16-elasticsearch-sb-version.png" width=600>
+
 
 
 ### 7.3 
