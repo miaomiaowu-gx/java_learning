@@ -174,6 +174,52 @@ org.elasticsearch.client.RestHighLevelClient@75babb67
 
 
 
-### 7.3 
+### 7.3 测试保存
 
+在配置类中添加 `RequestOptions`：
+
+```java
+package com.atguigu.gulimall.search.config;
+
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * 1. 导入依赖
+ * 2. 编写配置，给容器中注入一个RestHighLevelClient
+ * 3. 参照官方 API
+ */
+
+@Configuration
+public class GulimallElasticSearchConfig {
+
+    //a singleton instance and share it between all requests
+
+    public static final RequestOptions COMMON_OPTIONS;
+    static {
+        RequestOptions.Builder builder = RequestOptions.DEFAULT.toBuilder();
+//        builder.addHeader("Authorization", "Bearer " + TOKEN);
+//        builder.setHttpAsyncResponseConsumerFactory(
+//                new HttpAsyncResponseConsumerFactory
+//                        .HeapBufferedResponseConsumerFactory(30 * 1024 * 1024 * 1024));
+        COMMON_OPTIONS = builder.build();
+    }
+
+    @Bean
+    public RestHighLevelClient esRestClient(){
+        RestClientBuilder builder = RestClient.builder(new HttpHost("192.168.56.10", 9200, "http"));
+        RestHighLevelClient client = new RestHighLevelClient(builder);
+        return client;
+    }
+}
+```
+
+#### 7.3.1
+
+#### 7.3.2
 
