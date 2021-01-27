@@ -150,6 +150,10 @@ rm -rf elasticsearch-analysis-ik-7.6.2.zip
 
 3）重启容器或虚拟机。
 
+```shell
+docker restart elasticsearch
+```
+
 #### 6.2.1 测试分词器
 
 ##### 1) 默认分词器
