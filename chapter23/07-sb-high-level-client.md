@@ -1,7 +1,5 @@
 ## 第七节 SpringBoot 整合 high-level-client
 
-
-
 ### 7.1 Elasticsearch-Rest-Client
 
 #### 7.1.1 9300: TCP(不建议使用)
@@ -137,13 +135,45 @@ public class GulimallSearchApplication {
 ```
 
 
-5）
+5）测试类测试
+
+```java
+package com.atguigu.gulimall.search;
+
+
+import org.elasticsearch.client.RestHighLevelClient;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class GulimallSearchApplicationTests {
+
+	@Autowired
+	private RestHighLevelClient client;
+	@Test
+	public void contextLoads() {
+		System.out.println(client);
+	}
+
+}
+```
+
+输出：
+
+```
+org.elasticsearch.client.RestHighLevelClient@75babb67
+```
 
 
 
-https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html
+具体操作参考：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
 
-#### 7.2.3 测试
+
+
 
 ### 7.3 
 
