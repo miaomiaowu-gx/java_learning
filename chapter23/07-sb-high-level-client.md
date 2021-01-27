@@ -28,9 +28,9 @@
 
 https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
 
-### 7.2 
+### 7.2 创建 `gulimall-search` 模块
 
-#### 7.2.1 创建 `gulimall-search` 模块
+#### 7.2.1 导入依赖
 
 <img src="./img23/15-gulimall-search-module.png" >
 
@@ -72,5 +72,11 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 <img src="./img23/16-elasticsearch-sb-version.png" width=600>
 
 
+#### 7.2.2 配置
+
+
+#### 7.2.3 测试
 
 ### 7.3 
+
+
