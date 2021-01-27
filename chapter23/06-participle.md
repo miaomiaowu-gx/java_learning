@@ -312,7 +312,13 @@ GET my_index/_analyze
 2）安装并启动 nginx
 
 ```
+# 启动一个 nginx 实例(为了复制其配置)
 docker run -p 80:80 --name nginx -d nginx:1.10
+
+# 将容器内的配置文件拷贝到当前目录
+cd /mydata
+mkdir nginx
+docker container cp nginx:/etc/nginx .
 ```
 
 
