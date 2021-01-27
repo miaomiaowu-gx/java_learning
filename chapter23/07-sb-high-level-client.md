@@ -219,7 +219,37 @@ public class GulimallElasticSearchConfig {
 }
 ```
 
-#### 7.3.1
+#### 7.3.1 在 `kibana` 中查询
+
+```json
+GET users/_search
+```
+
+返回结果，说明 `users` 不存在
+
+```json
+{
+  "error" : {
+    "root_cause" : [
+      {
+        "type" : "index_not_found_exception",
+        "reason" : "no such index [users]",
+        "resource.type" : "index_or_alias",
+        "resource.id" : "users",
+        "index_uuid" : "_na_",
+        "index" : "users"
+      }
+    ],
+    "type" : "index_not_found_exception",
+    "reason" : "no such index [users]",
+    "resource.type" : "index_or_alias",
+    "resource.id" : "users",
+    "index_uuid" : "_na_",
+    "index" : "users"
+  },
+  "status" : 404
+}
+```
 
 #### 7.3.2
 
