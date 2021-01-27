@@ -309,10 +309,11 @@ GET my_index/_analyze
 
 1）给虚拟机扩大内存
 
-2）给 `elasticsearch` 扩大内存，简单方法，删除原来容器，新建一个新的容器，由于文件挂载在外部，并不会丢失数据。
+2）安装并启动 nginx
 
-
-
+```
+docker run -p 80:80 --name nginx -d nginx:1.10
+```
 
 
 
