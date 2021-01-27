@@ -375,6 +375,20 @@ docker update nginx --restart=always
 
 #### 6.3.1 测试是否安装成功
 
+```
+[root@localhost html]# pwd
+/mydata/nginx/html
+[root@localhost html]# vi index.html
+# 添加 <h1>GuliMall</h1>
+```
+
+浏览器访问 `http://192.168.56.10/` 页面上会显示：
+
+<img src="./img23/14-nginx-test.png" width=300>
+
+
+
+
 
 
 
