@@ -30,7 +30,26 @@ https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest
 
 ### 7.2 
 
+#### 7.2.1 创建 `gulimall-search` 模块
 
+<img src="./img23/15-gulimall-search-module.png" >
+
+1）在 `gulimall` 中添加 `gulimall-search` 模块
+
+```xml
+<module>gulimall-search</module>
+```
+
+2）修改 `spring-boot-starter-parent` 版本，与 `gulimall` 项目统一。
+
+```xml
+<parent>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.1.8.RELEASE</version>
+	<relativePath/> <!-- lookup parent from repository -->
+</parent>
+```
 
 
 
