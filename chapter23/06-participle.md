@@ -369,4 +369,12 @@ sysctl net.ipv4.ip_forward
 
 ```
 docker start nginx
+# 开机启动
+docker update nginx --restart=always
 ```
+
+#### 6.3.1 测试是否安装成功
+
+
+
+
