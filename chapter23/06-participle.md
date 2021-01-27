@@ -409,7 +409,7 @@ es  index.html
 * nginx 默认到 html 下查找资源。
 
 
-2）
+2）为 elasticsearch 添加自定义词库
 
 ```
 [root@localhost config]# pwd
