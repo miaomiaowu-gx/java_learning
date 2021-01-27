@@ -352,6 +352,17 @@ mkdir logs
 
 上述命令返回时带有 `WARNING: IPv4 forwarding is disabled. Networking will not work.`。
 
+```
+vi /etc/sysctl.conf
 
+#配置转发
+net.ipv4.ip_forward=1
+
+#重启服务，让配置生效
+systemctl restart network
+
+#查看是否成功,如果返回为“net.ipv4.ip_forward = 1”则表示成功
+sysctl net.ipv4.ip_forward
+```
 
 
