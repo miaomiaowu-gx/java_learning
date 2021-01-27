@@ -99,5 +99,6 @@
   * [第五节 映射](chapter23/05-map.md)
   * [第六节 分词](chapter23/06-participle.md)
   * [第七节 SpringBoot 整合 high-level-client](chapter23/07-sb-high-level-client.md)
+  * [第八节 测试复杂检索](chapter23/08-test-complex-retrieval.md)
 * [Java 故障排查与性能优化](chaptertotal.md)
 
